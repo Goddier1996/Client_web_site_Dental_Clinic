@@ -1,0 +1,133 @@
+.bannerLoction {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    margin-bottom: 9%;
+}
+
+.bannerLoction .boxLoction {
+    position: relative;
+}
+
+.contect {
+    border: 5px solid #8ccdeb0f;
+}
+
+.contectDark {
+    background: rgba(217, 174, 117, 0.046);
+}
+
+.bannerLoction .boxLoction:first-child,
+.bannerLoction .boxLoctionDark:first-child {
+    border: 5px solid #8ccdeb0f;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.boxLoctionDark {
+    background: rgba(217, 174, 117, 0.046);
+}
+
+
+.boxLoction h3 {
+    text-align: center;
+    align-items: center;
+    margin-top: 3%;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    color: #00000071;
+}
+
+.boxLoctionDark h3 {
+    text-align: center;
+    align-items: center;
+    margin-top: 3%;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    color: #ffffffab;
+}
+
+
+.boxLoction p {
+    text-align: center;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+}
+
+.boxLoctionDark p {
+    text-align: center;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    color: #ffffffab;
+}
+
+.logFirst h3 {
+    margin-bottom: 6%;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    color: #ffffffab;
+}
+
+
+.log h3 {
+    margin-bottom: 6%;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    color: #00000071;
+}
+
+.logDark h3 {
+    margin-bottom: 6%;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    color: #ffffffab;
+}
+
+.log p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+}
+
+.logDark p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    color: #ffffffab;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-family: Verdana;
+}
+
+.box img {
+    width: 120px;
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
+
+
+
+@media(max-width:991px) {
+
+    .bannerLoction {
+        grid-template-columns: 1fr;
+        margin-top: 1%;
+    }
+
+    .imageLogin p {
+        font-size: 20px;
+    }
+
+    .log h3 {
+        margin-top: 35%;
+        font-size: 22px;
+    }
+}

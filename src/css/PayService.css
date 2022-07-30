@@ -1,0 +1,58 @@
+.cardPay {
+    border: none;
+    max-width: 450px;
+    border-radius: 15px;
+    padding: 35px;
+    padding-bottom: 20px !important;
+    background: white;
+}
+
+.heading {
+    color: #8b8b8b;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cardPay img {
+    transform: translate(105px, -10px);
+}
+
+.cardPay h6 {
+    transform: translate(310px, -30px);
+    font-size: 20px;
+}
+
+
+.text-warning {
+    font-size: 12px;
+    font-weight: 500;
+    color: #00000071 !important;
+}
+
+
+#cno {
+    transform: translateY(-10px);
+}
+
+
+.cardPay input {
+    border-bottom: 1.5px solid #E8E5D2 !important;
+    font-weight: bold;
+    border-radius: 0;
+    border: 0;
+}
+
+.cardPay .form-group input:focus {
+    border: 0;
+    outline: 0;
+}
+
+.cardPay .col-sm-5 {
+    padding-left: 90px;
+}
+
+.cardPay .btn {
+    background: rgb(0, 153, 255) !important;
+    border: none;
+    border-radius: 30px;
+}

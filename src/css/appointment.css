@@ -1,0 +1,33 @@
+.search-results {
+    border-top: 3px solid white;
+    margin: 3%;
+    margin-bottom: -10%;
+    padding: 4%;
+    align-items: center;
+    text-align: center;
+}
+
+
+.search-results p {
+    color: white;
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+    font-size: 18px;
+}
+
+.chioseDayAndDay h6 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    color: #ffffffc8;
+    text-align: center;
+}
+
+
+
+.showDay button {
+    margin-top: 5%;
+    padding: 1%;
+    font-size: 18px;
+    color: white;
+    border: none;
+}

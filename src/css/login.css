@@ -1,0 +1,104 @@
+.modelLogin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.modelLogin img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    width: auto;
+    height: 150px;
+    border-radius: 30px;
+}
+
+.form-box {
+    width: 350px;
+    height: auto;
+    background-color: #faf9f8;
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border: 2px solid rgba(0, 179, 255, 0.22);
+
+}
+
+.form-boxDark {
+    width: 350px;
+    height: auto;
+    background: #424242;
+    padding: 10px;
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.526);
+}
+
+
+
+.header-form {
+    margin-bottom: 15px;
+}
+
+.form button {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.message,
+.messageDark,
+.DemoUserAndDoctor,
+.DemoUserAndDoctorDark {
+    display: flex;
+    justify-content: center;
+    font-size: 13px;
+}
+
+.messageDark,
+.DemoUserAndDoctorDark {
+    color: white;
+}
+
+.messageDark p,
+.message p {
+    cursor: pointer;
+}
+
+
+
+.input-group input {
+    background-color: #8ccdeb1d;
+    color: rgb(134, 134, 134);
+    font-size: 13px;
+}
+
+
+.DemoUserAndDoctor a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #232323;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+.DemoUserAndDoctorDark a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+.borderSpace {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.59);
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+
+.borderSpaceDark {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.59);
+    margin-top: 5%;
+    margin-bottom: 2%;
+}

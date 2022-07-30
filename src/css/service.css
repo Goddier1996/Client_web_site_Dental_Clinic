@@ -1,0 +1,360 @@
+.titleOurReview,
+.titleOurReviewDark {
+    text-align: center;
+    align-items: center;
+    padding-top: 2%;
+}
+
+.titleOurReview h1 {
+    font-size: 27px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: #00000094;
+}
+
+.titleOurReviewDark h1 {
+    font-size: 27px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: #ffffffab;
+}
+
+
+.OurReviews {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 15%;
+    margin-top: 3%;
+    margin-bottom: 16%;
+}
+
+
+.addReviews {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: flex;
+    justify-content: center;
+}
+
+.addReviews button {
+    width: 40%;
+}
+
+.space {
+    padding-top: 1%;
+    border-bottom: 3px solid #8ccdeb48;
+}
+
+
+
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.324);
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    margin-top: 25%;
+}
+
+.form-control {
+    background: #4141417c;
+    color: white;
+}
+
+.titleHeater {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.modal h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+
+
+.testimonial-box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.testimonial-box,
+.testimonialDark-box {
+    width: 100%;
+    height: 230px;
+    border-radius: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 23px;
+    margin: 8px;
+    background-image: url("../images/vc1.jpg");
+    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+.profileReviews-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.profileReviews-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.profileReviews {
+    display: flex;
+    align-items: center;
+}
+
+.nameInfo-userInfo,
+.nameInfoDark-userInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.nameInfo-userInfo span,
+.client-comment h6,
+.nameInfoDark-userInfo span,
+.clientDark-comment h6 {
+    font-family: 'Raleway', sans-serif;
+    color: #00000099;
+    font-size: 12px;
+}
+
+.client-comment h6 {
+    border-bottom: 2px groove;
+    width: 16%;
+}
+
+
+
+.reviews,
+.reviewsDark {
+    font-family: 'Raleway', sans-serif;
+    color: #00000099;
+    font-size: 12px;
+}
+
+
+
+.box-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+
+.client-comment p,
+.clientDark-comment p {
+    font-size: 12px;
+    color: #4b4b4b;
+    font-family: 'Raleway', sans-serif;
+    padding-bottom: 85px;
+    display: block;
+    height: 60px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+
+
+
+
+
+
+@media(max-width:1060px) {
+    .testimonial-box .testimonialDark-box {
+        width: 45%;
+        padding: 10px;
+    }
+}
+
+@media(max-width:790px) {
+    .testimonial-box .testimonialDark-box {
+        width: 100%;
+    }
+}
+
+@media(max-width:340px) {
+    .box-top {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .reviews .reviewsDark {
+        margin-top: 10px;
+    }
+}
+
+::selection {
+    color: #ffffff;
+    background-color: #252525;
+}
+
+
+
+/* like button */
+.button-30 {
+    align-items: center;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #00000094;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono", monospace;
+    height: 25px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s, transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 13px;
+}
+
+.button-30:focus {
+    box-shadow: #07AAE9 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.button-30:active {
+    box-shadow: #07AAE9 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+
+
+
+.clickLike {
+    display: flex;
+    justify-content: end;
+}
+
+
+.like__btn {
+    background: #0080ff;
+    font-size: 13px;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 5px;
+    color: #e8efff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    height: 25px;
+}
+
+
+
+
+
+.button-55 {
+    align-self: center;
+    background-color: #F9F9F9;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #2f2a2a;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 14px;
+    line-height: 3px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+
+.button-55Dark {
+    align-self: center;
+    background-color: #8ccdeb48;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(255, 255, 255, 0.2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    border: 2px solid #ffffffab;
+    color: #ffffffab;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 14px;
+    line-height: 3px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-55:hover,
+.button-55Dark:hover {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+
+.button-55:focus,
+.button-55Dark:focus {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}

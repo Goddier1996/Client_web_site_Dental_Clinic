@@ -1,0 +1,204 @@
+.modal-content {
+    background: none;
+    border: none;
+}
+
+
+.tabsChiose,
+.tabsChioseDark {
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    padding-top: 2%;
+}
+
+
+.Queues,
+.QueuesDark {
+    padding-bottom: 22%;
+}
+
+
+.showMyQueues {
+    align-items: center;
+    text-align: center;
+    border: 2px solid rgba(0, 0, 0, 0.164);
+    border-radius: 30px;
+    margin-top: 1%;
+}
+
+.showMyQueuesDark {
+    align-items: center;
+    text-align: center;
+    border: 2px solid #ffffff6c;
+    border-radius: 30px;
+    margin-top: 1%;
+}
+
+
+
+.showMyQueues p {
+    margin-top: -18%;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.58);
+}
+
+.showMyQueuesDark p {
+    margin-top: -18%;
+    font-size: 14px;
+    color: #ffffffab;
+}
+
+
+
+.ButtonQueues {
+    display: flex;
+    justify-content: center;
+    margin-top: -1%;
+}
+
+
+.nav-tabs .nav-link {
+    background: whitesmoke;
+    font-family: 'Raleway', sans-serif;
+    color: #000000a4;
+    font-size: 14px;
+}
+
+.nav-tabs .nav-link.active {
+    background: #44A6DD;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+}
+
+
+.profile-headerDoctor {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+
+.profile-headerDoctor .profile-header-cover {
+    background-image: url(../images/zxc.jpg);
+    width: 70%;
+    border-radius: 30px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 15%;
+    right: 0;
+    top: 0;
+    bottom: 0
+}
+
+
+.profile-headerDoctor .profile-header-cover:before {
+    border-radius: 30px;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.247) 0, rgba(0, 0, 0, 0.534));
+}
+
+
+
+.profile-headerDoctor .profile-header-content {
+    color: #fff;
+    padding: 25px
+}
+
+
+
+.profile-headerDoctor-img {
+    float: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    width: 110px;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-radius: 30px;
+}
+
+
+.profile-headerDoctor-info h4 {
+    font-weight: 500;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+.profile-headerDoctor .profile-header-content,
+.profile-headerDoctor.profile-header-tab {
+    position: relative
+}
+
+
+.updateDateUser {
+    margin-left: 25%;
+    width: 50%;
+    padding-bottom: 17%;
+    padding-top: 2%;
+}
+
+
+.enterUpdate {
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+}
+
+.colorTextDark {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    color: #ffffffab;
+    margin: 5%;
+}
+
+.colorText {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    color: #00000099;
+    margin: 5%;
+}
+
+
+.inputMedicalDate {
+    text-align: center;
+}
+
+
+.ActiveQueues,
+.AllUsers,
+.AllDoctors,
+.shouldPay,
+.HistoryMedical,
+.Medical,
+.Comments,
+.AllReviews,
+.NewDoctor,
+.AllUsersBlocked {
+    width: 70%;
+    margin-left: 15%;
+    padding-bottom: 29%;
+    margin-top: 1%;
+}
+
+
+.NewDoctor {
+    padding-bottom: 21%;
+}
+
+.NewDoctor input {
+    color: #4b4b4b;
+    font-family: 'Raleway', sans-serif;
+}

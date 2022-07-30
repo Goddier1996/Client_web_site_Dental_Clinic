@@ -1,0 +1,55 @@
+.banner1 {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    margin-bottom: 10px;
+}
+
+.banner1 .box1 {
+    position: relative;
+    height: 82vh;
+}
+
+.contect1 {
+    border: 5px solid #8ccdeb0f;
+}
+
+.contect1Dark {
+    border: 5px solid #8ccdeb0f;
+    background: rgba(217, 174, 117, 0.046);
+}
+
+.banner1 .box1:last-child {
+    background-image: url('../images/r1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.box1 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-family: Verdana;
+}
+
+.log1,
+.log1Dark {
+    width: 80%;
+}
+
+.log1 input,
+.log1Dark input {
+    color: rgb(0, 0, 0);
+    margin-bottom: 10%;
+    height: 30px;
+}
+
+@media(max-width:1100px) {
+
+    .banner1 {
+        grid-template-columns: 1fr;
+        margin-top: 1%;
+    }
+}

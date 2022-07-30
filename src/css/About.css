@@ -1,0 +1,227 @@
+.titleAbout,
+.titleInformation,
+.titleAboutDark,
+.titleInformationDark {
+  text-align: center;
+  align-items: center;
+  padding-top: 2%;
+}
+
+
+.titleAbout h1 {
+  font-size: 30px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  color: #00000094;
+}
+
+.titleAboutDark h1 {
+  font-size: 30px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  color: #ffffffab;
+}
+
+
+.titleAbout p {
+  font-size: 14px;
+  font-family: 'Raleway', sans-serif;
+  color: #00000094;
+}
+
+
+.titleAbout p::first-letter {
+  font-size: 14px;
+  color: #000000bb;
+  font-weight: bold;
+}
+
+.titleAboutDark p {
+  font-family: 'Raleway', sans-serif;
+  color: #ffffffab;
+  font-size: 14px;
+}
+
+.titleAboutDark p::first-letter {
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.titleAbout a {
+  font-size: 15px;
+  color: #00000094;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.titleAboutDark a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 15px;
+
+}
+
+
+.titleInformation h1 {
+  font-size: 23px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  color: #00000094;
+}
+
+.titleInformationDark h1 {
+  font-size: 23px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  color: #ffffffab;
+}
+
+
+.cardsInfoAbout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 15px;
+  column-gap: 15px;
+  padding-bottom: 10%;
+}
+
+
+
+.a-box {
+  display: inline-block;
+  width: 260px;
+  text-align: center;
+}
+
+.img {
+  height: 160px;
+  width: auto;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.img img {
+  height: 140px;
+}
+
+.inner-skew {
+  display: inline-block;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 0px;
+  font-size: 0px;
+  margin: 30px 0px 0px 0px;
+  height: 250px;
+  width: 200px;
+}
+
+.text {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  padding: 120px 20px 20px 20px;
+  border-radius: 20px;
+  background: whitesmoke;
+  margin: -120px 0px 0px 0px;
+  line-height: 1px;
+}
+
+.textDark {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  padding: 120px 20px 20px 20px;
+  border-radius: 20px;
+  background: #424242;
+  margin: -120px 0px 0px 0px;
+  line-height: 1px;
+}
+
+.text p {
+  font-size: 25px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  color: #00000094;
+  border-bottom: 2px solid #00000000;
+  background: no-repeat, linear-gradient(to left, #00000094 40%, #cea87c00 40%, #cea87c00 60%, #00000094 60%);
+}
+
+.textDark p {
+  font-size: 25px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  color: #ffffffab;
+  border-bottom: 2px solid #00000000;
+  background: no-repeat, linear-gradient(to left, #ffffffab 40%, #cea87c00 40%, #cea87c00 60%, #ffffffab 60%);
+}
+
+.text h3 {
+  font-family: 'Raleway', sans-serif;
+  margin: 20px 0px 30px 0px;
+  color: #00000094;
+  font-size: 15px;
+}
+
+.textDark h3 {
+  font-family: 'Raleway', sans-serif;
+  margin: 20px 0px 30px 0px;
+  color: #ffffffab;
+  font-size: 15px;
+}
+
+
+
+
+
+
+
+.loader {
+  animation: spin 1s infinite linear;
+  border: solid 2vmin transparent;
+  border-radius: 50%;
+  border-right-color: #09f;
+  border-top-color: #09f;
+  box-sizing: border-box;
+  height: 20vmin;
+  left: calc(50% - 10vmin);
+  position: fixed;
+  top: calc(50% - 10vmin);
+  width: 20vmin;
+  z-index: 1;
+}
+
+.loader:before {
+  animation: spin 2s infinite linear;
+  border: solid 2vmin transparent;
+  border-radius: 50%;
+  border-right-color: #3cf;
+  border-top-color: #3cf;
+  box-sizing: border-box;
+  content: "";
+  height: 16vmin;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 16vmin;
+}
+
+.loader:after {
+  animation: spin 3s infinite linear;
+  border: solid 2vmin transparent;
+  border-radius: 50%;
+  border-right-color: #6ff;
+  border-top-color: #6ff;
+  box-sizing: border-box;
+  content: "";
+  height: 12vmin;
+  left: 2vmin;
+  position: absolute;
+  top: 2vmin;
+  width: 12vmin;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

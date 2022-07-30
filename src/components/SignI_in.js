@@ -1,0 +1,475 @@
+import React from 'react'
+import { API } from '../API';
+import { useState } from "react";
+import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2'
+import { Modal, Form } from 'react-bootstrap';
+import '../css/login.css'
+import ForgetPaswword from '../components/forgetPassword'
+
+
+
+//here component Sign in use in component Menu
+
+function Sign_in() {
+
+
+
+    // show pop up
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+
+
+    const [show1, setShow1] = useState(false);
+    const handleShow = () => setShow1(true);
+
+
+
+    const history = useHistory()
+
+    const [Login, setLogin] = useState('')
+    const [Password, setPassword] = useState('')
+
+
+    let storedTheme = localStorage.getItem("theme");
+
+
+
+    // show pop up alert swal when we connect to login = use in loginUser
+
+    const openSwalWhenLogin = async (nameUser, UserType_code) => {
+
+        //user popup swal
+
+        if (storedTheme === "light" && UserType_code == 1) {
+
+            Swal.fire({
+                title: `Hello ${nameUser}`,
+                icon: 'success',
+                html: 'You can now use a variety of actions on our site.',
+                toast: true,
+                position: 'top-end',
+                background: '#373E44',
+                color: '#ffffffab',
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+                    window.location.reload(false);
+                }
+            })
+            history.push(`/`);
+        }
+
+        if (storedTheme === "dark" && UserType_code == 1) {
+
+            Swal.fire({
+                title: `Hello ${nameUser}`,
+                icon: 'success',
+                html: 'You can now use a variety of actions on our site.',
+                toast: true,
+                position: 'top-end',
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+                    window.location.reload(false);
+                }
+            })
+            history.push(`/`);
+        }
+
+
+        //doctor popup swal
+
+        if (storedTheme === "light" && UserType_code == 2) {
+
+            Swal.fire({
+                title: `Hello Doctor ${nameUser}`,
+                icon: 'success',
+                html: 'Let`s work :)',
+                toast: true,
+                position: 'top-end',
+                background: '#373E44',
+                color: '#ffffffab',
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+                    window.location.reload(false);
+                }
+            })
+            history.push(`/`);
+        }
+
+        if (storedTheme === "dark" && UserType_code == 2) {
+
+            Swal.fire({
+                title: `Hello Doctor ${nameUser}`,
+                icon: 'success',
+                html: 'Let`s work :)',
+                toast: true,
+                position: 'top-end',
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+                    window.location.reload(false);
+                }
+            })
+            history.push(`/`);
+        }
+
+
+        //Admin popup swal
+
+        if (storedTheme === "light" && UserType_code == 3) {
+
+            Swal.fire({
+                title: `Hello Admin ${nameUser}`,
+                icon: 'success',
+                html: 'Let`s Control This Web Side',
+                toast: true,
+                position: 'top-end',
+                background: '#373E44',
+                color: '#ffffffab',
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+                    window.location.reload(false);
+                }
+            })
+            history.push(`/`);
+        }
+
+        if (storedTheme === "dark" && UserType_code == 3) {
+
+            Swal.fire({
+                title: `Hello Admin ${nameUser}`,
+                icon: 'success',
+                html: 'Let`s Control This Web Side',
+                toast: true,
+                position: 'top-end',
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+                    window.location.reload(false);
+                }
+            })
+            history.push(`/`);
+        }
+
+    }
+
+
+
+
+    // login in the use check if have data base node js + MySql , if have we save in sessionStorage
+
+    const loginUser = async (x) => {
+
+
+        try {
+
+            let user =
+            {
+                Login,
+                Password
+            };
+
+            let res = await fetch(API.USERS.LOGIN, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(user)
+            });
+
+
+            let data = await res.json();
+
+            sessionStorage.setItem("user", JSON.stringify(data)); // 1
+
+
+            let userCode = { User_code: data.User_code }// 2
+            sessionStorage.setItem("userCode", JSON.stringify(userCode))// 3
+
+            openSwalWhenLogin(data.FirstName, data.UserType_code);
+
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
+
+
+    //show pup up if we chiose forget password
+
+    const showPopUpforgetPaswword = () => {
+        handleShow();
+    }
+
+
+
+
+
+    //here we connect demo user , for other users how went see can use demo user , instead of Register Or Login
+
+    const connectDemoUser = async () => {
+
+        try {
+
+            let user =
+            {
+                Login: 'demoUser',
+                Password: 'demo123'
+            };
+
+            let res = await fetch(API.USERS.LOGIN, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(user)
+            });
+
+
+            let data = await res.json();
+
+            sessionStorage.setItem("user", JSON.stringify(data)); // 1
+
+
+            let userCode = { User_code: data.User_code }// 2
+            sessionStorage.setItem("userCode", JSON.stringify(userCode))// 3
+
+            openSwalWhenLogin(data.FirstName, data.UserType_code);
+
+
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
+
+
+
+
+    //connect demo doctor
+
+    const connectDemoDoctor = async () => {
+
+        try {
+
+            let user =
+            {
+                Login: 'demoDoctor',
+                Password: 'demodoctor'
+            };
+
+            let res = await fetch(API.USERS.LOGIN, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(user)
+            });
+
+
+            let data = await res.json();
+
+            sessionStorage.setItem("user", JSON.stringify(data)); // 1
+
+
+            let userCode = { User_code: data.User_code }// 2
+            sessionStorage.setItem("userCode", JSON.stringify(userCode))// 3
+
+            openSwalWhenLogin(data.FirstName, data.UserType_code);
+
+
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
+
+
+
+
+    if (storedTheme === "light") {
+
+        return (
+
+            <div >
+
+                <div className="modelLogin" onHide={handleClose}>
+                    <div className="form-boxDark">
+                        <div className="header-form">
+                            <h4 className="text-primary text-center">
+                                <img
+                                    className="d-block w-100"
+                                    src={require("../images/qqq.gif")}
+                                />
+                            </h4>
+                            <div className="image">
+                            </div>
+                        </div>
+                        <div className="body-form">
+
+                            <form>
+                                <div className="input-group mb-3">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="text"
+                                        className="form-control"
+                                        placeholder="Username"
+                                        value={Login}
+                                        onChange={(event) => setLogin(event.target.value)} />
+                                </div>
+
+
+
+                                <div className="input-group mb-3">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text"><i class="fa fa-lock"></i></span>
+                                    </div>
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        placeholder="Password"
+                                        value={Password}
+                                        onChange={(event) => setPassword(event.target.value)}
+                                    />
+                                </div>
+
+
+
+                                <button type="button" onClick={loginUser} className="btn btn-secondary btn-block">LOGIN</button>
+
+
+                                <div className='borderSpaceDark'></div>
+
+
+                                <div className='DemoUserAndDoctorDark'>
+                                    <p>Connect Demo
+                                        <a onClick={connectDemoUser}> User</a> or
+                                        <a onClick={connectDemoDoctor}> Doctor</a>
+                                    </p>
+                                </div>
+
+
+                                <div className="messageDark">
+                                    <p onClick={showPopUpforgetPaswword}>Forgot your password</p>
+                                </div>
+
+
+                                <Modal show={show1} style={{ background: "rgba(0, 0, 0, 0.95)" }}>
+                                    <Modal.Header className='titleHeater'>
+                                        <Modal.Title><h1>You forget a Password ? Let's create new :)</h1></Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+
+                                        <Form>
+                                            <ForgetPaswword />
+                                        </Form>
+
+                                    </Modal.Body>
+                                </Modal>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+
+
+    else {
+
+        return (
+
+            <div >
+
+                <div className="modelLogin" onHide={handleClose}>
+                    <div className="form-box">
+                        <div className="header-form">
+                            <h4 className="text-primary text-center">
+                                <img className="d-block w-100" src={require("../images/qqq.gif")} />
+                            </h4>
+                            <div className="image">
+                            </div>
+                        </div>
+                        <div className="body-form">
+
+                            <form>
+                                <div className="input-group mb-3">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="text"
+                                        className="form-control"
+                                        placeholder="Username"
+                                        value={Login}
+                                        onChange={(event) => setLogin(event.target.value)} />
+                                </div>
+
+
+
+                                <div className="input-group mb-3">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text"><i class="fa fa-lock"></i></span>
+                                    </div>
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        placeholder="Password"
+                                        value={Password}
+                                        onChange={(event) => setPassword(event.target.value)}
+                                    />
+                                </div>
+
+                                <button type="button" onClick={loginUser} className="btn btn-secondary btn-block">LOGIN</button>
+
+                                <div className='borderSpace' ></div>
+
+
+                                <div className='DemoUserAndDoctor'>
+                                    <p>Connect Demo
+                                        <a onClick={connectDemoUser}> User</a> or
+                                        <a onClick={connectDemoDoctor}> Doctor</a>
+                                    </p>
+                                </div>
+
+
+                                <div className="message">
+                                    <p onClick={showPopUpforgetPaswword}>Forgot your password</p>
+                                </div>
+
+
+                                <Modal show={show1} style={{ background: "rgba(0, 0, 0, 0.95)" }}>
+                                    <Modal.Header className='titleHeater'>
+                                        <Modal.Title><h1>You forget a Password ? Let's create new :)</h1></Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+
+                                        <Form>
+                                            <ForgetPaswword />
+                                        </Form>
+
+                                    </Modal.Body>
+                                </Modal>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+}
+
+
+export default Sign_in;

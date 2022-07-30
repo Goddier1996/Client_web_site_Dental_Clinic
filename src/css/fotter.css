@@ -1,0 +1,37 @@
+
+.fotrIcon {
+    background: rgba(255, 255, 255, 0.215);
+    margin-top: 1%;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.fotrIconFirst {
+    background: #2020207b;
+    margin-top: 1%;
+}
+
+.fotrIcon a {
+    border: none;
+}
+
+.endDark {
+    background: #202020;
+    margin-top: -2%;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.endDark p {
+    color: rgb(211, 211, 211);
+    font-size: 13px;
+}
+
+.end {
+    background: whitesmoke;
+    margin-top: -2%;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.end p {
+    color: black;
+    font-size: 13px;
+}

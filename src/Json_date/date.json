@@ -1,0 +1,152 @@
+{
+  "category1": [
+
+    {
+      "id": "1",
+      "name": "our work",
+      "link": "/OurWork",
+      "path": "https://i.postimg.cc/nc4VFRFt/z1.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Reviews of our service",
+      "link": "/Service",
+      "path": "https://i.postimg.cc/cLKSKFZH/z9.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Contact",
+      "link": "/Loction",
+      "path": "https://i.postimg.cc/26yFmLhP/z7.jpg"
+    }
+  ],
+
+
+  "work": [
+
+    {
+      "id": "1",
+      "title": "teeth cleaning",
+      "path": "https://i.postimg.cc/DyzShWZd/c2.jpg",
+      "text": "Most teeth cleaning is done by a dental hygienist. Before beginning the actual cleansing process, they begin with a physical examination of your entire mouth.The dental hygienist uses a small mirror to check around your teeth and gumsif there are any signs of gingivitis(inflammatory gums) or other potential concerns.If they identify major problems,the dental hygienist may call the dentist to make sure it is okay to continue."
+    },
+
+    {
+      "id": "2",
+      "title": "To straighten teeth",
+      "path": "https://i.postimg.cc/4xStq6Q9/c1.jpg",
+      "text": "Orthodontics is a specialty in dentistry that focuses on the prevention and correction of crooked, protruding or misaligned teeth. Put simply - it’s the area of practice that covers teeth straightening. Orthodontics (i.e. teeth straightening) can often be a crucial treatment for patients who have misaligned teeth, as not only does it affect your appearance, but ensuring teeth meet correctly when they bite helps ensure better tooth hygiene and reduces the chance of damage to prominent teeth."
+    },
+    {
+      "id": "3",
+      "title": "Treatment of holes (teeth)",
+      "path": "https://i.postimg.cc/0QTr0Zx8/c10.jpg",
+      "text": "Almost everyone develops at least one cavity in their lifetime. It’s easy for bacteria to build up on the surfaces of your teeth, and if you don’t clean them adequately, a cavity can form. It’s also important to note that tooth decay is a progressive condition, meaning it gets worse over time if you don’t treat the cause. Even if your teeth are healthy now, you can still develop a cavity in the future. It’s important to catch cavities before the situation becomes exacerbated. A cavity can become so severe that a tooth filling won’t repair it."
+    },
+    {
+      "id": "4",
+      "title": "Dental implants",
+      "path": "https://i.postimg.cc/nrNbNwrW/c3.jpg",
+      "text": "Dental implant surgery is a procedure that replaces tooth roots with metal, screwlike posts and replaces damaged or missing teeth with artificial teeth that look and function much like real ones. Dental implant surgery can offer a welcome alternative to dentures or bridgework that doesn't fit well and can offer an option when a lack of natural teeth roots don't allow building denture or bridgework tooth replacements."
+    },
+    {
+      "id": "5",
+      "title": "Dental examination",
+      "path": "https://i.postimg.cc/m26tgb1x/c7.jpg",
+      "text": "Most adults and children should get a dental exam every six months. If you have swollen, bleeding gums (known as gingivitis) or other gum disease, your dentist may want to see you more often. Some adults with gum disease may see a dentist three or four times a year. More frequent exams may help prevent a serious gum disease known as periodontitis. Periodontitis can lead to infection and tooth loss."
+    },
+    {
+      "id": "6",
+      "title": "Dental care at any age",
+      "path": "https://i.postimg.cc/QC9vgkmJ/c8.png",
+      "text": "We take care of all our clients no matter the age of the client adult, children, teens, we will take care of them all."
+    }
+
+  ],
+
+
+  "Map": [{
+    "id": "1",
+    "path": "https://i.postimg.cc/yNCCKzxS/1.jpg",
+    "country": "israel",
+    "City": "Kfar-Yona",
+    "addressCity": "The Village Mall",
+    "adressNum": "18086"
+  }],
+
+  "hours_work": [
+
+    {
+      "id": "1",
+      "day": "Sunday",
+      "time": "9am - 7pm"
+    },
+    {
+      "id": "2",
+      "day": "Monday",
+      "time": "9am - 7pm"
+    },
+    {
+      "id": "3",
+      "day": "Tuesday",
+      "time": "9am - 7pm"
+    },
+    {
+      "id": "4",
+      "day": "Wednesday",
+      "time": "9am - 7pm"
+    },
+    {
+      "id": "5",
+      "day": "Thursday",
+      "time": "9am - 7pm"
+    },
+    {
+      "id": "6",
+      "day": "Friday",
+      "time": "9:30am - 2pm"
+    },
+    {
+      "id": "7",
+      "day": "Saturday",
+      "time": "Closed"
+    }
+
+  ],
+
+  "Reviews": [{
+      "id": "1",
+      "userName": "artium",
+      "review": "This in very good clinc,they help me",
+      "path": "https://i.postimg.cc/xTvchz2v/pe3.jpg",
+      "datePublish": "20.07.20"
+    },
+    {
+      "id": "2",
+      "userName": "may",
+      "review": "in this Clinc was the best doctors",
+      "path": "https://i.postimg.cc/9M0mfDKn/pe1.jpg",
+      "datePublish": "15.02.20"
+    },
+    {
+      "id": "3",
+      "userName": "maksim",
+      "review": "i am not love this service,and doctor's was not good",
+      "path": "https://i.postimg.cc/sXMMNHjx/pe2.jpg",
+      "datePublish": "06.05.20"
+    },
+    {
+      "id": "4",
+      "userName": "dudu",
+      "review": "my mom love service",
+      "path": "https://i.postimg.cc/4dx6N1JR/pe4.jpg",
+      "datePublish": "12.11.20"
+    }
+
+  ]
+
+
+
+
+
+}
