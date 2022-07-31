@@ -118,7 +118,7 @@ function About() {
                             <div className="img">
                                 <div className="img-inner">
                                     <div className="inner-skew">
-                                        <img src={require("../images/12.png")} />
+                                        <img src={require("../images/12.png")} alt="icon" />
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +137,7 @@ function About() {
                         <div className="img">
                             <div className="img-inner">
                                 <div className="inner-skew">
-                                    <img src={require("../images/ourworkservice.png")} />
+                                    <img src={require("../images/ourworkservice.png")} alt="icon"/>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +156,7 @@ function About() {
                             <div className="img">
                                 <div className="img-inner">
                                     <div className="inner-skew">
-                                        <img src={require("../images/users.png")} />
+                                        <img src={require("../images/users.png")} alt="icon"/>
                                     </div>
                                 </div>
                             </div>
@@ -177,7 +177,7 @@ function About() {
                             <div className="img">
                                 <div className="img-inner">
                                     <div className="inner-skew">
-                                        <img src={require("../images/reviewuser.png")} />
+                                        <img src={require("../images/reviewuser.png")} alt="icon"/>
                                     </div>
                                 </div>
                             </div>
@@ -199,7 +199,7 @@ function About() {
 
 
 
-    
+
     if (storedTheme === "light") {
 
         return (
@@ -229,7 +229,7 @@ function About() {
                             <div className="img">
                                 <div className="img-inner">
                                     <div className="inner-skew">
-                                        <img src={require("../images/12.png")} />
+                                        <img src={require("../images/12.png")} alt="icon"/>
                                     </div>
                                 </div>
                             </div>
@@ -248,7 +248,7 @@ function About() {
                         <div className="img">
                             <div className="img-inner">
                                 <div className="inner-skew">
-                                    <img src={require("../images/ourworkservice.png")} />
+                                    <img src={require("../images/ourworkservice.png")} alt="icon"/>
                                 </div>
                             </div>
                         </div>
@@ -267,7 +267,7 @@ function About() {
                             <div className="img">
                                 <div className="img-inner">
                                     <div className="inner-skew">
-                                        <img src={require("../images/users.png")} />
+                                        <img src={require("../images/users.png")} alt="icon"/>
                                     </div>
                                 </div>
                             </div>
@@ -288,7 +288,7 @@ function About() {
                             <div className="img">
                                 <div className="img-inner">
                                     <div className="inner-skew">
-                                        <img src={require("../images/reviewuser.png")} />
+                                        <img src={require("../images/reviewuser.png")} alt="icon"/>
                                     </div>
                                 </div>
                             </div>

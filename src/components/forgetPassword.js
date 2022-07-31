@@ -119,7 +119,7 @@ function forgetPaswword() {
 
     const ForgetPassword = async () => {
 
-        if (User_password == Confirm_password) {
+        if (User_password === Confirm_password) {
 
             try {
                 let user = {

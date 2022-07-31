@@ -127,7 +127,7 @@ function Menu() {
                 <div className='menuDark'>
                     <Navbar collapseOnSelect expand="lg">
                         <Container>
-                            <Navbar.Brand ><img src={require("../images/—Pngtree—abstract tooth dental logo_5569405.png")}></img></Navbar.Brand>
+                            <Navbar.Brand ><img src={require("../images/—Pngtree—abstract tooth dental logo_5569405.png")} alt="icon"></img></Navbar.Brand>
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{ background: "rgba(255, 255, 255, 0.279)" }} />
                             <Navbar.Collapse id="responsive-navbar-nav">
 
@@ -169,7 +169,7 @@ function Menu() {
                 <div className='menuDark'>
                     <Navbar collapseOnSelect expand="lg">
                         <Container>
-                            <Navbar.Brand ><img src={require("../images/—Pngtree—abstract tooth dental logo_5569405.png")}></img></Navbar.Brand>
+                            <Navbar.Brand ><img src={require("../images/—Pngtree—abstract tooth dental logo_5569405.png")} alt="icon"></img></Navbar.Brand>
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{ background: "rgba(255, 255, 255, 0.279)" }} />
                             <Navbar.Collapse id="responsive-navbar-nav">
 
@@ -208,7 +208,7 @@ function Menu() {
                 <div className='menu'>
                     <Navbar collapseOnSelect expand="lg">
                         <Container>
-                            <Navbar.Brand ><img src={require("../images/—Pngtree—abstract tooth dental logo_5569405.png")}></img></Navbar.Brand>
+                            <Navbar.Brand ><img src={require("../images/—Pngtree—abstract tooth dental logo_5569405.png")} alt="icon"></img></Navbar.Brand>
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                             <Navbar.Collapse id="responsive-navbar-nav">
 
@@ -253,7 +253,7 @@ function Menu() {
                 <div className='menu'>
                     <Navbar collapseOnSelect expand="lg">
                         <Container>
-                            <Navbar.Brand ><img src={require("../images/—Pngtree—abstract tooth dental logo_5569405.png")}></img></Navbar.Brand>
+                            <Navbar.Brand ><img src={require("../images/—Pngtree—abstract tooth dental logo_5569405.png")} alt="icon"></img></Navbar.Brand>
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                             <Navbar.Collapse id="responsive-navbar-nav">
 
