@@ -226,4 +226,14 @@
         margin-top: 1%;
         font-size: 13px;
     }
+
+    .profile-header-info h4 {
+        font-size: 20px;
+    }
+
+
+    .profile-headerDoctor .profile-header-cover {
+        width: 100%;
+        left: 0;
+    }
 }
