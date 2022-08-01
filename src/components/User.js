@@ -96,7 +96,6 @@ function User({ data_user }) {
 
     const ReactiveHour = async () => {//1
 
-        alert(userData.Serial_codeHour)
         await fetch(`${API.HOURS.GET}/reactivate/${userData.Serial_codeHour}`,
             { method: 'PUT' }
         );
