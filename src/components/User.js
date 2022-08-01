@@ -494,8 +494,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice}</td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
-                                                <Button href={File.File_user} size="sm" variant="secondary">File
-                                                </Button>
+                                                <Button href={File.File_user} size="sm" variant="secondary">File</Button>
                                             </td>
                                         </tr>
                                     </tbody>

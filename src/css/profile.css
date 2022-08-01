@@ -178,12 +178,16 @@
 
 
 
-
 .HistoryMedical,
 .Medical,
 .Comments,
 .AllReviews,
-.NewDoctor {
+.NewDoctor,
+.AllUsers,
+.AllUsersBlocked,
+.AllDoctors,
+.ActiveQueues,
+.shouldPay {
     width: 70%;
     margin-left: 15%;
     padding-bottom: 29%;
@@ -191,15 +195,6 @@
     font-size: 13px;
 }
 
-.AllUsers,
-.AllUsersBlocked,
-.AllDoctors,
-.ActiveQueues,
-.shouldPay {
-    padding-bottom: 29%;
-    margin-top: 1%;
-    font-size: 13px;
-}
 
 
 .NewDoctor {
@@ -209,4 +204,26 @@
 .NewDoctor input {
     color: #4b4b4b;
     font-family: 'Raleway', sans-serif;
+}
+
+
+
+@media(max-width:991px) {
+
+    .HistoryMedical,
+    .Medical,
+    .Comments,
+    .AllReviews,
+    .NewDoctor,
+    .AllUsers,
+    .AllUsersBlocked,
+    .AllDoctors,
+    .ActiveQueues,
+    .shouldPay {
+        width: 100%;
+        margin-left: 0;
+        padding-bottom: 29%;
+        margin-top: 1%;
+        font-size: 13px;
+    }
 }
