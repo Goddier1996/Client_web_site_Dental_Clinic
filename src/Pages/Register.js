@@ -13,7 +13,7 @@ function Register() {
 
     const history = useHistory()
 
-    const [Login, setLogin] = useState('');
+    const [User_Login, setLogin] = useState('');
     const [FirstName, setFirstName] = useState('');
     const [Email, setEmail] = useState('');
     const [Birthday, setBirthday] = useState('');
@@ -49,9 +49,11 @@ function Register() {
         else {
             setValidated(true)
             registerUser();
-
             history.push(`/`);
         }
+
+
+
     };
 
 
@@ -63,7 +65,7 @@ function Register() {
         try {
             let user = {
                 FirstName,
-                User_Login: Login,
+                User_Login,
                 Birthday,
                 Email,
                 Password,
@@ -108,7 +110,7 @@ function Register() {
                                             style={{ background: "none", fontSize: "14px", textAlign: "center" }}
                                             type="text"
                                             placeholder='Enter Login'
-                                            value={Login}
+                                            value={User_Login}
                                             onChange={(event) => setLogin(event.target.value)}
                                             required />
                                     </Form.Group>
@@ -204,7 +206,7 @@ function Register() {
                                             style={{ background: "none", fontSize: "14px", textAlign: "center" }}
                                             type="text"
                                             placeholder='Enter Login'
-                                            value={Login}
+                                            value={User_Login}
                                             onChange={(event) => setLogin(event.target.value)}
                                             required />
                                     </Form.Group>

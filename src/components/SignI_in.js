@@ -220,8 +220,8 @@ function Sign_in() {
 
             let user =
             {
-                Login: 'demoUser',
-                Password: 'demo123'
+                Login: 'User',
+                Password: '123456'
             };
 
             let res = await fetch(API.USERS.LOGIN, {
