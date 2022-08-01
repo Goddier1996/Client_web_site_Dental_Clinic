@@ -178,19 +178,25 @@
 
 
 .ActiveQueues,
-.AllUsers,
-.AllDoctors,
+
+
 .shouldPay,
 .HistoryMedical,
 .Medical,
 .Comments,
 .AllReviews,
-.NewDoctor,
-.AllUsersBlocked {
+.NewDoctor {
     width: 70%;
     margin-left: 15%;
     padding-bottom: 29%;
     margin-top: 1%;
+    font-size: 13px;
+}
+
+.AllUsers,.AllUsersBlocked,.AllDoctors{
+    padding-bottom: 29%;
+    margin-top: 1%;
+    font-size: 13px;
 }
 
 
