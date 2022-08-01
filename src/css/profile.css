@@ -177,10 +177,8 @@
 }
 
 
-.ActiveQueues,
 
 
-.shouldPay,
 .HistoryMedical,
 .Medical,
 .Comments,
@@ -193,7 +191,11 @@
     font-size: 13px;
 }
 
-.AllUsers,.AllUsersBlocked,.AllDoctors{
+.AllUsers,
+.AllUsersBlocked,
+.AllDoctors,
+.ActiveQueues,
+.shouldPay {
     padding-bottom: 29%;
     margin-top: 1%;
     font-size: 13px;

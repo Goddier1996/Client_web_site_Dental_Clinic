@@ -26,6 +26,8 @@ function User({ data_user }) {
 
     let CountReview = 1;
     let HistoryPayFile = 1;
+    let MyReviews = 1;
+
 
 
     let storedTheme = localStorage.getItem("theme");
@@ -519,7 +521,7 @@ function User({ data_user }) {
 
                                     <tbody>
                                         <tr>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{CountReview++}</td>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{MyReviews++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                             <td><Button size="sm" variant="danger"
@@ -777,7 +779,7 @@ function User({ data_user }) {
 
                                         <tbody>
                                             <tr>
-                                                <td style={{ textAlign: "center", fontSize: "14px" }}>{CountReview++}</td>
+                                                <td style={{ textAlign: "center", fontSize: "14px" }}>{MyReviews++}</td>
                                                 <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.Date_published}</td>
                                                 <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                                 <td><Button size="sm" variant="danger"
@@ -1030,7 +1032,7 @@ function User({ data_user }) {
 
                                     <tbody>
                                         <tr>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{CountReview++}</td>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{MyReviews++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                             <td><Button size="sm" variant="danger"
@@ -1289,7 +1291,7 @@ function User({ data_user }) {
 
                                         <tbody>
                                             <tr>
-                                                <td style={{ textAlign: "center", fontSize: "14px" }}>{CountReview++}</td>
+                                                <td style={{ textAlign: "center", fontSize: "14px" }}>{MyReviews++}</td>
                                                 <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.Date_published}</td>
                                                 <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                                 <td><Button size="sm" variant="danger"

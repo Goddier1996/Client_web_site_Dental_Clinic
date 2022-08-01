@@ -48,3 +48,13 @@
 .OurWorkLook h3 {
     font-size: 17px;
 }
+
+
+
+
+@media(max-width:991px) {
+
+    .titleOurWork h1 {
+        font-size: 22px;
+    }
+}

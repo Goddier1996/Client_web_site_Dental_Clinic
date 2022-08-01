@@ -1,6 +1,6 @@
 .cardPay {
     border: none;
-    max-width: 450px;
+    max-width: 350px;
     border-radius: 15px;
     padding: 35px;
     padding-bottom: 20px !important;
@@ -14,11 +14,11 @@
 }
 
 .cardPay img {
-    transform: translate(105px, -10px);
+    transform: translate(30px, -10px);
 }
 
 .cardPay h6 {
-    transform: translate(310px, -30px);
+    transform: translate(226px, -30px);
     font-size: 20px;
 }
 
@@ -55,4 +55,5 @@
     background: rgb(0, 153, 255) !important;
     border: none;
     border-radius: 30px;
+    transform: translate(-17px, -10px);
 }

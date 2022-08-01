@@ -358,3 +358,13 @@
 .button-55Dark:focus {
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
+
+
+
+
+@media(max-width:991px) {
+
+    .titleOurReview h1 {
+        font-size: 22px;
+    }
+}

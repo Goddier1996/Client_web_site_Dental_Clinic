@@ -77,3 +77,14 @@ input:checked+.slider {
 .slider.round:before {
     border-radius: 50%;
 }
+
+
+
+@media(max-width:991px) {
+    .toggle-theme-wrapper {
+        display: flex;
+        justify-content: center;
+        padding-right:0;
+    }
+
+}
