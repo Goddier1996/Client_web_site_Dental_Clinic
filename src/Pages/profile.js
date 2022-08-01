@@ -27,7 +27,6 @@ function profile() {
         confirm_password: userData.Confirm_password,
         day: userData.Day_date,
         hour: userData.Hour_day,
-        code_hour: userData.Serial_codeHour
     }
 
 

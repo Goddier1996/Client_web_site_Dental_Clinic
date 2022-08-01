@@ -29,6 +29,7 @@ function User({ data_user }) {
 
 
     let storedTheme = localStorage.getItem("theme");
+    let userData = JSON.parse(sessionStorage.getItem("user"));
 
 
 
@@ -93,9 +94,10 @@ function User({ data_user }) {
 
     //reactive the hour in profile page if user dont need this turn , now status was delete after this function was active
 
-    const ReactiveHour = async (Serial_codeHour) => {//1
+    const ReactiveHour = async () => {//1
 
-        await fetch(`${API.HOURS.GET}/reactivate/${Serial_codeHour}`,
+        alert(userData.Serial_codeHour)
+        await fetch(`${API.HOURS.GET}/reactivate/${userData.Serial_codeHour}`,
             { method: 'PUT' }
         );
 
@@ -673,7 +675,7 @@ function User({ data_user }) {
                                     </Modal.Body>
 
                                     <Modal.Footer className='ButtonQueues'>
-                                        <Button variant="danger" onClick={() => ReactiveHour(user.Serial_codeHour)} >delete queues</Button>
+                                        <Button variant="danger" onClick={() => ReactiveHour()} >delete queues</Button>
                                     </Modal.Footer>
 
                                 </Modal.Dialog>

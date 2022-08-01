@@ -254,7 +254,7 @@ function Menu() {
         return (
             <div>
                 <div className='menu'>
-                    <Navbar collapseOnSelect expand="lg">
+                    <Navbar collapseOnSelect expand="sm" >
                         <Container>
                             <Navbar.Brand ><img src={require("../images/—Pngtree—abstract tooth dental logo_5569405.png")} alt="icon"></img></Navbar.Brand>
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
