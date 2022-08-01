@@ -43,19 +43,19 @@ function Menu() {
 
 
 
-    const setDark = () => {
+    // const setDark = () => {
 
-        localStorage.setItem("theme", "dark");
-        document.documentElement.setAttribute("data-theme", "dark");
-    };
+    //     localStorage.setItem("theme", "dark");
+    //     document.documentElement.setAttribute("data-theme", "dark");
+    // };
 
 
 
-    const defaultDark = storedTheme === "dark" || (storedTheme === null);
+    // const defaultDark = storedTheme === "dark" || (storedTheme === null);
 
-    if (defaultDark) {
-        setDark();
-    }
+    // if (defaultDark) {
+    //     setDark();
+    // }
 
 
 

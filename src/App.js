@@ -9,6 +9,7 @@ import OurWork from './Pages/OurWork'
 import Service from './Pages/service'
 import profile from './Pages/profile'
 import About from './Pages/About'
+import DarkMode from "./components/DarkMode"
 
 
 
@@ -16,7 +17,7 @@ function App() {
 
   return (
     <BrowserRouter>
-
+      <DarkMode />
       <Menu />
 
       <Switch>
