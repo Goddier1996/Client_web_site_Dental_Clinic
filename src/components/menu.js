@@ -45,6 +45,7 @@ function Menu() {
 
     // const setDark = () => {
 
+
     //     localStorage.setItem("theme", "dark");
     //     document.documentElement.setAttribute("data-theme", "dark");
     // };
@@ -61,6 +62,8 @@ function Menu() {
 
 
     // log out user from data seesion storge
+
+
 
     const outUser = async () => {
 
@@ -150,7 +153,7 @@ function Menu() {
                                         </Button>{' '}
                                     </div>
 
-                                    <DarkMode />
+                                    {/* <DarkMode /> */}
                                 </Navbar.Collapse>
                             </Navbar.Collapse>
                         </Container>
@@ -183,7 +186,7 @@ function Menu() {
                                     <Nav.Link onClick={handleShow1} href="#features">Login</Nav.Link>
                                     <Nav.Link href='/Register'>Register</Nav.Link>
 
-                                    <DarkMode />
+                                    {/* <DarkMode /> */}
 
                                 </Navbar.Collapse>
 
@@ -233,7 +236,7 @@ function Menu() {
                                         </Button>{'  '}
                                     </div>
 
-                                    <DarkMode />
+                                    {/* <DarkMode /> */}
                                 </Navbar.Collapse>
 
                             </Navbar.Collapse>
@@ -267,7 +270,7 @@ function Menu() {
                                     <Nav.Link onClick={handleShow1} href="#features">Login</Nav.Link>
                                     <Nav.Link href='/Register'>Register</Nav.Link>
 
-                                    <DarkMode />
+                                    {/* <DarkMode /> */}
 
                                 </Navbar.Collapse>
 

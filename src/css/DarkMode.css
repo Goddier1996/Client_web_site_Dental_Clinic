@@ -23,7 +23,8 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-left: 2%;
+    justify-content: end;
+    padding-right: 7%;
 }
 
 .toggle-theme-wrapper span {
