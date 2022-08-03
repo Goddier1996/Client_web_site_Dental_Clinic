@@ -54,7 +54,8 @@
 
 @media(max-width:991px) {
 
-    .titleOurWork h1 {
+    .titleOurWork h1,
+    .titleOurWorkDark h1 {
         font-size: 22px;
     }
 }
