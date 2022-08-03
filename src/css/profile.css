@@ -211,7 +211,15 @@
 @media(max-width:991px) {
 
 
-
+    .HistoryMedical,
+    .Medical,
+    .Comments,
+    .AllReviews,
+    .AllUsers,
+    .AllUsersBlocked,
+    .AllDoctors,
+    .ActiveQueues,
+    .shouldPay,
     .NewDoctor {
         width: 100%;
         margin-left: 0;
@@ -219,6 +227,8 @@
         margin-top: 1%;
         font-size: 13px;
     }
+
+
 
     .profile-header-info h4 {
         font-size: 20px;
@@ -241,7 +251,7 @@
     .AllUsersBlocked button,
     .AllDoctors button,
     .AllReviews button {
-        width: 325px;
+        width: 475px;
     }
 
 
@@ -273,7 +283,6 @@
         overflow: hidden;
         padding: 0;
         position: absolute;
-        width: 1px;
     }
 
     .Medical table tr,
