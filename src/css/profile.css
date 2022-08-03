@@ -210,16 +210,9 @@
 
 @media(max-width:991px) {
 
-    .HistoryMedical,
-    .Medical,
-    .Comments,
-    .AllReviews,
-    .NewDoctor,
-    .AllUsers,
-    .AllUsersBlocked,
-    .AllDoctors,
-    .ActiveQueues,
-    .shouldPay {
+
+
+    .NewDoctor {
         width: 100%;
         margin-left: 0;
         padding-bottom: 29%;
@@ -235,5 +228,107 @@
     .profile-headerDoctor .profile-header-cover {
         width: 100%;
         left: 0;
+    }
+
+
+
+    .shouldPay button,
+    .ActiveQueues button,
+    .Medical button,
+    .Comments button,
+    .HistoryMedical button,
+    .AllUsers button,
+    .AllUsersBlocked button,
+    .AllDoctors button,
+    .AllReviews button {
+        width: 325px;
+    }
+
+
+    .Medical table caption,
+    .Comments table caption,
+    .HistoryMedical table caption,
+    .ActiveQueues table caption,
+    .shouldPay table caption,
+    .AllUsers table caption,
+    .AllUsersBlocked table caption,
+    .AllDoctors table caption,
+    .AllReviews table caption {
+        font-size: 1.3em;
+    }
+
+    .Medical table thead,
+    .Comments table thead,
+    .HistoryMedical table thead,
+    .ActiveQueues table thead,
+    .shouldPay table thead,
+    .AllUsers table thead,
+    .AllUsersBlocked table thead,
+    .AllDoctors table thead,
+    .AllReviews table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    .Medical table tr,
+    .Comments table tr,
+    .HistoryMedical table tr,
+    .ActiveQueues table tr,
+    .shouldPay table tr,
+    .AllUsers table tr,
+    .AllUsersBlocked table tr,
+    .AllDoctors table tr,
+    .AllReviews table tr {
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+    }
+
+    .Medical table td,
+    .Comments table td,
+    .HistoryMedical table td,
+    .ActiveQueues table td,
+    .shouldPay table td,
+    .AllUsers table td,
+    .AllUsersBlocked table td,
+    .AllDoctors table td,
+    .AllReviews table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+    }
+
+    .Medical table td::before,
+    .Comments table td::before,
+    .HistoryMedical table td::before,
+    .ActiveQueues table td::before,
+    .shouldPay table td::before,
+    .AllUsers table td::before,
+    .AllUsersBlocked table td::before,
+    .AllDoctors table td::before,
+    .AllReviews table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .Medical table td:last-child,
+    .Comments table td:last-child,
+    .HistoryMedical table td:last-child,
+    .ActiveQueues table td:last-child,
+    .shouldPay table td:last-child,
+    .AllUsers table td:last-child,
+    .AllUsersBlocked table td:last-child,
+    .AllDoctors table td:last-child,
+    .AllReviews table td:last-child {
+        border-bottom: 0;
     }
 }
