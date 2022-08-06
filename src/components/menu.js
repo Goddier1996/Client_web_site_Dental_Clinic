@@ -280,9 +280,6 @@ function Menu() {
                                 </Modal>
 
                             </Navbar.Collapse>
-
-
-
                         </Container>
                     </Navbar>
                 </div>
