@@ -4,7 +4,7 @@
 }
 
 .menuDark img {
-    height: 70px;
+    height: 65px;
 }
 
 .menuDark {
@@ -21,20 +21,5 @@
 }
 
 .menu img {
-    height: 70px;
-}
-
-
-.imgPrf {
-    margin-right: 3%;
-    text-align: center;
-    align-items: center;
-}
-
-.imgPrf button {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 500;
-    border-radius: 10% / 50%;
-    font-size: 14px;
-    border: none;
+    height: 65px;
 }
