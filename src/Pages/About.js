@@ -81,7 +81,7 @@ function About() {
         Swal.fire({
             background: 'none',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 9000,
             html: '<div class="loader"></div>'
         })
     }, [])
