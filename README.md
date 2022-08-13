@@ -1,5 +1,5 @@
 # Dental Clinic Web Side - ReactJs , NodeJs , MySql
-
+  
 Link Web Side - https://clinic-dental-israel.netlify.app 
 
 On this website, customers can make an appointment for a dental clinic.
@@ -7,7 +7,7 @@ and leave an opinion on the service.
 Users can control their queue and pay for the service on a user's profile page.
 
 On this site you can change the color of the background night or day.
- 
+  
 Users can look at what service the clinic offers, as well as the location of the clinic and working hours, and look About Clinic.
 
 The doctors can look from a doctor's profile page who needs to come (user's turn) and send a message, advice, and also payment of the service and a photo of teeth after the treatment.
