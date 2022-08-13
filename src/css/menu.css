@@ -23,3 +23,15 @@
 .menu img {
     height: 65px;
 }
+
+.imgPrf {
+    align-items: center;
+    text-align: center;
+}
+
+.imgPrf button {
+    width: auto;
+    height: 30px;
+    font-size: 14px;
+    border: none;
+}
