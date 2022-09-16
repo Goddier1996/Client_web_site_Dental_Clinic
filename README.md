@@ -1,6 +1,6 @@
 # Dental Clinic website - ReactJs , NodeJs , MySql
   
-Link website - https://clinic-dental-israel.netlify.app   
+Link website - https://clinic-dental-israel.netlify.app    
 
 On this website, customers can make an appointment for a dental clinic.
 and leave an opinion on the service.
