@@ -68,9 +68,7 @@ function Home() {
             <div>
 
                 <div className='main1'>
-                    <div>
-                        <video autoPlay loop muted playsinline src={videoBg}></video>
-                    </div>
+                    <video src={videoBg} autoPlay loop muted />
                     <div className="content">
                         <h1>Welcome</h1>
                         <p>to the Dental Care Clinic</p>
@@ -105,7 +103,7 @@ function Home() {
         );
     }
 
-
+    
 
     if (storedTheme === "dark") {
 
@@ -114,9 +112,8 @@ function Home() {
             <div>
 
                 <div className='main1'>
-                    <div>
-                        <video autoPlay loop muted playsinline src={videoBg}></video>
-                    </div>                    <div className="content">
+                    <video src={videoBg} autoPlay loop muted />
+                    <div className="content">
                         <h1>Welcome</h1>
                         <p>to the Dental Care Clinic</p>
                     </div>
