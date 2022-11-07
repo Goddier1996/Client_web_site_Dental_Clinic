@@ -1,4 +1,4 @@
-# Dental Clinic website - ReactJs , NodeJs , SQL Server(Not Active) , MongoDB(Active)
+# Dental Clinic website - ReactJs , NodeJs , SQL Server (Not Active) , MongoDB (Active)
   
 Link website - https://clinic-dental-israel.netlify.app     
  
@@ -16,7 +16,9 @@ In addition, the doctor can look at debts, customers who have not paid for their
 Admin can control users, delete them or restore the user, delete opinions, add new doctors or block a certain doctor.
 
 
-server this website - https://github.com/Goddier1996/Server_Web_site_Dental_Clinic
+server this website (MongoDB = Active) -
+
+server this website (SQL Server = Not Active) - https://github.com/Goddier1996/Server_Web_site_Dental_Clinic
 
 
 # video :
