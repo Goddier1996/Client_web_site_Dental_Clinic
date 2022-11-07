@@ -8,7 +8,7 @@ import '../css/profile.css'
 
 
 
-//here component Add Medical File User , doctor add a file to user,and user can see how mush pay need and see what doctor write and docoment = this component use in profile
+//here component Add Medical File User , doctor add a file to user,and user can see how much pay need and see what doctor write and docoment = this component use in profile doctor
 
 function AddMedicalFileUser() {
 
@@ -32,11 +32,14 @@ function AddMedicalFileUser() {
 
         try {
             let File = {
+                name: date.FirstName,
+                email:date.Email,
                 Publish_by: date.User_code,
-                Date_published: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate() + 1}`,
+                Date_published: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
                 File_user: File_user,
                 textDoctor: textDoctor,
                 priceSevice: priceSevice,
+                IsActive: "1"
             };
 
             await fetch(API.MEDICAL_FILE.ADD, {

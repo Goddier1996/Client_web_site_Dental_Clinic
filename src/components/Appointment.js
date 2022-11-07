@@ -6,7 +6,7 @@ import '../css/appointment.css'
 import Swal from 'sweetalert2'
 
 
-//here component we show data from data base node js + mySql (if you click to buttom in Home Page Book an appointment)
+//here component we show data from data base (if you click to buttom in Home Page Book an appointment)
 
 function appointment() {
 
@@ -32,7 +32,7 @@ function appointment() {
 
 
 
-    //here you show Days , from data base node js + my sql
+    //here you show Days , from data base
 
     const LoadDays = async () => { // 1
 
@@ -44,7 +44,7 @@ function appointment() {
 
 
 
-    //here you show Hours from day what we chiose , from data base node js + my sql
+    //here you show Hours from day what we chiose , from data base 
 
     const LoadHours = async (Serial_code, Day_date) => { // 2
 
@@ -62,7 +62,7 @@ function appointment() {
 
 
 
-    //show jsx(html) return we see in pup up hours - and click to hour we save what day we chiose and hour to data base
+    //show (html) return we see in pup up hours - and click to hour we save what day we chiose and hour to data base
 
     const ResultsHours = () => ( // 3
 
@@ -79,7 +79,7 @@ function appointment() {
                         <>
                             <p href='#'
                                 style={{ textDdecoration: "none" }}
-                                onClick={() => saveDateUser(hour.Hour_day, hour.Serial_code)}>{hour.Hour_day}
+                                onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
                             </p>
                         </>
                     )}
@@ -90,13 +90,13 @@ function appointment() {
     )
 
 
-    
+
     //here we delete the hour from data base , user chiose day and hour
 
     const DeleteHour = async (Id) => {// 5
-
-        await fetch(`${API.HOURS.GET}/delete/${Id}`,
-            { method: 'DELETE' }
+        // alert(Id)
+        await fetch(`${API.HOURS.GET}/NotActive/${Id}`,
+            { method: 'PATCH' }
         );
     }
 
@@ -122,16 +122,15 @@ function appointment() {
                 Birthday: userData.Birthday,
                 Email: userData.Email,
                 User_password: userData.User_password,
-                UserType_code: 1,
+                UserType_code: "1",
                 Confirm_password: userData.Confirm_password,
-                Photo: userData.Photo,
                 Day_date: dayLocal.Day_date,
                 Hour_day: hourLocal.Hour_day,
                 Serial_codeHour: hourLocal.Serial_code
             }
 
-            await fetch(`${API.USERS.GET}/update/${userDataCode.User_code}`, {
-                method: 'PUT',
+            await fetch(`${API.USERS.GET}/${userDataCode.User_code}`, {
+                method: 'PATCH',
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -139,12 +138,13 @@ function appointment() {
             });
 
 
-            sessionStorage.setItem("user", JSON.stringify(user))//6
+            // sessionStorage.setItem("user", JSON.stringify(user))//6
 
 
             DeleteHour(hourLocal.Serial_code);//7
             sessionStorage.removeItem('Hour');//8
             sessionStorage.removeItem('day');//9
+
 
 
             if (storedTheme === "dark") {
@@ -156,10 +156,12 @@ function appointment() {
 
                     if (result.isConfirmed) {
 
+                        sessionStorage.clear();
                         window.location.reload(false);
                     }
                 })
             }
+
 
             if (storedTheme === "light") {
 
@@ -173,6 +175,7 @@ function appointment() {
 
                     if (result.isConfirmed) {
 
+                        sessionStorage.clear();
                         window.location.reload(false);
                     }
                 })
@@ -192,7 +195,7 @@ function appointment() {
     }
 
 
-    
+
 
     //here we to do check if user have a hour he dont can chiose a new hour and day , he need to delete data what he was
 

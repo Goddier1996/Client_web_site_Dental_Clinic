@@ -11,7 +11,6 @@ import { API } from '../API';
 function Admin() {
 
 
-
     const [Users, SetUsers] = useState([])
     const [UsersBlocked, SetUsersBlocked] = useState([])
     const [Doctors, SetDoctors] = useState([])
@@ -82,7 +81,7 @@ function Admin() {
 
     const LoadAllUsers = async () => {
 
-        let res = await fetch(API.USERS.GET, { method: 'GET' });
+        let res = await fetch(`${API.USERS.GET}`, { method: 'GET' });
         let data = await res.json();
 
         SetUsers(data);
@@ -94,7 +93,7 @@ function Admin() {
 
     const LoadAllUsersBlocked = async () => {
 
-        let res = await fetch(`${API.USERS.GET}/blocked_users`, { method: 'GET' });
+        let res = await fetch(`${API.USERS.GET}/BlockUsers`, { method: 'GET' });
         let data = await res.json();
 
         SetUsersBlocked(data);
@@ -106,7 +105,7 @@ function Admin() {
 
     const LoadAllDoctors = async () => {
 
-        let res = await fetch(`${API.USERS.GET}/Doctors`, { method: 'GET' });
+        let res = await fetch(`${API.USERS.GET}/showDoctors`, { method: 'GET' });
         let data = await res.json();
 
         SetDoctors(data);
@@ -128,9 +127,9 @@ function Admin() {
     //admin can block the user
 
     const DeleteUser = async (Id) => {
-
-        await fetch(`${API.USERS.GET}/delete/${Id}`,
-            { method: 'DELETE' }
+        // alert(Id)
+        await fetch(`${API.USERS.GET}/NotActive/${Id}`,
+            { method: 'PATCH' }
         );
         window.location.reload(false);
 
@@ -138,17 +137,17 @@ function Admin() {
 
 
 
-    //reactive all users how was block
+    //active all users how was block
 
-    const ReactivateUser = async (Id) => {
+    const ActiveUser = async (Id) => {
 
-        let res = await fetch(`${API.USERS.GET}/reactivate/${Id}`, { method: 'PUT' });
+        let res = await fetch(`${API.USERS.GET}/active/${Id}`, { method: 'PATCH' });
         window.location.reload(false); // רענון דף
     }
 
 
 
-    //admin delate a review
+    //admin delete a review
 
     const DeleteReview = async (Id) => {
 
@@ -171,13 +170,16 @@ function Admin() {
                 User_Login: Login,
                 Birthday: null,
                 Email: Email,
-                Password: Password,
-                UserTypeCode: 2,
+                User_password: Password,
+                UserType_code: "2",
                 ConfirmPassword: ConfirmPassword,
                 Day_date: null,
                 Hour_day: null,
-                Serial_codeHour: null
+                Serial_codeHour: null,
+                IsActive: "1"
             };
+
+
 
             await fetch(API.USERS.ADD, {
                 method: 'POST',
@@ -195,7 +197,7 @@ function Admin() {
     }
 
 
-    
+
 
     useEffect(() => {
 
@@ -251,7 +253,7 @@ function Admin() {
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{user.User_password}</td>
 
                                         <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
-                                            <Button size="sm" variant="danger" onClick={() => DeleteUser(user.User_code)}>Block</Button>
+                                            <Button size="sm" variant="danger" onClick={() => DeleteUser(user._id)}>Block</Button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -289,7 +291,7 @@ function Admin() {
 
 
                                         <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
-                                            <Button size="sm" variant="success" onClick={() => ReactivateUser(user.User_code)}>Reactive</Button>
+                                            <Button size="sm" variant="success" onClick={() => ActiveUser(user._id)}>Reactive</Button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -325,7 +327,7 @@ function Admin() {
 
 
                                         <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
-                                            <Button size="sm" variant="danger" onClick={() => DeleteUser(doctor.User_code)}>Block</Button>
+                                            <Button size="sm" variant="danger" onClick={() => DeleteUser(doctor._id)}>Block</Button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -430,7 +432,7 @@ function Admin() {
 
 
                                         <td style={{ textAlign: "center", fontSize: "13px", width: "1%" }}>
-                                            <Button size="sm" variant="danger" onClick={() => DeleteReview(Review.Serial_code)}>Block</Button>
+                                            <Button size="sm" variant="danger" onClick={() => DeleteReview(Review._id)}>Block</Button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -485,7 +487,7 @@ function Admin() {
                                         </td>
 
                                         <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
-                                            <Button size="sm" variant="danger" onClick={() => DeleteUser(user.User_code)}>Block</Button>
+                                            <Button size="sm" variant="danger" onClick={() => DeleteUser(user._id)}>Block</Button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -522,7 +524,7 @@ function Admin() {
 
 
                                         <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
-                                            <Button size="sm" variant="success" onClick={() => ReactivateUser(user.User_code)}>Reactive</Button>
+                                            <Button size="sm" variant="success" onClick={() => ActiveUser(user._id)}>Reactive</Button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -557,7 +559,7 @@ function Admin() {
 
 
                                         <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
-                                            <Button size="sm" variant="danger" onClick={() => DeleteUser(doctor.User_code)}>Block</Button>
+                                            <Button size="sm" variant="danger" onClick={() => DeleteUser(doctor._id)}>Block</Button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -661,7 +663,7 @@ function Admin() {
 
 
                                         <td style={{ textAlign: "center", fontSize: "13px", width: "1%" }}>
-                                            <Button size="sm" variant="danger" onClick={() => DeleteReview(Review.Serial_code)}>Block</Button>
+                                            <Button size="sm" variant="danger" onClick={() => DeleteReview(Review._id)}>Block</Button>
                                         </td>
                                     </tr>
                                 </tbody>

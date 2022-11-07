@@ -23,7 +23,7 @@ function service() {
 
 
 
-    // load all reviews all users from data base node js + mySql
+    // load all reviews all users from data base
 
     const LoadReviews = async () => {
 
@@ -74,7 +74,7 @@ function service() {
 
 
 
-    //add review to data base node js + mySql
+    //add review to data base
 
     const addReviews = async () => {
 
@@ -94,14 +94,20 @@ function service() {
         else {
 
             try {
-                let Publish_by = userData.User_code;
+                let Publish_by = userData._id;
+                let FirstName = userData.FirstName;
+                let User_Login = userData.User_Login;
 
                 let d = new Date();
 
                 let user = {
                     textReviews,
-                    DatePublished: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate() + 1}`,
-                    Publish_by
+                    DatePublished: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
+                    Publish_by,
+                    FirstName,
+                    User_Login,
+                    IsActive: "1",
+                    Count_likes: []
                 };
 
                 await fetch(API.REVIEWS.ADD, {
@@ -167,22 +173,38 @@ function service() {
     const addReviewsLike = async (likeReview, Serial_code) => {
 
 
+        // alert(Serial_code)
         try {
 
-            let like = {
-                how_like: likeReview,
-                Serial_code_how_Like: Serial_code
+            let Publish_by = userData._id;
+            let FirstName = userData.FirstName;
+            let User_Login = userData.User_Login;
+            let DatePublished = userData.DatePublished;
+
+            let d = new Date();
+
+            let user = {
+                textReviews,
+                DatePublished: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
+                Publish_by,
+                FirstName,
+                User_Login,
+                IsActive: "1",
+                DatePublished,
+                Count_likes: [likeReview]
             };
 
-            await fetch(API.REVIEWS.ADD_LIKE, {
-                method: 'POST',
+            await fetch(`${API.REVIEWS.GET}/${Serial_code}`, {
+                // method: 'PUT',
+                method: 'PATCH',
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(like)
+                body: JSON.stringify(user)
             });
 
             window.location.reload(false);
+
 
 
         } catch (error) {
@@ -193,8 +215,43 @@ function service() {
                 text: 'Something went wrong!',
             })
 
-            console.log(error);
+            console.log(error)
         }
+
+
+
+
+
+
+
+        // try {
+
+        //     let like = {
+        //         how_like: likeReview,
+        //         Serial_code_how_Like: Serial_code
+        //     };
+
+        //     await fetch(API.REVIEWS.ADD_LIKE, {
+        //         method: 'POST',
+        //         headers: {
+        //             "Content-Type": "application/json"
+        //         },
+        //         body: JSON.stringify(like)
+        //     });
+
+        //     window.location.reload(false);
+
+
+        // } catch (error) {
+
+        //     Swal.fire({
+        //         icon: 'error',
+        //         title: 'Oops...',
+        //         text: 'Something went wrong!',
+        //     })
+
+        //     console.log(error);
+        // }
     }
 
 
@@ -297,7 +354,7 @@ function service() {
                                         <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Like (:</Tooltip>}>
 
                                             <button class="button-30" role="button"
-                                                onClick={() => addReviewsLike(record.FirstName, record.Serial_code)}>
+                                                onClick={() => addReviewsLike(record.FirstName, record._id)}>
                                                 <i class="far fa-thumbs-up"></i> {record.Count_likes}
                                             </button>
                                             {/* <button class="like__btn" onClick={() => addReviewsLike(record.FirstName, record.Serial_code)}>
@@ -366,7 +423,7 @@ function service() {
                 <div className='OurReviews'>
 
                     <Row xs={1} md={2} lg={3} className="g-4">
-                        {reviews.sort((a, b) => b.Count_likes - a.Count_likes).map((record) => (
+                        {reviews.sort((a, b) => b.Count_likes.length - a.Count_likes.length).map((record) => (
 
 
 
@@ -404,8 +461,8 @@ function service() {
                                         <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Like (:</Tooltip>}>
 
                                             <button class="button-30" role="button"
-                                                onClick={() => addReviewsLike(record.FirstName, record.Serial_code)}>
-                                                <i class="far fa-thumbs-up"></i> {record.Count_likes}
+                                                onClick={() => addReviewsLike(record.FirstName, record._id)}>
+                                                <i class="far fa-thumbs-up"></i> {record.Count_likes.length}
                                             </button>
 
                                         </OverlayTrigger>

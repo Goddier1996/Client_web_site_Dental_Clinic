@@ -3,7 +3,6 @@ import { Nav, Navbar, Container, Button, Modal } from 'react-bootstrap'
 import React from 'react'
 import '../css/menu.css'
 import "../css/login.css"
-import DarkMode from "../components/DarkMode"
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import { useState } from "react";

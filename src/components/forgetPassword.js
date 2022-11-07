@@ -28,14 +28,14 @@ function forgetPaswword() {
 
 
     //create a this sessioStorgae in ForgetUser
-    
+
     let userForget = JSON.parse(sessionStorage.getItem("userForgetPassword"));
 
     let storedTheme = localStorage.getItem("theme");
 
 
 
-    //here we search if we have this email in data bse , if have we send the data use from data base node js + MySql to sessionStorage
+    //here we search if we have this email in data bse , if have we send the data use from data base to sessionStorage
 
     const ForgetUser = async () => {
 
@@ -115,20 +115,20 @@ function forgetPaswword() {
 
 
 
-    //here update to new password use node js + mySql
+    //here update to new password 
 
     const ForgetPassword = async () => {
-
+        // alert(userForget._id)
         if (User_password === Confirm_password) {
 
             try {
                 let user = {
                     User_password: User_password,
-                    Confirm_password: Confirm_password
+                    ConfirmPassword: Confirm_password
                 }
 
-                await fetch(`${API.USERS.GET}/updatePassword/${userForget.User_code}`, {
-                    method: 'PUT',
+                await fetch(`${API.USERS.GET}/${userForget._id}`, {
+                    method: 'PATCH',
                     headers: {
                         "Content-Type": "application/json"
                     },
@@ -256,7 +256,7 @@ function forgetPaswword() {
 
 
 
-    
+
     return (
 
         <>

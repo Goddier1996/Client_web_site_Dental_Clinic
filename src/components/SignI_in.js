@@ -161,7 +161,7 @@ function Sign_in() {
 
 
 
-    // login in the use check if have data base node js + MySql , if have we save in sessionStorage
+    // login in the use check if have data base , if have we save in sessionStorage
 
     const loginUser = async (x) => {
 
@@ -170,8 +170,8 @@ function Sign_in() {
 
             let user =
             {
-                Login,
-                Password
+                User_Login: Login,
+                User_password: Password
             };
 
             let res = await fetch(API.USERS.LOGIN, {
@@ -188,7 +188,7 @@ function Sign_in() {
             sessionStorage.setItem("user", JSON.stringify(data)); // 1
 
 
-            let userCode = { User_code: data.User_code }// 2
+            let userCode = { User_code: data._id }// 2
             sessionStorage.setItem("userCode", JSON.stringify(userCode))// 3
 
             openSwalWhenLogin(data.FirstName, data.UserType_code);
@@ -220,8 +220,8 @@ function Sign_in() {
 
             let user =
             {
-                Login: 'User',
-                Password: '123456'
+                User_Login: 'User',
+                User_password: '123456'
             };
 
             let res = await fetch(API.USERS.LOGIN, {
@@ -238,7 +238,7 @@ function Sign_in() {
             sessionStorage.setItem("user", JSON.stringify(data)); // 1
 
 
-            let userCode = { User_code: data.User_code }// 2
+            let userCode = { User_code: data._id }// 2
             sessionStorage.setItem("userCode", JSON.stringify(userCode))// 3
 
             openSwalWhenLogin(data.FirstName, data.UserType_code);
@@ -261,8 +261,8 @@ function Sign_in() {
 
             let user =
             {
-                Login: 'demoDoctor',
-                Password: 'demodoctor'
+                User_Login: 'demoDoctor',
+                User_password: 'demodoctor'
             };
 
             let res = await fetch(API.USERS.LOGIN, {
@@ -290,6 +290,7 @@ function Sign_in() {
         }
 
     }
+
 
 
 

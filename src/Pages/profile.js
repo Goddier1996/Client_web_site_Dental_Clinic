@@ -10,7 +10,6 @@ function profile() {
 
 
     let userData = JSON.parse(sessionStorage.getItem("user"));
-    let userDataCode = JSON.parse(sessionStorage.getItem("userCode"));
 
 
     //save in opject all data user from session storage "user" , and save code user from "userCode"
@@ -18,7 +17,7 @@ function profile() {
     
     const obj = {
 
-        code: userDataCode.User_code,
+        code: userData._id,
         name: userData.FirstName,
         login: userData.User_Login,
         email: userData.Email,
@@ -46,7 +45,7 @@ function profile() {
     if (userData.UserType_code == 2) {
 
         return (
-            <Doctor code_doctor={userDataCode.User_code} />
+            <Doctor code_doctor={userData._id} />
         )
     }
 

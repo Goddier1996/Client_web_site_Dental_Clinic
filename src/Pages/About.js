@@ -21,10 +21,10 @@ function About() {
     let storedTheme = localStorage.getItem("theme");
 
 
-    //here load count how much was doctors in clinic - use node js and mysql
+    //here load count how much was doctors in clinic
     const LoadCountDoctors = async () => {
 
-        let res = await fetch(`${API.USERS.GET}/CountDoctors`, { method: 'GET' });
+        let res = await fetch(`${API.USERS.GET}/countDoctors`, { method: 'GET' });
 
         let data = await res.json();
         SetShowCountDoctor(data);
@@ -33,11 +33,11 @@ function About() {
 
 
 
-    //here load count how much was users in clinic - use node js and mysql
+    //here load count how much was users in clinic
 
     const LoadCountUsers = async () => {
 
-        let res = await fetch(`${API.USERS.GET}/CountUsers`, { method: 'GET' });
+        let res = await fetch(`${API.USERS.GET}/countUsers`, { method: 'GET' });
 
         let data = await res.json();
         SetShowCountUsers(data);
@@ -46,11 +46,11 @@ function About() {
 
 
 
-    //here load count how much was revirews in clinic - use node js and mysql
+    //here load count how much was revirews in clinic
 
     const LoadCountReviews = async () => {
 
-        let res = await fetch(`${API.REVIEWS.GET}/CountReviews`, { method: 'GET' });
+        let res = await fetch(`${API.REVIEWS.GET}/countReviews`, { method: 'GET' });
 
         let data = await res.json();
         SetShowCountReviews(data);
@@ -112,7 +112,6 @@ function About() {
 
                 <div className='cardsInfoAbout' >
 
-                    {ShowCountDoctor.map(count =>
 
                         <div className="a-box">
                             <div className="img">
@@ -125,12 +124,12 @@ function About() {
                             <div className="text">
                                 <h3>Doctor's :</h3>
                                 <div>
-                                    <p>{count.Count_Doctors}</p>
+                                    <p>{ShowCountDoctor}</p>
                                 </div>
                             </div>
                         </div>
 
-                    )}
+                    
 
 
                     <div className="a-box" >
@@ -150,7 +149,6 @@ function About() {
                     </div>
 
 
-                    {ShowCountUsers.map(count =>
 
                         <div className="a-box">
                             <div className="img">
@@ -163,15 +161,14 @@ function About() {
                             <div className="text">
                                 <h3>Our Customer's :</h3>
                                 <div>
-                                    <p>{count.Count_Users}</p>
+                                    <p>{ShowCountUsers}</p>
                                 </div>
                             </div>
                         </div>
 
-                    )}
+                   
 
 
-                    {ShowCountReviews.map(count =>
 
                         <div className="a-box" >
                             <div className="img">
@@ -184,14 +181,12 @@ function About() {
                             <div className="text">
                                 <h3>Customer Review's :</h3>
                                 <div>
-                                    <p>{count.Count_Reviews}</p>
+                                    <p>{ShowCountReviews}</p>
                                 </div>
                             </div>
                         </div>
 
-                    )}
-
-
+                    
                 </div>
             </>
         )
@@ -223,7 +218,6 @@ function About() {
                 <div className='cardsInfoAbout' >
 
 
-                    {ShowCountDoctor.map(count =>
 
                         <div className="a-box">
                             <div className="img">
@@ -236,12 +230,12 @@ function About() {
                             <div className="textDark">
                                 <h3>Doctor's :</h3>
                                 <div>
-                                    <p>{count.Count_Doctors}</p>
+                                    <p>{ShowCountDoctor}</p>
                                 </div>
                             </div>
                         </div>
 
-                    )}
+                    
 
 
                     <div className="a-box" >
@@ -261,7 +255,7 @@ function About() {
                     </div>
 
 
-                    {ShowCountUsers.map(count =>
+                    
 
                         <div className="a-box">
                             <div className="img">
@@ -274,15 +268,14 @@ function About() {
                             <div className="textDark">
                                 <h3>Our Customer's :</h3>
                                 <div>
-                                    <p>{count.Count_Users}</p>
+                                    <p>{ShowCountUsers}</p>
                                 </div>
                             </div>
                         </div>
 
-                    )}
+                    
 
 
-                    {ShowCountReviews.map(count =>
 
                         <div className="a-box" >
                             <div className="img">
@@ -295,12 +288,12 @@ function About() {
                             <div className="textDark">
                                 <h3>Customer Review's :</h3>
                                 <div>
-                                    <p>{count.Count_Reviews}</p>
+                                    <p>{ShowCountReviews}</p>
                                 </div>
                             </div>
                         </div>
 
-                    )}
+                    
 
                 </div>
             </>

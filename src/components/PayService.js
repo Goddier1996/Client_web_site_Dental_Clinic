@@ -21,7 +21,7 @@ function PayService() {
     //click button pay price and check if all input was good,if yes send to function DeletePayFile
 
     const Pay = async () => {
-
+        // alert(PayDetails.Serial_code)
 
         if (CardNumber != '' && CardholderName != '' && Expiration != '' && Cvv != '' && PayDetails.userName == CardholderName) {
 
@@ -59,12 +59,12 @@ function PayService() {
     const DeletePayFile = async (Serial_code) => {
 
         await fetch(`${API.MEDICAL_FILE.GET}/delete/${Serial_code}`,
-            { method: 'DELETE' });
+            { method: 'PATCH' });
 
     }
 
 
-    
+
 
     return (
 

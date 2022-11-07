@@ -68,12 +68,13 @@ function Register() {
                 User_Login,
                 Birthday,
                 Email,
-                Password,
-                UserTypeCode: 1,
+                User_password: Password,
+                UserType_code: "1",
                 ConfirmPassword,
                 Day_date: null,
                 Hour_day: null,
-                Serial_codeHour: null
+                Serial_codeHour: null,
+                IsActive: "1"
             };
 
             await fetch(API.USERS.ADD, {
@@ -261,7 +262,7 @@ function Register() {
                                 <Row>
                                     <Form.Group as={Col} md="12">
                                         <Form.Control
-                                            style={{ background: "none", fontSize: "14px", textAlign: "center" ,color:"black"}}
+                                            style={{ background: "none", fontSize: "14px", textAlign: "center", color: "black" }}
                                             type="date"
                                             value={Birthday}
                                             onChange={(event) => setBirthday(event.target.value)}
