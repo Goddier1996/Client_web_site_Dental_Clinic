@@ -1,4 +1,4 @@
-# Dental Clinic website - ReactJs , NodeJs , Microsoft SQL Server
+# Dental Clinic website - ReactJs , NodeJs , SQL Server(Not Active) , MongoDB(Active)
   
 Link website - https://clinic-dental-israel.netlify.app     
  
