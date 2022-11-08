@@ -14,12 +14,26 @@
 
 //connect to local host Node js server mongoDB
 
+// export const Config = {
+
+//     API: {
+//         BASE: "https://dental-clinic-private.herokuapp.com"
+//     }
+// }
+
+
+
+//connect to local host Node js server mongoDB
+
 export const Config = {
 
     API: {
-        BASE: "https://dental-clinic-private.herokuapp.com"
+        BASE: "https://dentalclinicprivateserver-production.up.railway.app"
     }
 }
+
+
+
 
 
 
