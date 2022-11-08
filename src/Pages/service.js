@@ -212,7 +212,7 @@ function service() {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!',
+                text: 'Please Sign In or Register , and you can add Like to this Review :)',
             })
 
             console.log(error)
@@ -345,7 +345,6 @@ function service() {
                                     </div>
 
                                     <div class="client-comment">
-                                        {/* <h6>Opinion :</h6> */}
                                         <p>{record.textReviews}</p>
                                     </div>
 
@@ -357,10 +356,7 @@ function service() {
                                                 onClick={() => addReviewsLike(record.FirstName, record._id)}>
                                                 <i class="far fa-thumbs-up"></i> {record.Count_likes}
                                             </button>
-                                            {/* <button class="like__btn" onClick={() => addReviewsLike(record.FirstName, record.Serial_code)}>
-    <span id="icon"><i class="far fa-thumbs-up"></i></span>
-    <span id="count">{record.Count_likes}</span> Like
-</button> */}
+
                                         </OverlayTrigger>
 
                                     </div>
@@ -451,8 +447,6 @@ function service() {
 
 
                                     <div class="client-comment">
-                                        {/* <h6>Opinion :</h6> */}
-
                                         <p>{record.textReviews}</p>
                                     </div>
 
