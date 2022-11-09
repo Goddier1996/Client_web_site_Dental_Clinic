@@ -24,6 +24,8 @@ export const API = {
 
         GET: `${Config.API.BASE}/api/hours`,
         DELETE: `${Config.API.BASE}/api/hours/reactive`,
+        ACTIVE: `${Config.API.BASE}/api/hours/active`,
+
     },
 
     DAYS: {

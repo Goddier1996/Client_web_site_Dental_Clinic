@@ -98,9 +98,7 @@ function User({ data_user }) {
 
     const ActiveHour = async () => {//1
 
-        await fetch(`${API.HOURS.GET}/active/${userData.Serial_codeHour}`,
-            { method: 'PATCH' }
-        );
+
 
 
         if (storedTheme === "dark") {
@@ -117,11 +115,11 @@ function User({ data_user }) {
 
                 if (result.isConfirmed) {
 
-                    saveDateUser();
-                    sessionStorage.clear();
+                    fetch(`${API.HOURS.GET}/active/${userData.Serial_codeHour}`,
+                        { method: 'PATCH' }
+                    );
 
-                    history.push("/");
-                    window.location.reload(false);
+                    saveDateUser();
                 }
 
                 else if (result.isDenied) {
@@ -148,10 +146,6 @@ function User({ data_user }) {
                 if (result.isConfirmed) {
 
                     saveDateUser();
-                    sessionStorage.clear();
-
-                    history.push("/");
-                    window.location.reload(false);
                 }
 
                 else if (result.isDenied) {
@@ -191,6 +185,12 @@ function User({ data_user }) {
                 },
                 body: JSON.stringify(user)
             });
+
+
+            // clear session storage after delete a hour day and serial code hour
+            sessionStorage.clear();
+            history.push("/");
+            window.location.reload(false);
 
 
         } catch (error) {
