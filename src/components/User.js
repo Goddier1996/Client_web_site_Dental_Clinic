@@ -145,6 +145,10 @@ function User({ data_user }) {
 
                 if (result.isConfirmed) {
 
+                    fetch(`${API.HOURS.GET}/active/${userData.Serial_codeHour}`,
+                        { method: 'PATCH' }
+                    );
+                    
                     saveDateUser();
                 }
 
