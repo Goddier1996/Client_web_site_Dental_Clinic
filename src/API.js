@@ -30,7 +30,7 @@ export const API = {
 
         GET: `${Config.API.BASE}/api/days`,
     },
-    
+
     MEDICAL_FILE: {
 
         GET: `${Config.API.BASE}/api/medical`,

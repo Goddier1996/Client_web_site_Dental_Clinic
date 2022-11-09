@@ -81,7 +81,7 @@ function About() {
         Swal.fire({
             background: 'none',
             showConfirmButton: false,
-            timer: 9000,
+            timer: 1000,
             html: '<div class="loader"></div>'
         })
     }, [])
@@ -113,23 +113,23 @@ function About() {
                 <div className='cardsInfoAbout' >
 
 
-                        <div className="a-box">
-                            <div className="img">
-                                <div className="img-inner">
-                                    <div className="inner-skew">
-                                        <img src={require("../images/12.png")} alt="icon" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="text">
-                                <h3>Doctor's :</h3>
-                                <div>
-                                    <p>{ShowCountDoctor}</p>
+                    <div className="a-box">
+                        <div className="img">
+                            <div className="img-inner">
+                                <div className="inner-skew">
+                                    <img src={require("../images/12.png")} alt="icon" />
                                 </div>
                             </div>
                         </div>
+                        <div className="text">
+                            <h3>Doctor's :</h3>
+                            <div>
+                                <p>{ShowCountDoctor}</p>
+                            </div>
+                        </div>
+                    </div>
 
-                    
+
 
 
                     <div className="a-box" >
@@ -150,43 +150,43 @@ function About() {
 
 
 
-                        <div className="a-box">
-                            <div className="img">
-                                <div className="img-inner">
-                                    <div className="inner-skew">
-                                        <img src={require("../images/users.png")} alt="icon" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="text">
-                                <h3>Our Customer's :</h3>
-                                <div>
-                                    <p>{ShowCountUsers}</p>
+                    <div className="a-box">
+                        <div className="img">
+                            <div className="img-inner">
+                                <div className="inner-skew">
+                                    <img src={require("../images/users.png")} alt="icon" />
                                 </div>
                             </div>
                         </div>
-
-                   
-
-
-
-                        <div className="a-box" >
-                            <div className="img">
-                                <div className="img-inner">
-                                    <div className="inner-skew">
-                                        <img src={require("../images/reviewuser.png")} alt="icon" />
-                                    </div>
-                                </div>
+                        <div className="text">
+                            <h3>Our Customer's :</h3>
+                            <div>
+                                <p>{ShowCountUsers}</p>
                             </div>
-                            <div className="text">
-                                <h3>Customer Review's :</h3>
-                                <div>
-                                    <p>{ShowCountReviews}</p>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div className="a-box" >
+                        <div className="img">
+                            <div className="img-inner">
+                                <div className="inner-skew">
+                                    <img src={require("../images/reviewuser.png")} alt="icon" />
                                 </div>
                             </div>
                         </div>
+                        <div className="text">
+                            <h3>Customer Review's :</h3>
+                            <div>
+                                <p>{ShowCountReviews}</p>
+                            </div>
+                        </div>
+                    </div>
 
-                    
+
                 </div>
             </>
         )
@@ -219,23 +219,23 @@ function About() {
 
 
 
-                        <div className="a-box">
-                            <div className="img">
-                                <div className="img-inner">
-                                    <div className="inner-skew">
-                                        <img src={require("../images/12.png")} alt="icon" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="textDark">
-                                <h3>Doctor's :</h3>
-                                <div>
-                                    <p>{ShowCountDoctor}</p>
+                    <div className="a-box">
+                        <div className="img">
+                            <div className="img-inner">
+                                <div className="inner-skew">
+                                    <img src={require("../images/12.png")} alt="icon" />
                                 </div>
                             </div>
                         </div>
+                        <div className="textDark">
+                            <h3>Doctor's :</h3>
+                            <div>
+                                <p>{ShowCountDoctor}</p>
+                            </div>
+                        </div>
+                    </div>
 
-                    
+
 
 
                     <div className="a-box" >
@@ -255,45 +255,45 @@ function About() {
                     </div>
 
 
-                    
 
-                        <div className="a-box">
-                            <div className="img">
-                                <div className="img-inner">
-                                    <div className="inner-skew">
-                                        <img src={require("../images/users.png")} alt="icon" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="textDark">
-                                <h3>Our Customer's :</h3>
-                                <div>
-                                    <p>{ShowCountUsers}</p>
+
+                    <div className="a-box">
+                        <div className="img">
+                            <div className="img-inner">
+                                <div className="inner-skew">
+                                    <img src={require("../images/users.png")} alt="icon" />
                                 </div>
                             </div>
                         </div>
-
-                    
-
-
-
-                        <div className="a-box" >
-                            <div className="img">
-                                <div className="img-inner">
-                                    <div className="inner-skew">
-                                        <img src={require("../images/reviewuser.png")} alt="icon" />
-                                    </div>
-                                </div>
+                        <div className="textDark">
+                            <h3>Our Customer's :</h3>
+                            <div>
+                                <p>{ShowCountUsers}</p>
                             </div>
-                            <div className="textDark">
-                                <h3>Customer Review's :</h3>
-                                <div>
-                                    <p>{ShowCountReviews}</p>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div className="a-box" >
+                        <div className="img">
+                            <div className="img-inner">
+                                <div className="inner-skew">
+                                    <img src={require("../images/reviewuser.png")} alt="icon" />
                                 </div>
                             </div>
                         </div>
+                        <div className="textDark">
+                            <h3>Customer Review's :</h3>
+                            <div>
+                                <p>{ShowCountReviews}</p>
+                            </div>
+                        </div>
+                    </div>
 
-                    
+
 
                 </div>
             </>
