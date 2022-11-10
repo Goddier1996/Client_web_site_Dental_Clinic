@@ -705,7 +705,7 @@ function User({ data_user }) {
                                     <tbody>
                                         <tr>
                                             <td>{CountReview++}</td>
-                                            <td style={{ textAlign: "center", fontSize: "12px" }}>{File.DatePublished}</td>
+                                            <td style={{ textAlign: "center", fontSize: "12px" }}>{File.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice}</td>
 
@@ -748,7 +748,7 @@ function User({ data_user }) {
                                     <tbody>
                                         <tr>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{HistoryPayFile++}</td>
-                                            <td style={{ textAlign: "center", fontSize: "12px" }}>{File.DatePublished}</td>
+                                            <td style={{ textAlign: "center", fontSize: "12px" }}>{File.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice}</td>
 
@@ -782,7 +782,7 @@ function User({ data_user }) {
                                     <tbody>
                                         <tr>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{MyReviews++}</td>
-                                            <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.Date_published}</td>
+                                            <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                             <td><Button size="sm" variant="danger"
                                                 onClick={() => DeleteReview(Review.Serial_code)}>
@@ -1216,7 +1216,7 @@ function User({ data_user }) {
                                     <tbody>
                                         <tr>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{CountReview++}</td>
-                                            <td style={{ textAlign: "center", fontSize: "12px" }}>{File.DatePublished}</td>
+                                            <td style={{ textAlign: "center", fontSize: "12px" }}>{File.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice}</td>
 
@@ -1259,7 +1259,7 @@ function User({ data_user }) {
                                     <tbody>
                                         <tr>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{HistoryPayFile++}</td>
-                                            <td style={{ textAlign: "center", fontSize: "12px" }}>{File.DatePublished}</td>
+                                            <td style={{ textAlign: "center", fontSize: "12px" }}>{File.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice}</td>
 
@@ -1292,7 +1292,7 @@ function User({ data_user }) {
                                     <tbody>
                                         <tr>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{MyReviews++}</td>
-                                            <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.Date_published}</td>
+                                            <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                             <td><Button size="sm" variant="danger"
                                                 onClick={() => DeleteReview(Review.Serial_code)}>
