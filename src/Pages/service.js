@@ -312,7 +312,7 @@ function service() {
                                 Close
                             </Button>
                             <Button variant="success" onClick={addReviews}>
-                                Save Changes
+                                Add a Review
                             </Button>
                         </Modal.Footer>
                     </Modal>
@@ -323,7 +323,7 @@ function service() {
 
                 <div className='OurReviews'>
 
-                <Row xs={1} md={2} lg={3} className="g-4">
+                    <Row xs={1} md={2} lg={3} className="g-4">
                         {reviews.sort((a, b) => b.Count_likes.length - a.Count_likes.length).map((record) => (
 
 
@@ -411,7 +411,7 @@ function service() {
                                 Close
                             </Button>
                             <Button variant="success" onClick={addReviews}>
-                                Save Changes
+                                Add a Review
                             </Button>
                         </Modal.Footer>
                     </Modal>
