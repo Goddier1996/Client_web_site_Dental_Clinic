@@ -100,3 +100,13 @@ html::-webkit-scrollbar-thumb {
     text-align: center;
     align-items: center;
 }
+
+
+
+@media(max-width:991px) {
+
+    .content {
+        font-size: 35px;
+        font-weight: 600;
+    }
+}
