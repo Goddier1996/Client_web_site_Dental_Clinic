@@ -106,7 +106,7 @@ html::-webkit-scrollbar-thumb {
 @media(max-width:991px) {
 
     .content {
-        font-size: 35px;
+        font-size: 30px;
         font-weight: 600;
     }
 }

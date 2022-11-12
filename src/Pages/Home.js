@@ -68,7 +68,7 @@ function Home() {
             <div>
 
                 <div className='main1'>
-                    <video src={videoBg} loop autoPlay muted playsInline />
+                <video src={videoBg} loop autoPlay muted playsInline />
                     <div className="content">
                         <h1>Welcome</h1>
                         <p>to the Dental Care Clinic</p>
