@@ -113,7 +113,7 @@ function Home() {
 
                 <div className='main1'>
                     {/* <video src={videoBg} autoPlay loop muted playsinline /> */}
-                    <video src={videoBg} autoPlay loop muted playSinline />
+                    <video src={videoBg} autoPlay loop muted webkit-playsinline={true} />
                     <div className="content">
                         <h1>Welcome</h1>
                         <p>to the Dental Care Clinic</p>
