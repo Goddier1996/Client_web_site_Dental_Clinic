@@ -112,7 +112,6 @@ function Home() {
             <div>
 
                 <div className='main1'>
-                    {/* <video src={videoBg} autoPlay loop muted playsinline /> */}
                     <video src={videoBg} loop autoPlay muted playsInline />
                     <div className="content">
                         <h1>Welcome</h1>
