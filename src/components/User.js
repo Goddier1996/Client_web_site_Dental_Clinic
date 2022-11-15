@@ -176,7 +176,7 @@ function User({ data_user }) {
                 Email: data_user.email,
                 User_password: data_user.password,
                 UserType_code: "1",
-                Confirm_password: data_user.confirm_password,
+                ConfirmPassword: data_user.confirm_password,
                 Day_date: null,
                 Hour_day: null,
                 Serial_codeHour: null
@@ -215,6 +215,7 @@ function User({ data_user }) {
     //update user date 
 
     const updateDateUser = async () => {
+        // alert(data_user.code)
         try {
 
             let user = {
@@ -230,13 +231,6 @@ function User({ data_user }) {
                 // Serial_codeHour: data_user.codeHour,
                 // IsActive: "1"
             }
-
-            // alert(user.FirstName)
-            // alert( user.User_Login)
-            // alert(user.Birthday)
-            // alert(user.Email)
-            // alert(user.User_password)
-            // alert(user.ConfirmPassword)
 
 
 
