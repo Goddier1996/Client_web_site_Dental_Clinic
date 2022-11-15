@@ -35,7 +35,7 @@ function User({ data_user }) {
 
 
 
-    const [users, SetUser] = useState([]);
+    // const [users, SetUser] = useState([]);
 
     const [MyReview, SetMyReview] = useState([]);
 
@@ -47,16 +47,15 @@ function User({ data_user }) {
 
     //check in forum input(update user value) if all value input = if yes update , else show erorr
 
-    const [validated, setValidated] = useState(false);
+    // const [validated, setValidated] = useState(false);
 
-    const handleSubmit = (event) => {
 
-        const form = event.currentTarget;
+    const handleSubmit = () => {
 
-        if (form.checkValidity() === false || Password != ConfirmPassword || Password.length < 6 && ConfirmPassword.length <= 6) {
+        // const form = event.currentTarget;
 
-            event.preventDefault();
-            event.stopPropagation();
+        if (Password != ConfirmPassword || Password.length < 6 && ConfirmPassword.length <= 6 || Password == '' || ConfirmPassword == '' || Login == '' || FirstName == '' || Email == '' || Birthday == '') {
+
 
             Swal.fire({
                 icon: 'error',
@@ -65,16 +64,23 @@ function User({ data_user }) {
                 toast: true,
                 position: 'top-end'
             })
+            return;
         }
 
         else {
-            setValidated(true)
 
-            updateDateUser();
+            Swal.fire({
+                icon: 'warning',
+                html: 'This option is Blocked Now !',
+                toast: true,
+                position: 'top-end'
+            })
+            return;
 
-            sessionStorage.clear();
-            history.push("/");
-            window.location.reload(false);
+            // updateDateUser();
+            // sessionStorage.clear();
+            // history.push("/");
+            // window.location.reload(false);
         }
     };
 
@@ -83,13 +89,13 @@ function User({ data_user }) {
 
     //load data user from data base and save in set
 
-    const LoadUser = async () => {
+    // const LoadUser = async () => {
 
-        let res = await fetch(`${API.USERS.GET}/${data_user.code}`, { method: 'GET' });
+    //     let res = await fetch(`${API.USERS.GET}/${data_user.code}`, { method: 'GET' });
 
-        let data = await res.json();
-        SetUser(data);
-    }
+    //     let data = await res.json();
+    //     SetUser(data);
+    // }
 
 
 
@@ -170,13 +176,13 @@ function User({ data_user }) {
         try {
 
             let user = {
-                FirstName: data_user.name,
-                User_Login: data_user.login,
-                Birthday: data_user.birthday,
-                Email: data_user.email,
-                User_password: data_user.password,
-                UserType_code: "1",
-                ConfirmPassword: data_user.confirm_password,
+                // FirstName: data_user.name,
+                // User_Login: data_user.login,
+                // Birthday: data_user.birthday,
+                // Email: data_user.email,
+                // User_password: data_user.password,
+                // UserType_code: "1",
+                // ConfirmPassword: data_user.confirm_password,
                 Day_date: null,
                 Hour_day: null,
                 Serial_codeHour: null
@@ -225,11 +231,6 @@ function User({ data_user }) {
                 Email: Email,
                 User_password: Password,
                 ConfirmPassword: ConfirmPassword,
-                // UserType_code: "1",
-                // Day_date: data_user.day,
-                // Hour_day: data_user.hour,
-                // Serial_codeHour: data_user.codeHour,
-                // IsActive: "1"
             }
 
 
@@ -390,7 +391,7 @@ function User({ data_user }) {
 
 
     useEffect(() => {
-        LoadUser();
+        // LoadUser();
         showAllMyReview();
         LoadMedicalFileUser();
         LoadMedicalFileUserIsNotActive();
@@ -545,7 +546,7 @@ function User({ data_user }) {
 
                         <Tab eventKey="personal data" title="personal data (Update)" className='updateDateUser'>
 
-                            <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                            <Form>
 
                                 <Row>
 
@@ -640,7 +641,7 @@ function User({ data_user }) {
                                 </Row>
 
                                 <div className='enterUpdate'>
-                                    <Button type="submit" variant="success">Submit form</Button>
+                                    <Button onClick={handleSubmit} variant="success">Submit form</Button>
                                 </div>
                             </Form>
 
@@ -803,7 +804,7 @@ function User({ data_user }) {
 
                         <Tab eventKey="personal data" title="personal data (Update)" className='updateDateUser'>
 
-                            <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                            <Form>
 
                                 <Row>
 
@@ -899,7 +900,7 @@ function User({ data_user }) {
                                 </Row>
 
                                 <div className='enterUpdate'>
-                                    <Button type="submit" variant="success">Submit form</Button>
+                                    <Button onClick={handleSubmit} variant="success">Submit form</Button>
                                 </div>
 
                             </Form>
@@ -1053,7 +1054,7 @@ function User({ data_user }) {
 
                         <Tab eventKey="personal data" title="personal data (Update)" className='updateDateUser'>
 
-                            <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                            <Form>
 
                                 <Row>
 
@@ -1149,7 +1150,7 @@ function User({ data_user }) {
                                 </Row>
 
                                 <div className='enterUpdate'>
-                                    <Button type="submit" variant="success">Submit form</Button>
+                                    <Button onClick={handleSubmit} variant="success">Submit form</Button>
                                 </div>
 
                             </Form>
@@ -1312,7 +1313,7 @@ function User({ data_user }) {
 
                         <Tab eventKey="personal data" title="personal data (Update)" className='updateDateUser'>
 
-                            <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                            <Form>
 
                                 <Row>
 
@@ -1407,7 +1408,7 @@ function User({ data_user }) {
                                 </Row>
 
                                 <div className='enterUpdate'>
-                                    <Button type="submit" variant="success">Submit form</Button>
+                                    <Button onClick={handleSubmit} variant="success">Submit form</Button>
                                 </div>
 
                             </Form>

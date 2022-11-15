@@ -11,7 +11,7 @@ export const API = {
         FORGET: `${Config.API.BASE}/api/users/findUser`,
         ADD: `${Config.API.BASE}/api/users`,
         LOGIN: `${Config.API.BASE}/api/users/login`,
-        UPDATE: `${Config.API.BASE}/api/users/update`,
+        PUT: `${Config.API.BASE}/api/users`,
     },
 
     REVIEWS: {
