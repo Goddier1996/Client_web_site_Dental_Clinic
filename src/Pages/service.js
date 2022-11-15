@@ -196,7 +196,6 @@ function service() {
             };
 
             await fetch(`${API.REVIEWS.GET}/${Serial_code}`, {
-                // method: 'PUT',
                 method: 'PATCH',
                 headers: {
                     "Content-Type": "application/json"
@@ -218,41 +217,6 @@ function service() {
 
             console.log(error)
         }
-
-
-
-
-
-
-
-        // try {
-
-        //     let like = {
-        //         how_like: likeReview,
-        //         Serial_code_how_Like: Serial_code
-        //     };
-
-        //     await fetch(API.REVIEWS.ADD_LIKE, {
-        //         method: 'POST',
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         },
-        //         body: JSON.stringify(like)
-        //     });
-
-        //     window.location.reload(false);
-
-
-        // } catch (error) {
-
-        //     Swal.fire({
-        //         icon: 'error',
-        //         title: 'Oops...',
-        //         text: 'Something went wrong!',
-        //     })
-
-        //     console.log(error);
-        // }
     }
 
 
@@ -357,7 +321,7 @@ function service() {
 
 
                                     <div className='clickLike'>
-                                        <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Like (:</Tooltip>}>
+                                        <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Like👍🏼</Tooltip>}>
 
                                             <button class="button-30" role="button"
                                                 onClick={() => addReviewsLike(record.FirstName, record._id)}>
@@ -457,7 +421,7 @@ function service() {
 
 
                                     <div className='clickLike'>
-                                        <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Like (:</Tooltip>}>
+                                        <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Like👍🏼</Tooltip>}>
 
                                             <button class="button-30" role="button"
                                                 onClick={() => addReviewsLike(record.FirstName, record._id)}>
