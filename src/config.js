@@ -23,7 +23,7 @@
 
 
 
-connect to local host Node js server mongoDB
+// connect to local host Node js server mongoDB
 
 export const Config = {
 
