@@ -23,24 +23,24 @@
 
 
 
-//connect to local host Node js server mongoDB
-
-// export const Config = {
-
-//     API: {
-//         BASE: "https://dentalclinicprivateserver-production.up.railway.app"
-//     }
-// }
-
-
-
+connect to local host Node js server mongoDB
 
 export const Config = {
 
-
     API: {
-        BASE: "http://localhost:5000",
+        BASE: "https://dentalclinicprivateserver-production.up.railway.app"
     }
-
 }
+
+
+
+
+// export const Config = {
+
+
+//     API: {
+//         BASE: "http://localhost:5000",
+//     }
+
+// }
 
