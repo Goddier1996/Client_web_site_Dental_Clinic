@@ -148,7 +148,7 @@ function User({ data_user }) {
                     fetch(`${API.HOURS.GET}/active/${userData.Serial_codeHour}`,
                         { method: 'PATCH' }
                     );
-                    
+
                     saveDateUser();
                 }
 
@@ -215,7 +215,6 @@ function User({ data_user }) {
     //update user date 
 
     const updateDateUser = async () => {
-
         try {
 
             let user = {
@@ -224,11 +223,22 @@ function User({ data_user }) {
                 Birthday: Birthday,
                 Email: Email,
                 User_password: Password,
-                Confirm_password: ConfirmPassword,
-                Day_date: data_user.day,
-                Hour_day: data_user.hour,
-                Serial_codeHour: data_user.code_hour
+                ConfirmPassword: ConfirmPassword,
+                // UserType_code: "1",
+                // Day_date: data_user.day,
+                // Hour_day: data_user.hour,
+                // Serial_codeHour: data_user.codeHour,
+                // IsActive: "1"
             }
+
+            // alert(user.FirstName)
+            // alert( user.User_Login)
+            // alert(user.Birthday)
+            // alert(user.Email)
+            // alert(user.User_password)
+            // alert(user.ConfirmPassword)
+
+
 
             await fetch(`${API.USERS.GET}/${data_user.code}`, {
                 // method: 'PUT',
@@ -549,7 +559,6 @@ function User({ data_user }) {
                                         <Form.Label className='colorText'>Login</Form.Label>
 
                                         <Form.Control
-
                                             value={Login}
                                             type="text"
                                             onChange={(event) => setLogin(event.target.value)}
@@ -625,7 +634,7 @@ function User({ data_user }) {
                                         <Form.Label className='colorText'>Confirm Password</Form.Label>
 
                                         <Form.Control
-                                            placeholder="Enter email"
+                                            placeholder="Confirm Password"
                                             type="Password"
                                             value={ConfirmPassword}
                                             onChange={(event) => setConfirmPassword(event.target.value)}

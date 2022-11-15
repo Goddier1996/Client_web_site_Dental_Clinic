@@ -14,7 +14,7 @@ function profile() {
 
     //save in opject all data user from session storage "user" , and save code user from "userCode"
     //this opject for user compoment
-    
+
     const obj = {
 
         code: userData._id,
@@ -23,9 +23,10 @@ function profile() {
         email: userData.Email,
         birthday: userData.Birthday,
         password: userData.User_password,
-        confirm_password: userData.Confirm_password,
+        confirm_password: userData.ConfirmPassword,
         day: userData.Day_date,
         hour: userData.Hour_day,
+        codeHour: userData.Serial_codeHour
     }
 
 
