@@ -188,8 +188,8 @@ function Sign_in() {
             sessionStorage.setItem("user", JSON.stringify(data)); // 1
 
 
-            let userCode = { User_code: data._id }// 2
-            sessionStorage.setItem("userCode", JSON.stringify(userCode))// 3
+            // let userCode = { User_code: data._id }// 2
+            // sessionStorage.setItem("userCode", JSON.stringify(userCode))// 3
 
             openSwalWhenLogin(data.FirstName, data.UserType_code);
 
@@ -238,8 +238,8 @@ function Sign_in() {
             sessionStorage.setItem("user", JSON.stringify(data)); // 1
 
 
-            let userCode = { User_code: data._id }// 2
-            sessionStorage.setItem("userCode", JSON.stringify(userCode))// 3
+            // let userCode = { User_code: data._id }// 2
+            // sessionStorage.setItem("userCode", JSON.stringify(userCode))// 3
 
             openSwalWhenLogin(data.FirstName, data.UserType_code);
 
@@ -279,8 +279,8 @@ function Sign_in() {
             sessionStorage.setItem("user", JSON.stringify(data)); // 1
 
 
-            let userCode = { User_code: data.User_code }// 2
-            sessionStorage.setItem("userCode", JSON.stringify(userCode))// 3
+            // let userCode = { User_code: data.User_code }// 2
+            // sessionStorage.setItem("userCode", JSON.stringify(userCode))// 3
 
             openSwalWhenLogin(data.FirstName, data.UserType_code);
 

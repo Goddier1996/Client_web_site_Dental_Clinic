@@ -26,28 +26,30 @@ function Fotter() {
                                 <a
                                     className='btn btn-primary btn-floating m-1'
                                     style={{ backgroundColor: '#3b5998', border: "none" }}
-                                    href='#!'
+                                    href='https://www.facebook.com/profile.php?id=100007268836178'
                                     role='button'
                                 >
                                     <MDBIcon fab icon='facebook-f' />
                                 </a>
 
-                                <a
-                                    className='btn btn-primary btn-floating m-1'
-                                    style={{ backgroundColor: '#55acee', border: "none" }}
-                                    href='#!'
-                                    role='button'
-                                >
-                                    <MDBIcon fab icon='twitter' />
-                                </a>
 
                                 <a
                                     className='btn btn-primary btn-floating m-1'
                                     style={{ backgroundColor: '#ac2bac', border: "none" }}
-                                    href='#!'
+                                    href='https://www.instagram.com/artem_kot96'
                                     role='button'
                                 >
                                     <MDBIcon fab icon='instagram' />
+                                </a>
+
+
+                                <a
+                                    className='btn btn-primary btn-floating m-1'
+                                    style={{ backgroundColor: '#0077b5', border: "none" }}
+                                    href='https://www.linkedin.com/in/artem-kot96'
+                                    role='button'
+                                >
+                                    <MDBIcon fab icon='linkedin' />
                                 </a>
 
                             </section>
@@ -63,7 +65,7 @@ function Fotter() {
     }
 
 
-    
+
     else {
 
         return (
@@ -77,28 +79,30 @@ function Fotter() {
                                 <a
                                     className='btn btn-primary btn-floating m-1'
                                     style={{ backgroundColor: '#3b5998', border: "none" }}
-                                    href='#!'
+                                    href='https://www.facebook.com/profile.php?id=100007268836178'
                                     role='button'
                                 >
                                     <MDBIcon fab icon='facebook-f' />
                                 </a>
 
-                                <a
-                                    className='btn btn-primary btn-floating m-1'
-                                    style={{ backgroundColor: '#55acee', border: "none" }}
-                                    href='#!'
-                                    role='button'
-                                >
-                                    <MDBIcon fab icon='twitter' />
-                                </a>
 
                                 <a
                                     className='btn btn-primary btn-floating m-1'
                                     style={{ backgroundColor: '#ac2bac', border: "none" }}
-                                    href='#!'
+                                    href='https://www.instagram.com/artem_kot96'
                                     role='button'
                                 >
                                     <MDBIcon fab icon='instagram' />
+                                </a>
+
+
+                                <a
+                                    className='btn btn-primary btn-floating m-1'
+                                    style={{ backgroundColor: '#0077b5', border: "none" }}
+                                    href='https://www.linkedin.com/in/artem-kot96'
+                                    role='button'
+                                >
+                                    <MDBIcon fab icon='linkedin' />
                                 </a>
 
                             </section>
@@ -113,7 +117,7 @@ function Fotter() {
             </div>
         )
     }
-    
+
 }
 
 export default Fotter;
