@@ -102,3 +102,11 @@
     margin-top: 5%;
     margin-bottom: 2%;
 }
+
+
+
+
+.styleVideoAdmin video {
+    width: 100%;
+    background: #373e443d;
+}

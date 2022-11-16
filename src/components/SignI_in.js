@@ -6,6 +6,7 @@ import Swal from 'sweetalert2'
 import { Modal, Form } from 'react-bootstrap';
 import '../css/login.css'
 import ForgetPaswword from '../components/forgetPassword'
+import videoBg from '../images/video11.mp4'
 
 
 
@@ -294,6 +295,21 @@ function Sign_in() {
 
 
 
+    // show video info about Admin what he can to do in this website
+    const AdminInfo = async () => {
+
+        Swal.fire({
+            html: `<div class="styleVideoAdmin"><video controls autoplay loop muted playsinline src=${videoBg}></video></div>`,
+            confirmButtonText: 'Wow',
+            background: 'rgba(0, 0, 0, 0.801)',
+            confirmButtonColor: '#2d79b5'
+        })
+
+    }
+
+
+
+
 
     if (storedTheme === "light") {
 
@@ -354,6 +370,9 @@ function Sign_in() {
                                     <p>Connect Demo
                                         <a onClick={connectDemoUser}> User</a> or
                                         <a onClick={connectDemoDoctor}> Doctor</a>
+                                        <br />
+                                        <br />
+                                        <a onClick={AdminInfo}>Click See What Admin can to do !</a>
                                     </p>
                                 </div>
 
@@ -439,6 +458,9 @@ function Sign_in() {
                                     <p>Connect Demo
                                         <a onClick={connectDemoUser}> User</a> or
                                         <a onClick={connectDemoDoctor}> Doctor</a>
+                                        <br />
+                                        <br />
+                                        <a onClick={AdminInfo}>Click See What Admin can to do !</a>
                                     </p>
                                 </div>
 
