@@ -366,15 +366,20 @@ function Sign_in() {
                                 <div className='borderSpaceDark'></div>
 
 
+
                                 <div className='DemoUserAndDoctorDark'>
                                     <p>Connect Demo
+
                                         <a onClick={connectDemoUser}> User</a> or
                                         <a onClick={connectDemoDoctor}> Doctor</a>
-                                        <br />
-                                        <br />
-                                        <a onClick={AdminInfo}>Click See What Admin can to do !</a>
                                     </p>
                                 </div>
+
+
+                                <div className='infoVideoAAdminDark'>
+                                    <a onClick={AdminInfo}>Click See What Admin can to do !</a>
+                                </div>
+                                <br />
 
 
                                 <div className="messageDark">
@@ -456,14 +461,17 @@ function Sign_in() {
 
                                 <div className='DemoUserAndDoctor'>
                                     <p>Connect Demo
+
                                         <a onClick={connectDemoUser}> User</a> or
                                         <a onClick={connectDemoDoctor}> Doctor</a>
-                                        <br />
-                                        <br />
-                                        <a onClick={AdminInfo}>Click See What Admin can to do !</a>
                                     </p>
                                 </div>
 
+
+                                <div className='infoVideoAAdmin'>
+                                    <a onClick={AdminInfo}>Click See What Admin can to do !</a>
+                                </div>
+                                <br />
 
                                 <div className="message">
                                     <p onClick={showPopUpforgetPaswword}>Forgot your password</p>

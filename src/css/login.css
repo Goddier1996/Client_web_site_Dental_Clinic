@@ -48,19 +48,23 @@
 .message,
 .messageDark,
 .DemoUserAndDoctor,
-.DemoUserAndDoctorDark {
+.DemoUserAndDoctorDark,
+.infoVideoAAdmin,
+.infoVideoAAdminDark {
     display: flex;
     justify-content: center;
     font-size: 13px;
 }
 
 .messageDark,
-.DemoUserAndDoctorDark {
+.DemoUserAndDoctorDark,
+.infoVideoAAdminDark {
     color: white;
 }
 
 .messageDark p,
-.message p {
+.message p,
+.infoVideoAAdminDark a {
     cursor: pointer;
 }
 
@@ -109,4 +113,77 @@
 .styleVideoAdmin video {
     width: 100%;
     background: #373e443d;
+}
+
+
+.infoVideoAAdmin a {
+    animation: color-changeInfoAdmin 2s infinite;
+    text-decoration: none;
+    font-weight: bold;
+    color: #232323;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+@keyframes color-changeInfoAdmin {
+    0% {
+        color: #000000;
+    }
+
+    100% {
+        color: #60b6f1;
+    }
+}
+
+
+
+.DemoUserAndDoctor a {
+    animation: color-changeInfoDemoConnect 2s infinite;
+}
+
+
+
+@keyframes color-changeInfoDemoConnect {
+    0% {
+        color: #000000;
+    }
+
+    100% {
+        color: #fec107;
+    }
+}
+
+
+
+.DemoUserAndDoctorDark a {
+    animation: color-changeInfoDemoConnectDark 2s infinite;
+}
+
+
+@keyframes color-changeInfoDemoConnectDark {
+    0% {
+        color: #ffffff;
+    }
+
+    100% {
+        color: #fec107;
+    }
+}
+
+
+
+
+.infoVideoAAdminDark a {
+    animation: color-changeInfoAdminDark 2s infinite;
+}
+
+
+@keyframes color-changeInfoAdminDark {
+    0% {
+        color: #ffffff;
+    }
+
+    100% {
+        color: #60b6f1;
+    }
 }
