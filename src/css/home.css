@@ -74,7 +74,9 @@ html::-webkit-scrollbar-thumb {
     background-size: cover;
     background-repeat: no-repeat;
     object-fit: cover;
-    border-radius: 30px;
+    /* border-radius: 30px; */
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
 }
 
 .categoryLook {
@@ -89,7 +91,7 @@ html::-webkit-scrollbar-thumb {
     left: 50%;
     transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, 0.301);
-    border-radius: 30px;
+    /* border-radius: 30px; */
     width: 92%;
 }
 
@@ -108,5 +110,15 @@ html::-webkit-scrollbar-thumb {
     .content {
         font-size: 30px;
         font-weight: 600;
+    }
+
+    .title {
+        position: absolute;
+        top: 82%;
+        left: 50%;
+    }
+
+    .title h1 {
+        font-size: 20px;
     }
 }
