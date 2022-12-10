@@ -115,7 +115,6 @@ html::-webkit-scrollbar-thumb {
     .title {
         position: absolute;
         top: 82%;
-        left: 50%;
     }
 
     .title h1 {

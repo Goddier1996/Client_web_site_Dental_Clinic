@@ -108,7 +108,7 @@ function Register() {
                                 <Row>
                                     <Form.Group as={Col} md="6">
                                         <Form.Control
-                                            style={{ background: "none", fontSize: "14px", textAlign: "center" }}
+                                            style={{ fontSize: "14px", textAlign: "center" }}
                                             type="text"
                                             placeholder='Enter Login'
                                             value={User_Login}
@@ -118,7 +118,7 @@ function Register() {
 
                                     <Form.Group as={Col} md="6">
                                         <Form.Control
-                                            style={{ background: "none", fontSize: "14px", textAlign: "center" }}
+                                            style={{ fontSize: "14px", textAlign: "center" }}
                                             type="text"
                                             placeholder='Enter First Name'
                                             value={FirstName}
@@ -131,7 +131,7 @@ function Register() {
                                 <Row>
                                     <Form.Group as={Col} md="12">
                                         <Form.Control
-                                            style={{ background: "none", fontSize: "14px", textAlign: "center" }}
+                                            style={{ fontSize: "14px", textAlign: "center" }}
                                             type="email"
                                             placeholder='Enter Email'
                                             value={Email}
@@ -143,7 +143,7 @@ function Register() {
                                 <Row>
                                     <Form.Group as={Col} md="6">
                                         <Form.Control
-                                            style={{ background: "none", fontSize: "14px", textAlign: "center" }}
+                                            style={{ fontSize: "14px", textAlign: "center" }}
                                             type="password"
                                             placeholder='Enter Password'
                                             value={Password}
@@ -153,7 +153,7 @@ function Register() {
 
                                     <Form.Group as={Col} md="6">
                                         <Form.Control
-                                            style={{ background: "none", fontSize: "14px", textAlign: "center" }}
+                                            style={{ fontSize: "14px", textAlign: "center" }}
                                             type="password"
                                             placeholder='Enter Confirm Password'
                                             value={ConfirmPassword}
@@ -166,7 +166,7 @@ function Register() {
                                 <Row>
                                     <Form.Group as={Col} md="12">
                                         <Form.Control
-                                            style={{ background: "none", fontSize: "14px", textAlign: "center", color: "white" }}
+                                            style={{ fontSize: "14px", textAlign: "center", color: "white" }}
                                             type="date"
                                             value={Birthday}
                                             onChange={(event) => setBirthday(event.target.value)}
@@ -204,7 +204,7 @@ function Register() {
                                 <Row>
                                     <Form.Group as={Col} md="6">
                                         <Form.Control
-                                            style={{ background: "none", fontSize: "14px", textAlign: "center" }}
+                                            style={{ background: "rgba(0, 0, 0, 0.1)", fontSize: "14px", textAlign: "center" }}
                                             type="text"
                                             placeholder='Enter Login'
                                             value={User_Login}
@@ -214,7 +214,7 @@ function Register() {
 
                                     <Form.Group as={Col} md="6">
                                         <Form.Control
-                                            style={{ background: "none", fontSize: "14px", textAlign: "center" }}
+                                            style={{ background: "rgba(0, 0, 0, 0.1)", fontSize: "14px", textAlign: "center" }}
                                             type="text"
                                             placeholder='Enter First Name'
                                             value={FirstName}
@@ -227,7 +227,7 @@ function Register() {
                                 <Row>
                                     <Form.Group as={Col} md="12">
                                         <Form.Control
-                                            style={{ background: "none", fontSize: "14px", textAlign: "center" }}
+                                            style={{ background: "rgba(0, 0, 0, 0.1)", fontSize: "14px", textAlign: "center" }}
                                             type="email"
                                             placeholder='Enter Email'
                                             value={Email}
@@ -239,7 +239,7 @@ function Register() {
                                 <Row>
                                     <Form.Group as={Col} md="6">
                                         <Form.Control
-                                            style={{ background: "none", fontSize: "14px", textAlign: "center" }}
+                                            style={{ background: "rgba(0, 0, 0, 0.1)", fontSize: "14px", textAlign: "center" }}
                                             type="password"
                                             placeholder='Enter Password'
                                             value={Password}
@@ -249,7 +249,7 @@ function Register() {
 
                                     <Form.Group as={Col} md="6">
                                         <Form.Control
-                                            style={{ background: "none", fontSize: "14px", textAlign: "center" }}
+                                            style={{ background: "rgba(0, 0, 0, 0.1)", fontSize: "14px", textAlign: "center" }}
                                             type="password"
                                             placeholder='Enter Confirm Password'
                                             value={ConfirmPassword}
@@ -262,7 +262,7 @@ function Register() {
                                 <Row>
                                     <Form.Group as={Col} md="12">
                                         <Form.Control
-                                            style={{ background: "none", fontSize: "14px", textAlign: "center", color: "black" }}
+                                            style={{ background: "rgba(0, 0, 0, 0.1)", fontSize: "14px", textAlign: "center" }}
                                             type="date"
                                             value={Birthday}
                                             onChange={(event) => setBirthday(event.target.value)}
