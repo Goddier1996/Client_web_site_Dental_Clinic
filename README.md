@@ -15,12 +15,12 @@ In addition, the doctor can look at debts, customers who have not paid for their
 
 Admin can control users, delete them or restore the user, delete opinions, add new doctors or block a certain doctor.
 
-
+ 
 server this website (MongoDB = Active) - https://github.com/Goddier1996/Dental_Clinic_PublicServer
 
 server this website (SQL Server = Not Active) - https://github.com/Goddier1996/Server_Web_site_Dental_Clinic
  
- 
+  
 # video :
 
 https://user-images.githubusercontent.com/59862302/181908212-632c0fdb-6c9b-4968-ba7c-98834c07e771.mp4
