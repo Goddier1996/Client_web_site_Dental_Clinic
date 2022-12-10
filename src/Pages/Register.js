@@ -8,19 +8,22 @@ import { useHistory } from 'react-router-dom';
 
 
 
-
+// here Register Page
 function Register() {
 
     const history = useHistory()
+
+    // input date Birthday , and show defult date when input your date
     let d = new Date();
     let DatePublished = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+    const [Birthday, setBirthday] = useState(DatePublished);
 
     const [User_Login, setLogin] = useState('');
     const [FirstName, setFirstName] = useState('');
     const [Email, setEmail] = useState('');
-    const [Birthday, setBirthday] = useState(DatePublished);
     const [Password, setPassword] = useState('');
     const [ConfirmPassword, setConfirmPassword] = useState('');
+
 
     let storedTheme = localStorage.getItem("theme");
 
@@ -167,6 +170,11 @@ function Register() {
 
                                 <Row>
                                     <Form.Group as={Col} md="12">
+
+                                        <div className='titleBirthdayDate'>
+                                            <p>Enter Birthday Date :</p>
+                                        </div>
+
                                         <Form.Control
                                             style={{ fontSize: "14px", textAlign: "center", color: "white" }}
                                             type="date"
@@ -262,12 +270,16 @@ function Register() {
 
 
                                 <Row>
+
                                     <Form.Group as={Col} md="12">
+
+                                        <div className='titleBirthdayDate'>
+                                            <p>Enter Birthday Date :</p>
+                                        </div>
+
                                         <Form.Control
                                             style={{ background: "rgba(0, 0, 0, 0.1)", fontSize: "14px", textAlign: "center" }}
                                             type="date"
-  
-                                            placeholder='2018-01-01'
                                             value={Birthday}
                                             onChange={(event) => setBirthday(event.target.value)}
                                             required />

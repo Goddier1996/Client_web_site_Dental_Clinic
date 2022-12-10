@@ -1,10 +1,9 @@
-
 /* placeholder text style */
 input[type="date"]::-webkit-datetime-edit-text,
 input[type="date"]::-webkit-datetime-edit-month-field,
 input[type="date"]::-webkit-datetime-edit-day-field,
 input[type="date"]::-webkit-datetime-edit-year-field {
-  color: #888;
+    color: #888;
 }
 
 /* regular text style */
@@ -12,7 +11,11 @@ input[type="date"].date-input--has-value::-webkit-datetime-edit-text,
 input[type="date"].date-input--has-value::-webkit-datetime-edit-month-field,
 input[type="date"].date-input--has-value::-webkit-datetime-edit-day-field,
 input[type="date"].date-input--has-value::-webkit-datetime-edit-year-field {
-  color: #f8f9fa;
+    color: #f8f9fa;
+}
+
+.titleBirthdayDate p {
+    font-size: 14px;
 }
 
 
