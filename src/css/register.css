@@ -1,3 +1,10 @@
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(0);
+}
+
+
+
 .banner1 {
     display: grid;
     grid-template-columns: 1.4fr 1fr;

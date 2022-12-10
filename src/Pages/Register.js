@@ -262,7 +262,7 @@ function Register() {
                                 <Row>
                                     <Form.Group as={Col} md="12">
                                         <Form.Control
-                                            style={{ background: "rgba(0, 0, 0, 0.1)", fontSize: "14px", textAlign: "center" }}
+                                            style={{ background: "rgba(0, 0, 0, 0.1)" }}
                                             type="date"
                                             value={Birthday}
                                             onChange={(event) => setBirthday(event.target.value)}
