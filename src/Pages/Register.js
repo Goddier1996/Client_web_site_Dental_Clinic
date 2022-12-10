@@ -12,11 +12,13 @@ import { useHistory } from 'react-router-dom';
 function Register() {
 
     const history = useHistory()
+    let d = new Date();
+    let DatePublished = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
 
     const [User_Login, setLogin] = useState('');
     const [FirstName, setFirstName] = useState('');
     const [Email, setEmail] = useState('');
-    const [Birthday, setBirthday] = useState('');
+    const [Birthday, setBirthday] = useState(DatePublished);
     const [Password, setPassword] = useState('');
     const [ConfirmPassword, setConfirmPassword] = useState('');
 
