@@ -3,7 +3,7 @@ import { useState } from "react";
 import '../css/PayService.css'
 import Swal from 'sweetalert2'
 import { API } from '../API';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Modal } from 'react-bootstrap';
 import '../css/profile.css'
 
 
@@ -23,8 +23,43 @@ function AddMedicalFileUser() {
 
 
 
-    // add mew medical file to user Id , save in data base
+    // check if File_user was url link image
+    const checkIfUrlLinkFile = urlString => {
+        var urlPattern = new RegExp('(jpg|jpeg|png|webp|avif|gif|svg)')
+        return !!urlPattern.test(urlString);
+    }
 
+    
+
+    // check all input value
+    const checkInput = async () => {
+
+        let check = checkIfUrlLinkFile(File_user)
+
+        if (textDoctor == '' || priceSevice == '' || isNaN(priceSevice) || check == false) {
+
+            Swal.fire({
+                icon: 'warning',
+                text: 'input please value Or Price in Not number Or in not url link image !',
+                toast: true,
+                position: 'top-end'
+            })
+
+            return;
+        }
+
+
+        else {
+
+            addMedicalFileUser()
+        }
+
+
+    }
+
+
+
+    // add mew medical file to user Id , save in data base
     const addMedicalFileUser = async () => {
 
         let d = new Date();
@@ -33,7 +68,7 @@ function AddMedicalFileUser() {
         try {
             let File = {
                 name: date.FirstName,
-                email:date.Email,
+                email: date.Email,
                 Publish_by: date.User_code,
                 Date_published: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
                 File_user: File_user,
@@ -79,6 +114,10 @@ function AddMedicalFileUser() {
 
         <div>
 
+            <Modal.Header>
+                <Modal.Title><h1>Medical File : {date.FirstName}</h1></Modal.Title>
+            </Modal.Header>
+
             <div className='inputMedicalDate'>
 
 
@@ -113,7 +152,7 @@ function AddMedicalFileUser() {
                 </Form.Group>
 
 
-                <Button variant="success" onClick={addMedicalFileUser}>Success</Button>
+                <Button variant="success" onClick={checkInput}>Success</Button>
 
             </div>
         </div>

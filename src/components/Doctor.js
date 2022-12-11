@@ -40,9 +40,9 @@ function Doctor(props) {
 
     //load data user from data base 
 
-    const LoadUser = async () => { 
+    const LoadUser = async () => {
 
-        let res = await fetch(`${API.USERS.GET}/${props.code}`, { method: 'GET' });
+        let res = await fetch(`${API.USERS.GET}/${props}`, { method: 'GET' });
 
         let data = await res.json();
         SetUser(data);
@@ -53,14 +53,13 @@ function Doctor(props) {
 
     //update day and hour to null in user + active the hour to ather users can add , at end show popup Doctor send date Medical File to User
 
-    const updateDayHour = async (User_code, Serial_codeHour, FirstName,Email) => {
-
+    const updateDayHour = async (User_code, Serial_codeHour, FirstName, Email) => {
 
         let date =
         {
             User_code: User_code,
             FirstName: FirstName,
-            Email:Email
+            Email: Email
         }
 
         sessionStorage.setItem("userDateMedical", JSON.stringify(date))
@@ -200,13 +199,10 @@ function Doctor(props) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Email}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Day_date}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Hour_day}</td>
-                                            <td style={{ width: "7%" }} ><Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.Serial_codeHour, user.FirstName,user.Email)}>Send Medical File</Button></td>
+                                            <td style={{ width: "7%" }} ><Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.Serial_codeHour, user.FirstName, user.Email)}>Send Medical File</Button></td>
                                         </tr>
 
-                                        <Modal show={show} onHide={handleClose} style={{ background: "rgba(0, 0, 0, 0.95)" }} >
-                                            <Modal.Header>
-                                                <Modal.Title><h1>Medical File : {user.FirstName}</h1></Modal.Title>
-                                            </Modal.Header>
+                                        <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.95)" }} >
 
                                             <AddMedicalFileUser />
 
@@ -305,13 +301,10 @@ function Doctor(props) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Email}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Day_date}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Hour_day}</td>
-                                            <td style={{ width: "7%" }} ><Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.Serial_codeHour, user.FirstName,user.Email)}>Send Medical File</Button></td>
+                                            <td style={{ width: "7%" }} ><Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.Serial_codeHour, user.FirstName, user.Email)}>Send Medical File</Button></td>
                                         </tr>
 
-                                        <Modal show={show} onHide={handleClose} style={{ background: "rgba(0, 0, 0, 0.95)" }} >
-                                            <Modal.Header>
-                                                <Modal.Title><h1>Medical File : {user.FirstName}</h1></Modal.Title>
-                                            </Modal.Header>
+                                        <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.95)" }} >
 
                                             <AddMedicalFileUser />
 

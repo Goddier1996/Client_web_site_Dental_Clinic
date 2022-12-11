@@ -85,7 +85,7 @@ function Sign_in() {
         if (storedTheme === "light" && UserType_code == 2) {
 
             Swal.fire({
-                title: `Hello Doctor ${nameUser}`,
+                title: `Hello ${nameUser}`,
                 icon: 'success',
                 html: 'Let`s work :)',
                 toast: true,
@@ -104,7 +104,7 @@ function Sign_in() {
         if (storedTheme === "dark" && UserType_code == 2) {
 
             Swal.fire({
-                title: `Hello Doctor ${nameUser}`,
+                title: `Hello ${nameUser}`,
                 icon: 'success',
                 html: 'Let`s work :)',
                 toast: true,
