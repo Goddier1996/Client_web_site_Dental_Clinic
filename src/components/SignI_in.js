@@ -38,7 +38,6 @@ function Sign_in() {
 
 
     // show pop up alert swal when we connect to login = use in loginUser
-
     const openSwalWhenLogin = async (nameUser, UserType_code) => {
 
         //user popup swal
@@ -162,9 +161,30 @@ function Sign_in() {
 
 
 
-    // login in the use check if have data base , if have we save in sessionStorage
+    // check if input value when sign in user , if not input show alert message
+    const CheckValue = async () => {
 
-    const loginUser = async (x) => {
+        if (Login == '' || Password == '') {
+
+            Swal.fire({
+                icon: 'warning',
+                text: 'input please value !',
+                toast: true,
+                position: 'top-end'
+            })
+        }
+
+        else {
+            loginUser()
+        }
+
+    }
+
+
+
+
+    // login in the use check if have data base , if have we save in sessionStorage
+    const loginUser = async () => {
 
 
         try {
@@ -186,6 +206,22 @@ function Sign_in() {
 
             let data = await res.json();
 
+
+            // if dont have this user in database show alert
+            if (data == null) {
+
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Sorry dont have This user in Data Base , Try Again',
+                    toast: true,
+                    position: 'top-end'
+                })
+
+                return;
+            }
+
+
+            // save user data in sessionStorage to use in other pages
             sessionStorage.setItem("user", JSON.stringify(data)); // 1
 
 
@@ -204,7 +240,6 @@ function Sign_in() {
 
 
     //show pup up if we chiose forget password
-
     const showPopUpforgetPaswword = () => {
         handleShow();
     }
@@ -214,7 +249,6 @@ function Sign_in() {
 
 
     //here we connect demo user , for other users how went see can use demo user , instead of Register Or Login
-
     const connectDemoUser = async () => {
 
         try {
@@ -255,7 +289,6 @@ function Sign_in() {
 
 
     //connect demo doctor
-
     const connectDemoDoctor = async () => {
 
         try {
@@ -360,7 +393,7 @@ function Sign_in() {
 
 
 
-                                <button type="button" onClick={loginUser} className="btn btn-secondary btn-block">LOGIN</button>
+                                <button type="button" onClick={CheckValue} className="btn btn-secondary btn-block">LOGIN</button>
 
 
                                 <div className='borderSpaceDark'></div>
@@ -454,7 +487,7 @@ function Sign_in() {
                                     />
                                 </div>
 
-                                <button type="button" onClick={loginUser} className="btn btn-secondary btn-block">LOGIN</button>
+                                <button type="button" onClick={CheckValue} className="btn btn-secondary btn-block">LOGIN</button>
 
                                 <div className='borderSpace' ></div>
 
