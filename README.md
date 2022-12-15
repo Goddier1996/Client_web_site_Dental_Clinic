@@ -14,7 +14,7 @@ The doctors can look from a doctor's profile page who needs to come (user's turn
 In addition, the doctor can look at debts, customers who have not paid for their service.
 
 Admin can control users, delete them or restore the user, delete opinions, add new doctors or block a certain doctor.
-
+ 
  
 server this website (MongoDB = Active) - https://github.com/Goddier1996/Dental_Clinic_PublicServer
 
