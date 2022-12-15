@@ -11,9 +11,7 @@ import Swal from 'sweetalert2'
 //here component Doctor we to do what doctor can do = this component use in profile
 
 //take props doctor user code to show data doctor in profile doctor
-
 function Doctor(props) {
-
 
 
     let storedTheme = localStorage.getItem("theme");
@@ -22,7 +20,6 @@ function Doctor(props) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
 
 
     const [medical_File_All_users, SetMedical_File_All_users] = useState([]);
@@ -37,9 +34,7 @@ function Doctor(props) {
 
 
 
-
     //load data user from data base 
-
     const LoadUser = async () => {
 
         let res = await fetch(`${API.USERS.GET}/${props}`, { method: 'GET' });
@@ -52,7 +47,6 @@ function Doctor(props) {
 
 
     //update day and hour to null in user + active the hour to ather users can add , at end show popup Doctor send date Medical File to User
-
     const updateDayHour = async (User_code, Serial_codeHour, FirstName, Email) => {
 
         let date =
@@ -66,7 +60,6 @@ function Doctor(props) {
 
         //show popup
         handleShow();
-
 
         ActiveHour(Serial_codeHour);
 
@@ -97,7 +90,6 @@ function Doctor(props) {
 
     //active the hour in profile page if user dont need this turn , now status was delete after this function was active
     //use in function = updateDayHour
-
     const ActiveHour = async (Serial_codeHour) => {
 
         await fetch(`${API.HOURS.GET}/active/${Serial_codeHour}`,
@@ -109,7 +101,6 @@ function Doctor(props) {
 
 
     //show all users how have a active queues(this option for doctor)
-
     const LoadUsersActive_queues = async () => {
 
         let res = await fetch(`${API.USERS.GET}/showTurnUsers`, { method: 'GET' });
@@ -122,11 +113,9 @@ function Doctor(props) {
 
 
     // load all users medical files what dotor send How need to Pay Service , and doctor can see how need (all users)
-
     const LoadMedicalFileAllUsers = async () => {
 
         let res = await fetch(`${API.MEDICAL_FILE.GET}/showHowNeedPay`, { method: 'GET' });
-
 
         let data = await res.json();
         SetMedical_File_All_users(data);

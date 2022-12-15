@@ -24,7 +24,6 @@ function service() {
 
 
     // load all reviews all users from data base
-
     const LoadReviews = async () => {
 
         let res = await fetch(API.REVIEWS.GET, { method: 'GET' });
@@ -36,7 +35,6 @@ function service() {
 
 
     //check if user connect , if yes ew can add new review
-
     const CheckUserConnected = () => {
 
         if (userData == null && storedTheme === "dark") {
@@ -75,7 +73,6 @@ function service() {
 
 
     //add review to data base
-
     const addReviews = async () => {
 
         if (textReviews < 1) {
@@ -86,7 +83,6 @@ function service() {
                 toast: true,
                 position: 'top-end'
             })
-
             return
         }
 
@@ -163,14 +159,12 @@ function service() {
                 console.log(error);
             }
         }
-
     }
 
 
 
 
     //add likes to review what user chiose
-
     const addReviewsLike = async (likeReview, Serial_code) => {
 
 
@@ -223,7 +217,6 @@ function service() {
 
 
     //here we show pop up ui/ux when load this page
-
     useEffect(() => {
 
         Swal.fire({

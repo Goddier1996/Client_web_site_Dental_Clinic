@@ -11,31 +11,22 @@ import PayService from '../components/PayService'
 
 
 //data_user - take all data user from Page Profile (user)
-
 function User({ data_user }) {
-
 
 
     const [show1, setShow1] = useState(false);
     const handleClose1 = () => setShow1(false);
     const handleShow1 = () => setShow1(true);
 
-
     let history = useHistory();
-
 
     let CountReview = 1;
     let HistoryPayFile = 1;
     let MyReviews = 1;
 
-
-
     let storedTheme = localStorage.getItem("theme");
     let userData = JSON.parse(sessionStorage.getItem("user"));
 
-
-
-    // const [users, SetUser] = useState([]);
 
     const [MyReview, SetMyReview] = useState([]);
 
@@ -46,9 +37,7 @@ function User({ data_user }) {
 
 
     //check in forum input(update user value) if all value input = if yes update , else show erorr
-
     // const [validated, setValidated] = useState(false);
-
 
     const handleSubmit = () => {
 
@@ -101,7 +90,6 @@ function User({ data_user }) {
 
 
     //active the hour in profile page if user dont need this turn , now status was delete after this function was active
-
     const ActiveHour = async () => {//1
 
 
@@ -170,7 +158,6 @@ function User({ data_user }) {
 
 
     //update user date after active hour to NULL day hour and serial code hour
-
     const saveDateUser = async () => { // 2
 
         try {
@@ -219,7 +206,6 @@ function User({ data_user }) {
 
 
     //update user date 
-
     const updateDateUser = async () => {
         // alert(data_user.code)
         try {
@@ -261,7 +247,6 @@ function User({ data_user }) {
 
 
     //show all reviews this user from data base 
-
     const showAllMyReview = async () => {
 
         let res = await fetch(`${API.REVIEWS.GET}/${data_user.code}`, { method: 'GET' });
@@ -274,7 +259,6 @@ function User({ data_user }) {
 
 
     // delete review this user from data base
-
     const DeleteReview = async (Id) => {
 
         if (storedTheme === "dark") {
@@ -339,7 +323,6 @@ function User({ data_user }) {
 
 
     // load user medical files what dotor send (id:user)
-
     const LoadMedicalFileUser = async () => {
 
         let res = await fetch(`${API.MEDICAL_FILE.GET}/${data_user.code}`, { method: 'GET' });
@@ -352,7 +335,6 @@ function User({ data_user }) {
 
 
     //load all  medical files not active = to show a history to user in profile
-
     const LoadMedicalFileUserIsNotActive = async () => {
 
         let res = await fetch(`${API.MEDICAL_FILE.GET}/showHistoryFiles/${data_user.code}`, { method: 'GET' });
@@ -365,7 +347,6 @@ function User({ data_user }) {
 
 
     //open pop up pay service , save the data to sessionStorage , to use in component PayService
-
     const OpenPopUpPay = async (Serial_code, priceSevice, FirstName) => {
 
         handleShow1();
@@ -373,7 +354,6 @@ function User({ data_user }) {
         let PayDetails = { Serial_code: Serial_code, priceSevice: priceSevice, userName: FirstName }
 
         sessionStorage.setItem("PayDetails", JSON.stringify(PayDetails))
-
     }
 
 
@@ -395,7 +375,6 @@ function User({ data_user }) {
         showAllMyReview();
         LoadMedicalFileUser();
         LoadMedicalFileUserIsNotActive();
-
 
         //show use date- when i update user date i show all value in input and choise what i need update
         setFirstName(data_user.name);

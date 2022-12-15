@@ -8,7 +8,6 @@ import { API } from '../API';
 //this component user in User component - when user need to pay a service 
 function PayService() {
 
-
     const [CardNumber, setCardNumber] = useState('');
     const [CardholderName, setCardholderName] = useState('');
     const [Expiration, setExpiration] = useState('');
@@ -19,7 +18,6 @@ function PayService() {
 
 
     //click button pay price and check if all input was good,if yes send to function DeletePayFile
-
     const Pay = async () => {
         // alert(PayDetails.Serial_code)
 
@@ -49,18 +47,15 @@ function PayService() {
                 position: 'top-end'
             })
         }
-
     }
 
 
 
     //delete pay file = when pay the price
-
     const DeletePayFile = async (Serial_code) => {
 
         await fetch(`${API.MEDICAL_FILE.GET}/delete/${Serial_code}`,
             { method: 'PATCH' });
-
     }
 
 

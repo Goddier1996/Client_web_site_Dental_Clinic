@@ -1,30 +1,4 @@
-
-//connect to local host Node js server sql
-
-// export const Config = {
-
-//     API: {
-//         BASE: "https://serverdentist.herokuapp.com"
-//     }
-// }
-
-
-
-
-
-//connect to local host Node js server mongoDB
-
-// export const Config = {
-
-//     API: {
-//         BASE: "https://dental-clinic-private.herokuapp.com"
-//     }
-// }
-
-
-
 // connect to local host Node js server mongoDB
-
 export const Config = {
 
     API: {
@@ -34,6 +8,9 @@ export const Config = {
 
 
 
+
+// here for test connect nodeJs server
+
 // export const Config = {
 
 
@@ -42,4 +19,3 @@ export const Config = {
 //     }
 
 // }
-

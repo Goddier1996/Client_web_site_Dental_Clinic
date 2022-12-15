@@ -11,27 +11,20 @@ import videoBg from '../images/video11.mp4'
 
 
 //here component Sign in use in component Menu
-
 function Sign_in() {
 
 
-
     // show pop up
-
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
 
-
     const [show1, setShow1] = useState(false);
     const handleShow = () => setShow1(true);
-
-
 
     const history = useHistory()
 
     const [Login, setLogin] = useState('')
     const [Password, setPassword] = useState('')
-
 
     let storedTheme = localStorage.getItem("theme");
 

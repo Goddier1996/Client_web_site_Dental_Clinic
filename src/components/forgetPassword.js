@@ -8,18 +8,14 @@ import '../css/forgetPassword.css'
 
 
 
-
 //here component forget Paswword use in sign In component
-
 function forgetPaswword() {
 
     const history = useHistory()
 
-
     const [show, setShow] = useState(false);
 
     const handleShow = () => setShow(true);
-
 
     const [Email, setEmail] = useState('');
 
@@ -28,7 +24,6 @@ function forgetPaswword() {
 
 
     //create a this sessioStorgae in ForgetUser
-
     let userForget = JSON.parse(sessionStorage.getItem("userForgetPassword"));
 
     let storedTheme = localStorage.getItem("theme");
@@ -36,7 +31,6 @@ function forgetPaswword() {
 
 
     //here we search if we have this email in data bse , if have we send the data use from data base to sessionStorage
-
     const ForgetUser = async () => {
 
         if (Email < 1) {
@@ -116,7 +110,6 @@ function forgetPaswword() {
 
 
     //here update to new password 
-
     const ForgetPassword = async () => {
         // alert(userForget._id)
         if (User_password === Confirm_password) {
@@ -208,7 +201,6 @@ function forgetPaswword() {
 
 
     //if you click not save new password
-
     const closeForgetPassword = async () => {
 
         if (storedTheme === "dark") {

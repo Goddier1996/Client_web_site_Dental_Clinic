@@ -15,8 +15,8 @@ function Loction() {
     let storedTheme = localStorage.getItem("theme");
 
 
-    
     useEffect(() => {
+
         Swal.fire({
             background: 'none',
             showConfirmButton: false,

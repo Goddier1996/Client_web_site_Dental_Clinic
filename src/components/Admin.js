@@ -7,21 +7,17 @@ import { API } from '../API';
 
 
 //here component Admin we to do what admin can do = this component use in profile
-
 function Admin() {
-
 
     const [Users, SetUsers] = useState([])
     const [UsersBlocked, SetUsersBlocked] = useState([])
     const [Doctors, SetDoctors] = useState([])
     const [Reviews, SetReviews] = useState([])
 
-
     let CountUser = 1;
     let CountUserBlock = 1;
     let CountDoctor = 1;
     let CountReview = 1;
-
 
     const [Login, setLogin] = useState('');
     const [FirstName, setFirstName] = useState('');
@@ -33,10 +29,9 @@ function Admin() {
     let storedTheme = localStorage.getItem("theme");
 
 
-
     //check all input if all good Add to new doctor(AddDoctor)
-
     const [validated, setValidated] = useState(false);
+
 
     const handleSubmit = (event) => {
 
@@ -78,7 +73,6 @@ function Admin() {
 
 
     //admin can see all users how in data base
-
     const LoadAllUsers = async () => {
 
         let res = await fetch(`${API.USERS.GET}`, { method: 'GET' });
@@ -90,7 +84,6 @@ function Admin() {
 
 
     //show all blocked all users
-
     const LoadAllUsersBlocked = async () => {
 
         let res = await fetch(`${API.USERS.GET}/BlockUsers`, { method: 'GET' });
@@ -102,7 +95,6 @@ function Admin() {
 
 
     //admin can see all Doctors  how in data base
-
     const LoadAllDoctors = async () => {
 
         let res = await fetch(`${API.USERS.GET}/showDoctors`, { method: 'GET' });
@@ -113,7 +105,6 @@ function Admin() {
 
 
     //admin can see all Reviews what this in data base
-
     const LoadAllReviews = async () => {
 
         let res = await fetch(API.REVIEWS.GET, { method: 'GET' });
@@ -125,43 +116,37 @@ function Admin() {
 
 
     //admin can block the user
-
     const DeleteUser = async (Id) => {
         // alert(Id)
         await fetch(`${API.USERS.GET}/NotActive/${Id}`,
             { method: 'PATCH' }
         );
         window.location.reload(false);
-
     }
 
 
 
     //active all users how was block
-
     const ActiveUser = async (Id) => {
 
         let res = await fetch(`${API.USERS.GET}/active/${Id}`, { method: 'PATCH' });
-        window.location.reload(false); // רענון דף
+        window.location.reload(false);
     }
 
 
 
     //admin delete a review
-
     const DeleteReview = async (Id) => {
 
         await fetch(`${API.REVIEWS.GET}/delete/${Id}`,
             { method: 'DELETE' }
         );
         window.location.reload(false);
-
     }
 
 
 
     //add a new doctor to data base
-
     const AddDoctor = async () => {
 
         try {
@@ -178,8 +163,6 @@ function Admin() {
                 Serial_codeHour: null,
                 IsActive: "1"
             };
-
-
 
             await fetch(API.USERS.ADD, {
                 method: 'POST',
@@ -205,7 +188,6 @@ function Admin() {
         LoadAllDoctors();
         LoadAllReviews();
         LoadAllUsersBlocked();
-
 
         Swal.fire({
             background: 'none',
@@ -678,7 +660,6 @@ function Admin() {
     }
 
 }
-
 
 
 export default Admin;

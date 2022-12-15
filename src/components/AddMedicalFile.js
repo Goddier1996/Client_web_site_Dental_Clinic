@@ -9,15 +9,11 @@ import '../css/profile.css'
 
 
 //here component Add Medical File User , doctor add a file to user,and user can see how much pay need and see what doctor write and docoment = this component use in profile doctor
-
 function AddMedicalFileUser() {
-
-
 
     const [File_user, setFile_user] = useState('');
     const [textDoctor, setTextDoctor] = useState('');
     const [priceSevice, setPriceSevice] = useState('');
-
 
     let date = JSON.parse(sessionStorage.getItem("userDateMedical"));
 
@@ -159,7 +155,6 @@ function AddMedicalFileUser() {
     );
 
 }
-
 
 
 export default AddMedicalFileUser

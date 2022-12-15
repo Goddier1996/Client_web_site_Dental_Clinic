@@ -10,18 +10,14 @@ import Sign_in from '../components/SignI_in'
 
 
 //here component menu we use in App Because we need show in all pages - and here use dark mode
-
 function Menu() {
 
-
     let storedTheme = localStorage.getItem("theme");
-
 
     let userData = JSON.parse(sessionStorage.getItem("user"));
 
 
     const history = useHistory()
-
 
     const [show1, setShow1] = useState(false);
     const handleClose1 = () => setShow1(false);
@@ -30,7 +26,6 @@ function Menu() {
 
 
     //check if we have data user and if yes we send to profile page
-
     const sendUserToProfile = () => {
 
         if (userData != null) {
@@ -42,28 +37,7 @@ function Menu() {
 
 
 
-    // const setDark = () => {
-
-
-    //     localStorage.setItem("theme", "dark");
-    //     document.documentElement.setAttribute("data-theme", "dark");
-    // };
-
-
-
-    // const defaultDark = storedTheme === "dark" || (storedTheme === null);
-
-    // if (defaultDark) {
-    //     setDark();
-    // }
-
-
-
-
     // log out user from data seesion storge
-
-
-
     const outUser = async () => {
 
         if (storedTheme === "dark") {

@@ -18,6 +18,7 @@ function Register() {
     let DatePublished = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
     const [Birthday, setBirthday] = useState(DatePublished);
 
+    // input value when register
     const [User_Login, setLogin] = useState('');
     const [FirstName, setFirstName] = useState('');
     const [Email, setEmail] = useState('');
@@ -29,8 +30,7 @@ function Register() {
 
 
 
-    //check all input if all good Add to new doctor(AddDoctor)
-
+    //check all input if all good 
     const [validated, setValidated] = useState(false);
 
 
@@ -64,7 +64,6 @@ function Register() {
 
 
     //register a new user , save in data base use node js to mySql
-
     const registerUser = async () => {
 
         try {

@@ -7,7 +7,6 @@ import date1 from '../Json_date/date.json'
 
 
 
-
 //show about clinic info
 function About() {
 
@@ -72,6 +71,7 @@ function About() {
 
 
     useEffect(() => {
+
         LoadCountDoctors();
         LoadCountUsers();
         LoadCountReviews();
@@ -105,13 +105,8 @@ function About() {
 
                 </div>
 
-                {/* <div className='titleInformation'>
-                    <h1>Information :</h1>
-
-                </div> */}
 
                 <div className='cardsInfoAbout' >
-
 
                     <div className="a-box">
                         <div className="img">
@@ -128,8 +123,6 @@ function About() {
                             </div>
                         </div>
                     </div>
-
-
 
 
                     <div className="a-box" >
@@ -149,7 +142,6 @@ function About() {
                     </div>
 
 
-
                     <div className="a-box">
                         <div className="img">
                             <div className="img-inner">
@@ -167,9 +159,6 @@ function About() {
                     </div>
 
 
-
-
-
                     <div className="a-box" >
                         <div className="img">
                             <div className="img-inner">
@@ -185,7 +174,6 @@ function About() {
                             </div>
                         </div>
                     </div>
-
 
                 </div>
             </>
@@ -210,14 +198,8 @@ function About() {
                     <p>(5) See Customer reviews - <a href='/Service'>See Review's</a>.</p>
                 </div>
 
-                {/* <div className='titleInformationDark'>
-                    <h1>Information :</h1>
-
-                </div> */}
 
                 <div className='cardsInfoAbout' >
-
-
 
                     <div className="a-box">
                         <div className="img">
@@ -236,8 +218,6 @@ function About() {
                     </div>
 
 
-
-
                     <div className="a-box" >
                         <div className="img">
                             <div className="img-inner">
@@ -253,8 +233,6 @@ function About() {
                             </div>
                         </div>
                     </div>
-
-
 
 
                     <div className="a-box">
@@ -275,8 +253,6 @@ function About() {
 
 
 
-
-
                     <div className="a-box" >
                         <div className="img">
                             <div className="img-inner">
@@ -293,13 +269,10 @@ function About() {
                         </div>
                     </div>
 
-
-
                 </div>
             </>
         )
     }
-
 
 }
 

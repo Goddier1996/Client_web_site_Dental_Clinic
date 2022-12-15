@@ -4,8 +4,7 @@ import Doctor from '../components/Doctor'
 import User from '../components/User'
 
 
-
-
+// profile page , open profile page as per UserType_code from daya base , user-admin-doctor
 function profile() {
 
 
@@ -14,9 +13,7 @@ function profile() {
 
     //save in opject all data user from session storage "user" , and save code user from "userCode"
     //this opject for user compoment
-
     const obj = {
-
         code: userData._id,
         name: userData.FirstName,
         login: userData.User_Login,

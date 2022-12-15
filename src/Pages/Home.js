@@ -9,11 +9,12 @@ import Swal from 'sweetalert2'
 
 
 
-
+// Home page
 function Home() {
 
     let storedTheme = localStorage.getItem("theme");
 
+    // show popup add , Appointment
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -22,8 +23,7 @@ function Home() {
 
 
 
-    //here we cheack if user connect to side , if yes he can click to button book an appointment , else show pop he need login or reg
-
+    //here we check if user connect to side , if yes he can click to button book an appointment , else show pop he need login or reg
     const CheckUserConnected = () => {
 
         if (userData == null && storedTheme === "dark") {
@@ -56,6 +56,7 @@ function Home() {
         }
 
         if (userData != null) {
+            // show popup,Appointment
             handleShow();
         }
     }
@@ -68,7 +69,7 @@ function Home() {
             <div>
 
                 <div className='main1'>
-                <video src={videoBg} loop autoPlay muted playsInline />
+                    <video src={videoBg} loop autoPlay muted playsInline />
                     <div className="content">
                         <h1>Welcome</h1>
                         <p>to the Dental Care Clinic</p>
@@ -84,6 +85,7 @@ function Home() {
                     </div>
 
 
+                    {/* show model popup Appointment */}
                     <div className='bookClick'>
                         <Modal show={show} onHide={handleClose} style={{ background: "rgba(0, 0, 0, 0.8)" }}>
                             <Modal.Header className='titleHeater'>
@@ -128,7 +130,7 @@ function Home() {
                     </div>
 
 
-
+                    {/* show model popup Appointment */}
                     <div className='bookClick'>
                         <Modal show={show} onHide={handleClose} style={{ background: "rgba(0, 0, 0, 0.8)" }}>
                             <Modal.Header className='titleHeater'>

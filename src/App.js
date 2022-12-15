@@ -17,7 +17,11 @@ function App() {
 
   return (
     <BrowserRouter>
+
+      {/* active dark node or light */}
       <DarkMode />
+
+      {/* active menu */}
       <Menu />
 
       <Switch>

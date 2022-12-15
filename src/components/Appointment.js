@@ -7,22 +7,18 @@ import Swal from 'sweetalert2'
 
 
 //here component we show data from data base (if you click to buttom in Home Page Book an appointment)
-
 function appointment() {
-
 
     const [Days, SetDays] = useState([])
     const [Hours, setHours] = useState([])
 
 
     //show a pop up day and hour
-
     const [showResults, setShowResults] = React.useState(false)
     const onClick = () => setShowResults(true)
 
 
     // all data what we save in local storage and seesion storge
-
     let storedTheme = localStorage.getItem("theme");
 
     let userData = JSON.parse(sessionStorage.getItem("user"));
@@ -33,7 +29,6 @@ function appointment() {
 
 
     //here you show Days , from data base
-
     const LoadDays = async () => { // 1
 
         let res = await fetch(API.DAYS.GET, { method: 'GET' });
@@ -45,7 +40,6 @@ function appointment() {
 
 
     //here you show Hours from day what we chiose , from data base 
-
     const LoadHours = async (Serial_code, Day_date) => { // 2
 
         let res = await fetch(`${API.HOURS.GET}/${Serial_code}`, { method: 'GET' });
@@ -63,7 +57,6 @@ function appointment() {
 
 
     //show (html) return we see in pup up hours - and click to hour we save what day we chiose and hour to data base
-
     const ResultsHours = () => ( // 3
 
         onClick(),
@@ -92,7 +85,6 @@ function appointment() {
 
 
     //here we delete the hour from data base , user chiose day and hour
-
     const DeleteHour = async (Id) => {// 5
         // alert(Id)
         await fetch(`${API.HOURS.GET}/NotActive/${Id}`,
@@ -103,7 +95,6 @@ function appointment() {
 
 
     // save to user date , hour and day what he chiose
-
     const saveDateUser = async (Hour_day, Serial_code) => { // 4
 
         let dataHour = { Hour_day, Serial_code }//2
@@ -139,7 +130,6 @@ function appointment() {
 
 
             // sessionStorage.setItem("user", JSON.stringify(user))//6
-
 
             DeleteHour(hourLocal.Serial_code);//7
             sessionStorage.removeItem('Hour');//8
@@ -198,7 +188,6 @@ function appointment() {
 
 
     //here we to do check if user have a hour he dont can chiose a new hour and day , he need to delete data what he was
-
     useEffect(() => {
 
         if (storedTheme === "dark" && userData.Day_date != null) {

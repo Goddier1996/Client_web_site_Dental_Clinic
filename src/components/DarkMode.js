@@ -7,7 +7,6 @@ import React from 'react'
 function DarkMode() {
 
 
-
   // 1
   const setDark = () => {
     // 2

@@ -6,7 +6,6 @@ import '../css/fotter.css'
 
 
 //here component use in App to use in all pages
-
 function Fotter() {
 
 

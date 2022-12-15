@@ -8,8 +8,6 @@ import date1 from '../Json_date/date.json'
 
 function category() {
 
-
-
     return (
         <div>
             <div className='categoryLook'>
