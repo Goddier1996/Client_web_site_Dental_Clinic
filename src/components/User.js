@@ -273,7 +273,7 @@ function User({ data_user }) {
             window.location.reload(false);
         }
 
-        
+
         if (storedTheme === "light") {
 
             Swal.fire({
@@ -743,7 +743,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                             <td><Button size="sm" variant="danger"
-                                                onClick={() => DeleteReview(Review.Serial_code)}>
+                                                onClick={() => DeleteReview(Review._id)}>
                                                 delete</Button>
                                             </td>
                                         </tr>
@@ -995,7 +995,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                             <td><Button size="sm" variant="danger"
-                                                onClick={() => DeleteReview(Review.Serial_code)}>
+                                                onClick={() => DeleteReview(Review._id)}>
                                                 delete</Button>
                                             </td>
                                         </tr>
@@ -1253,7 +1253,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                             <td><Button size="sm" variant="danger"
-                                                onClick={() => DeleteReview(Review.Serial_code)}>
+                                                onClick={() => DeleteReview(Review._id)}>
                                                 delete
                                             </Button>
                                             </td>
