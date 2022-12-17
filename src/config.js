@@ -2,7 +2,7 @@
 export const Config = {
 
     API: {
-        BASE: "https://serverdentalclinic-production.up.railway.app"
+        BASE: "https://privateserverdentalclinic-production.up.railway.app"
     }
 }
 
