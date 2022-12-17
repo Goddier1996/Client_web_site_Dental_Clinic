@@ -9,7 +9,6 @@ import PayService from '../components/PayService'
 
 
 
-
 //data_user - take all data user from Page Profile (user)
 function User({ data_user }) {
 
@@ -91,9 +90,6 @@ function User({ data_user }) {
 
     //active the hour in profile page if user dont need this turn , now status was delete after this function was active
     const ActiveHour = async () => {//1
-
-
-
 
         if (storedTheme === "dark") {
 
@@ -220,7 +216,6 @@ function User({ data_user }) {
             }
 
 
-
             await fetch(`${API.USERS.GET}/${data_user.code}`, {
                 // method: 'PUT',
                 method: 'PATCH',
@@ -265,58 +260,38 @@ function User({ data_user }) {
             // alert(Id)
             Swal.fire({
                 title: 'Are you sure you want to delete this Review?',
-                icon: 'question',
-                showDenyButton: true,
-                confirmButtonText: 'yes',
-                denyButtonText: `no`,
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500,
                 toast: true,
                 position: 'top-end'
-            }).then((result) => {
-
-                if (result.isConfirmed) {
-
-                    fetch(`${API.REVIEWS.GET}/delete/${Id}`,
-                        { method: 'DELETE' });
-
-                    window.location.reload(false);
-
-                    history.push("/")
-                }
-
-                else if (result.isDenied) {
-                    window.location.reload(false);
-                }
             })
+
+            await fetch(`${API.REVIEWS.GET}/delete/${Id}`,
+                { method: 'DELETE' });
+
+            window.location.reload(false);
         }
 
+        
         if (storedTheme === "light") {
 
             Swal.fire({
                 title: 'Are you sure you want to delete this Review?',
-                icon: 'question',
-                showDenyButton: true,
-                confirmButtonText: 'yes',
-                denyButtonText: `no`,
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500,
                 background: '#373E44',
                 color: '#ffffffab',
                 toast: true,
                 position: 'top-end'
-            }).then((result) => {
-
-                if (result.isConfirmed) {
-
-                    fetch(`${API.REVIEWS.GET}/delete/${Id}`,
-                        { method: 'DELETE' });
-
-                    window.location.reload(false);
-                }
-
-                else if (result.isDenied) {
-                    window.location.reload(false);
-                }
             })
-        }
 
+            await fetch(`${API.REVIEWS.GET}/delete/${Id}`,
+                { method: 'DELETE' });
+
+            window.location.reload(false);
+        }
     }
 
 

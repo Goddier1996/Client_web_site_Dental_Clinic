@@ -116,7 +116,7 @@ function Sign_in() {
         if (storedTheme === "light" && UserType_code == 3) {
 
             Swal.fire({
-                title: `Hello Admin ${nameUser}`,
+                title: `Hello ${nameUser}`,
                 icon: 'success',
                 html: 'Let`s Control This Web Side',
                 toast: true,
@@ -135,7 +135,7 @@ function Sign_in() {
         if (storedTheme === "dark" && UserType_code == 3) {
 
             Swal.fire({
-                title: `Hello Admin ${nameUser}`,
+                title: `Hello ${nameUser}`,
                 icon: 'success',
                 html: 'Let`s Control This Web Side',
                 toast: true,
@@ -170,7 +170,6 @@ function Sign_in() {
         else {
             loginUser()
         }
-
     }
 
 

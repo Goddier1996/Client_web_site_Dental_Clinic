@@ -29,7 +29,7 @@ function Menu() {
     const sendUserToProfile = () => {
 
         if (userData != null) {
-            history.push(`/Profile/${userData.User_code}`);
+            history.push(`/Profile/${userData._id}`);
             window.location.reload(false);
         }
     }
@@ -156,7 +156,7 @@ function Menu() {
 
                                 <Navbar.Collapse className="justify-content-end link">
 
-                                    <Nav.Link onClick={handleShow1} href="#features">Login</Nav.Link>
+                                    <Nav.Link onClick={handleShow1} href="#">Login</Nav.Link>
                                     <Nav.Link href='/Register'>Register</Nav.Link>
 
                                     {/* <DarkMode /> */}
@@ -241,7 +241,7 @@ function Menu() {
 
                                 <Navbar.Collapse className="justify-content-end link">
 
-                                    <Nav.Link onClick={handleShow1} href="#features">Login</Nav.Link>
+                                    <Nav.Link onClick={handleShow1} href="#">Login</Nav.Link>
                                     <Nav.Link href='/Register'>Register</Nav.Link>
 
                                     {/* <DarkMode /> */}
