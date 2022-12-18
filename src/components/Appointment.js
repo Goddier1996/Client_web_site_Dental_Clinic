@@ -139,36 +139,30 @@ function appointment() {
 
             if (storedTheme === "dark") {
 
-                Swal.fire({
+                await Swal.fire({
                     title: 'Youre making an appointment',
                     icon: 'success',
-                }).then((result) => {
-
-                    if (result.isConfirmed) {
-
-                        sessionStorage.clear();
-                        window.location.reload(false);
-                    }
+                    showConfirmButton: false,
+                    timer: 1200,
                 })
+                await sessionStorage.clear();
+                window.location.reload(false);
             }
 
 
             if (storedTheme === "light") {
 
-                Swal.fire({
+                await Swal.fire({
                     title: 'Youre making an appointment',
                     icon: 'success',
                     background: '#373E44',
                     color: '#ffffffab',
-                    buttonColor: '#E96E00'
-                }).then((result) => {
-
-                    if (result.isConfirmed) {
-
-                        sessionStorage.clear();
-                        window.location.reload(false);
-                    }
+                    buttonColor: '#E96E00',
+                    showConfirmButton: false,
+                    timer: 1200,
                 })
+                await sessionStorage.clear();
+                window.location.reload(false);
             }
 
 

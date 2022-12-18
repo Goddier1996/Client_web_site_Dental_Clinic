@@ -248,7 +248,6 @@ function forgetPaswword() {
 
 
 
-
     return (
 
         <>
@@ -262,7 +261,11 @@ function forgetPaswword() {
                         autoFocus
                     />
 
-                    <Button variant="warning" onClick={ForgetUser}>Ok</Button>
+                    <div className='startChangePassword'>
+                        <Button variant="warning" onClick={ForgetUser}>Ok</Button>
+                        <Button variant="danger" onClick={closeForgetPassword}>Close</Button>
+                    </div>
+
                 </Form.Group>
             </div>
 

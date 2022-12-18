@@ -117,34 +117,30 @@ function service() {
 
                 if (storedTheme === "dark") {
 
-                    Swal.fire({
+                    await Swal.fire({
                         title: 'Added a comment successfully',
                         icon: 'success',
                         toast: true,
                         position: 'top-end',
-
-                    }).then((result) => {
-
-                        if (result.isConfirmed) {
-                            window.location.reload(false);
-                        }
+                        showConfirmButton: false,
+                        timer: 1500,
                     })
+                    window.location.reload(false);
                 }
 
                 if (storedTheme === "light") {
 
-                    Swal.fire({
+                    await Swal.fire({
                         title: 'Added a comment successfully',
                         icon: 'success',
                         toast: true,
                         position: 'top-end',
-
-                    }).then((result) => {
-
-                        if (result.isConfirmed) {
-                            window.location.reload(false);
-                        }
+                        showConfirmButton: false,
+                        timer: 1500,
+                        background: '#373E44',
+                        color: '#ffffffab'
                     })
+                    window.location.reload(false);
                 }
 
 

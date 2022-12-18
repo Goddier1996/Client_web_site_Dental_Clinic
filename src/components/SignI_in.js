@@ -37,7 +37,7 @@ function Sign_in() {
 
         if (storedTheme === "light" && UserType_code == 1) {
 
-            Swal.fire({
+            await Swal.fire({
                 title: `Hello ${nameUser}`,
                 icon: 'success',
                 html: 'You can now use a variety of actions on our site.',
@@ -45,30 +45,24 @@ function Sign_in() {
                 position: 'top-end',
                 background: '#373E44',
                 color: '#ffffffab',
-            }).then((result) => {
-
-                if (result.isConfirmed) {
-                    window.location.reload(false);
-                }
+                showConfirmButton: false,
+                timer: 1500
             })
-            history.push(`/`);
+            await window.location.reload(false);
         }
 
         if (storedTheme === "dark" && UserType_code == 1) {
 
-            Swal.fire({
+            await Swal.fire({
                 title: `Hello ${nameUser}`,
                 icon: 'success',
                 html: 'You can now use a variety of actions on our site.',
                 toast: true,
                 position: 'top-end',
-            }).then((result) => {
-
-                if (result.isConfirmed) {
-                    window.location.reload(false);
-                }
+                showConfirmButton: false,
+                timer: 1500
             })
-            history.push(`/`);
+            await window.location.reload(false);
         }
 
 
@@ -76,7 +70,7 @@ function Sign_in() {
 
         if (storedTheme === "light" && UserType_code == 2) {
 
-            Swal.fire({
+            await Swal.fire({
                 title: `Hello ${nameUser}`,
                 icon: 'success',
                 html: 'Let`s work :)',
@@ -84,30 +78,24 @@ function Sign_in() {
                 position: 'top-end',
                 background: '#373E44',
                 color: '#ffffffab',
-            }).then((result) => {
-
-                if (result.isConfirmed) {
-                    window.location.reload(false);
-                }
+                showConfirmButton: false,
+                timer: 1500
             })
-            history.push(`/`);
+            await window.location.reload(false);
         }
 
         if (storedTheme === "dark" && UserType_code == 2) {
 
-            Swal.fire({
+            await Swal.fire({
                 title: `Hello ${nameUser}`,
                 icon: 'success',
                 html: 'Let`s work :)',
                 toast: true,
                 position: 'top-end',
-            }).then((result) => {
-
-                if (result.isConfirmed) {
-                    window.location.reload(false);
-                }
+                showConfirmButton: false,
+                timer: 1500,
             })
-            history.push(`/`);
+            await window.location.reload(false);
         }
 
 
@@ -115,7 +103,7 @@ function Sign_in() {
 
         if (storedTheme === "light" && UserType_code == 3) {
 
-            Swal.fire({
+            await Swal.fire({
                 title: `Hello ${nameUser}`,
                 icon: 'success',
                 html: 'Let`s Control This Web Side',
@@ -123,30 +111,24 @@ function Sign_in() {
                 position: 'top-end',
                 background: '#373E44',
                 color: '#ffffffab',
-            }).then((result) => {
-
-                if (result.isConfirmed) {
-                    window.location.reload(false);
-                }
+                showConfirmButton: false,
+                timer: 1500
             })
-            history.push(`/`);
+            await window.location.reload(false);
         }
 
         if (storedTheme === "dark" && UserType_code == 3) {
 
-            Swal.fire({
+            await Swal.fire({
                 title: `Hello ${nameUser}`,
                 icon: 'success',
                 html: 'Let`s Control This Web Side',
                 toast: true,
                 position: 'top-end',
-            }).then((result) => {
-
-                if (result.isConfirmed) {
-                    window.location.reload(false);
-                }
+                showConfirmButton: false,
+                timer: 1500,
             })
-            history.push(`/`);
+            await window.location.reload(false);
         }
 
     }
