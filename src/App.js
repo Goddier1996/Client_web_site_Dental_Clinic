@@ -10,7 +10,7 @@ import Service from './Pages/service'
 import profile from './Pages/profile'
 import About from './Pages/About'
 import DarkMode from "./components/DarkMode"
-
+import NotFoundPage from "./components/NotFoundPage";
 
 
 function App() {
@@ -32,6 +32,8 @@ function App() {
         <Route path="/OurWork" exact component={OurWork} />
         <Route path="/Service" exact component={Service} />
         <Route path="/Profile/:id" exact component={profile} />
+        {/* active page not found */}
+        <Route path="*" exact component={NotFoundPage} />
       </Switch>
 
       <Fotter />
