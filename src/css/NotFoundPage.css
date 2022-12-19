@@ -143,3 +143,39 @@
     margin-top: 50px;
     letter-spacing: 1px;
 }
+
+
+
+
+@media(max-width:991px) {
+    .error-show>span.four {
+        width: 116px;
+        height: 23px;
+    }
+
+    .error-show>span.four:before {
+        width: 23px;
+        height: 136px;
+    }
+
+    .error-show>span.four:after {
+        width: 117px;
+        height: 23px;
+    }
+
+    .error-show>span.zero {
+        width: 116px;
+        height: 116px;
+        bottom:-30px;
+    }
+
+    .error-show>span.zero:before {
+        width: 50px;
+        height: 50px;
+    }
+
+    .error-show>span.zero:after {
+        width: 30px;
+        height: 30px;
+    }
+}
