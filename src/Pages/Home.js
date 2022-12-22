@@ -12,6 +12,7 @@ import Swal from 'sweetalert2'
 // Home page
 function Home() {
 
+    
     let storedTheme = localStorage.getItem("theme");
 
     // show popup add , Appointment
