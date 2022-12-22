@@ -48,7 +48,7 @@ function PayService() {
             })
         }
     }
-
+    
 
 
     //delete pay file = when pay the price
@@ -74,7 +74,7 @@ function PayService() {
 
 
                                 <p className="text-warning mb-0">Card Number</p>
-                                <input type="number" name="card-num" placeholder="1234 5678 9012 3457" size="17" id="cno" minlength="19" maxlength="19"
+                                <input type="number" name="card-num" placeholder="1234 5678 9012 3457" size="17" id="cno" minLength="19" maxLength="19"
                                     value={CardNumber}
                                     pattern="[0-9]*"
                                     onChange={(event) => setCardNumber(event.target.value)}
@@ -92,17 +92,15 @@ function PayService() {
                                     onChange={(event) => setCardholderName(event.target.value)}
                                 />
 
-
                                 <h6 className="text-warning mb-0">Pay : {PayDetails.priceSevice}</h6>
 
                             </div>
                             <div className="form-group pt-2">
                                 <div className="row d-flex">
 
-
                                     <div className="col-sm-4">
                                         <p className="text-warning mb-0">Expiration</p>
-                                        <input type="text" name="exp" placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7"
+                                        <input type="text" name="exp" placeholder="MM/YYYY" size="7" id="exp" minLength="7" maxLength="7"
                                             value={Expiration}
                                             onChange={(event) => setExpiration(event.target.value)}
                                         />
@@ -112,15 +110,15 @@ function PayService() {
 
                                     <div className="col-sm-3">
                                         <p className="text-warning mb-0">Cvv</p>
-                                        <input type="password" name="cvv" placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3"
+                                        <input type="password" name="cvv" placeholder="&#9679;&#9679;&#9679;" size="1" minLength="3" maxLength="3"
                                             value={Cvv}
                                             onChange={(event) => setCvv(event.target.value)}
                                         />
                                     </div>
 
 
-                                    <div class="col-sm-5 pt-0">
-                                        <button type="button" class="btn btn-primary" onClick={Pay}><i class="fas fa-arrow-right px-3 py-2"></i></button>
+                                    <div className="col-sm-5 pt-0">
+                                        <button type="button" className="btn btn-primary" onClick={Pay}><i className="fas fa-arrow-right px-3 py-2"></i></button>
                                     </div>
                                 </div>
                             </div>

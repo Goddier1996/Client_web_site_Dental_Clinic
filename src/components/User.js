@@ -105,7 +105,7 @@ function User({ data_user }) {
 
                 if (result.isConfirmed) {
 
-                    fetch(`${API.HOURS.GET}/active/${userData.Serial_codeHour}`,
+                    fetch(`${API.HOURS.GET}/active/${data_user.codeHour}`,
                         { method: 'PATCH' }
                     );
 
@@ -135,7 +135,7 @@ function User({ data_user }) {
 
                 if (result.isConfirmed) {
 
-                    fetch(`${API.HOURS.GET}/active/${userData.Serial_codeHour}`,
+                    fetch(`${API.HOURS.GET}/active/${data_user.codeHour}`,
                         { method: 'PATCH' }
                     );
 
@@ -406,7 +406,7 @@ function User({ data_user }) {
 
                                 {medical_File.map(File =>
 
-                                    <tbody>
+                                    <tbody key={File._id}>
                                         <tr>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{CountReview++}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.Date_published}</td>
@@ -449,7 +449,7 @@ function User({ data_user }) {
 
                                 {medical_File_Is_Not_Active.map(File =>
 
-                                    <tbody>
+                                    <tbody key={File._id}>
                                         <tr>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{HistoryPayFile++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{File.Date_published}</td>
@@ -481,7 +481,7 @@ function User({ data_user }) {
 
                                 {MyReview.map(Review =>
 
-                                    <tbody>
+                                    <tbody key={Review._id}>
                                         <tr>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{MyReviews++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
@@ -627,11 +627,14 @@ function User({ data_user }) {
 
                                 <Modal.Body>
 
-                                    <p><h6>Your Queues :</h6> <br />
+                                    <div style={{ marginTop: "-20%" }}>
+                                        <h6>Your Queues :</h6> <br />
                                         Day : {userData.Day_date}<br />
                                         Hour : {userData.Hour_day}<br /><br />
                                         <h6 style={{ fontSize: "13px", color: "black" }}>if you don`t need this queue Please cancel !</h6>
-                                    </p>
+                                    </div>
+
+
 
                                 </Modal.Body>
 
@@ -660,7 +663,7 @@ function User({ data_user }) {
 
                                 {medical_File.map(File =>
 
-                                    <tbody>
+                                    <tbody key={File._id}>
                                         <tr>
                                             <td>{CountReview++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{File.Date_published}</td>
@@ -703,7 +706,7 @@ function User({ data_user }) {
 
                                 {medical_File_Is_Not_Active.map(File =>
 
-                                    <tbody>
+                                    <tbody key={File._id}>
                                         <tr>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{HistoryPayFile++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{File.Date_published}</td>
@@ -737,7 +740,7 @@ function User({ data_user }) {
 
                                 {MyReview.map(Review =>
 
-                                    <tbody>
+                                    <tbody key={Review._id}>
                                         <tr>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{MyReviews++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
@@ -1124,9 +1127,7 @@ function User({ data_user }) {
         return (
             <div>
 
-
                 <div>
-
 
                     <Tabs id="controlled-tab-example" className="mb-3 tabsChioseDark " >
 
@@ -1136,11 +1137,12 @@ function User({ data_user }) {
 
                                 <Modal.Body>
 
-                                    <p><h6 style={{ fontWeight: "bold" }}>Your Queues :</h6> <br />
+                                    <div style={{ marginTop: "-20%", color: "white"  }}>
+                                        <h6 style={{ fontWeight: "bold", color: "white"  }}>Your Queues :</h6> <br />
                                         Day : {userData.Day_date}<br />
                                         Hour : {userData.Hour_day}<br /><br />
                                         <h6 style={{ fontSize: "13px", color: "white" }}>if you don`t need this queue Please cancel !</h6>
-                                    </p>
+                                    </div>
 
                                 </Modal.Body>
 
@@ -1149,8 +1151,6 @@ function User({ data_user }) {
                                 </Modal.Footer>
 
                             </Modal.Dialog>
-
-
 
                         </Tab>
 
@@ -1171,7 +1171,7 @@ function User({ data_user }) {
 
                                 {medical_File.map(File =>
 
-                                    <tbody>
+                                    <tbody key={File._id}>
                                         <tr>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{CountReview++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{File.Date_published}</td>
@@ -1214,7 +1214,7 @@ function User({ data_user }) {
 
                                 {medical_File_Is_Not_Active.map(File =>
 
-                                    <tbody>
+                                    <tbody key={File._id}>
                                         <tr>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{HistoryPayFile++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{File.Date_published}</td>
@@ -1247,7 +1247,7 @@ function User({ data_user }) {
 
                                 {MyReview.map(Review =>
 
-                                    <tbody>
+                                    <tbody key={Review._id}>
                                         <tr>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{MyReviews++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>

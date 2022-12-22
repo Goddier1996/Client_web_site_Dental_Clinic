@@ -56,9 +56,6 @@ function Register() {
             registerUser();
             history.push(`/`);
         }
-
-
-
     };
 
 

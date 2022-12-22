@@ -42,13 +42,13 @@ function ourWork() {
                     <Row xs={1} md={2} className="g-4">
                         {date1.work.map((record) => (
 
-                            <Col>
+                            <Col key={record.id}>
                                 <Card style={{ marginTop: "10px", background: "#424242", borderRadius: "15px", padding: "3%" }}>
                                     <Card.Img variant="top" src={record.path} />
                                     <Card.Body style={{ color: "#ffffffab" }}>
                                         <Card.Title><h3>{record.title} :</h3></Card.Title>
                                         <Card.Text>
-                                            <p>{record.text}</p>
+                                            {record.text}
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>
@@ -60,7 +60,7 @@ function ourWork() {
         );
     }
 
-    
+
 
     else {
 
@@ -75,13 +75,14 @@ function ourWork() {
 
                     <Row xs={1} md={2} className="g-4">
                         {date1.work.map((record) => (
-                            <Col>
+
+                            <Col key={record.id}>
                                 <Card style={{ marginTop: "10px", borderRadius: "15px", padding: "3%" }}>
                                     <Card.Img variant="top" src={record.path} />
                                     <Card.Body>
                                         <Card.Title><h3>{record.title} :</h3></Card.Title>
                                         <Card.Text>
-                                            <p>{record.text}</p>
+                                            {record.text}
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>

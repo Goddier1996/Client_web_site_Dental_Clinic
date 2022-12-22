@@ -57,6 +57,7 @@ function Fotter() {
                         <div className='text-center p-3 endDark' >
                             <p>© 2022 create Artem Kot</p>
                         </div>
+                        
                     </MDBFooter>
                 </div>
             </div>
@@ -109,8 +110,8 @@ function Fotter() {
 
                         <div className='text-center p-3 end' >
                             <p>© 2022 create Artem Kot</p>
-
                         </div>
+
                     </MDBFooter>
                 </div>
             </div>

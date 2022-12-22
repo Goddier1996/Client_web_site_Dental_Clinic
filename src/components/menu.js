@@ -126,7 +126,6 @@ function Menu() {
                                         </Button>{' '}
                                     </div>
 
-                                    {/* <DarkMode /> */}
                                 </Navbar.Collapse>
                             </Navbar.Collapse>
                         </Container>
@@ -159,11 +158,9 @@ function Menu() {
                                     <Nav.Link onClick={handleShow1} href="#">Login</Nav.Link>
                                     <Nav.Link href='/Register'>Register</Nav.Link>
 
-                                    {/* <DarkMode /> */}
-
                                 </Navbar.Collapse>
 
-                                <Modal show={show1} onHide={handleClose1} >
+                                <Modal show={show1} onSubmit={handleClose1} >
                                     <Sign_in />
                                 </Modal>
 
@@ -209,7 +206,6 @@ function Menu() {
                                         </Button>{'  '}
                                     </div>
 
-                                    {/* <DarkMode /> */}
                                 </Navbar.Collapse>
 
                             </Navbar.Collapse>
@@ -244,11 +240,10 @@ function Menu() {
                                     <Nav.Link onClick={handleShow1} href="#">Login</Nav.Link>
                                     <Nav.Link href='/Register'>Register</Nav.Link>
 
-                                    {/* <DarkMode /> */}
 
                                 </Navbar.Collapse>
 
-                                <Modal show={show1} onHide={handleClose1} >
+                                <Modal show={show1} onSubmit={handleClose1} >
                                     <Sign_in />
                                 </Modal>
 

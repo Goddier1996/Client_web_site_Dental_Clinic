@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
 //here component Doctor we to do what doctor can do = this component use in profile
 
 //take props doctor user code to show data doctor in profile doctor
-function Doctor(props) {
+function Doctor({code_doctor}) {
 
 
     let storedTheme = localStorage.getItem("theme");
@@ -37,7 +37,7 @@ function Doctor(props) {
     //load data user from data base 
     const LoadUser = async () => {
 
-        let res = await fetch(`${API.USERS.GET}/${props}`, { method: 'GET' });
+        let res = await fetch(`${API.USERS.GET}/${code_doctor.code}`, { method: 'GET' });
 
         let data = await res.json();
         SetUser(data);
@@ -142,11 +142,10 @@ function Doctor(props) {
 
 
     if (storedTheme === "dark") {
+
         return (
 
             <div>
-
-
                 <div className="bg-white">
 
                     <div className="profile">
@@ -181,7 +180,7 @@ function Doctor(props) {
 
                                 {usersActive_queues.map(user =>
 
-                                    <tbody className='viewDateUser'>
+                                    <tbody key={user._id} className='viewDateUser'>
                                         <tr>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{CountClient++}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.FirstName}</td>
@@ -219,7 +218,7 @@ function Doctor(props) {
 
                                 {medical_File_All_users.map(user =>
 
-                                    <tbody className='viewDateUser'>
+                                    <tbody key={user._id} className='viewDateUser'>
                                         <tr>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{ClientHowNeedPay++}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.name}</td>
@@ -283,7 +282,7 @@ function Doctor(props) {
 
                                 {usersActive_queues.map(user =>
 
-                                    <tbody className='viewDateUser'>
+                                    <tbody key={user._id} className='viewDateUser'>
                                         <tr>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{CountClient++}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.FirstName}</td>
@@ -321,7 +320,7 @@ function Doctor(props) {
 
                                 {medical_File_All_users.map(user =>
 
-                                    <tbody className='viewDateUser'>
+                                    <tbody key={user._id} className='viewDateUser'>
                                         <tr>
                                             <td>{ClientHowNeedPay++}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.name}</td>

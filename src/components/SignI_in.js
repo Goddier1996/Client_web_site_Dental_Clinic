@@ -324,7 +324,7 @@ function Sign_in() {
 
             <div >
 
-                <div className="modelLogin" onHide={handleClose}>
+                <div className="modelLogin" onSubmit={handleClose}>
                     <div className="form-boxDark">
                         <div className="header-form">
                             <h4 className="text-primary text-center">
@@ -341,7 +341,7 @@ function Sign_in() {
                             <form>
                                 <div className="input-group mb-3">
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text"><i class="fa fa-user"></i></span>
+                                        <span className="input-group-text"><i className="fa fa-user"></i></span>
                                     </div>
                                     <input type="text"
                                         className="form-control"
@@ -354,7 +354,7 @@ function Sign_in() {
 
                                 <div className="input-group mb-3">
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text"><i class="fa fa-lock"></i></span>
+                                        <span className="input-group-text"><i className="fa fa-lock"></i></span>
                                     </div>
                                     <input
                                         type="password"
@@ -373,13 +373,13 @@ function Sign_in() {
                                 <div className='borderSpaceDark'></div>
 
 
-
                                 <div className='DemoUserAndDoctorDark'>
-                                    <p>Connect Demo
 
+                                    <p>Connect Demo
                                         <a onClick={connectDemoUser}> User</a> or
                                         <a onClick={connectDemoDoctor}> Doctor</a>
                                     </p>
+
                                 </div>
 
 
@@ -423,7 +423,7 @@ function Sign_in() {
 
             <div >
 
-                <div className="modelLogin" onHide={handleClose}>
+                <div className="modelLogin" onSubmit={handleClose}>
                     <div className="form-box">
                         <div className="header-form">
                             <h4 className="text-primary text-center">
@@ -437,7 +437,7 @@ function Sign_in() {
                             <form>
                                 <div className="input-group mb-3">
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text"><i class="fa fa-user"></i></span>
+                                        <span className="input-group-text"><i className="fa fa-user"></i></span>
                                     </div>
                                     <input type="text"
                                         className="form-control"
@@ -450,7 +450,7 @@ function Sign_in() {
 
                                 <div className="input-group mb-3">
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text"><i class="fa fa-lock"></i></span>
+                                        <span className="input-group-text"><i className="fa fa-lock"></i></span>
                                     </div>
                                     <input
                                         type="password"
@@ -467,11 +467,12 @@ function Sign_in() {
 
 
                                 <div className='DemoUserAndDoctor'>
-                                    <p>Connect Demo
 
+                                    <p>Connect Demo
                                         <a onClick={connectDemoUser}> User</a> or
                                         <a onClick={connectDemoDoctor}> Doctor</a>
                                     </p>
+
                                 </div>
 
 

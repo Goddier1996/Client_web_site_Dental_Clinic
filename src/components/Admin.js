@@ -225,7 +225,7 @@ function Admin() {
 
                             {Users.map(user =>
 
-                                <tbody >
+                                <tbody key={user._id} >
                                     <tr>
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{CountUser++}</td>
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{user.User_Login}</td>
@@ -262,7 +262,7 @@ function Admin() {
 
                             {UsersBlocked.map(user =>
 
-                                <tbody>
+                                <tbody key={user._id}>
                                     <tr>
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{CountUserBlock++}</td>
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{user.User_Login}</td>
@@ -299,7 +299,7 @@ function Admin() {
 
                             {Doctors.map(doctor =>
 
-                                <tbody>
+                                <tbody key={doctor._id}>
                                     <tr>
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{CountDoctor++}</td>
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{doctor.User_Login}</td>
@@ -405,7 +405,7 @@ function Admin() {
 
                             {Reviews.map(Review =>
 
-                                <tbody>
+                                <tbody key={Review._id}>
                                     <tr>
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{CountReview++}</td>
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{Review.FirstName}</td>
@@ -454,7 +454,7 @@ function Admin() {
 
                             {Users.map(user =>
 
-                                <tbody>
+                                <tbody key={user._id}>
                                     <tr>
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{CountUser++}</td>
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{user.User_Login}</td>
@@ -495,7 +495,7 @@ function Admin() {
 
                             {UsersBlocked.map(user =>
 
-                                <tbody>
+                                <tbody key={user._id}>
                                     <tr>
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{CountUserBlock++}</td>
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{user.User_Login}</td>
@@ -531,7 +531,7 @@ function Admin() {
 
                             {Doctors.map(doctor =>
 
-                                <tbody>
+                                <tbody key={doctor._id}>
                                     <tr>
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{CountDoctor++}</td>
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{doctor.User_Login}</td>
@@ -636,7 +636,7 @@ function Admin() {
 
                             {Reviews.map(Review =>
 
-                                <tbody>
+                                <tbody key={Review._id}>
                                     <tr>
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{CountReview++}</td>
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{Review.FirstName}</td>

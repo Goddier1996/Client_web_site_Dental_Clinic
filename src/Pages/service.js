@@ -170,7 +170,6 @@ function service() {
             let Publish_by = userData._id;
             let FirstName = userData.FirstName;
             let User_Login = userData.User_Login;
-            let DatePublished = userData.DatePublished;
 
             let d = new Date();
 
@@ -181,7 +180,6 @@ function service() {
                 FirstName,
                 User_Login,
                 IsActive: "1",
-                DatePublished,
                 Count_likes: [likeReview]
             };
 
@@ -240,7 +238,7 @@ function service() {
                 </div>
 
                 <div className="d-grid gap-2 addReviews" >
-                    <button class="button-55Dark" role="button" onClick={CheckUserConnected}>Add new Review</button>
+                    <button className="button-55Dark" role="button" onClick={CheckUserConnected}>Add new Review</button>
                 </div>
 
 
@@ -277,34 +275,31 @@ function service() {
                 <div className='OurReviews'>
 
                     <Row xs={1} md={2} lg={3} className="g-4">
+
                         {reviews.sort((a, b) => b.Count_likes.length - a.Count_likes.length).map((record) => (
 
+                            <div key={record._id} className="testimonial-box-container">
 
+                                <div className="testimonial-box">
 
-                            <div class="testimonial-box-container">
+                                    <div className="box-top">
 
-                                <div class="testimonial-box">
+                                        <div className="profileReviews">
 
-                                    <div class="box-top">
-
-                                        <div class="profileReviews">
-
-
-                                            <div class="nameInfo-userInfo">
+                                            <div className="nameInfo-userInfo">
                                                 <span>Name : {record.FirstName}</span>
 
                                                 <span>Login : @{record.User_Login}</span>
                                             </div>
                                         </div>
 
-                                        <div class="reviews">
+                                        <div className="reviews">
                                             <p>{record.DatePublished}</p>
                                         </div>
                                     </div>
 
 
-
-                                    <div class="client-comment">
+                                    <div className="client-comment">
                                         <p>{record.textReviews}</p>
                                     </div>
 
@@ -312,9 +307,9 @@ function service() {
                                     <div className='clickLike'>
                                         <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Like👍🏼</Tooltip>}>
 
-                                            <button class="button-30" role="button"
+                                            <button className="button-30" role="button"
                                                 onClick={() => addReviewsLike(record.FirstName, record._id)}>
-                                                <i class="far fa-thumbs-up"></i> {record.Count_likes.length}
+                                                <i className="far fa-thumbs-up"></i> {record.Count_likes.length}
                                             </button>
 
                                         </OverlayTrigger>
@@ -339,7 +334,7 @@ function service() {
                 </div>
 
                 <div className="d-grid gap-2 addReviews">
-                    <button class="button-55" role="button" onClick={CheckUserConnected}>Add new Review</button>
+                    <button className="button-55" role="button" onClick={CheckUserConnected}>Add new Review</button>
                 </div>
 
 
@@ -377,34 +372,31 @@ function service() {
                 <div className='OurReviews'>
 
                     <Row xs={1} md={2} lg={3} className="g-4">
+
                         {reviews.sort((a, b) => b.Count_likes.length - a.Count_likes.length).map((record) => (
 
+                            <div key={record._id} className="testimonial-box-container">
 
+                                <div className="testimonial-box">
 
-                            <div class="testimonial-box-container">
+                                    <div className="box-top">
 
-                                <div class="testimonial-box">
+                                        <div className="profileReviews">
 
-                                    <div class="box-top">
-
-                                        <div class="profileReviews">
-
-
-                                            <div class="nameInfo-userInfo">
+                                            <div className="nameInfo-userInfo">
                                                 <span>Name : {record.FirstName}</span>
 
                                                 <span>Login : @{record.User_Login}</span>
                                             </div>
                                         </div>
 
-                                        <div class="reviews">
+                                        <div className="reviews">
                                             <p>{record.DatePublished}</p>
                                         </div>
                                     </div>
 
 
-
-                                    <div class="client-comment">
+                                    <div className="client-comment">
                                         <p>{record.textReviews}</p>
                                     </div>
 
@@ -412,9 +404,9 @@ function service() {
                                     <div className='clickLike'>
                                         <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Like👍🏼</Tooltip>}>
 
-                                            <button class="button-30" role="button"
+                                            <button className="button-30" role="button"
                                                 onClick={() => addReviewsLike(record.FirstName, record._id)}>
-                                                <i class="far fa-thumbs-up"></i> {record.Count_likes.length}
+                                                <i className="far fa-thumbs-up"></i> {record.Count_likes.length}
                                             </button>
 
                                         </OverlayTrigger>

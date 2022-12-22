@@ -13,7 +13,9 @@ function category() {
             <div className='categoryLook'>
 
                 <Row xs={1} md={3} className="g-4" style={{ width: "93%" }}>
+
                     {date1.category1.map((record, i) =>
+
                         <div key={i} className='choise'>
 
                             <Card style={{ border: "none", background: "none" }}>

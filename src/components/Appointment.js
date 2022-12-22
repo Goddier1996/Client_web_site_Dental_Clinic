@@ -68,13 +68,15 @@ function appointment() {
             <div id="results" className="search-results">
 
                 <Row xs={2} md={4} lg={4} className="g-4">
+
                     {Hours.map(hour =>
-                        <>
+
+                        <div key={hour._id}>
                             <p href='#'
                                 style={{ textDdecoration: "none" }}
                                 onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
                             </p>
-                        </>
+                        </div>
                     )}
                 </Row>
             </div>
@@ -259,18 +261,19 @@ function appointment() {
 
                     {Days.map(day =>
 
-                        <Button size="sm" variant="outline-light"
-                            onClick={() => LoadHours(day.Serial_code, day.Day_date)}>
-                            {day.Day_date}
-                        </Button>
+                        <div key={day._id}>
+                            <Button size="sm" variant="outline-light"
+                                onClick={() => LoadHours(day.Serial_code, day.Day_date)}>
+                                {day.Day_date}
+                            </Button>
+                        </div>
+
                     )}
                 </Row>
 
 
                 <Modal.Body>
-                    <Form>
-                        {showResults ? <ResultsHours /> : null}
-                    </Form>
+                    {showResults ? <ResultsHours /> : null}
                 </Modal.Body>
 
             </div>

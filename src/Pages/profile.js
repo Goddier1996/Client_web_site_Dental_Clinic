@@ -43,7 +43,7 @@ function profile() {
     if (userData.UserType_code == 2) {
 
         return (
-            <Doctor code_doctor={userData._id} />
+            <Doctor code_doctor={obj} />
         )
     }
 
