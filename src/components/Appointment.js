@@ -261,7 +261,7 @@ function appointment() {
 
                     {Days.map(day =>
 
-                        <div key={day._id}>
+                        <div className='showDayItems' key={day._id}>
                             <Button size="sm" variant="outline-light"
                                 onClick={() => LoadHours(day.Serial_code, day.Day_date)}>
                                 {day.Day_date}
@@ -277,8 +277,7 @@ function appointment() {
                 </Modal.Body>
 
             </div>
-            <div>
-            </div>
+
         </div>
     );
 }

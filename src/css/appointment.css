@@ -22,11 +22,14 @@
     text-align: center;
 }
 
-
+.showDayItems {
+    align-items: center;
+    text-align: center;
+}
 
 .showDay button {
     margin-top: 5%;
-    padding: 1%;
+    padding: 2%;
     font-size: 18px;
     color: white;
     border: none;
