@@ -11,9 +11,9 @@ import Swal from 'sweetalert2'
 function service() {
 
 
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const [showAddReviews, setShowAddReviews] = useState(false);
+    const handleCloseAddReviews = () => setShowAddReviews(false);
+    const handleShowAddReviews = () => setShowAddReviews(true);
 
     const [textReviews, setTextReviews] = useState('');
     const [reviews, SetReviews] = useState([])
@@ -65,7 +65,7 @@ function service() {
         }
 
         if (userData != null) {
-            handleShow();
+            handleShowAddReviews();
         }
     }
 
@@ -243,7 +243,7 @@ function service() {
 
 
                 <div>
-                    <Modal show={show} onHide={handleClose} style={{ background: "rgba(0, 0, 0, 0.8)" }}>
+                    <Modal show={showAddReviews} onHide={handleCloseAddReviews} style={{ background: "rgba(0, 0, 0, 0.8)" }}>
                         <Modal.Header className='titleHeater'>
                             <Modal.Title><h1>Here you can Add New Review :</h1></Modal.Title>
                         </Modal.Header>
@@ -259,11 +259,13 @@ function service() {
                             </Form>
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button variant="danger" onClick={handleClose}>
-                                Close
-                            </Button>
+
                             <Button variant="success" onClick={addReviews}>
                                 Add a Review
+                            </Button>
+
+                            <Button variant="danger" onClick={handleCloseAddReviews}>
+                                Close
                             </Button>
                         </Modal.Footer>
                     </Modal>
@@ -339,7 +341,7 @@ function service() {
 
 
                 <div>
-                    <Modal show={show} onHide={handleClose} style={{ background: "rgba(0, 0, 0, 0.8)" }}>
+                    <Modal show={showAddReviews} onHide={handleCloseAddReviews} style={{ background: "rgba(0, 0, 0, 0.8)" }}>
                         <Modal.Header className='titleHeater'>
                             <Modal.Title ><h1>Here you can Add New Review :</h1></Modal.Title>
                         </Modal.Header>
@@ -355,11 +357,13 @@ function service() {
                             </Form>
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button variant="danger" onClick={handleClose}>
-                                Close
-                            </Button>
+
                             <Button variant="success" onClick={addReviews}>
                                 Add a Review
+                            </Button>
+
+                            <Button variant="danger" onClick={handleCloseAddReviews}>
+                                Close
                             </Button>
                         </Modal.Footer>
                     </Modal>
