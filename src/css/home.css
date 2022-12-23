@@ -17,8 +17,6 @@ html::-webkit-scrollbar-thumb {
 
 
 
-
-
 .main1 {
     position: relative;
 }
@@ -101,6 +99,25 @@ html::-webkit-scrollbar-thumb {
     align-items: center;
 }
 
+
+.closes {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 5%;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: rgb(252, 252, 252);
+    opacity: 1;
+    border: none;
+    background-color: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+
+.titleHeater{
+    margin-top: -5%;
+}
 
 
 @media(max-width:991px) {

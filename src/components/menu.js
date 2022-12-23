@@ -9,19 +9,19 @@ import { useState } from "react";
 import Sign_in from '../components/SignI_in'
 
 
-//here component menu we use in App Because we need show in all pages - and here use dark mode
+//here component menu we use in App Because we need show in all pages
 function Menu() {
 
     let storedTheme = localStorage.getItem("theme");
 
     let userData = JSON.parse(sessionStorage.getItem("user"));
 
-
     const history = useHistory()
 
-    const [show1, setShow1] = useState(false);
-    const handleClose1 = () => setShow1(false);
-    const handleShow1 = () => setShow1(true);
+    // pop up sign in
+    const [showModelSignIn, setShowModelSignIn] = useState(false);
+    const handleCloseModelSignIn = () => setShowModelSignIn(false);
+    const handleShowModelSignIn = () => setShowModelSignIn(true);
 
 
 
@@ -96,6 +96,15 @@ function Menu() {
 
 
 
+    // hide a model sign in , send this function to Sign_In component
+    const hideModelSignIn = () => {
+
+        setShowModelSignIn(false);
+    }
+
+
+
+
     if (storedTheme === "light" && userData != null) {
 
         return (
@@ -155,13 +164,13 @@ function Menu() {
 
                                 <Navbar.Collapse className="justify-content-end link">
 
-                                    <Nav.Link onClick={handleShow1} href="#">Login</Nav.Link>
+                                    <Nav.Link onClick={handleShowModelSignIn} href="#">Login</Nav.Link>
                                     <Nav.Link href='/Register'>Register</Nav.Link>
 
                                 </Navbar.Collapse>
 
-                                <Modal show={show1} onSubmit={handleClose1} >
-                                    <Sign_in />
+                                <Modal show={showModelSignIn} onSubmit={handleCloseModelSignIn} >
+                                    <Sign_in hideSignIn={hideModelSignIn} />
                                 </Modal>
 
                             </Navbar.Collapse>
@@ -236,15 +245,12 @@ function Menu() {
                                 </Nav>
 
                                 <Navbar.Collapse className="justify-content-end link">
-
-                                    <Nav.Link onClick={handleShow1} href="#">Login</Nav.Link>
+                                    <Nav.Link onClick={handleShowModelSignIn} href="#">Login</Nav.Link>
                                     <Nav.Link href='/Register'>Register</Nav.Link>
-
-
                                 </Navbar.Collapse>
 
-                                <Modal show={show1} onSubmit={handleClose1} >
-                                    <Sign_in />
+                                <Modal show={showModelSignIn} onSubmit={handleCloseModelSignIn} >
+                                    <Sign_in hideSignIn={hideModelSignIn} />
                                 </Modal>
 
                             </Navbar.Collapse>

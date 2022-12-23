@@ -12,7 +12,7 @@ import Swal from 'sweetalert2'
 // Home page
 function Home() {
 
-    
+
     let storedTheme = localStorage.getItem("theme");
 
     // show popup add , Appointment
@@ -89,9 +89,15 @@ function Home() {
                     {/* show model popup Appointment */}
                     <div className='bookClick'>
                         <Modal show={show} onHide={handleClose} style={{ background: "rgba(0, 0, 0, 0.8)" }}>
+
+                            <p className="closes" onClick={handleClose} aria-label="Close">
+                                &times;
+                            </p>
+
                             <Modal.Header className='titleHeater'>
                                 <Modal.Title><h1>Select day :</h1></Modal.Title>
                             </Modal.Header>
+
                             <Modal.Body>
                                 <Form>
                                     <Appointment />
@@ -134,6 +140,11 @@ function Home() {
                     {/* show model popup Appointment */}
                     <div className='bookClick'>
                         <Modal show={show} onHide={handleClose} style={{ background: "rgba(0, 0, 0, 0.8)" }}>
+
+                            <p className="closes" onClick={handleClose} aria-label="Close">
+                                &times;
+                            </p>
+
                             <Modal.Header className='titleHeater'>
                                 <Modal.Title><h1>Select day :</h1></Modal.Title>
                             </Modal.Header>

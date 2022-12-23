@@ -9,13 +9,12 @@ import '../css/forgetPassword.css'
 
 
 //here component forget Paswword use in sign In component
-function forgetPaswword() {
+function ForgetPaswword() {
 
     const history = useHistory()
 
-    const [show, setShow] = useState(false);
-
-    const handleShow = () => setShow(true);
+    const [showNewNewPassword, setShowNewPassword] = useState(false);
+    const handleShowNewPassword = () => setShowNewPassword(true);
 
     const [Email, setEmail] = useState('');
 
@@ -74,7 +73,7 @@ function forgetPaswword() {
                         if (result.isConfirmed) {
 
                             sessionStorage.setItem("userForgetPassword", JSON.stringify(data));
-                            handleShow() // show pop up change password
+                            handleShowNewPassword() // show pop up change password
                         }
                     })
                 }
@@ -94,7 +93,7 @@ function forgetPaswword() {
 
                             sessionStorage.setItem("userForgetPassword", JSON.stringify(data));
 
-                            handleShow() // show pop up change password
+                            handleShowNewPassword() // show pop up change password
                         }
                     })
                 }
@@ -108,66 +107,41 @@ function forgetPaswword() {
 
 
 
+    // check value input a new password
+    const checkValueInput = () => {
 
-    //here update to new password 
-    const ForgetPassword = async () => {
-        // alert(userForget._id)
+        if (User_password == '' || Confirm_password == '') {
+
+            if (storedTheme === "dark") {
+
+                Swal.fire({
+                    text: 'Please Input your new Password!',
+                    icon: 'error',
+                    toast: true,
+                    position: 'top-end'
+                })
+
+                return;
+            }
+
+            if (storedTheme === "light") {
+
+                Swal.fire({
+                    text: 'Please Input your new Password!',
+                    icon: 'error',
+                    toast: true,
+                    background: '#373E44',
+                    position: 'top-end'
+                })
+                return;
+            }
+
+        }
+
+
         if (User_password === Confirm_password) {
 
-            try {
-                let user = {
-                    User_password: User_password,
-                    ConfirmPassword: Confirm_password
-                }
-
-                await fetch(`${API.USERS.GET}/${userForget._id}`, {
-                    method: 'PATCH',
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(user)
-                });
-
-                sessionStorage.clear('userForgetPassword');
-
-
-                if (storedTheme === "dark") {
-
-                    Swal.fire({
-                        icon: 'success',
-                        toast: true,
-                        position: 'top-end'
-                    }).then((result) => {
-
-                        if (result.isConfirmed) {
-
-                            history.push("/");
-                            window.location.reload(false);
-                        }
-                    })
-                }
-
-                if (storedTheme === "light") {
-
-                    Swal.fire({
-                        icon: 'success',
-                        background: '#373E44',
-                        toast: true,
-                        position: 'top-end'
-                    }).then((result) => {
-
-                        if (result.isConfirmed) {
-
-                            history.push("/");
-                            window.location.reload(false);
-                        }
-                    })
-                }
-
-
-            } catch (error) {
-                console.log(error)
-            }
+            ForgetPassword();
         }
 
         else {
@@ -192,7 +166,69 @@ function forgetPaswword() {
                     position: 'top-end'
                 })
             }
+        }
 
+    }
+
+
+
+    //here update to new password 
+    const ForgetPassword = async () => {
+
+
+        try {
+            let user = {
+                User_password: User_password,
+                ConfirmPassword: Confirm_password
+            }
+
+            await fetch(`${API.USERS.GET}/${userForget._id}`, {
+                method: 'PATCH',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(user)
+            });
+
+            sessionStorage.clear('userForgetPassword');
+
+
+            if (storedTheme === "dark") {
+
+                Swal.fire({
+                    icon: 'success',
+                    toast: true,
+                    position: 'top-end'
+                }).then((result) => {
+
+                    if (result.isConfirmed) {
+
+                        history.push("/");
+                        window.location.reload(false);
+                    }
+                })
+            }
+
+            if (storedTheme === "light") {
+
+                Swal.fire({
+                    icon: 'success',
+                    background: '#373E44',
+                    toast: true,
+                    position: 'top-end'
+                }).then((result) => {
+
+                    if (result.isConfirmed) {
+
+                        history.push("/");
+                        window.location.reload(false);
+                    }
+                })
+            }
+
+
+        } catch (error) {
+            console.log(error)
         }
 
     }
@@ -272,7 +308,8 @@ function forgetPaswword() {
 
 
             <div className='inputChangePasswort'>
-                <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.9)" }}>
+                <Modal show={showNewNewPassword} style={{ background: "rgba(0, 0, 0, 0.9)" }}>
+
                     <Modal.Header>
                         <Modal.Title><h1>Input new Password :</h1></Modal.Title>
                     </Modal.Header>
@@ -300,13 +337,15 @@ function forgetPaswword() {
 
 
                     <Modal.Footer>
+
+                        <Button variant="primary" onClick={checkValueInput}>
+                            Save Changes
+                        </Button>
+
                         <Button variant="secondary" onClick={closeForgetPassword}>
                             Close
                         </Button>
 
-                        <Button variant="primary" onClick={ForgetPassword}>
-                            Save Changes
-                        </Button>
                     </Modal.Footer>
                 </Modal>
             </div>
@@ -317,4 +356,4 @@ function forgetPaswword() {
 }
 
 
-export default forgetPaswword;
+export default ForgetPaswword;

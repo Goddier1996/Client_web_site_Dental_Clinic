@@ -34,6 +34,10 @@
     border: 2px solid rgba(255, 255, 255, 0.526);
 }
 
+.loginInOrCloseButtom {
+    display: flex;
+    justify-content: space-evenly;
+}
 
 
 .header-form {

@@ -1,7 +1,6 @@
 import React from 'react'
 import { API } from '../API';
 import { useState } from "react";
-import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import { Modal, Form } from 'react-bootstrap';
 import '../css/login.css'
@@ -11,17 +10,13 @@ import videoBg from '../images/video11.mp4'
 
 
 //here component Sign in use in component Menu
-function Sign_in() {
+function Sign_in(props) {
 
 
     // show pop up
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
+    const [showForgetPassword, setShowForgetPassword] = useState(false);
+    const handleShowForgetPassword = () => setShowForgetPassword(true);
 
-    const [show1, setShow1] = useState(false);
-    const handleShow = () => setShow1(true);
-
-    const history = useHistory()
 
     const [Login, setLogin] = useState('')
     const [Password, setPassword] = useState('')
@@ -160,7 +155,6 @@ function Sign_in() {
     // login in the use check if have data base , if have we save in sessionStorage
     const loginUser = async () => {
 
-
         try {
 
             let user =
@@ -214,8 +208,9 @@ function Sign_in() {
 
 
     //show pup up if we chiose forget password
-    const showPopUpforgetPaswword = () => {
-        handleShow();
+    const showPopForgetPaswword = () => {
+
+        handleShowForgetPassword();
     }
 
 
@@ -324,7 +319,7 @@ function Sign_in() {
 
             <div >
 
-                <div className="modelLogin" onSubmit={handleClose}>
+                <div className="modelLogin">
                     <div className="form-boxDark">
                         <div className="header-form">
                             <h4 className="text-primary text-center">
@@ -366,9 +361,10 @@ function Sign_in() {
                                 </div>
 
 
-
-                                <button type="button" onClick={CheckValue} className="btn btn-secondary btn-block">LOGIN</button>
-
+                                <div className='loginInOrCloseButtom'>
+                                    <button type="button" onClick={CheckValue} className="btn btn-warning">Login</button>
+                                    <button type="button" onClick={props.hideSignIn} className="btn btn-secondary">Close</button>
+                                </div>
 
                                 <div className='borderSpaceDark'></div>
 
@@ -390,11 +386,12 @@ function Sign_in() {
 
 
                                 <div className="messageDark">
-                                    <p onClick={showPopUpforgetPaswword}>Forgot your password</p>
+                                    <p onClick={showPopForgetPaswword}>Forgot your password</p>
                                 </div>
 
 
-                                <Modal show={show1} style={{ background: "rgba(0, 0, 0, 0.95)" }}>
+                                {/* show pop up forget password */}
+                                <Modal show={showForgetPassword} style={{ background: "rgba(0, 0, 0, 0.95)" }}>
                                     <Modal.Header className='titleHeater'>
                                         <Modal.Title><h1>You forget a Password ? Let's create new :)</h1></Modal.Title>
                                     </Modal.Header>
@@ -423,7 +420,7 @@ function Sign_in() {
 
             <div >
 
-                <div className="modelLogin" onSubmit={handleClose}>
+                <div className="modelLogin">
                     <div className="form-box">
                         <div className="header-form">
                             <h4 className="text-primary text-center">
@@ -461,7 +458,11 @@ function Sign_in() {
                                     />
                                 </div>
 
-                                <button type="button" onClick={CheckValue} className="btn btn-secondary btn-block">LOGIN</button>
+                                <div className='loginInOrCloseButtom'>
+                                    <button type="button" onClick={CheckValue} className="btn btn-success">Login</button>
+                                    <button type="button" onClick={props.hideSignIn} className="btn btn-secondary">Close</button>
+                                </div>
+
 
                                 <div className='borderSpace' ></div>
 
@@ -482,11 +483,12 @@ function Sign_in() {
                                 <br />
 
                                 <div className="message">
-                                    <p onClick={showPopUpforgetPaswword}>Forgot your password</p>
+                                    <p onClick={showPopForgetPaswword}>Forgot your password</p>
                                 </div>
 
 
-                                <Modal show={show1} style={{ background: "rgba(0, 0, 0, 0.95)" }}>
+                                {/* show pop up forget password */}
+                                <Modal show={showForgetPassword} style={{ background: "rgba(0, 0, 0, 0.95)" }}>
                                     <Modal.Header className='titleHeater'>
                                         <Modal.Title><h1>You forget a Password ? Let's create new :)</h1></Modal.Title>
                                     </Modal.Header>
