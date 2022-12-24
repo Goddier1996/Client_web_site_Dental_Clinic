@@ -12,7 +12,7 @@ Users can look at what service the clinic offers, as well as the location of the
    
 The doctors can look from a doctor's profile page who needs to come (user's turn) and send a message, advice, and also payment of the service and a photo of teeth after the treatment. 
 In addition, the doctor can look at debts, customers who have not paid for their service.
-
+ 
 Admin can control users, delete them or restore the user, delete opinions, add new doctors or block a certain doctor.
  
  
