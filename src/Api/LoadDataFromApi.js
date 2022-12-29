@@ -13,8 +13,6 @@ export async function LoadReviews() {
 
 
 
-
-
 // ADOUT THIS CLINIC COUNT DETAILS
 
 export async function LoadCountDoctors() {
@@ -39,8 +37,6 @@ export async function LoadCountReviews() {
     let data = await res.json();
     return data;
 }
-
-
 
 
 
@@ -80,8 +76,6 @@ export async function LoadAllReviews() {
 
 
 
-
-
 // USER DATA
 
 export async function LoadMedicalFileUser(code) {
@@ -109,8 +103,6 @@ export async function LoadMedicalFileUserIsNotActive(code) {
 
 
 
-
-
 // DOCTOR WORK
 
 export async function LoadUsersActive_queues() {
@@ -129,8 +121,6 @@ export async function LoadMedicalFileAllUsersHowNeedPay() {
     let data = await res.json();
     return data;
 }
-
-
 
 
 

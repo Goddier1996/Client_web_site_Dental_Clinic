@@ -143,25 +143,38 @@ function service() {
     //add likes to review what user chiose
     const addReviewsLike = async (likeReview, Serial_code) => {
 
-        let Publish_by = userData._id;
-        let FirstName = userData.FirstName;
-        let User_Login = userData.User_Login;
+        if (userData != null) {
 
-        let d = new Date();
+            let Publish_by = userData._id;
+            let FirstName = userData.FirstName;
+            let User_Login = userData.User_Login;
 
-        let user = {
-            textReviews,
-            DatePublished: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
-            Publish_by,
-            FirstName,
-            User_Login,
-            IsActive: "1",
-            Count_likes: [likeReview]
-        };
+            let d = new Date();
 
-        await AddNewLikeReviews(user, Serial_code);
+            let user = {
+                textReviews,
+                DatePublished: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
+                Publish_by,
+                FirstName,
+                User_Login,
+                IsActive: "1",
+                Count_likes: [likeReview]
+            };
 
-        window.location.reload(false);
+            await AddNewLikeReviews(user, Serial_code);
+            window.location.reload(false);
+        }
+
+        else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...Please connect and you can add like (:',
+                toast: true,
+                position: 'top-end'
+            })
+            return;
+        }
+
     }
 
 
