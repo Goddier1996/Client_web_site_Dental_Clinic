@@ -71,3 +71,10 @@
         transform: translate(159px, -10px);
     }
 }
+
+
+
+.styleButtonPosition{
+    display: flex;
+    justify-content: space-around;
+}

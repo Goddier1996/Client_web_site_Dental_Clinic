@@ -179,9 +179,11 @@ function AddMedicalFileUser(props) {
                     />
                 </Form.Group>
 
+                <div className='styleButtonPosition'>
+                    <Button variant="success" onClick={checkInput}>Success</Button>
+                    <Button variant="secondary" onClick={props.hideModelMedicalFile}>Close</Button>
+                </div>
 
-                <Button variant="success" onClick={checkInput}>Success</Button>
-                <Button variant="secondary" onClick={props.hideModelMedicalFile}>Close</Button>
 
             </div>
         </div>

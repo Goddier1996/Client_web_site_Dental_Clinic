@@ -32,7 +32,7 @@ function Doctor({ code_doctor }) {
 
 
     //update day and hour to null in user + active the hour to ather users can add , at end show popup Doctor send date Medical File to User
-    const updateDayHour = async (User_code, Serial_codeHour, FirstName, Email) => {
+    const updateDayHour = async (User_code, FirstName, Email) => {
 
         let date =
         {
@@ -127,7 +127,7 @@ function Doctor({ code_doctor }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Email}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Day_date}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Hour_day}</td>
-                                            <td style={{ width: "7%" }} ><Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.Serial_codeHour, user.FirstName, user.Email)}>Send Medical File</Button></td>
+                                            <td style={{ width: "7%" }} ><Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.FirstName, user.Email)}>Send Medical File</Button></td>
                                         </tr>
 
                                         <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.95)" }} >
@@ -229,7 +229,7 @@ function Doctor({ code_doctor }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Email}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Day_date}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Hour_day}</td>
-                                            <td style={{ width: "7%" }} ><Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.Serial_codeHour, user.FirstName, user.Email)}>Send Medical File</Button></td>
+                                            <td style={{ width: "7%" }} ><Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.FirstName, user.Email)}>Send Medical File</Button></td>
                                         </tr>
 
                                         <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.95)" }} >
