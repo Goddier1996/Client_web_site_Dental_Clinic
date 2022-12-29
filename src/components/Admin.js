@@ -3,7 +3,7 @@ import { Tabs, Tab, Button, Row, Form, Col, Table } from 'react-bootstrap';
 import { useState, useEffect } from "react";
 import '../css/profile.css'
 import Swal from 'sweetalert2'
-import { API } from '../API';
+import { API } from '../Api/API';
 
 
 //here component Admin we to do what admin can do = this component use in profile

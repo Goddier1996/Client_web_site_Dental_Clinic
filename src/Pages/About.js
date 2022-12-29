@@ -1,7 +1,7 @@
 import React from 'react'
 import '../css/About.css'
 import { useState, useEffect } from "react";
-import { API } from '../API';
+import { API } from '../Api/API';
 import Swal from 'sweetalert2'
 import date1 from '../Json_date/date.json'
 

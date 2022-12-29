@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Button, Form, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import '../css/service.css'
-import { API } from '../API';
+import { API } from '../Api/API';
 import { useState, useEffect } from "react";
 import Swal from 'sweetalert2'
 

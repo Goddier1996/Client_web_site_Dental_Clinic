@@ -1,5 +1,5 @@
 import React from 'react'
-import { API } from '../API';
+import { API } from '../Api/API';
 import { useState, useEffect } from "react";
 import { Tabs, Tab, Button, Modal, Form, Col, Row, Table } from 'react-bootstrap';
 import '../css/profile.css'

@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from "react";
 import '../css/PayService.css'
 import Swal from 'sweetalert2'
-import { API } from '../API';
+import { API } from '../Api/API';
 import { Button, Form, Modal } from 'react-bootstrap';
 import '../css/profile.css'
 

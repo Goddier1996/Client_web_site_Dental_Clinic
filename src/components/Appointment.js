@@ -1,5 +1,5 @@
 import React from 'react'
-import { API } from '../API';
+import { API } from '../Api/API';
 import { useState, useEffect } from "react";
 import { Button, Row, Modal, Form } from 'react-bootstrap';
 import '../css/appointment.css'

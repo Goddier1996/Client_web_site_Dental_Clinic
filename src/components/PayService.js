@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from "react";
 import '../css/PayService.css'
 import Swal from 'sweetalert2'
-import { API } from '../API';
+import { API } from '../Api/API';
 
 
 //this component user in User component - when user need to pay a service 

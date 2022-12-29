@@ -2,7 +2,7 @@ import React from 'react'
 import { Tabs, Tab, Button, Modal, Table } from 'react-bootstrap';
 import { useState, useEffect } from "react";
 import '../css/profile.css'
-import { API } from '../API';
+import { API } from '../Api/API';
 import AddMedicalFileUser from '../components/AddMedicalFile'
 import Swal from 'sweetalert2'
 

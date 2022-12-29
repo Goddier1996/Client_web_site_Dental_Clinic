@@ -3,7 +3,7 @@ import { Button, Form, Col, Row } from 'react-bootstrap';
 import '../css/register.css'
 import { useState } from "react";
 import Swal from 'sweetalert2'
-import { API } from '../API';
+import { API } from '../Api/API';
 import { useHistory } from 'react-router-dom';
 
 

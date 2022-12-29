@@ -1,5 +1,5 @@
 import React from 'react'
-import { API } from '../API';
+import { API } from '../Api/API';
 import { useState } from "react";
 import Swal from 'sweetalert2'
 import { Modal, Form } from 'react-bootstrap';
