@@ -1,17 +1,15 @@
-import React from 'react'
+import React from 'react';
 import { Tabs, Tab, Button, Modal, Table } from 'react-bootstrap';
 import { useState, useEffect } from "react";
-import '../css/profile.css'
-import { API } from '../Api/API';
-import AddMedicalFileUser from '../components/AddMedicalFile'
-import Swal from 'sweetalert2'
-
+import '../css/profile.css';
+import AddMedicalFileUser from '../components/AddMedicalFile';
+import Swal from 'sweetalert2';
+import { LoadUsersActive_queues, LoadMedicalFileAllUsersHowNeedPay } from '../Api/LoadDataFromApi'
 
 
 //here component Doctor we to do what doctor can do = this component use in profile
-
 //take props doctor user code to show data doctor in profile doctor
-function Doctor({code_doctor}) {
+function Doctor({ code_doctor }) {
 
 
     let storedTheme = localStorage.getItem("theme");
@@ -26,23 +24,10 @@ function Doctor({code_doctor}) {
 
     const [usersActive_queues, SetUsersActive_queues] = useState([]);
 
-    const [users, SetUser] = useState({});
 
 
     let ClientHowNeedPay = 1;
     let CountClient = 1;
-
-
-
-    //load data user from data base 
-    const LoadUser = async () => {
-
-        let res = await fetch(`${API.USERS.GET}/${code_doctor.code}`, { method: 'GET' });
-
-        let data = await res.json();
-        SetUser(data);
-    }
-
 
 
 
@@ -58,76 +43,31 @@ function Doctor({code_doctor}) {
 
         sessionStorage.setItem("userDateMedical", JSON.stringify(date))
 
-        //show popup
+        //show popup send a file medical to user
         handleShow();
-
-        ActiveHour(Serial_codeHour);
-
-
-        try {
-            let user = {
-                Day_date: null,
-                Hour_day: null,
-                Serial_codeHour: null
-            }
-
-            await fetch(`${API.USERS.GET}/${User_code}`, {
-                method: 'PATCH',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(user)
-            });
-
-
-        } catch (error) {
-            console.log(error)
-        }
     }
 
 
 
+    // load data for doctor from LoadDataFromApi component
+    const LoadDataForDoctorFromApi = async () => {
 
-    //active the hour in profile page if user dont need this turn , now status was delete after this function was active
-    //use in function = updateDayHour
-    const ActiveHour = async (Serial_codeHour) => {
-
-        await fetch(`${API.HOURS.GET}/active/${Serial_codeHour}`,
-            { method: 'PATCH' }
-        );
+        SetUsersActive_queues(await LoadUsersActive_queues())
+        SetMedical_File_All_users(await LoadMedicalFileAllUsersHowNeedPay())
     }
 
 
 
+    const hideModelMedicalFile = () => {
 
-    //show all users how have a active queues(this option for doctor)
-    const LoadUsersActive_queues = async () => {
-
-        let res = await fetch(`${API.USERS.GET}/showTurnUsers`, { method: 'GET' });
-
-        let data = await res.json();
-        SetUsersActive_queues(data);
+        setShow(false);
     }
-
-
-
-
-    // load all users medical files what dotor send How need to Pay Service , and doctor can see how need (all users)
-    const LoadMedicalFileAllUsers = async () => {
-
-        let res = await fetch(`${API.MEDICAL_FILE.GET}/showHowNeedPay`, { method: 'GET' });
-
-        let data = await res.json();
-        SetMedical_File_All_users(data);
-    }
-
 
 
 
     useEffect(() => {
-        LoadUser();
-        LoadMedicalFileAllUsers();
-        LoadUsersActive_queues();
+
+        LoadDataForDoctorFromApi()
 
         Swal.fire({
             background: 'none',
@@ -154,7 +94,7 @@ function Doctor({code_doctor}) {
 
                             <div className="profile-header-content">
                                 <div className="profile-header-info">
-                                    <h4 className="m-t-10 m-b-5">Hello Doctor {users.FirstName} </h4>
+                                    <h4 className="m-t-10 m-b-5">Hello {code_doctor.name} </h4>
                                 </div>
                             </div>
                         </div>
@@ -192,7 +132,7 @@ function Doctor({code_doctor}) {
 
                                         <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.95)" }} >
 
-                                            <AddMedicalFileUser />
+                                            <AddMedicalFileUser hideModelMedicalFile={hideModelMedicalFile} codeHour={user.Serial_codeHour} userCode={user._id} />
 
                                         </Modal>
                                     </tbody>
@@ -255,7 +195,7 @@ function Doctor({code_doctor}) {
                             <div className="profile-header-content">
 
                                 <div className="profile-header-info">
-                                    <h4 className="m-t-10 m-b-5">Hello Doctor  {users.FirstName}</h4>
+                                    <h4 className="m-t-10 m-b-5">Hello {code_doctor.name}</h4>
                                 </div>
                             </div>
                         </div>
@@ -294,7 +234,7 @@ function Doctor({code_doctor}) {
 
                                         <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.95)" }} >
 
-                                            <AddMedicalFileUser />
+                                            <AddMedicalFileUser hideModelMedicalFile={hideModelMedicalFile} codeHour={user.Serial_codeHour} userCode={user._id} />
 
                                         </Modal>
                                     </tbody>

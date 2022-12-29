@@ -7,6 +7,8 @@ import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import PayService from '../components/PayService'
 
+import { LoadMedicalFileUser, showAllMyReview, LoadMedicalFileUserIsNotActive } from '../Api/LoadDataFromApi'
+
 
 
 //data_user - take all data user from Page Profile (user)
@@ -71,20 +73,6 @@ function User({ data_user }) {
             // window.location.reload(false);
         }
     };
-
-
-
-
-    //load data user from data base and save in set
-
-    // const LoadUser = async () => {
-
-    //     let res = await fetch(`${API.USERS.GET}/${data_user.code}`, { method: 'GET' });
-
-    //     let data = await res.json();
-    //     SetUser(data);
-    // }
-
 
 
 
@@ -240,19 +228,6 @@ function User({ data_user }) {
 
 
 
-
-    //show all reviews this user from data base 
-    const showAllMyReview = async () => {
-
-        let res = await fetch(`${API.REVIEWS.GET}/${data_user.code}`, { method: 'GET' });
-
-        let data = await res.json();
-        SetMyReview(data);
-    }
-
-
-
-
     // delete review this user from data base
     const DeleteReview = async (Id) => {
 
@@ -297,27 +272,13 @@ function User({ data_user }) {
 
 
 
-    // load user medical files what dotor send (id:user)
-    const LoadMedicalFileUser = async () => {
+    // load data user from LoadDataFromApi component
+    const LoadDataUserFromApi = async () => {
 
-        let res = await fetch(`${API.MEDICAL_FILE.GET}/${data_user.code}`, { method: 'GET' });
-
-        let data = await res.json();
-        SetMedical_File(data);
+        SetMedical_File(await LoadMedicalFileUser(data_user.code))
+        SetMyReview(await showAllMyReview(data_user.code))
+        SetMedical_File_Is_Not_Active(await LoadMedicalFileUserIsNotActive(data_user.code))
     }
-
-
-
-
-    //load all  medical files not active = to show a history to user in profile
-    const LoadMedicalFileUserIsNotActive = async () => {
-
-        let res = await fetch(`${API.MEDICAL_FILE.GET}/showHistoryFiles/${data_user.code}`, { method: 'GET' });
-
-        let data = await res.json();
-        SetMedical_File_Is_Not_Active(data);
-    }
-
 
 
 
@@ -346,11 +307,9 @@ function User({ data_user }) {
 
 
     useEffect(() => {
-        // LoadUser();
-        showAllMyReview();
-        LoadMedicalFileUser();
-        LoadMedicalFileUserIsNotActive();
 
+        LoadDataUserFromApi();
+        
         //show use date- when i update user date i show all value in input and choise what i need update
         setFirstName(data_user.name);
         setLogin(data_user.login);
@@ -1137,8 +1096,8 @@ function User({ data_user }) {
 
                                 <Modal.Body>
 
-                                    <div style={{ marginTop: "-20%", color: "white"  }}>
-                                        <h6 style={{ fontWeight: "bold", color: "white"  }}>Your Queues :</h6> <br />
+                                    <div style={{ marginTop: "-20%", color: "white" }}>
+                                        <h6 style={{ fontWeight: "bold", color: "white" }}>Your Queues :</h6> <br />
                                         Day : {userData.Day_date}<br />
                                         Hour : {userData.Hour_day}<br /><br />
                                         <h6 style={{ fontSize: "13px", color: "white" }}>if you don`t need this queue Please cancel !</h6>

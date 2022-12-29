@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import '../css/profile.css'
 import Swal from 'sweetalert2'
 import { API } from '../Api/API';
+import { LoadAllUsers, LoadAllUsersBlocked, LoadAllDoctors, LoadAllReviews } from '../Api/LoadDataFromApi'
+
+
 
 
 //here component Admin we to do what admin can do = this component use in profile
@@ -72,52 +75,21 @@ function Admin() {
 
 
 
-    //admin can see all users how in data base
-    const LoadAllUsers = async () => {
 
-        let res = await fetch(`${API.USERS.GET}`, { method: 'GET' });
-        let data = await res.json();
 
-        SetUsers(data);
+    // load data from LoadDataFromApi component
+    const LoadCountDetailsFromApi = async () => {
+
+        SetUsers(await LoadAllUsers())
+        SetUsersBlocked(await LoadAllUsersBlocked())
+        SetDoctors(await LoadAllDoctors())
+        SetReviews(await LoadAllReviews())
     }
-
-
-
-    //show all blocked all users
-    const LoadAllUsersBlocked = async () => {
-
-        let res = await fetch(`${API.USERS.GET}/BlockUsers`, { method: 'GET' });
-        let data = await res.json();
-
-        SetUsersBlocked(data);
-    }
-
-
-
-    //admin can see all Doctors  how in data base
-    const LoadAllDoctors = async () => {
-
-        let res = await fetch(`${API.USERS.GET}/showDoctors`, { method: 'GET' });
-        let data = await res.json();
-
-        SetDoctors(data);
-    }
-
-
-    //admin can see all Reviews what this in data base
-    const LoadAllReviews = async () => {
-
-        let res = await fetch(API.REVIEWS.GET, { method: 'GET' });
-        let data = await res.json();
-
-        SetReviews(data);
-    }
-
 
 
     //admin can block the user
     const DeleteUser = async (Id) => {
-        // alert(Id)
+
         await fetch(`${API.USERS.GET}/NotActive/${Id}`,
             { method: 'PATCH' }
         );
@@ -184,10 +156,7 @@ function Admin() {
 
     useEffect(() => {
 
-        LoadAllUsers();
-        LoadAllDoctors();
-        LoadAllReviews();
-        LoadAllUsersBlocked();
+        LoadCountDetailsFromApi()
 
         Swal.fire({
             background: 'none',

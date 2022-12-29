@@ -1,9 +1,9 @@
 import React from 'react'
 import '../css/About.css'
 import { useState, useEffect } from "react";
-import { API } from '../Api/API';
 import Swal from 'sweetalert2'
 import date1 from '../Json_date/date.json'
+import { LoadCountDoctors, LoadCountUsers, LoadCountReviews } from '../Api/LoadDataFromApi'
 
 
 
@@ -20,46 +20,18 @@ function About() {
     let storedTheme = localStorage.getItem("theme");
 
 
-    //here load count how much was doctors in clinic
-    const LoadCountDoctors = async () => {
 
-        let res = await fetch(`${API.USERS.GET}/countDoctors`, { method: 'GET' });
+    // load data from LoadDataFromApi component
+    const LoadCountDetailsFromApi = async () => {
 
-        let data = await res.json();
-        SetShowCountDoctor(data);
+        SetShowCountDoctor(await LoadCountDoctors())
+        SetShowCountUsers(await LoadCountUsers())
+        SetShowCountReviews(await LoadCountReviews())
     }
-
-
-
-
-    //here load count how much was users in clinic
-
-    const LoadCountUsers = async () => {
-
-        let res = await fetch(`${API.USERS.GET}/countUsers`, { method: 'GET' });
-
-        let data = await res.json();
-        SetShowCountUsers(data);
-    }
-
-
-
-
-    //here load count how much was revirews in clinic
-
-    const LoadCountReviews = async () => {
-
-        let res = await fetch(`${API.REVIEWS.GET}/countReviews`, { method: 'GET' });
-
-        let data = await res.json();
-        SetShowCountReviews(data);
-    }
-
 
 
 
     //long(count) service our work , from fle Json date1.work
-
     const LoadCountServiceOurWork = async () => {
 
         let longeur = date1.work.length;
@@ -72,9 +44,7 @@ function About() {
 
     useEffect(() => {
 
-        LoadCountDoctors();
-        LoadCountUsers();
-        LoadCountReviews();
+        LoadCountDetailsFromApi()
         LoadCountServiceOurWork();
 
 

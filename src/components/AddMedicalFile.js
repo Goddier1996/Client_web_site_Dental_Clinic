@@ -9,7 +9,7 @@ import '../css/profile.css'
 
 
 //here component Add Medical File User , doctor add a file to user,and user can see how much pay need and see what doctor write and docoment = this component use in profile doctor
-function AddMedicalFileUser() {
+function AddMedicalFileUser(props) {
 
     const [File_user, setFile_user] = useState('');
     const [textDoctor, setTextDoctor] = useState('');
@@ -25,7 +25,7 @@ function AddMedicalFileUser() {
         return !!urlPattern.test(urlString);
     }
 
-    
+
 
     // check all input value
     const checkInput = async () => {
@@ -60,7 +60,6 @@ function AddMedicalFileUser() {
 
         let d = new Date();
 
-
         try {
             let File = {
                 name: date.FirstName,
@@ -82,6 +81,30 @@ function AddMedicalFileUser() {
             });
 
 
+            ActiveHour();
+
+            // delete in user a day and hour 
+            try {
+                let user = {
+                    Day_date: null,
+                    Hour_day: null,
+                    Serial_codeHour: null
+                }
+
+                await fetch(`${API.USERS.GET}/${props.userCode}`, {
+                    method: 'PATCH',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(user)
+                });
+
+
+            } catch (error) {
+                console.log(error)
+            }
+
+
             Swal.fire({
                 title: 'success',
                 icon: 'success',
@@ -90,7 +113,6 @@ function AddMedicalFileUser() {
             }).then((result) => {
 
                 if (result.isConfirmed) {
-
                     sessionStorage.removeItem('userDateMedical');
                     window.location.reload(false);
                 }
@@ -100,6 +122,16 @@ function AddMedicalFileUser() {
         } catch (error) {
             console.log(error);
         }
+    }
+
+
+
+    //active this hour when doctor send a file to user
+    const ActiveHour = async () => {
+
+        await fetch(`${API.HOURS.GET}/active/${props.codeHour}`,
+            { method: 'PATCH' }
+        );
     }
 
 
@@ -149,6 +181,7 @@ function AddMedicalFileUser() {
 
 
                 <Button variant="success" onClick={checkInput}>Success</Button>
+                <Button variant="secondary" onClick={props.hideModelMedicalFile}>Close</Button>
 
             </div>
         </div>

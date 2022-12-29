@@ -4,6 +4,7 @@ import '../css/service.css'
 import { API } from '../Api/API';
 import { useState, useEffect } from "react";
 import Swal from 'sweetalert2'
+import { LoadReviews } from '../Api/LoadDataFromApi'
 
 
 
@@ -23,13 +24,11 @@ function service() {
 
 
 
-    // load all reviews all users from data base
-    const LoadReviews = async () => {
 
-        let res = await fetch(API.REVIEWS.GET, { method: 'GET' });
-        let data = await res.json();
+    // load data from LoadDataFromApi component
+    const LoadReviewsFromApi = async () => {
 
-        SetReviews(data);
+        SetReviews(await LoadReviews());
     }
 
 
@@ -163,8 +162,6 @@ function service() {
     //add likes to review what user chiose
     const addReviewsLike = async (likeReview, Serial_code) => {
 
-
-        // alert(Serial_code)
         try {
 
             let Publish_by = userData._id;
@@ -193,8 +190,6 @@ function service() {
 
             window.location.reload(false);
 
-
-
         } catch (error) {
 
             Swal.fire({
@@ -220,8 +215,7 @@ function service() {
             timer: 1000,
         })
 
-        LoadReviews();
-
+        LoadReviewsFromApi();
     }, [])
 
 

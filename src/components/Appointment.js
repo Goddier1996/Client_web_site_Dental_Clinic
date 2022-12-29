@@ -1,9 +1,10 @@
 import React from 'react'
 import { API } from '../Api/API';
 import { useState, useEffect } from "react";
-import { Button, Row, Modal, Form } from 'react-bootstrap';
+import { Button, Row, Modal } from 'react-bootstrap';
 import '../css/appointment.css'
 import Swal from 'sweetalert2'
+import { LoadDays } from '../Api/LoadDataFromApi'
 
 
 //here component we show data from data base (if you click to buttom in Home Page Book an appointment)
@@ -28,17 +29,14 @@ function appointment() {
 
 
 
-    //here you show Days , from data base
-    const LoadDays = async () => { // 1
+    // load data Appointmen days,hours from LoadDataFromApi component
+    const LoadDataAppointmentFromApi = async () => {
 
-        let res = await fetch(API.DAYS.GET, { method: 'GET' });
-        let data = await res.json();
-
-        SetDays(data);
+        SetDays(await LoadDays())
     }
 
 
-
+    
     //here you show Hours from day what we chiose , from data base 
     const LoadHours = async (Serial_code, Day_date) => { // 2
 
@@ -56,7 +54,7 @@ function appointment() {
 
 
 
-    //show (html) return we see in pup up hours - and click to hour we save what day we chiose and hour to data base
+    //show (jsx) return we see in pup up hours - and click to hour we save what day we chiose and hour to data base
     const ResultsHours = () => ( // 3
 
         onClick(),
@@ -219,7 +217,7 @@ function appointment() {
         }
 
         if (userData.Day_date == null) {
-            LoadDays();
+            LoadDataAppointmentFromApi();
         }
 
         if (userData.UserType_code == 2) {
