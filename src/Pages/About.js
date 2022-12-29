@@ -47,7 +47,6 @@ function About() {
         LoadCountDetailsFromApi()
         LoadCountServiceOurWork();
 
-
         Swal.fire({
             background: 'none',
             showConfirmButton: false,
@@ -70,7 +69,7 @@ function About() {
                     <p>(1) This Clinic was Number one in Kfar-Yona City.</p>
                     <p>(2) We provide excellent customer service and also a good attitude towards our customers.</p>
                     <p>(3) We handle every area related to dental care , Read more about our service - <a href='/OurWork'>Click Me</a>.</p>
-                    <p>(4) Have a Good Location Clinic and Contact - <a href='/Loction'>See Location</a>.</p>
+                    <p>(4) Have a Good Location Clinic and Contact - <a href='/Location'>See Location</a>.</p>
                     <p>(5) See Customer reviews - <a href='/Service'>See Review's</a>.</p>
 
                 </div>
@@ -164,7 +163,7 @@ function About() {
                     <p>(1) This Clinic was Number one in Kfar-Yona City.</p>
                     <p>(2) We provide excellent customer service and also a good attitude towards our customers.</p>
                     <p>(3) We handle every area related to dental care , Read more about our service - <a href='/OurWork'>Click Me</a>.</p>
-                    <p>(4) Have a Good Location Clinic and Contact - <a href='/Loction'>See Location</a>.</p>
+                    <p>(4) Have a Good Location Clinic and Contact - <a href='/Location'>See Location</a>.</p>
                     <p>(5) See Customer reviews - <a href='/Service'>See Review's</a>.</p>
                 </div>
 

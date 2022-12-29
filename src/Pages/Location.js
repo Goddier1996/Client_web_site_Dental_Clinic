@@ -9,7 +9,7 @@ import Swal from 'sweetalert2'
 
 //here we show loction the clinic , we use data from json file and show all data in this page
 
-function Loction() {
+function Location() {
 
 
     let storedTheme = localStorage.getItem("theme");
@@ -26,6 +26,7 @@ function Loction() {
     }, [])
 
 
+    
     if (storedTheme === "light") {
 
         return (
@@ -140,4 +141,4 @@ function Loction() {
 
 }
 
-export default Loction;
+export default Location;
