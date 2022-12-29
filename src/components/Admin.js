@@ -5,6 +5,7 @@ import '../css/profile.css'
 import Swal from 'sweetalert2'
 import { API } from '../Api/API';
 import { LoadAllUsers, LoadAllUsersBlocked, LoadAllDoctors, LoadAllReviews } from '../Api/LoadDataFromApi'
+import { DeleteUser, DeleteReview, ActiveUserInDataBase } from '../Api/DeleteUpdateDataFromApi'
 
 
 
@@ -75,8 +76,6 @@ function Admin() {
 
 
 
-
-
     // load data from LoadDataFromApi component
     const LoadCountDetailsFromApi = async () => {
 
@@ -87,13 +86,19 @@ function Admin() {
     }
 
 
-    //admin can block the user
-    const DeleteUser = async (Id) => {
 
-        await fetch(`${API.USERS.GET}/NotActive/${Id}`,
-            { method: 'PATCH' }
-        );
-        window.location.reload(false);
+    // delete items from DeleteDataFromApi component
+    const DeleteItemsFromDataApi = async (Id, item) => {
+
+        if (item == "review") {
+
+            await DeleteReview(Id)
+        }
+
+        if (item == "user") {
+
+            await DeleteUser(Id);
+        }
     }
 
 
@@ -101,18 +106,7 @@ function Admin() {
     //active all users how was block
     const ActiveUser = async (Id) => {
 
-        let res = await fetch(`${API.USERS.GET}/active/${Id}`, { method: 'PATCH' });
-        window.location.reload(false);
-    }
-
-
-
-    //admin delete a review
-    const DeleteReview = async (Id) => {
-
-        await fetch(`${API.REVIEWS.GET}/delete/${Id}`,
-            { method: 'DELETE' }
-        );
+        await ActiveUserInDataBase(Id);
         window.location.reload(false);
     }
 
@@ -156,7 +150,7 @@ function Admin() {
 
     useEffect(() => {
 
-        LoadCountDetailsFromApi()
+        LoadCountDetailsFromApi();
 
         Swal.fire({
             background: 'none',
@@ -204,7 +198,7 @@ function Admin() {
                                         <td style={{ textAlign: "center", fontSize: "13px" }}>{user.User_password}</td>
 
                                         <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
-                                            <Button size="sm" variant="danger" onClick={() => DeleteUser(user._id)}>Block</Button>
+                                            <Button size="sm" variant="danger" onClick={() => DeleteItemsFromDataApi(user._id, "user")}>Block</Button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -278,7 +272,7 @@ function Admin() {
 
 
                                         <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
-                                            <Button size="sm" variant="danger" onClick={() => DeleteUser(doctor._id)}>Block</Button>
+                                            <Button size="sm" variant="danger" onClick={() => DeleteItemsFromDataApi(doctor._id, "user")}>Block</Button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -383,7 +377,7 @@ function Admin() {
 
 
                                         <td style={{ textAlign: "center", fontSize: "13px", width: "1%" }}>
-                                            <Button size="sm" variant="danger" onClick={() => DeleteReview(Review._id)}>Block</Button>
+                                            <Button size="sm" variant="danger" onClick={() => DeleteItemsFromDataApi(Review._id, "review")}>Block</Button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -438,7 +432,7 @@ function Admin() {
                                         </td>
 
                                         <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
-                                            <Button size="sm" variant="danger" onClick={() => DeleteUser(user._id)}>Block</Button>
+                                            <Button size="sm" variant="danger" onClick={() => DeleteItemsFromDataApi(user._id, "user")}>Block</Button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -510,7 +504,7 @@ function Admin() {
 
 
                                         <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
-                                            <Button size="sm" variant="danger" onClick={() => DeleteUser(doctor._id)}>Block</Button>
+                                            <Button size="sm" variant="danger" onClick={() => DeleteItemsFromDataApi(doctor._id, "user")}>Block</Button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -614,7 +608,7 @@ function Admin() {
 
 
                                         <td style={{ textAlign: "center", fontSize: "13px", width: "1%" }}>
-                                            <Button size="sm" variant="danger" onClick={() => DeleteReview(Review._id)}>Block</Button>
+                                            <Button size="sm" variant="danger" onClick={() => DeleteItemsFromDataApi(Review._id, "review")}>Block</Button>
                                         </td>
                                     </tr>
                                 </tbody>

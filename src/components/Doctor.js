@@ -19,12 +19,9 @@ function Doctor({ code_doctor }) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-
     const [medical_File_All_users, SetMedical_File_All_users] = useState([]);
 
     const [usersActive_queues, SetUsersActive_queues] = useState([]);
-
-
 
     let ClientHowNeedPay = 1;
     let CountClient = 1;
@@ -76,7 +73,6 @@ function Doctor({ code_doctor }) {
             html: '<img src="https://i.postimg.cc/pLT9cd9Z/12.png" height="200"></img>'
         })
     }, [])
-
 
 
 

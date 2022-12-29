@@ -3,8 +3,8 @@ import { Button, Form, Col, Row } from 'react-bootstrap';
 import '../css/register.css'
 import { useState } from "react";
 import Swal from 'sweetalert2'
-import { API } from '../Api/API';
 import { useHistory } from 'react-router-dom';
+import { AddNewUserRegester } from '../Api/ConnectOrAddFromApi'
 
 
 
@@ -27,7 +27,6 @@ function Register() {
 
 
     let storedTheme = localStorage.getItem("theme");
-
 
 
     //check all input if all good 
@@ -60,36 +59,24 @@ function Register() {
 
 
 
-    //register a new user , save in data base use node js to mySql
+    //register a new user , save in data base
     const registerUser = async () => {
 
-        try {
-            let user = {
-                FirstName,
-                User_Login,
-                Birthday,
-                Email,
-                User_password: Password,
-                UserType_code: "1",
-                ConfirmPassword,
-                Day_date: null,
-                Hour_day: null,
-                Serial_codeHour: null,
-                IsActive: "1"
-            };
+        let user = {
+            FirstName,
+            User_Login,
+            Birthday,
+            Email,
+            User_password: Password,
+            UserType_code: "1",
+            ConfirmPassword,
+            Day_date: null,
+            Hour_day: null,
+            Serial_codeHour: null,
+            IsActive: "1"
+        };
 
-            await fetch(API.USERS.ADD, {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(user)
-            });
-
-
-        } catch (error) {
-            console.log(error);
-        }
+        await AddNewUserRegester(user);
     }
 
 

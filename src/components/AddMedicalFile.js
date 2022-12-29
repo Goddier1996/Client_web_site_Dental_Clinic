@@ -2,9 +2,10 @@ import React from 'react'
 import { useState } from "react";
 import '../css/PayService.css'
 import Swal from 'sweetalert2'
-import { API } from '../Api/API';
 import { Button, Form, Modal } from 'react-bootstrap';
 import '../css/profile.css'
+import { DoctorAddMedicalFileUser } from '../Api/ConnectOrAddFromApi'
+import { UpdateDataUserRemoveTurn, ActiveHourInDataBase } from '../Api/DeleteUpdateDataFromApi'
 
 
 
@@ -60,79 +61,37 @@ function AddMedicalFileUser(props) {
 
         let d = new Date();
 
-        try {
-            let File = {
-                name: date.FirstName,
-                email: date.Email,
-                Publish_by: date.User_code,
-                Date_published: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
-                File_user: File_user,
-                textDoctor: textDoctor,
-                priceSevice: priceSevice,
-                IsActive: "1"
-            };
+        let File = {
+            name: date.FirstName,
+            email: date.Email,
+            Publish_by: date.User_code,
+            Date_published: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
+            File_user: File_user,
+            textDoctor: textDoctor,
+            priceSevice: priceSevice,
+            IsActive: "1"
+        };
 
-            await fetch(API.MEDICAL_FILE.ADD, {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(File)
-            });
+        await DoctorAddMedicalFileUser(File);
 
+        await ActiveHourInDataBase(props.codeHour);
 
-            ActiveHour();
+        await UpdateDataUserRemoveTurn(props.userCode);
 
-            // delete in user a day and hour 
-            try {
-                let user = {
-                    Day_date: null,
-                    Hour_day: null,
-                    Serial_codeHour: null
-                }
+        Swal.fire({
+            title: 'success',
+            icon: 'success',
+            toast: true,
+            position: 'top-end'
+        }).then((result) => {
 
-                await fetch(`${API.USERS.GET}/${props.userCode}`, {
-                    method: 'PATCH',
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(user)
-                });
-
-
-            } catch (error) {
-                console.log(error)
+            if (result.isConfirmed) {
+                sessionStorage.removeItem('userDateMedical');
+                window.location.reload(false);
             }
-
-
-            Swal.fire({
-                title: 'success',
-                icon: 'success',
-                toast: true,
-                position: 'top-end'
-            }).then((result) => {
-
-                if (result.isConfirmed) {
-                    sessionStorage.removeItem('userDateMedical');
-                    window.location.reload(false);
-                }
-            })
-
-
-        } catch (error) {
-            console.log(error);
-        }
+        })
     }
 
-
-
-    //active this hour when doctor send a file to user
-    const ActiveHour = async () => {
-
-        await fetch(`${API.HOURS.GET}/active/${props.codeHour}`,
-            { method: 'PATCH' }
-        );
-    }
 
 
 

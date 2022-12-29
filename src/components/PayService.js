@@ -2,7 +2,8 @@ import React from 'react'
 import { useState } from "react";
 import '../css/PayService.css'
 import Swal from 'sweetalert2'
-import { API } from '../Api/API';
+import { DeletePayFile } from '../Api/DeleteUpdateDataFromApi'
+
 
 
 //this component user in User component - when user need to pay a service 
@@ -17,25 +18,23 @@ function PayService() {
     let PayDetails = JSON.parse(sessionStorage.getItem("PayDetails"));
 
 
-    //click button pay price and check if all input was good,if yes send to function DeletePayFile
+    //click button pay price and check if all input was good,if yes send to function DeletePayFile from DeleteUpdateDataFromAp component
     const Pay = async () => {
-        // alert(PayDetails.Serial_code)
 
         if (CardNumber != '' && CardholderName != '' && Expiration != '' && Cvv != '' && PayDetails.userName == CardholderName) {
 
-            DeletePayFile(PayDetails.Serial_code);
+            await DeletePayFile(PayDetails.Serial_code);
 
             Swal.fire({
                 title: 'success',
                 icon: 'success',
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1500,
                 toast: true,
-                position: 'top-end'
-            }).then((result) => {
-
-                if (result.isConfirmed) {
-                    window.location.reload(false);
-                }
             })
+
+            window.location.reload(false);
         }
 
         else {
@@ -47,15 +46,6 @@ function PayService() {
                 position: 'top-end'
             })
         }
-    }
-    
-
-
-    //delete pay file = when pay the price
-    const DeletePayFile = async (Serial_code) => {
-
-        await fetch(`${API.MEDICAL_FILE.GET}/delete/${Serial_code}`,
-            { method: 'PATCH' });
     }
 
 

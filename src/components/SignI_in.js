@@ -1,11 +1,11 @@
 import React from 'react'
-import { API } from '../Api/API';
 import { useState } from "react";
 import Swal from 'sweetalert2'
 import { Modal, Form } from 'react-bootstrap';
 import '../css/login.css'
 import ForgetPaswword from '../components/forgetPassword'
 import videoBg from '../images/video11.mp4'
+import { connectUserLogin, connectDemoUserShow, connectDemoDoctorShow } from '../Api/ConnectOrAddFromApi'
 
 
 
@@ -28,8 +28,8 @@ function Sign_in(props) {
     // show pop up alert swal when we connect to login = use in loginUser
     const openSwalWhenLogin = async (nameUser, UserType_code) => {
 
-        //user popup swal
 
+        //user popup swal
         if (storedTheme === "light" && UserType_code == 1) {
 
             await Swal.fire({
@@ -62,7 +62,6 @@ function Sign_in(props) {
 
 
         //doctor popup swal
-
         if (storedTheme === "light" && UserType_code == 2) {
 
             await Swal.fire({
@@ -95,7 +94,6 @@ function Sign_in(props) {
 
 
         //Admin popup swal
-
         if (storedTheme === "light" && UserType_code == 3) {
 
             await Swal.fire({
@@ -125,7 +123,6 @@ function Sign_in(props) {
             })
             await window.location.reload(false);
         }
-
     }
 
 
@@ -152,55 +149,26 @@ function Sign_in(props) {
 
 
 
-    // login in the use check if have data base , if have we save in sessionStorage
+    // login check if have data base , if have we save in sessionStorage
     const loginUser = async () => {
 
-        try {
+        let user =
+        {
+            User_Login: Login,
+            User_password: Password
+        }
 
-            let user =
-            {
-                User_Login: Login,
-                User_password: Password
-            };
+        await connectUserLogin(user);
 
-            let res = await fetch(API.USERS.LOGIN, {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(user)
-            });
+        let userData = JSON.parse(sessionStorage.getItem("user"));
 
+        if (userData != null) {
 
-            let data = await res.json();
+            openSwalWhenLogin(userData.FirstName, userData.UserType_code);
+        }
 
-
-            // if dont have this user in database show alert
-            if (data == null) {
-
-                Swal.fire({
-                    icon: 'warning',
-                    text: 'Sorry dont have This user in Data Base , Try Again',
-                    toast: true,
-                    position: 'top-end'
-                })
-
-                return;
-            }
-
-
-            // save user data in sessionStorage to use in other pages
-            sessionStorage.setItem("user", JSON.stringify(data)); // 1
-
-
-            let userCode = { User_code: data._id }// 2
-            sessionStorage.setItem("userCode", JSON.stringify(userCode))// 3
-
-            openSwalWhenLogin(data.FirstName, data.UserType_code);
-
-
-        } catch (error) {
-            console.log(error);
+        else {
+            return;
         }
     }
 
@@ -216,42 +184,13 @@ function Sign_in(props) {
 
 
 
-
     //here we connect demo user , for other users how went see can use demo user , instead of Register Or Login
     const connectDemoUser = async () => {
 
-        try {
+        await connectDemoUserShow();
 
-            let user =
-            {
-                User_Login: 'User',
-                User_password: '123456'
-            };
-
-            let res = await fetch(API.USERS.LOGIN, {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(user)
-            });
-
-
-            let data = await res.json();
-
-            sessionStorage.setItem("user", JSON.stringify(data)); // 1
-
-
-            let userCode = { User_code: data._id }// 2
-            sessionStorage.setItem("userCode", JSON.stringify(userCode))// 3
-
-            openSwalWhenLogin(data.FirstName, data.UserType_code);
-
-
-        } catch (error) {
-            console.log(error);
-        }
-
+        let userData = JSON.parse(sessionStorage.getItem("user"));
+        openSwalWhenLogin(userData.FirstName, userData.UserType_code);
     }
 
 
@@ -260,38 +199,10 @@ function Sign_in(props) {
     //connect demo doctor
     const connectDemoDoctor = async () => {
 
-        try {
+        await connectDemoDoctorShow();
 
-            let user =
-            {
-                User_Login: 'demoDoctor',
-                User_password: 'demodoctor'
-            };
-
-            let res = await fetch(API.USERS.LOGIN, {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(user)
-            });
-
-
-            let data = await res.json();
-
-            sessionStorage.setItem("user", JSON.stringify(data)); // 1
-
-
-            let userCode = { User_code: data.User_code }// 2
-            sessionStorage.setItem("userCode", JSON.stringify(userCode))// 3
-
-            openSwalWhenLogin(data.FirstName, data.UserType_code);
-
-
-        } catch (error) {
-            console.log(error);
-        }
-
+        let userData = JSON.parse(sessionStorage.getItem("user"));
+        openSwalWhenLogin(userData.FirstName, userData.UserType_code);
     }
 
 
@@ -306,7 +217,6 @@ function Sign_in(props) {
             background: 'rgba(0, 0, 0, 0.801)',
             confirmButtonColor: '#2d79b5'
         })
-
     }
 
 
@@ -340,7 +250,7 @@ function Sign_in(props) {
                                     </div>
                                     <input type="text"
                                         className="form-control"
-                                        placeholder="Username"
+                                        placeholder="Login"
                                         value={Login}
                                         onChange={(event) => setLogin(event.target.value)} />
                                 </div>
@@ -438,7 +348,7 @@ function Sign_in(props) {
                                     </div>
                                     <input type="text"
                                         className="form-control"
-                                        placeholder="Username"
+                                        placeholder="Login"
                                         value={Login}
                                         onChange={(event) => setLogin(event.target.value)} />
                                 </div>

@@ -5,6 +5,8 @@ import { Button, Row, Modal } from 'react-bootstrap';
 import '../css/appointment.css'
 import Swal from 'sweetalert2'
 import { LoadDays } from '../Api/LoadDataFromApi'
+import { DeleteHour, UpdateDataUserAddTurn } from '../Api/DeleteUpdateDataFromApi'
+
 
 
 //here component we show data from data base (if you click to buttom in Home Page Book an appointment)
@@ -36,9 +38,9 @@ function appointment() {
     }
 
 
-    
+
     //here you show Hours from day what we chiose , from data base 
-    const LoadHours = async (Serial_code, Day_date) => { // 2
+    const LoadHours = async (Serial_code, Day_date) => {
 
         let res = await fetch(`${API.HOURS.GET}/${Serial_code}`, { method: 'GET' });
         let data = await res.json();
@@ -55,7 +57,7 @@ function appointment() {
 
 
     //show (jsx) return we see in pup up hours - and click to hour we save what day we chiose and hour to data base
-    const ResultsHours = () => ( // 3
+    const ResultsHours = () => (
 
         onClick(),
 
@@ -84,97 +86,48 @@ function appointment() {
 
 
 
-    //here we delete the hour from data base , user chiose day and hour
-    const DeleteHour = async (Id) => {// 5
-        // alert(Id)
-        await fetch(`${API.HOURS.GET}/NotActive/${Id}`,
-            { method: 'PATCH' }
-        );
-    }
-
-
 
     // save to user date , hour and day what he chiose
-    const saveDateUser = async (Hour_day, Serial_code) => { // 4
+    const saveDateUser = async (Hour_day, Serial_code) => {
 
-        let dataHour = { Hour_day, Serial_code }//2
+        let dataHour = { Hour_day, Serial_code }
 
-        sessionStorage.setItem("Hour", JSON.stringify(dataHour))//3
+        sessionStorage.setItem("Hour", JSON.stringify(dataHour))
 
-        let dayLocal = JSON.parse(sessionStorage.getItem("day"));//4
-        let hourLocal = JSON.parse(sessionStorage.getItem("Hour"));//5
-
-
-        try {
-
-            let user = {
-                FirstName: userData.FirstName,
-                User_Login: userData.User_Login,
-                Birthday: userData.Birthday,
-                Email: userData.Email,
-                User_password: userData.User_password,
-                UserType_code: "1",
-                Confirm_password: userData.Confirm_password,
-                Day_date: dayLocal.Day_date,
-                Hour_day: hourLocal.Hour_day,
-                Serial_codeHour: hourLocal.Serial_code
-            }
-
-            await fetch(`${API.USERS.GET}/${userDataCode.User_code}`, {
-                method: 'PATCH',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(user)
-            });
+        let dayLocal = JSON.parse(sessionStorage.getItem("day"));
+        let hourLocal = JSON.parse(sessionStorage.getItem("Hour"));
 
 
-            // sessionStorage.setItem("user", JSON.stringify(user))//6
-
-            DeleteHour(hourLocal.Serial_code);//7
-            sessionStorage.removeItem('Hour');//8
-            sessionStorage.removeItem('day');//9
+        await UpdateDataUserAddTurn(userDataCode.User_code, userData, dayLocal.Day_date, hourLocal.Hour_day,hourLocal.Serial_code);
+        await DeleteHour(hourLocal.Serial_code);
 
 
+        if (storedTheme === "dark") {
 
-            if (storedTheme === "dark") {
-
-                await Swal.fire({
-                    title: 'Youre making an appointment',
-                    icon: 'success',
-                    showConfirmButton: false,
-                    timer: 1200,
-                })
-                await sessionStorage.clear();
-                window.location.reload(false);
-            }
-
-
-            if (storedTheme === "light") {
-
-                await Swal.fire({
-                    title: 'Youre making an appointment',
-                    icon: 'success',
-                    background: '#373E44',
-                    color: '#ffffffab',
-                    buttonColor: '#E96E00',
-                    showConfirmButton: false,
-                    timer: 1200,
-                })
-                await sessionStorage.clear();
-                window.location.reload(false);
-            }
-
-
-        } catch (error) {
-
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
+            await Swal.fire({
+                title: 'Youre making an appointment',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1200,
             })
+            await sessionStorage.clear();
+            window.location.reload(false);
+        }
 
-            console.log(error)
+
+        if (storedTheme === "light") {
+
+            await Swal.fire({
+                title: 'Youre making an appointment',
+                icon: 'success',
+                background: '#373E44',
+                color: '#ffffffab',
+                buttonColor: '#E96E00',
+                showConfirmButton: false,
+                timer: 1200,
+            })
+            await sessionStorage.clear();
+            window.location.reload(false);
         }
     }
 
@@ -268,7 +221,6 @@ function appointment() {
 
                     )}
                 </Row>
-
 
                 <Modal.Body>
                     {showResults ? <ResultsHours /> : null}

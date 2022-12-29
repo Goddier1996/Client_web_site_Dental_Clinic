@@ -5,6 +5,7 @@ import { Button, Modal, Form } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import '../css/forgetPassword.css'
+import { ForgetPasswordUpdate } from '../Api/DeleteUpdateDataFromApi'
 
 
 
@@ -175,62 +176,42 @@ function ForgetPaswword() {
     //here update to new password 
     const ForgetPassword = async () => {
 
-
-        try {
-            let user = {
-                User_password: User_password,
-                ConfirmPassword: Confirm_password
-            }
-
-            await fetch(`${API.USERS.GET}/${userForget._id}`, {
-                method: 'PATCH',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(user)
-            });
-
-            sessionStorage.clear('userForgetPassword');
-
-
-            if (storedTheme === "dark") {
-
-                Swal.fire({
-                    icon: 'success',
-                    toast: true,
-                    position: 'top-end'
-                }).then((result) => {
-
-                    if (result.isConfirmed) {
-
-                        history.push("/");
-                        window.location.reload(false);
-                    }
-                })
-            }
-
-            if (storedTheme === "light") {
-
-                Swal.fire({
-                    icon: 'success',
-                    background: '#373E44',
-                    toast: true,
-                    position: 'top-end'
-                }).then((result) => {
-
-                    if (result.isConfirmed) {
-
-                        history.push("/");
-                        window.location.reload(false);
-                    }
-                })
-            }
-
-
-        } catch (error) {
-            console.log(error)
+        let user = {
+            User_password: User_password,
+            ConfirmPassword: Confirm_password
         }
 
+        await ForgetPasswordUpdate(userForget._id, user);
+
+
+        if (storedTheme === "dark") {
+
+            Swal.fire({
+                icon: 'success',
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1500,
+                toast: true,
+            })
+
+            sessionStorage.clear('userForgetPassword');
+            window.location.reload(false);
+        }
+
+        if (storedTheme === "light") {
+
+            Swal.fire({
+                icon: 'success',
+                background: '#373E44',
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1500,
+                toast: true,
+            })
+
+            sessionStorage.clear('userForgetPassword');
+            window.location.reload(false);
+        }
     }
 
 

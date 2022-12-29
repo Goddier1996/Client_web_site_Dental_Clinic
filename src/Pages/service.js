@@ -1,10 +1,10 @@
 import React from 'react'
 import { Row, Button, Form, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import '../css/service.css'
-import { API } from '../Api/API';
 import { useState, useEffect } from "react";
 import Swal from 'sweetalert2'
 import { LoadReviews } from '../Api/LoadDataFromApi'
+import { AddNewReviews, AddNewLikeReviews } from '../Api/ConnectOrAddFromApi'
 
 
 
@@ -24,7 +24,6 @@ function service() {
 
 
 
-
     // load data from LoadDataFromApi component
     const LoadReviewsFromApi = async () => {
 
@@ -37,6 +36,7 @@ function service() {
     const CheckUserConnected = () => {
 
         if (userData == null && storedTheme === "dark") {
+
             Swal.fire({
                 icon: 'warning',
                 title: 'Login/Register',
@@ -82,87 +82,11 @@ function service() {
                 toast: true,
                 position: 'top-end'
             })
-            return
+            return;
         }
 
 
         else {
-
-            try {
-                let Publish_by = userData._id;
-                let FirstName = userData.FirstName;
-                let User_Login = userData.User_Login;
-
-                let d = new Date();
-
-                let user = {
-                    textReviews,
-                    DatePublished: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
-                    Publish_by,
-                    FirstName,
-                    User_Login,
-                    IsActive: "1",
-                    Count_likes: []
-                };
-
-                await fetch(API.REVIEWS.ADD, {
-                    method: 'POST',
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(user)
-                });
-
-
-                if (storedTheme === "dark") {
-
-                    await Swal.fire({
-                        title: 'Added a comment successfully',
-                        icon: 'success',
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 1500,
-                    })
-                    window.location.reload(false);
-                }
-
-                if (storedTheme === "light") {
-
-                    await Swal.fire({
-                        title: 'Added a comment successfully',
-                        icon: 'success',
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 1500,
-                        background: '#373E44',
-                        color: '#ffffffab'
-                    })
-                    window.location.reload(false);
-                }
-
-
-            } catch (error) {
-
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!',
-                })
-
-                console.log(error);
-            }
-        }
-    }
-
-
-
-
-    //add likes to review what user chiose
-    const addReviewsLike = async (likeReview, Serial_code) => {
-
-        try {
 
             let Publish_by = userData._id;
             let FirstName = userData.FirstName;
@@ -177,29 +101,67 @@ function service() {
                 FirstName,
                 User_Login,
                 IsActive: "1",
-                Count_likes: [likeReview]
+                Count_likes: []
             };
 
-            await fetch(`${API.REVIEWS.GET}/${Serial_code}`, {
-                method: 'PATCH',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(user)
-            });
+            await AddNewReviews(user);
 
-            window.location.reload(false);
 
-        } catch (error) {
+            if (storedTheme === "dark") {
 
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Please Sign In or Register , and you can add Like to this Review :)',
-            })
+                await Swal.fire({
+                    title: 'Added a comment successfully',
+                    icon: 'success',
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 1500,
+                })
+                window.location.reload(false);
+            }
 
-            console.log(error)
+            if (storedTheme === "light") {
+
+                await Swal.fire({
+                    title: 'Added a comment successfully',
+                    icon: 'success',
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    background: '#373E44',
+                    color: '#ffffffab'
+                })
+                window.location.reload(false);
+            }
         }
+    }
+
+
+
+
+    //add likes to review what user chiose
+    const addReviewsLike = async (likeReview, Serial_code) => {
+
+        let Publish_by = userData._id;
+        let FirstName = userData.FirstName;
+        let User_Login = userData.User_Login;
+
+        let d = new Date();
+
+        let user = {
+            textReviews,
+            DatePublished: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
+            Publish_by,
+            FirstName,
+            User_Login,
+            IsActive: "1",
+            Count_likes: [likeReview]
+        };
+
+        await AddNewLikeReviews(user, Serial_code);
+
+        window.location.reload(false);
     }
 
 

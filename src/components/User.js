@@ -1,13 +1,12 @@
 import React from 'react'
-import { API } from '../Api/API';
 import { useState, useEffect } from "react";
 import { Tabs, Tab, Button, Modal, Form, Col, Row, Table } from 'react-bootstrap';
 import '../css/profile.css'
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import PayService from '../components/PayService'
-
 import { LoadMedicalFileUser, showAllMyReview, LoadMedicalFileUserIsNotActive } from '../Api/LoadDataFromApi'
+import { DeleteReview, UpdateDataUserRemoveTurn, ActiveHourInDataBase } from '../Api/DeleteUpdateDataFromApi'
 
 
 
@@ -77,7 +76,7 @@ function User({ data_user }) {
 
 
     //active the hour in profile page if user dont need this turn , now status was delete after this function was active
-    const ActiveHour = async () => {//1
+    const ActiveHour = async () => {
 
         if (storedTheme === "dark") {
 
@@ -93,10 +92,7 @@ function User({ data_user }) {
 
                 if (result.isConfirmed) {
 
-                    fetch(`${API.HOURS.GET}/active/${data_user.codeHour}`,
-                        { method: 'PATCH' }
-                    );
-
+                    ActiveHourInDataBase(data_user.codeHour);
                     saveDateUser();
                 }
 
@@ -123,10 +119,7 @@ function User({ data_user }) {
 
                 if (result.isConfirmed) {
 
-                    fetch(`${API.HOURS.GET}/active/${data_user.codeHour}`,
-                        { method: 'PATCH' }
-                    );
-
+                    ActiveHourInDataBase(data_user.codeHour);
                     saveDateUser();
                 }
 
@@ -135,104 +128,30 @@ function User({ data_user }) {
                 }
             })
         }
-
     }
 
 
 
 
     //update user date after active hour to NULL day hour and serial code hour
-    const saveDateUser = async () => { // 2
+    const saveDateUser = async () => {
 
-        try {
+        await UpdateDataUserRemoveTurn(data_user.code);
 
-            let user = {
-                // FirstName: data_user.name,
-                // User_Login: data_user.login,
-                // Birthday: data_user.birthday,
-                // Email: data_user.email,
-                // User_password: data_user.password,
-                // UserType_code: "1",
-                // ConfirmPassword: data_user.confirm_password,
-                Day_date: null,
-                Hour_day: null,
-                Serial_codeHour: null
-            }
-
-            await fetch(`${API.USERS.GET}/${data_user.code}`, {
-                method: 'PATCH',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(user)
-            });
-
-
-            // clear session storage after delete a hour day and serial code hour
-            sessionStorage.clear();
-            history.push("/");
-            window.location.reload(false);
-
-
-        } catch (error) {
-
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-            })
-
-            console.log(error)
-        }
+        // clear session storage after delete a hour day and serial code hour
+        sessionStorage.clear();
+        history.push("/");
+        window.location.reload(false);
     }
 
 
 
 
-    //update user date 
-    const updateDateUser = async () => {
-        // alert(data_user.code)
-        try {
-
-            let user = {
-                FirstName: FirstName,
-                User_Login: Login,
-                Birthday: Birthday,
-                Email: Email,
-                User_password: Password,
-                ConfirmPassword: ConfirmPassword,
-            }
-
-
-            await fetch(`${API.USERS.GET}/${data_user.code}`, {
-                // method: 'PUT',
-                method: 'PATCH',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(user)
-            });
-
-
-        } catch (error) {
-
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-            })
-
-            console.log(error)
-        }
-    }
-
-
-
-    // delete review this user from data base
-    const DeleteReview = async (Id) => {
+    // delete review this user from data base , user function from DeleteDataFromApi component
+    const DeleteItemsFromDataApi = async (Id) => {
 
         if (storedTheme === "dark") {
-            // alert(Id)
+
             Swal.fire({
                 title: 'Are you sure you want to delete this Review?',
                 icon: 'success',
@@ -242,10 +161,7 @@ function User({ data_user }) {
                 position: 'top-end'
             })
 
-            await fetch(`${API.REVIEWS.GET}/delete/${Id}`,
-                { method: 'DELETE' });
-
-            window.location.reload(false);
+            DeleteReview(Id);
         }
 
 
@@ -262,13 +178,9 @@ function User({ data_user }) {
                 position: 'top-end'
             })
 
-            await fetch(`${API.REVIEWS.GET}/delete/${Id}`,
-                { method: 'DELETE' });
-
-            window.location.reload(false);
+            DeleteReview(Id);
         }
     }
-
 
 
 
@@ -296,7 +208,6 @@ function User({ data_user }) {
 
 
     //show use date- when i update user date i show all value in input and choise what i need update
-
     const [Login, setLogin] = useState('');
     const [FirstName, setFirstName] = useState('');
     const [Email, setEmail] = useState('');
@@ -309,7 +220,7 @@ function User({ data_user }) {
     useEffect(() => {
 
         LoadDataUserFromApi();
-        
+
         //show use date- when i update user date i show all value in input and choise what i need update
         setFirstName(data_user.name);
         setLogin(data_user.login);
@@ -446,7 +357,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                             <td><Button size="sm" variant="danger"
-                                                onClick={() => DeleteReview(Review._id)}>
+                                                onClick={() => DeleteItemsFromDataApi(Review._id)}>
                                                 delete</Button>
                                             </td>
                                         </tr>
@@ -705,7 +616,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                             <td><Button size="sm" variant="danger"
-                                                onClick={() => DeleteReview(Review._id)}>
+                                                onClick={() => DeleteItemsFromDataApi(Review._id)}>
                                                 delete</Button>
                                             </td>
                                         </tr>
@@ -957,7 +868,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                             <td><Button size="sm" variant="danger"
-                                                onClick={() => DeleteReview(Review._id)}>
+                                                onClick={() => DeleteItemsFromDataApi(Review._id)}>
                                                 delete</Button>
                                             </td>
                                         </tr>
@@ -1212,7 +1123,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                             <td><Button size="sm" variant="danger"
-                                                onClick={() => DeleteReview(Review._id)}>
+                                                onClick={() => DeleteItemsFromDataApi(Review._id)}>
                                                 delete
                                             </Button>
                                             </td>
