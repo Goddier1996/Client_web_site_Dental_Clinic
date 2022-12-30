@@ -178,22 +178,3 @@ export async function AddNewUserRegester(user) {
         console.log(error);
     }
 }
-
-
-
-export async function AddNewDoctor(user) {
-
-    try {
-        await fetch(API.USERS.ADD, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(user)
-        });
-
-
-    } catch (error) {
-        console.log(error);
-    }
-}

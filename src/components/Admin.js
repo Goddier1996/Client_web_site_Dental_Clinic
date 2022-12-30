@@ -4,7 +4,7 @@ import '../css/profile.css'
 import Swal from 'sweetalert2'
 import { LoadAllUsers, LoadAllUsersBlocked, LoadAllDoctors, LoadAllReviews } from '../Api/LoadDataFromApi'
 import { DeleteUser, DeleteReview, ActiveUserInDataBase } from '../Api/DeleteUpdateDataFromApi'
-import { AddNewDoctor } from '../Api/ConnectOrAddFromApi'
+import { AddNewUserRegester } from '../Api/ConnectOrAddFromApi'
 
 
 
@@ -128,7 +128,7 @@ function Admin() {
             IsActive: "1"
         };
 
-        await AddNewDoctor(user);
+        await AddNewUserRegester(user);
 
         window.location.reload(false);
     }
