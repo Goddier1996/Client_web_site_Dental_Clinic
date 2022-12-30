@@ -104,7 +104,7 @@ function PayService(props) {
 
                                     <div className="col-sm-3">
                                         <p className="text-warning mb-0">Cvv</p>
-                                        <input type="password" name="cvv" placeholder="&#9679;&#9679;&#9679;" size="3" minLength="5" maxLength="5"
+                                        <input type="password" name="cvv" placeholder="&#9679;&#9679;&#9679;" size="4" minLength="3" maxLength="3"
                                             value={Cvv}
                                             onChange={(event) => setCvv(event.target.value)}
                                         />
