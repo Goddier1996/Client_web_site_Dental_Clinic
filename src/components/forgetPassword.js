@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { API } from '../Api/API';
-import { useState } from "react";
 import { Button, Modal, Form } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2'

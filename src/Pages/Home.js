@@ -1,9 +1,8 @@
 import { Button, Modal, Form } from 'react-bootstrap'
 import '../css/home.css'
-import React from 'react'
+import React, { useState } from 'react'
 import videoBg from '../images/FilmForth Untitled.mp4'
 import Category from '../components/category'
-import { useState } from "react";
 import Appointment from '../components/Appointment'
 import Swal from 'sweetalert2'
 
@@ -63,7 +62,7 @@ function Home() {
     }
 
 
-    
+
 
     if (storedTheme === "light") {
 

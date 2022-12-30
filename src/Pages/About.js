@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import '../css/About.css'
-import { useState, useEffect } from "react";
 import Swal from 'sweetalert2'
 import date1 from '../Json_date/date.json'
 import { LoadCountDoctors, LoadCountUsers, LoadCountReviews } from '../Api/LoadDataFromApi'

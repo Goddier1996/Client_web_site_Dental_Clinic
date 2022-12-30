@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Card from 'react-bootstrap/Card'
 import '../css/loction.css'
 import date1 from '../Json_date/date.json'
-import { useEffect } from "react";
 import Swal from 'sweetalert2'
 
 
@@ -26,7 +25,7 @@ function Location() {
     }, [])
 
 
-    
+
     if (storedTheme === "light") {
 
         return (

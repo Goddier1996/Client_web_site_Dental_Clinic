@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { API } from '../Api/API';
-import { useState, useEffect } from "react";
 import { Button, Row, Modal } from 'react-bootstrap';
 import '../css/appointment.css'
 import Swal from 'sweetalert2'
@@ -98,7 +97,7 @@ function appointment() {
         let hourLocal = JSON.parse(sessionStorage.getItem("Hour"));
 
 
-        await UpdateDataUserAddTurn(userDataCode.User_code, userData, dayLocal.Day_date, hourLocal.Hour_day,hourLocal.Serial_code);
+        await UpdateDataUserAddTurn(userDataCode.User_code, userData, dayLocal.Day_date, hourLocal.Hour_day, hourLocal.Serial_code);
         await DeleteHour(hourLocal.Serial_code);
 
 

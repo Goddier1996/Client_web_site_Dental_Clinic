@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Tabs, Tab, Button, Row, Form, Col, Table } from 'react-bootstrap';
-import { useState, useEffect } from "react";
 import '../css/profile.css'
 import Swal from 'sweetalert2'
-import { API } from '../Api/API';
 import { LoadAllUsers, LoadAllUsersBlocked, LoadAllDoctors, LoadAllReviews } from '../Api/LoadDataFromApi'
 import { DeleteUser, DeleteReview, ActiveUserInDataBase } from '../Api/DeleteUpdateDataFromApi'
+import { AddNewDoctor } from '../Api/ConnectOrAddFromApi'
 
 
 
@@ -115,34 +114,23 @@ function Admin() {
     //add a new doctor to data base
     const AddDoctor = async () => {
 
-        try {
-            let user = {
-                FirstName: FirstName,
-                User_Login: Login,
-                Birthday: null,
-                Email: Email,
-                User_password: Password,
-                UserType_code: "2",
-                ConfirmPassword: ConfirmPassword,
-                Day_date: null,
-                Hour_day: null,
-                Serial_codeHour: null,
-                IsActive: "1"
-            };
+        let user = {
+            FirstName: FirstName,
+            User_Login: Login,
+            Birthday: null,
+            Email: Email,
+            User_password: Password,
+            UserType_code: "2",
+            ConfirmPassword: ConfirmPassword,
+            Day_date: null,
+            Hour_day: null,
+            Serial_codeHour: null,
+            IsActive: "1"
+        };
 
-            await fetch(API.USERS.ADD, {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(user)
-            });
+        await AddNewDoctor(user);
 
-            window.location.reload(false);
-
-        } catch (error) {
-            console.log(error);
-        }
+        window.location.reload(false);
     }
 
 

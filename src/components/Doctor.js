@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Tabs, Tab, Button, Modal, Table } from 'react-bootstrap';
-import { useState, useEffect } from "react";
 import '../css/profile.css';
 import AddMedicalFileUser from '../components/AddMedicalFile';
 import Swal from 'sweetalert2';

@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react'
 import { Tabs, Tab, Button, Modal, Form, Col, Row, Table } from 'react-bootstrap';
 import '../css/profile.css'
 import { useHistory } from 'react-router-dom';
@@ -14,9 +13,10 @@ import { DeleteReview, UpdateDataUserRemoveTurn, ActiveHourInDataBase } from '..
 function User({ data_user }) {
 
 
-    const [show1, setShow1] = useState(false);
-    const handleClose1 = () => setShow1(false);
-    const handleShow1 = () => setShow1(true);
+    // popup pay service
+    const [showPayService, setShowPayService] = useState(false);
+    const handleClosePayService = () => setShowPayService(false);
+    const handleShowPayService = () => setShowPayService(true);
 
     let history = useHistory();
 
@@ -197,13 +197,20 @@ function User({ data_user }) {
     //open pop up pay service , save the data to sessionStorage , to use in component PayService
     const OpenPopUpPay = async (Serial_code, priceSevice, FirstName) => {
 
-        handleShow1();
+        handleShowPayService();
 
         let PayDetails = { Serial_code: Serial_code, priceSevice: priceSevice, userName: FirstName }
 
         sessionStorage.setItem("PayDetails", JSON.stringify(PayDetails))
     }
 
+
+
+    // send this function to PayService component
+    const hideModelPayService = () => {
+
+        setShowPayService(false);
+    }
 
 
 
@@ -292,9 +299,8 @@ function User({ data_user }) {
                                             </td>
 
 
-                                            <Modal show={show1} onHide={handleClose1} >
-                                                <PayService />
-                                                {/* data={{ code: File.Serial_code, price: File.priceSevice }} */}
+                                            <Modal show={showPayService} onHide={handleClosePayService} >
+                                                <PayService hideModelPayService={hideModelPayService} />
                                             </Modal>
                                         </tr>
                                     </tbody>
@@ -550,8 +556,8 @@ function User({ data_user }) {
                                             </td>
 
 
-                                            <Modal show={show1} onHide={handleClose1} >
-                                                <PayService />
+                                            <Modal show={showPayService} onHide={handleClosePayService} >
+                                                <PayService hideModelPayService={hideModelPayService} />
                                             </Modal>
                                         </tr>
                                     </tbody>
@@ -803,8 +809,8 @@ function User({ data_user }) {
                                             </td>
 
 
-                                            <Modal show={show1} onHide={handleClose1} >
-                                                <PayService />
+                                            <Modal show={showPayService} onHide={handleClosePayService} >
+                                                <PayService hideModelPayService={hideModelPayService} />
                                             </Modal>
                                         </tr>
                                     </tbody>
@@ -1058,8 +1064,8 @@ function User({ data_user }) {
                                             </td>
 
 
-                                            <Modal show={show1} onHide={handleClose1} >
-                                                <PayService />
+                                            <Modal show={showPayService} onHide={handleClosePayService} >
+                                                <PayService hideModelPayService={hideModelPayService} />
                                             </Modal>
                                         </tr>
                                     </tbody>

@@ -74,7 +74,23 @@
 
 
 
-.styleButtonPosition{
+.styleButtonPosition {
     display: flex;
     justify-content: space-around;
+}
+
+
+.closesPayService {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 5%;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: rgb(0, 0, 0);
+    opacity: 1;
+    border: none;
+    background-color: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    margin-top: -6%;
 }

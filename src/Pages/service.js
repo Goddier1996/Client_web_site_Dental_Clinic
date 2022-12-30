@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Row, Button, Form, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import '../css/service.css'
-import { useState, useEffect } from "react";
 import Swal from 'sweetalert2'
 import { LoadReviews } from '../Api/LoadDataFromApi'
 import { AddNewReviews, AddNewLikeReviews } from '../Api/ConnectOrAddFromApi'

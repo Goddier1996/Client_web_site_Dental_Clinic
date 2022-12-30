@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState } from "react";
+import React, { useState } from 'react'
 import Swal from 'sweetalert2'
 import { Modal, Form } from 'react-bootstrap';
 import '../css/login.css'

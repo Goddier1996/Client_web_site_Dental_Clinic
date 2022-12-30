@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState } from "react";
+import React, { useState } from 'react'
 import '../css/PayService.css'
 import Swal from 'sweetalert2'
 import { DeletePayFile } from '../Api/DeleteUpdateDataFromApi'
@@ -7,7 +6,7 @@ import { DeletePayFile } from '../Api/DeleteUpdateDataFromApi'
 
 
 //this component user in User component - when user need to pay a service 
-function PayService() {
+function PayService(props) {
 
     const [CardNumber, setCardNumber] = useState('');
     const [CardholderName, setCardholderName] = useState('');
@@ -58,6 +57,11 @@ function PayService() {
             <div className="row d-flex justify-content-center">
                 <div className="col-sm-12">
                     <div className="cardPay mx-auto">
+
+                        <p className="closesPayService" onClick={props.hideModelPayService} aria-label="Close">
+                            &times;
+                        </p>
+
                         <p className="heading">PAYMENT DETAILS</p>
                         <form className="cardPay-details ">
                             <div className="form-group mb-0">

@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState } from "react";
+import React, { useState } from 'react'
 import '../css/PayService.css'
 import Swal from 'sweetalert2'
 import { Button, Form, Modal } from 'react-bootstrap';

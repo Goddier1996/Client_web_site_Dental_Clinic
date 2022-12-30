@@ -1,11 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import { Nav, Navbar, Container, Button, Modal } from 'react-bootstrap'
-import React from 'react'
+import React, { useState } from 'react'
 import '../css/menu.css'
 import "../css/login.css"
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2'
-import { useState } from "react";
 import Sign_in from '../components/SignI_in'
 
 

@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Form, Col, Row } from 'react-bootstrap';
 import '../css/register.css'
-import { useState } from "react";
 import Swal from 'sweetalert2'
 import { useHistory } from 'react-router-dom';
 import { AddNewUserRegester } from '../Api/ConnectOrAddFromApi'
@@ -45,6 +44,7 @@ function Register() {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
+                toast: true,
                 html: '(1) you need input all value(Incorrect input) ! <br/> (2) Or Password NOT Equals ! <br/>(3) Or enter a password with 6 or more digits or letters !',
                 position: 'top-end'
             })
