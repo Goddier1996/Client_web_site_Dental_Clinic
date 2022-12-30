@@ -55,29 +55,9 @@
     background: rgb(0, 153, 255) !important;
     border: none;
     border-radius: 30px;
-    transform: translate(-17px, -10px);
+    transform: translate(-30px, 0px);
 }
 
-
-@media(max-width:991px) {
-    .cardPay {
-        max-width: 350px;
-        border-radius: 15px;
-        padding: 15px;
-        padding-bottom: 20px !important;
-    }
-
-    .cardPay .btn {
-        transform: translate(159px, -10px);
-    }
-}
-
-
-
-.styleButtonPosition {
-    display: flex;
-    justify-content: space-around;
-}
 
 
 .closesPayService {
@@ -93,4 +73,36 @@
     -webkit-appearance: none;
     cursor: pointer;
     margin-top: -6%;
+}
+
+
+
+@media(max-width:991px) {
+    .cardPay {
+        max-width: 350px;
+        border-radius: 15px;
+        padding: 15px;
+        padding-bottom: 20px !important;
+    }
+
+
+    .pay{
+
+        align-items: center;
+        text-align: center;
+    }
+
+
+
+
+    .closesPayService {
+        margin-top: 0;
+    }
+}
+
+
+
+.styleButtonPosition {
+    display: flex;
+    justify-content: space-around;
 }

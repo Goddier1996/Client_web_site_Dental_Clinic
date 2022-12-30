@@ -86,7 +86,7 @@ function PayService(props) {
                                     onChange={(event) => setCardholderName(event.target.value)}
                                 />
 
-                                <h6 className="text-warning mb-0">Pay : {PayDetails.priceSevice}</h6>
+                                <h6 className="text-warning mb-0">Pay : {PayDetails.priceSevice}$</h6>
 
                             </div>
                             <div className="form-group pt-2">
@@ -111,7 +111,7 @@ function PayService(props) {
                                     </div>
 
 
-                                    <div className="col-sm-5 pt-0">
+                                    <div className="col-sm-5 pt-0 pay">
                                         <button type="button" className="btn btn-primary" onClick={Pay}><i className="fas fa-arrow-right px-3 py-2"></i></button>
                                     </div>
                                 </div>
