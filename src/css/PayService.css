@@ -85,6 +85,24 @@
         padding-bottom: 20px !important;
     }
 
+    .cardPay .btn {
+        transform: translate(159px, -10px);
+    }
+
+
+    .closesPayService {
+        margin-top: 0;
+    }
+}
+
+/* @media(max-width:991px) {
+    .cardPay {
+        max-width: 350px;
+        border-radius: 15px;
+        padding: 15px;
+        padding-bottom: 20px !important;
+    }
+
 
     .pay{
 
@@ -98,9 +116,7 @@
     .closesPayService {
         margin-top: 0;
     }
-}
-
-
+} */
 
 .styleButtonPosition {
     display: flex;
