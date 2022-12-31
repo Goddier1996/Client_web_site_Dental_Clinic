@@ -5,7 +5,6 @@ import date1 from '../Json_date/date.json'
 import { LoadCountDoctors, LoadCountUsers, LoadCountReviews } from '../Api/LoadDataFromApi'
 
 
-
 //show about clinic info
 function About() {
 

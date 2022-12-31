@@ -225,3 +225,15 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+@media(max-width:991px) {
+
+  .titleAbout,
+  .titleInformation,
+  .titleAboutDark,
+  .titleInformationDark {
+    margin: 4%;
+  }
+}
