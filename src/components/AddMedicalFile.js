@@ -52,7 +52,7 @@ function AddMedicalFileUser(props) {
 
     // add mew medical file to user Id , save in data base
     const addMedicalFileUser = async () => {
-
+        alert(props.codeHour)
         let d = new Date();
 
         let File = {
@@ -66,9 +66,9 @@ function AddMedicalFileUser(props) {
             IsActive: "1"
         };
 
-        await DoctorAddMedicalFileUser(File);
-
         await ActiveHourInDataBase(props.codeHour);
+
+        await DoctorAddMedicalFileUser(File);
 
         await UpdateDataUserRemoveTurn(props.userCode);
 
