@@ -28,7 +28,7 @@ function AddMedicalFileUser(props) {
 
 
     // check all input value
-    const checkInput = async () => {
+    const checkInput = () => {
 
         let check = checkIfUrlLinkFile(File_user)
 
@@ -40,17 +40,12 @@ function AddMedicalFileUser(props) {
                 toast: true,
                 position: 'top-end'
             })
-
             return;
         }
 
-
         else {
-
-            addMedicalFileUser()
+            addMedicalFileUser();
         }
-
-
     }
 
 

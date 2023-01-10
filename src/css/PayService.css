@@ -42,6 +42,7 @@
     border: 0;
 }
 
+
 .cardPay .form-group input:focus {
     border: 0;
     outline: 0;
@@ -57,7 +58,6 @@
     border-radius: 30px;
     transform: translate(-30px, 0px);
 }
-
 
 
 .closesPayService {
@@ -95,28 +95,6 @@
     }
 }
 
-/* @media(max-width:991px) {
-    .cardPay {
-        max-width: 350px;
-        border-radius: 15px;
-        padding: 15px;
-        padding-bottom: 20px !important;
-    }
-
-
-    .pay{
-
-        align-items: center;
-        text-align: center;
-    }
-
-
-
-
-    .closesPayService {
-        margin-top: 0;
-    }
-} */
 
 .styleButtonPosition {
     display: flex;

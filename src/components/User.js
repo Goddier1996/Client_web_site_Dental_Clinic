@@ -76,7 +76,7 @@ function User({ data_user }) {
 
 
     //active the hour in profile page if user dont need this turn , now status was delete after this function was active
-    const ActiveHour = async () => {
+    const ActiveHour = () => {
 
         if (storedTheme === "dark") {
 
@@ -161,7 +161,7 @@ function User({ data_user }) {
                 position: 'top-end'
             })
 
-            DeleteReview(Id);
+            await DeleteReview(Id);
         }
 
 
@@ -178,7 +178,7 @@ function User({ data_user }) {
                 position: 'top-end'
             })
 
-            DeleteReview(Id);
+            await DeleteReview(Id);
         }
     }
 
@@ -195,7 +195,7 @@ function User({ data_user }) {
 
 
     //open pop up pay service , save the data to sessionStorage , to use in component PayService
-    const OpenPopUpPay = async (Serial_code, priceSevice, FirstName) => {
+    const OpenPopUpPay = (Serial_code, priceSevice, FirstName) => {
 
         handleShowPayService();
 
@@ -288,7 +288,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{CountReview++}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice}</td>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice} $</td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
                                                 <Button href={File.File_user} size="sm" variant="secondary">File</Button>
@@ -544,7 +544,7 @@ function User({ data_user }) {
                                             <td>{CountReview++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{File.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice}</td>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice} $</td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
                                                 <Button href={File.File_user} size="sm" variant="secondary">File
@@ -552,7 +552,7 @@ function User({ data_user }) {
                                             </td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
-                                                <Button size="sm" variant="success" onClick={() => OpenPopUpPay(File.Serial_code, File.priceSevice, File.FirstName)}>Pay</Button>
+                                                <Button size="sm" variant="success" onClick={() => OpenPopUpPay(File._id, File.priceSevice, File.name)}>Pay</Button>
                                             </td>
 
 
@@ -797,7 +797,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{CountReview++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{File.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice}</td>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice} $</td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
                                                 <Button href={File.File_user} size="sm" variant="secondary">File
@@ -805,7 +805,7 @@ function User({ data_user }) {
                                             </td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
-                                                <Button size="sm" variant="success" onClick={() => OpenPopUpPay(File.Serial_code, File.priceSevice, File.FirstName)}>Pay</Button>
+                                                <Button size="sm" variant="success" onClick={() => OpenPopUpPay(File._id, File.priceSevice, File.name)}>Pay</Button>
                                             </td>
 
 
@@ -1052,7 +1052,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{CountReview++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{File.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice}</td>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice} $</td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
                                                 <Button href={File.File_user} size="sm" variant="secondary">File
@@ -1060,7 +1060,7 @@ function User({ data_user }) {
                                             </td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
-                                                <Button size="sm" variant="success" onClick={() => OpenPopUpPay(File.Serial_code, File.priceSevice, File.FirstName)}>Pay</Button>
+                                                <Button size="sm" variant="success" onClick={() => OpenPopUpPay(File._id, File.priceSevice, File.name)}>Pay</Button>
                                             </td>
 
 

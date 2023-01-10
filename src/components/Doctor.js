@@ -28,7 +28,7 @@ function Doctor({ code_doctor }) {
 
 
     //update day and hour to null in user + active the hour to ather users can add , at end show popup Doctor send date Medical File to User
-    const updateDayHour = async (User_code, FirstName, Email) => {
+    const updateDayHour = (User_code, FirstName, Email) => {
 
         let date =
         {

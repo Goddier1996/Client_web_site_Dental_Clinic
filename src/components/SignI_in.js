@@ -128,7 +128,7 @@ function Sign_in(props) {
 
 
     // check if input value when sign in user , if not input show alert message
-    const CheckValue = async () => {
+    const CheckValue = () => {
 
         if (Login == '' || Password == '') {
 
@@ -208,7 +208,7 @@ function Sign_in(props) {
 
 
     // show video info about Admin what he can to do in this website
-    const AdminInfo = async () => {
+    const AdminInfo = () => {
 
         Swal.fire({
             html: `<div class="styleVideoAdmin"><video controls autoplay loop muted playsinline src=${videoBg}></video></div>`,

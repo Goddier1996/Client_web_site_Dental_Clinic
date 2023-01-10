@@ -30,7 +30,7 @@ function About() {
 
 
     //long(count) service our work , from fle Json date1.work
-    const LoadCountServiceOurWork = async () => {
+    const LoadCountServiceOurWork = () => {
 
         let longeur = date1.work.length;
 

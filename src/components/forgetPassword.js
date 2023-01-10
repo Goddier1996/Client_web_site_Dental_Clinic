@@ -217,7 +217,7 @@ function ForgetPaswword() {
 
 
     //if you click not save new password
-    const closeForgetPassword = async () => {
+    const closeForgetPassword = () => {
 
         if (storedTheme === "dark") {
 

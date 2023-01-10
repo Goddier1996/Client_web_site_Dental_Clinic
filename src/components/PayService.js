@@ -20,7 +20,10 @@ function PayService(props) {
     //click button pay price and check if all input was good,if yes send to function DeletePayFile from DeleteUpdateDataFromAp component
     const Pay = async () => {
 
-        if (CardNumber != '' && CardholderName != '' && Expiration != '' && Cvv != '' && PayDetails.userName == CardholderName) {
+        if (CardNumber != '' && CardNumber.length === 16 &&
+            Expiration != '' && Expiration.length === 6 &&
+            Cvv != '' && Cvv.length === 3 &&
+            CardholderName != '' && PayDetails.userName == CardholderName) {
 
             await DeletePayFile(PayDetails.Serial_code);
 
@@ -32,14 +35,14 @@ function PayService(props) {
                 timer: 1500,
                 toast: true,
             })
-
+            sessionStorage.removeItem('PayDetails');
             window.location.reload(false);
         }
 
         else {
 
             Swal.fire({
-                title: 'input please All place Or First Name Not suitable!',
+                title: `1) input please All place<br/>2) check if First Name Not suitable<br/>3) check if Date (length 6) or Cvv (length 3) or number Card (length 16) `,
                 icon: 'warning',
                 toast: true,
                 position: 'top-end'
@@ -68,7 +71,7 @@ function PayService(props) {
 
 
                                 <p className="text-warning mb-0">Card Number</p>
-                                <input type="number" name="card-num" placeholder="1234 5678 9012 3457" size="17" id="cno" minLength="19" maxLength="19"
+                                <input type="number" name="card-num" placeholder="1234 5678 9012 3457" size="17" id="cno" minLength="16" maxLength="16"
                                     value={CardNumber}
                                     pattern="[0-9]*"
                                     onChange={(event) => setCardNumber(event.target.value)}
@@ -78,7 +81,6 @@ function PayService(props) {
                             </div>
 
                             <div className="form-group">
-
 
                                 <p className="text-warning mb-0">Cardholder's Name</p>
                                 <input type="text" name="name" placeholder={PayDetails.userName} size="17"
@@ -94,7 +96,7 @@ function PayService(props) {
 
                                     <div className="col-sm-4">
                                         <p className="text-warning mb-0">Expiration</p>
-                                        <input type="text" name="exp" placeholder="MM/YYYY" size="7" id="exp" minLength="7" maxLength="7"
+                                        <input type="text" name="exp" placeholder="MM/YYYY" size="7" id="exp" minLength="6" maxLength="6"
                                             value={Expiration}
                                             onChange={(event) => setExpiration(event.target.value)}
                                         />

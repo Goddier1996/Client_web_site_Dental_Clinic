@@ -37,7 +37,7 @@ function Menu() {
 
 
     // log out user from data seesion storge
-    const outUser = async () => {
+    const outUser = () => {
 
         if (storedTheme === "dark") {
 

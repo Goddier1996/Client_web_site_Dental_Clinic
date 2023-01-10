@@ -88,7 +88,7 @@ export async function UpdateDataUserAddTurn(id, userData, dayLocal, hourLocal, s
 
 export async function ActiveHourInDataBase(codeHour) {
 
-    fetch(`${API.HOURS.GET}/active/${codeHour}`, { method: 'PATCH' });
+    await fetch(`${API.HOURS.GET}/active/${codeHour}`, { method: 'PATCH' });
 }
 
 
