@@ -52,7 +52,7 @@ function AddMedicalFileUser(props) {
 
     // add mew medical file to user Id , save in data base
     const addMedicalFileUser = async () => {
-        alert(props.codeHour)
+        
         let d = new Date();
 
         let File = {
