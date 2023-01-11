@@ -65,14 +65,14 @@
   ],
 
 
-  "Map": [{
+  "Map": {
     "id": "1",
     "path": "https://i.postimg.cc/yNCCKzxS/1.jpg",
     "country": "israel",
     "City": "Kfar-Yona",
     "addressCity": "The Village Mall",
     "adressNum": "18086"
-  }],
+  },
 
   "hours_work": [
 

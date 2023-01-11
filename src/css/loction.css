@@ -113,6 +113,30 @@
     object-fit: cover;
 }
 
+.UserSendEmail {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.UserSendEmail Button,
+.buttonSendMessageOrClose Button {
+    font-size: 12px;
+    /* background-color: red; */
+}
+
+.titleSendEmail {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonSendMessageOrClose {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
 
 
 @media(max-width:991px) {
