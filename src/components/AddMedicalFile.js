@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import '../css/PayService.css'
 import Swal from 'sweetalert2'
-import { Button, Form, Modal } from 'react-bootstrap';
+import { Form, Modal } from 'react-bootstrap';
 import '../css/profile.css'
 import { DoctorAddMedicalFileUser } from '../Api/ConnectOrAddFromApi'
 import { UpdateDataUserRemoveTurn, ActiveHourInDataBase } from '../Api/DeleteUpdateDataFromApi'
+
+import Button from '@mui/material/Button';
+import CloseIcon from '@mui/icons-material/Close';
+import DoneIcon from '@mui/icons-material/Done';
 
 
 
@@ -52,7 +56,7 @@ function AddMedicalFileUser(props) {
 
     // add mew medical file to user Id , save in data base
     const addMedicalFileUser = async () => {
-        
+
         let d = new Date();
 
         let File = {
@@ -133,10 +137,17 @@ function AddMedicalFileUser(props) {
                 </Form.Group>
 
                 <div className='styleButtonPosition'>
-                    <Button variant="success" onClick={checkInput}>Success</Button>
-                    <Button variant="secondary" onClick={props.hideModelMedicalFile}>Close</Button>
+                    {/* <Button variant="success" onClick={checkInput}>Success</Button> */}
+                    <Button style={{ fontSize: "11px", color: "white", background: "green" }} variant="contained"
+                        onClick={checkInput} startIcon={<DoneIcon />}>
+                        Success
+                    </Button>
+                    {/* <Button variant="secondary" onClick={props.hideModelMedicalFile}>Close</Button> */}
+                    <Button style={{ fontSize: "11px", color: "white", background: "red" }} variant="contained"
+                        onClick={props.hideModelMedicalFile} startIcon={<CloseIcon />}>
+                        Close
+                    </Button>
                 </div>
-
 
             </div>
         </div>

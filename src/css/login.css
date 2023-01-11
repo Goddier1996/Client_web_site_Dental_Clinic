@@ -39,6 +39,10 @@
     justify-content: space-evenly;
 }
 
+.loginInOrCloseButtom button {
+    font-size: 12px;
+}
+
 
 .header-form {
     margin-bottom: 15px;

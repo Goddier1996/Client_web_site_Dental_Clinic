@@ -6,6 +6,9 @@ import ForgetPaswword from '../components/forgetPassword'
 import videoBg from '../images/video11.mp4'
 import { connectUserLogin, connectDemoUserShow, connectDemoDoctorShow } from '../Api/ConnectOrAddFromApi'
 
+import CloseIcon from '@mui/icons-material/Close';
+import LoginIcon from '@mui/icons-material/Login';
+import Button from '@mui/material/Button';
 
 
 //here component Sign in use in component Menu
@@ -271,8 +274,14 @@ function Sign_in(props) {
 
 
                                 <div className='loginInOrCloseButtom'>
-                                    <button type="button" onClick={CheckValue} className="btn btn-warning">Login</button>
-                                    <button type="button" onClick={props.hideSignIn} className="btn btn-secondary">Close</button>
+                                    {/* <button type="button" onClick={CheckValue} className="btn btn-warning">Login</button>
+                                    <button type="button" onClick={props.hideSignIn} className="btn btn-secondary">Close</button> */}
+                                    <Button variant="contained" onClick={CheckValue} startIcon={<LoginIcon />}>
+                                        Login
+                                    </Button>
+                                    <Button style={{ background: "gray" }} variant="contained" onClick={props.hideSignIn} startIcon={<CloseIcon />}>
+                                        Close
+                                    </Button>
                                 </div>
 
                                 <div className='borderSpaceDark'></div>
@@ -300,7 +309,7 @@ function Sign_in(props) {
 
 
                                 {/* show pop up forget password */}
-                                <Modal show={showForgetPassword} style={{ background: "rgba(0, 0, 0, 0.95)" }}>
+                                <Modal show={showForgetPassword} style={{ background: "rgba(0, 0, 0, 0.80)" }}>
                                     <Modal.Header className='titleHeater'>
                                         <Modal.Title><h1>You forget a Password ? Let's create new :)</h1></Modal.Title>
                                     </Modal.Header>
@@ -368,8 +377,14 @@ function Sign_in(props) {
                                 </div>
 
                                 <div className='loginInOrCloseButtom'>
-                                    <button type="button" onClick={CheckValue} className="btn btn-success">Login</button>
-                                    <button type="button" onClick={props.hideSignIn} className="btn btn-secondary">Close</button>
+                                    {/* <button type="button" onClick={CheckValue} className="btn btn-success">Login</button> */}
+                                    <Button variant="contained" onClick={CheckValue} startIcon={<LoginIcon />}>
+                                        Login
+                                    </Button>
+                                    <Button style={{ background: "gray" }} variant="contained" onClick={props.hideSignIn} startIcon={<CloseIcon />}>
+                                        Close
+                                    </Button>
+                                    {/* <button type="button" onClick={props.hideSignIn} className="btn btn-secondary">Close</button> */}
                                 </div>
 
 
@@ -397,7 +412,7 @@ function Sign_in(props) {
 
 
                                 {/* show pop up forget password */}
-                                <Modal show={showForgetPassword} style={{ background: "rgba(0, 0, 0, 0.95)" }}>
+                                <Modal show={showForgetPassword} style={{ background: "rgba(0, 0, 0, 0.80)" }}>
                                     <Modal.Header className='titleHeater'>
                                         <Modal.Title><h1>You forget a Password ? Let's create new :)</h1></Modal.Title>
                                     </Modal.Header>

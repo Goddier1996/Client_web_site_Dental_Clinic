@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import { API } from '../Api/API';
-import { Button, Modal, Form } from 'react-bootstrap';
+import { Modal, Form } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import '../css/forgetPassword.css'
 import { ForgetPasswordUpdate } from '../Api/DeleteUpdateDataFromApi'
 
+import Button from '@mui/material/Button';
+import CloseIcon from '@mui/icons-material/Close';
+import DoneIcon from '@mui/icons-material/Done';
+import SaveIcon from '@mui/icons-material/Save';
 
 
 //here component forget Paswword use in sign In component
@@ -278,8 +282,16 @@ function ForgetPaswword() {
                     />
 
                     <div className='startChangePassword'>
-                        <Button variant="warning" onClick={ForgetUser}>Ok</Button>
-                        <Button variant="danger" onClick={closeForgetPassword}>Close</Button>
+                        {/* <Button variant="warning" onClick={ForgetUser}>Ok</Button> */}
+                        <Button style={{ fontSize: "13px", color: "white" }} variant="contained"
+                            onClick={ForgetUser} startIcon={<DoneIcon />}>
+                            Ok
+                        </Button>
+                        {/* <Button variant="danger" onClick={closeForgetPassword}>Close</Button> */}
+                        <Button style={{ fontSize: "13px", color: "white", background: "gray" }} variant="contained"
+                            onClick={closeForgetPassword} startIcon={<CloseIcon />}>
+                            Close
+                        </Button>
                     </div>
 
                 </Form.Group>
@@ -316,17 +328,23 @@ function ForgetPaswword() {
                     </Form.Group>
 
 
-                    <Modal.Footer>
+                    <div className='startChangePassword'>
 
-                        <Button variant="primary" onClick={checkValueInput}>
+                        {/* <Button variant="primary" onClick={checkValueInput}>
+                            Save Changes
+                        </Button> */}
+                        <Button style={{ fontSize: "13px", color: "white" }} variant="contained"
+                            onClick={checkValueInput} startIcon={<SaveIcon />}>
                             Save Changes
                         </Button>
-
-                        <Button variant="secondary" onClick={closeForgetPassword}>
+                        {/* <Button variant="secondary" onClick={closeForgetPassword}>
+                            Close
+                        </Button> */}
+                        <Button style={{ fontSize: "13px", color: "white", background: "gray" }} variant="contained"
+                            onClick={closeForgetPassword} startIcon={<CloseIcon />}>
                             Close
                         </Button>
-
-                    </Modal.Footer>
+                    </div>
                 </Modal>
             </div>
         </>

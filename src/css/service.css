@@ -360,6 +360,11 @@
 }
 
 
+.buttonAddNewReviewOrCLose {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 
 
 @media(max-width:991px) {

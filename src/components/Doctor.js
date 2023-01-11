@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Tabs, Tab, Button, Modal, Table } from 'react-bootstrap';
+import { Tabs, Tab, Modal, Table } from 'react-bootstrap';
 import '../css/profile.css';
 import AddMedicalFileUser from '../components/AddMedicalFile';
 import Swal from 'sweetalert2';
 import { LoadUsersActive_queues, LoadMedicalFileAllUsersHowNeedPay } from '../Api/LoadDataFromApi'
+
+import Button from '@mui/material/Button';
+import MarkunreadIcon from '@mui/icons-material/Markunread';
+import RateReviewIcon from '@mui/icons-material/RateReview';
+
 
 
 //here component Doctor we to do what doctor can do = this component use in profile
@@ -109,7 +114,7 @@ function Doctor({ code_doctor }) {
                                         <th style={{ width: "10%", textAlign: "center" }}>Email</th>
                                         <th style={{ width: "10%", textAlign: "center" }}>Day</th>
                                         <th style={{ width: "10%", textAlign: "center" }}>Hour</th>
-
+                                        <td style={{ width: "1%" }}></td>
                                     </tr>
                                 </thead>
 
@@ -122,7 +127,13 @@ function Doctor({ code_doctor }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Email}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Day_date}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Hour_day}</td>
-                                            <td style={{ width: "7%" }} ><Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.FirstName, user.Email)}>Send Medical File</Button></td>
+                                            <td style={{ textAlign: "center" }} >
+                                                {/* <Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.FirstName, user.Email)}>Send Medical File</Button> */}
+                                                <Button style={{ fontSize: "11px", color: "white", background: "green" }} variant="contained"
+                                                    onClick={() => updateDayHour(user._id, user.FirstName, user.Email)} startIcon={<RateReviewIcon />}>
+                                                    File
+                                                </Button>
+                                            </td>
                                         </tr>
 
                                         <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.70)" }} >
@@ -148,6 +159,7 @@ function Doctor({ code_doctor }) {
                                         <th style={{ width: "10%", textAlign: "center" }}>Email</th>
                                         <th style={{ width: "5%", textAlign: "center" }}>Date of visit</th>
                                         <th style={{ width: "4%", textAlign: "center" }}>Need Pay</th>
+                                        <th style={{ width: "1%" }}>Need Pay</th>
                                     </tr>
                                 </thead>
 
@@ -160,7 +172,13 @@ function Doctor({ code_doctor }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.email}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.priceSevice}</td>
-                                            <td style={{ width: "3%" }} ><Button size="sm" variant="secondary" onClick={() => window.location = 'https://mail.google.com'}>send email</Button></td>
+                                            <td style={{ textAlign: "center" }} >
+                                                {/* <Button size="sm" variant="secondary" onClick={() => window.location = 'https://mail.google.com'}>send email</Button> */}
+                                                <Button style={{ fontSize: "11px", color: "white" }} variant="contained"
+                                                    onClick={() => window.location = 'https://mail.google.com'} startIcon={<MarkunreadIcon />}>
+                                                    Send
+                                                </Button>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 )}
@@ -211,7 +229,7 @@ function Doctor({ code_doctor }) {
                                         <th style={{ width: "10%", textAlign: "center" }}>Email</th>
                                         <th style={{ width: "10%", textAlign: "center" }}>Day</th>
                                         <th style={{ width: "10%", textAlign: "center" }}>Hour</th>
-
+                                        <th style={{ width: "1%" }}></th>
                                     </tr>
                                 </thead>
 
@@ -224,7 +242,13 @@ function Doctor({ code_doctor }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Email}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Day_date}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Hour_day}</td>
-                                            <td style={{ width: "7%" }} ><Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.FirstName, user.Email)}>Send Medical File</Button></td>
+                                            <td style={{ textAlign: "center" }} >
+                                                {/* <Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.FirstName, user.Email)}>Send Medical File</Button> */}
+                                                <Button style={{ fontSize: "11px", color: "white", background: "green" }} variant="contained"
+                                                    onClick={() => updateDayHour(user._id, user.FirstName, user.Email)} startIcon={<RateReviewIcon />}>
+                                                    FIle
+                                                </Button>
+                                            </td>
                                         </tr>
 
                                         <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.70)" }} >
@@ -250,6 +274,7 @@ function Doctor({ code_doctor }) {
                                         <th style={{ width: "10%", textAlign: "center" }}>Email</th>
                                         <th style={{ width: "5%", textAlign: "center" }}>Date of visit</th>
                                         <th style={{ width: "4%", textAlign: "center" }}>Need Pay</th>
+                                        <th style={{ width: "1%" }}>Need Pay</th>
                                     </tr>
                                 </thead>
 
@@ -262,7 +287,13 @@ function Doctor({ code_doctor }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.email}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.priceSevice}</td>
-                                            <td style={{ width: "3%" }} ><Button size="sm" variant="secondary" onClick={() => window.location = 'https://mail.google.com'}>send email</Button></td>
+                                            <td style={{ textAlign: "center" }} >
+                                                {/* <Button size="sm" variant="secondary" onClick={() => window.location = 'https://mail.google.com'}>send email</Button> */}
+                                                <Button style={{ fontSize: "11px", color: "white" }} variant="contained"
+                                                    onClick={() => window.location = 'https://mail.google.com'} startIcon={<MarkunreadIcon />}>
+                                                    Send
+                                                </Button>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 )}

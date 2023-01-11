@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { Button, Form, Col, Row } from 'react-bootstrap';
+import { Form, Col, Row } from 'react-bootstrap';
 import '../css/register.css'
 import Swal from 'sweetalert2'
 import { useHistory } from 'react-router-dom';
 import { AddNewUserRegester } from '../Api/ConnectOrAddFromApi'
 
+import Button from '@mui/material/Button';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 
 // here Register Page
@@ -168,8 +170,13 @@ function Register() {
                                 </Row>
 
 
-                                <Button variant="primary" type="submit">
+                                {/* <Button variant="primary" type="submit">
                                     Submit
+                                </Button> */}
+
+                                <Button type="submit" style={{ fontSize: "13px", color: "white" }} variant="contained"
+                                    startIcon={<HowToRegIcon />}>
+                                    Register
                                 </Button>
                             </Form>
                         </div>
@@ -270,8 +277,12 @@ function Register() {
                                 </Row>
 
 
-                                <Button variant="primary" type="submit">
+                                {/* <Button variant="primary" type="submit">
                                     Submit
+                                </Button> */}
+                                <Button type="submit" style={{ fontSize: "13px", color: "white" }} variant="contained"
+                                    startIcon={<HowToRegIcon />}>
+                                    Register
                                 </Button>
                             </Form>
 
