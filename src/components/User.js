@@ -51,13 +51,13 @@ function User({ data_user }) {
 
         if (Password != ConfirmPassword || Password.length < 6 && ConfirmPassword.length <= 6 || Password == '' || ConfirmPassword == '' || Login == '' || FirstName == '' || Email == '' || Birthday == '') {
 
-
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 html: '(1) you need input all value(Incorrect input) ! <br/> (2) Or Password NOT Equals ! <br/>(3) Or enter a password with 6 or more digits or letters !',
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
+                confirmButtonColor: "green"
             })
             return;
         }
@@ -93,7 +93,8 @@ function User({ data_user }) {
                 confirmButtonText: 'yes',
                 denyButtonText: `no`,
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
+                confirmButtonColor: "green"
             }).then((result) => {
 
                 if (result.isConfirmed) {
@@ -120,7 +121,8 @@ function User({ data_user }) {
                 background: '#373E44',
                 color: '#ffffffab',
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
+                confirmButtonColor: "green"
             }).then((result) => {
 
                 if (result.isConfirmed) {
@@ -164,7 +166,7 @@ function User({ data_user }) {
                 showConfirmButton: false,
                 timer: 1500,
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
             })
 
             await DeleteReview(Id);

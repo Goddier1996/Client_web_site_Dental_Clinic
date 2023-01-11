@@ -49,7 +49,8 @@ function Admin() {
                 title: 'Oops...',
                 html: '(1) you need input all value(Incorrect input) ! <br/> (2) Or Password NOT Equals ! <br/>(3) Or enter a password with 6 or more digits or letters !',
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
+                confirmButtonColor: "green"
             })
         }
 

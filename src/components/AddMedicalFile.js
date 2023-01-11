@@ -42,7 +42,8 @@ function AddMedicalFileUser(props) {
                 icon: 'warning',
                 text: 'input please value Or Price in Not number Or in not url link image !',
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
+                confirmButtonColor: "green",
             })
             return;
         }

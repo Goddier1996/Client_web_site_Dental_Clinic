@@ -45,7 +45,8 @@ function PayService(props) {
                 title: `1) input please All place<br/>2) check if First Name Not suitable<br/>3) check if Date (length 6) or Cvv (length 3) or number Card (length 16) `,
                 icon: 'warning',
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
+                confirmButtonColor: "green"
             })
         }
     }

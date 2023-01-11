@@ -49,6 +49,7 @@ function Menu() {
                 showDenyButton: true,
                 confirmButtonText: 'yes',
                 denyButtonText: `no`,
+                confirmButtonColor: "green"
             }).then((result) => {
 
                 if (result.isConfirmed) {
@@ -76,7 +77,8 @@ function Menu() {
                 denyButtonText: `no`,
                 background: '#373E44',
                 color: '#ffffffab',
-                buttonColor: '#E96E00'
+                buttonColor: '#E96E00',
+                confirmButtonColor: "green"
             }).then((result) => {
 
                 if (result.isConfirmed) {

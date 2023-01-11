@@ -45,7 +45,8 @@ function SendEmail(props) {
                 icon: 'error',
                 title: 'you can`t send message<br/>1) please input all value<br/>2) check if your Email was Good !  ',
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
+                confirmButtonColor: "green"
             })
         }
 

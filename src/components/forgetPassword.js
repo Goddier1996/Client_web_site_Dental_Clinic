@@ -41,7 +41,8 @@ function ForgetPaswword() {
                 text: 'please input your Email ',
                 icon: 'warning',
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
+                confirmButtonColor: "green"
             })
         }
 
@@ -122,7 +123,8 @@ function ForgetPaswword() {
                     text: 'Please Input your new Password!',
                     icon: 'error',
                     toast: true,
-                    position: 'top-end'
+                    position: 'top-end',
+                    confirmButtonColor: "green"
                 })
 
                 return;
@@ -135,7 +137,8 @@ function ForgetPaswword() {
                     icon: 'error',
                     toast: true,
                     background: '#373E44',
-                    position: 'top-end'
+                    position: 'top-end',
+                    confirmButtonColor: "green"
                 })
                 return;
             }
@@ -156,7 +159,8 @@ function ForgetPaswword() {
                     text: 'Password NOT Equals!',
                     icon: 'error',
                     toast: true,
-                    position: 'top-end'
+                    position: 'top-end',
+                    confirmButtonColor: "green"
                 })
             }
 
@@ -232,7 +236,8 @@ function ForgetPaswword() {
                 confirmButtonText: 'yes',
                 denyButtonText: `no`,
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
+                confirmButtonColor: "green"
             }).then((result) => {
 
                 if (result.isConfirmed) {
@@ -254,7 +259,8 @@ function ForgetPaswword() {
                 background: '#373E44',
                 color: '#ffffffab',
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
+                confirmButtonColor: "green"
             }).then((result) => {
 
                 if (result.isConfirmed) {

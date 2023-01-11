@@ -33,7 +33,8 @@ function Home() {
                 title: 'Login/Register',
                 html: 'You need to log in or register, and you should book an appointment',
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
+                confirmButtonColor: "green"
             })
 
             return;
@@ -48,6 +49,7 @@ function Home() {
                 toast: true,
                 position: 'top-end',
                 background: '#373E44',
+                confirmButtonColor: "green",
                 color: '#ffffffab',
                 buttonColor: '#E96E00'
             })

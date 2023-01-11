@@ -44,6 +44,7 @@ function service() {
                 html: 'You need to log in or register, you should add a comment',
                 toast: true,
                 position: 'top-end',
+                confirmButtonColor: "green",
             })
             return;
         }
@@ -57,6 +58,7 @@ function service() {
                 toast: true,
                 position: 'top-end',
                 background: '#373E44',
+                confirmButtonColor: "green",
                 color: '#ffffffab',
                 buttonColor: '#E96E00'
             })
@@ -171,7 +173,8 @@ function service() {
                 icon: 'error',
                 title: 'Oops...Please connect and you can add like (:',
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
+                confirmButtonColor: "green",
             })
             return;
         }
