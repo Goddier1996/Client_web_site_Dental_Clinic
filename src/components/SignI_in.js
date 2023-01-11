@@ -234,6 +234,11 @@ function Sign_in(props) {
                 <div className="modelLogin">
                     <div className="form-boxDark">
                         <div className="header-form">
+
+                            <Button style={{ background: "#424242" }} variant="contained" onClick={props.hideSignIn} >
+                                <CloseIcon style={{ fontSize: "20px", color: "white" }} />
+                            </Button>
+
                             <h4 className="text-primary text-center">
                                 <img
                                     className="d-block w-100"
@@ -279,13 +284,13 @@ function Sign_in(props) {
                                     <Button variant="contained" onClick={CheckValue} startIcon={<LoginIcon />}>
                                         Login
                                     </Button>
-                                    <Button style={{ background: "gray" }} variant="contained" onClick={props.hideSignIn} startIcon={<CloseIcon />}>
-                                        Close
-                                    </Button>
+                                </div>
+
+                                <div className="messageDark">
+                                    <p onClick={showPopForgetPaswword}>Forgot your password</p>
                                 </div>
 
                                 <div className='borderSpaceDark'></div>
-
 
                                 <div className='DemoUserAndDoctorDark'>
 
@@ -299,12 +304,6 @@ function Sign_in(props) {
 
                                 <div className='infoVideoAAdminDark'>
                                     <a onClick={AdminInfo}>Click See What Admin can to do !</a>
-                                </div>
-                                <br />
-
-
-                                <div className="messageDark">
-                                    <p onClick={showPopForgetPaswword}>Forgot your password</p>
                                 </div>
 
 
@@ -341,11 +340,15 @@ function Sign_in(props) {
                 <div className="modelLogin">
                     <div className="form-box">
                         <div className="header-form">
+
+                            <Button style={{ background: "white" }} variant="contained" onClick={props.hideSignIn} >
+                                <CloseIcon style={{ fontSize: "20px", color: "black" }} />
+                            </Button>
+
                             <h4 className="text-primary text-center">
                                 <img className="d-block w-100" src={require("../images/qqq.gif")} />
                             </h4>
-                            <div className="image">
-                            </div>
+                            <div className="image"></div>
                         </div>
                         <div className="body-form">
 
@@ -360,7 +363,6 @@ function Sign_in(props) {
                                         value={Login}
                                         onChange={(event) => setLogin(event.target.value)} />
                                 </div>
-
 
 
                                 <div className="input-group mb-3">
@@ -381,12 +383,12 @@ function Sign_in(props) {
                                     <Button variant="contained" onClick={CheckValue} startIcon={<LoginIcon />}>
                                         Login
                                     </Button>
-                                    <Button style={{ background: "gray" }} variant="contained" onClick={props.hideSignIn} startIcon={<CloseIcon />}>
-                                        Close
-                                    </Button>
-                                    {/* <button type="button" onClick={props.hideSignIn} className="btn btn-secondary">Close</button> */}
+
                                 </div>
 
+                                <div className="message">
+                                    <p onClick={showPopForgetPaswword}>Forgot your password</p>
+                                </div>
 
                                 <div className='borderSpace' ></div>
 
@@ -403,11 +405,6 @@ function Sign_in(props) {
 
                                 <div className='infoVideoAAdmin'>
                                     <a onClick={AdminInfo}>Click See What Admin can to do !</a>
-                                </div>
-                                <br />
-
-                                <div className="message">
-                                    <p onClick={showPopForgetPaswword}>Forgot your password</p>
                                 </div>
 
 

@@ -168,7 +168,7 @@ function Menu() {
 
                                 </Navbar.Collapse>
 
-                                <Modal show={showModelSignIn} onSubmit={handleCloseModelSignIn} >
+                                <Modal show={showModelSignIn} onHide={handleCloseModelSignIn} >
                                     <Sign_in hideSignIn={hideModelSignIn} />
                                 </Modal>
 
@@ -248,7 +248,7 @@ function Menu() {
                                     <Nav.Link href='/Register'>Register</Nav.Link>
                                 </Navbar.Collapse>
 
-                                <Modal show={showModelSignIn} onSubmit={handleCloseModelSignIn} >
+                                <Modal show={showModelSignIn} onHide={handleCloseModelSignIn} >
                                     <Sign_in hideSignIn={hideModelSignIn} />
                                 </Modal>
 
