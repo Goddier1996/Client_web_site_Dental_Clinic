@@ -38,7 +38,12 @@ function Register() {
 
         const form = event.currentTarget;
 
-        if (form.checkValidity() === false || Password != ConfirmPassword || Password.length < 6 && ConfirmPassword.length <= 6) {
+        let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        if (form.checkValidity() === false ||
+            Password != ConfirmPassword ||
+            Password.length < 6 && ConfirmPassword.length <= 6 ||
+            mailformat.test(Email) == false) {
 
             event.preventDefault();
             event.stopPropagation();
@@ -47,7 +52,11 @@ function Register() {
                 icon: 'error',
                 title: 'Oops...',
                 toast: true,
-                html: '(1) you need input all value(Incorrect input) ! <br/> (2) Or Password NOT Equals ! <br/>(3) Or enter a password with 6 or more digits or letters !',
+                confirmButtonColor: "green",
+                html: `(1) you need input all value(Incorrect input) ! <br/>
+                 (2) Or Password NOT Equals ! <br/>
+                 (3) Or enter a password with 6 or more digits or letters ! <br/>
+                 (4) Check if your Email was Good`,
                 position: 'top-end'
             })
         }
