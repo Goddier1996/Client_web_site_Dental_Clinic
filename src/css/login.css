@@ -52,7 +52,8 @@
     text-align: center;
     display: flex;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: 100% 50%;
+    margin-bottom: 2%;
 }
 
 .form button {
