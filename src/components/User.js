@@ -248,9 +248,9 @@ function User({ data_user }) {
 
         LoadDataUserFromApi();
 
-        if (data_user.day != null) {
-            alertTodayTurnUser();
-        }
+        // if (data_user.day != null) {
+        //     alertTodayTurnUser();
+        // }
 
 
         //show use date- when i update user date i show all value in input and choise what i need update
