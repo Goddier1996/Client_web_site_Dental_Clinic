@@ -20,16 +20,6 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
 
         if (storedTheme === "dark") {
 
-            Swal.fire({
-                html: `<div class="alertUserHaveTodayTurn"><h4>you have turn today at ${hour}</h4>
-                    <p>* if you don't need this turn please cancel</p>
-                    </div>`,
-                icon: 'warning',
-                showConfirmButton: false,
-                timer: 2500,
-                position: 'center',
-                allowOutsideClick: false
-            })
 
 
             if (hour < hoursAndMinutes) {
@@ -75,25 +65,26 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                 })
             }
 
+            else {
+                Swal.fire({
+                    html: `<div class="alertUserHaveTodayTurn"><h4>you have turn today at ${hour}</h4>
+                        <p>* if you don't need this turn please cancel</p>
+                        </div>`,
+                    icon: 'warning',
+                    showConfirmButton: false,
+                    timer: 2500,
+                    position: 'center',
+                    allowOutsideClick: false
+                }) 
+            }
+
         }
 
 
         if (storedTheme === "light") {
 
-            Swal.fire({
-                html: `<div class="alertUserHaveTodayTurn"><h4>you have turn today at ${hour}</h4>
-                    <p>* if you don't need this turn please cancel</p>
-                    </div>`,
-                icon: 'warning',
-                showConfirmButton: false,
-                timer: 2500,
-                position: 'center',
-                allowOutsideClick: false,
-                background: '#373E44',
-                color: '#ffffffab'
-            })
 
-            
+
             if (hour < hoursAndMinutes) {
 
                 Swal.fire({
@@ -132,6 +123,21 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                         sessionStorage.setItem("user", JSON.stringify(obj));
                         await window.location.reload(false);
                     }
+                })
+            }
+
+            else {
+                Swal.fire({
+                    html: `<div class="alertUserHaveTodayTurn"><h4>you have turn today at ${hour}</h4>
+                        <p>* if you don't need this turn please cancel</p>
+                        </div>`,
+                    icon: 'warning',
+                    showConfirmButton: false,
+                    timer: 2500,
+                    position: 'center',
+                    allowOutsideClick: false,
+                    background: '#373E44',
+                    color: '#ffffffab'
                 })
             }
         }

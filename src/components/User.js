@@ -227,8 +227,6 @@ function User({ data_user }) {
     const alertTodayTurnUser = async () => {
 
         await alertPopUpIfUserHaveTodayTurn(data_user.day, storedTheme, data_user.hour, data_user.codeHour, data_user.code);
-
-        // history.push("/");
     }
 
 
@@ -248,7 +246,7 @@ function User({ data_user }) {
 
         LoadDataUserFromApi();
 
-         alertTodayTurnUser();
+        alertTodayTurnUser();
 
         //show use date- when i update user date i show all value in input and choise what i need update
         setFirstName(data_user.name);
