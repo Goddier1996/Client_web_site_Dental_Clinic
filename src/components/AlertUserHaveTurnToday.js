@@ -48,9 +48,28 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                 }).then(async (result) => {
 
                     if (result.isConfirmed) {
+                        let userData = JSON.parse(sessionStorage.getItem("user"));
+
+
                         await ActiveHourInDataBase(codeHour);
                         await UpdateDataUserRemoveTurn(code);
-                        await sessionStorage.clear('user');
+
+                        const obj = {
+                            _id: userData._id,
+                            FirstName: userData.FirstName,
+                            User_Login: userData.User_Login,
+                            Email: userData.Email,
+                            Birthday: userData.Birthday,
+                            User_password: userData.User_password,
+                            ConfirmPassword: userData.ConfirmPassword,
+                            Day_date: null,
+                            Hour_day: null,
+                            Serial_codeHour: null,
+                            IsActive: userData.IsActive,
+                            UserType_code:userData.UserType_code
+                        }
+
+                        sessionStorage.setItem("user", JSON.stringify(obj));
                         await window.location.reload(false);
                     }
                 })
@@ -78,9 +97,28 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                 }).then(async (result) => {
 
                     if (result.isConfirmed) {
+
+                        let userData = JSON.parse(sessionStorage.getItem("user"));
+
+                        const obj = {
+                            _id: userData._id,
+                            FirstName: userData.FirstName,
+                            User_Login: userData.User_Login,
+                            Email: userData.Email,
+                            Birthday: userData.Birthday,
+                            User_password: userData.User_password,
+                            ConfirmPassword: userData.ConfirmPassword,
+                            Day_date: userData.Day_date,
+                            Hour_day: userData.Hour_day,
+                            Serial_codeHour: userData.Serial_codeHour,
+                            IsActive: userData.IsActive,
+                            UserType_code:userData.UserType_code
+                        }
+
+
                         await ActiveHourInDataBase(codeHour);
                         await UpdateDataUserRemoveTurn(code);
-                        await sessionStorage.clear('user');
+                        sessionStorage.setItem("user", JSON.stringify(obj));
                         await window.location.reload(false);
                     }
                 })
