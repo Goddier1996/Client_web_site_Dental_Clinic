@@ -20,17 +20,6 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
 
         if (storedTheme === "dark") {
 
-            Swal.fire({
-                html: `<div class="alertUserHaveTodayTurn"><h4>you have turn today at ${hour}</h4>
-                    <p>* if you don't need this turn please cancel</p>
-                    </div>`,
-                icon: 'warning',
-                showConfirmButton: false,
-                timer: 2500,
-                position: 'center',
-                allowOutsideClick: false
-            })
-
 
             if (hour < hoursAndMinutes) {
 
@@ -66,7 +55,7 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                             Hour_day: null,
                             Serial_codeHour: null,
                             IsActive: userData.IsActive,
-                            UserType_code:userData.UserType_code
+                            UserType_code: userData.UserType_code
                         }
 
                         sessionStorage.setItem("user", JSON.stringify(obj));
@@ -74,6 +63,17 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                     }
                 })
             }
+
+            Swal.fire({
+                html: `<div class="alertUserHaveTodayTurn"><h4>you have turn today at ${hour}</h4>
+                    <p>* if you don't need this turn please cancel</p>
+                    </div>`,
+                icon: 'warning',
+                showConfirmButton: false,
+                timer: 2500,
+                position: 'center',
+                allowOutsideClick: false
+            })
         }
 
 
@@ -112,12 +112,9 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                             Hour_day: userData.Hour_day,
                             Serial_codeHour: userData.Serial_codeHour,
                             IsActive: userData.IsActive,
-                            UserType_code:userData.UserType_code
+                            UserType_code: userData.UserType_code
                         }
 
-
-                        await ActiveHourInDataBase(codeHour);
-                        await UpdateDataUserRemoveTurn(code);
                         sessionStorage.setItem("user", JSON.stringify(obj));
                         await window.location.reload(false);
                     }
