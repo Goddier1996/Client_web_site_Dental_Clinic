@@ -49,8 +49,8 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                     if (result.isConfirmed) {
                         await ActiveHourInDataBase(codeHour);
                         await UpdateDataUserRemoveTurn(code);
-                        sessionStorage.clear('user');
-                        window.location.reload(false);
+                        await sessionStorage.clear('user');
+                        await  window.location.reload(false);
                     }
                 })
             }
