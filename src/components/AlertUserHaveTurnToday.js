@@ -20,6 +20,17 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
 
         if (storedTheme === "dark") {
 
+            Swal.fire({
+                html: `<div class="alertUserHaveTodayTurn"><h4>you have turn today at ${hour}</h4>
+                    <p>* if you don't need this turn please cancel</p>
+                    </div>`,
+                icon: 'warning',
+                showConfirmButton: false,
+                timer: 2500,
+                position: 'center',
+                allowOutsideClick: false
+            })
+
 
             if (hour < hoursAndMinutes) {
 
@@ -37,8 +48,8 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                 }).then(async (result) => {
 
                     if (result.isConfirmed) {
-                        let userData = JSON.parse(sessionStorage.getItem("user"));
 
+                        let userData = JSON.parse(sessionStorage.getItem("user"));
 
                         await ActiveHourInDataBase(codeHour);
                         await UpdateDataUserRemoveTurn(code);
@@ -64,6 +75,11 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                 })
             }
 
+        }
+
+
+        if (storedTheme === "light") {
+
             Swal.fire({
                 html: `<div class="alertUserHaveTodayTurn"><h4>you have turn today at ${hour}</h4>
                     <p>* if you don't need this turn please cancel</p>
@@ -72,14 +88,12 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                 showConfirmButton: false,
                 timer: 2500,
                 position: 'center',
-                allowOutsideClick: false
+                allowOutsideClick: false,
+                background: '#373E44',
+                color: '#ffffffab'
             })
-        }
 
-
-        if (storedTheme === "light") {
-
-
+            
             if (hour < hoursAndMinutes) {
 
                 Swal.fire({
@@ -120,19 +134,6 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                     }
                 })
             }
-
-            Swal.fire({
-                html: `<div class="alertUserHaveTodayTurn"><h4>you have turn today at ${hour}</h4>
-                    <p>* if you don't need this turn please cancel</p>
-                    </div>`,
-                icon: 'warning',
-                showConfirmButton: false,
-                timer: 2500,
-                position: 'center',
-                allowOutsideClick: false,
-                background: '#373E44',
-                color: '#ffffffab'
-            })
         }
 
     }
