@@ -4,6 +4,7 @@ import { ActiveHourInDataBase, UpdateDataUserRemoveTurn } from '../Api/DeleteUpd
 
 export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, codeHour, code) {
 
+
     let date = new Date();
 
     let takeDay = date.getDay();
@@ -16,7 +17,7 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
 
     if (day == dayFromArray) {
 
-        
+
         if (storedTheme === "dark") {
 
             Swal.fire({
@@ -51,7 +52,6 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                         await UpdateDataUserRemoveTurn(code);
                         await sessionStorage.clear('user');
                         await window.location.reload(false);
-                        return true;
                     }
                 })
             }
@@ -59,19 +59,6 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
 
 
         if (storedTheme === "light") {
-
-            Swal.fire({
-                html: `<div class="alertUserHaveTodayTurn"><h4>you have turn today at ${hour}</h4>
-                    <p>* if you don't need this turn please cancel</p>
-                    </div>`,
-                icon: 'warning',
-                showConfirmButton: false,
-                timer: 2500,
-                position: 'center',
-                allowOutsideClick: false,
-                background: '#373E44',
-                color: '#ffffffab'
-            })
 
 
             if (hour < hoursAndMinutes) {
@@ -95,10 +82,22 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                         await UpdateDataUserRemoveTurn(code);
                         await sessionStorage.clear('user');
                         await window.location.reload(false);
-                        return true;
                     }
                 })
             }
+
+            Swal.fire({
+                html: `<div class="alertUserHaveTodayTurn"><h4>you have turn today at ${hour}</h4>
+                    <p>* if you don't need this turn please cancel</p>
+                    </div>`,
+                icon: 'warning',
+                showConfirmButton: false,
+                timer: 2500,
+                position: 'center',
+                allowOutsideClick: false,
+                background: '#373E44',
+                color: '#ffffffab'
+            })
         }
 
     }
