@@ -247,7 +247,7 @@ function User({ data_user }) {
 
         LoadDataUserFromApi();
 
-        alertTodayTurnUser();
+        // alertTodayTurnUser();
 
         //show use date- when i update user date i show all value in input and choise what i need update
         setFirstName(data_user.name);
