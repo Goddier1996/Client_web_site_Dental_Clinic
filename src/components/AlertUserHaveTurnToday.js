@@ -20,13 +20,12 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
 
         if (storedTheme === "dark") {
 
-
-
             if (hour < hoursAndMinutes) {
 
                 Swal.fire({
                     html: `<div class="alertUserHaveTodayTurn">
                     <h4>You didn't make it to the Queue Today at ${hour} !</h4>
+                    <br/>
                     <p>Send Message in Contact Page , why you don't come today</p>
                     <p>Click Ok (and your turn Cancel)</p>
                     </div>`,
@@ -75,7 +74,7 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                     timer: 2500,
                     position: 'center',
                     allowOutsideClick: false
-                }) 
+                })
             }
 
         }
@@ -83,13 +82,12 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
 
         if (storedTheme === "light") {
 
-
-
             if (hour < hoursAndMinutes) {
 
                 Swal.fire({
                     html: `<div class="alertUserHaveTodayTurn">
                     <h4>You didn't make it to the Queue Today at ${hour} !</h4>
+                    <br/>
                     <p>Send Message in Contact Page , why you don't come today</p>
                     <p>Click Ok (and your turn Cancel)</p>
                     </div>`,
