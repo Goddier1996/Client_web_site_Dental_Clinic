@@ -24,7 +24,8 @@ export async function connectUserLogin(user) {
                 icon: 'warning',
                 text: 'Sorry dont have This user in Data Base , Try Again',
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
+                confirmButtonColor: "green"
             })
 
             return;

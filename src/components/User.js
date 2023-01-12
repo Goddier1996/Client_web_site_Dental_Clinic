@@ -6,6 +6,7 @@ import Swal from 'sweetalert2'
 import PayService from '../components/PayService'
 import { LoadMedicalFileUser, showAllMyReview, LoadMedicalFileUserIsNotActive } from '../Api/LoadDataFromApi'
 import { DeleteReview, UpdateDataUserRemoveTurn, ActiveHourInDataBase } from '../Api/DeleteUpdateDataFromApi'
+import { alertPopUpIfUserHaveTodayTurn } from './AlertUserHaveTurnToday'
 
 import Button from '@mui/material/Button';
 import PaymentIcon from '@mui/icons-material/Payment';
@@ -13,6 +14,7 @@ import AttachFileIcon from '@mui/icons-material/AttachFile';
 import DeleteIcon from '@mui/icons-material/Delete';
 import UpgradeIcon from '@mui/icons-material/Upgrade';
 import CloseIcon from '@mui/icons-material/Close';
+
 
 
 //data_user - take all data user from Page Profile (user)
@@ -222,6 +224,14 @@ function User({ data_user }) {
 
 
 
+    const alertTodayTurnUser = async () => {
+
+        await alertPopUpIfUserHaveTodayTurn(data_user.day, storedTheme, data_user.hour, data_user.codeHour, data_user.code);
+        history.push("/");
+    }
+
+
+
     //show use date- when i update user date i show all value in input and choise what i need update
     const [Login, setLogin] = useState('');
     const [FirstName, setFirstName] = useState('');
@@ -235,6 +245,8 @@ function User({ data_user }) {
     useEffect(() => {
 
         LoadDataUserFromApi();
+
+        alertTodayTurnUser();
 
         //show use date- when i update user date i show all value in input and choise what i need update
         setFirstName(data_user.name);

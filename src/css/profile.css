@@ -196,7 +196,6 @@
 }
 
 
-
 .NewDoctor {
     padding-bottom: 21%;
 }
@@ -204,6 +203,11 @@
 .NewDoctor input {
     color: #4b4b4b;
     font-family: 'Raleway', sans-serif;
+}
+
+
+.alertUserHaveTodayTurn p {
+    font-size: 14px;
 }
 
 
