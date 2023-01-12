@@ -16,7 +16,7 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
 
     if (day == dayFromArray) {
 
-
+        
         if (storedTheme === "dark") {
 
             Swal.fire({
@@ -50,7 +50,8 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                         await ActiveHourInDataBase(codeHour);
                         await UpdateDataUserRemoveTurn(code);
                         await sessionStorage.clear('user');
-                        await  window.location.reload(false);
+                        await window.location.reload(false);
+                        return true;
                     }
                 })
             }
@@ -92,8 +93,9 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                     if (result.isConfirmed) {
                         await ActiveHourInDataBase(codeHour);
                         await UpdateDataUserRemoveTurn(code);
-                        sessionStorage.clear('user');
-                        window.location.reload(false);
+                        await sessionStorage.clear('user');
+                        await window.location.reload(false);
+                        return true;
                     }
                 })
             }

@@ -226,8 +226,11 @@ function User({ data_user }) {
 
     const alertTodayTurnUser = async () => {
 
-        await alertPopUpIfUserHaveTodayTurn(data_user.day, storedTheme, data_user.hour, data_user.codeHour, data_user.code);
-        history.push("/");
+        let x = await alertPopUpIfUserHaveTodayTurn(data_user.day, storedTheme, data_user.hour, data_user.codeHour, data_user.code);
+        if (x == true) {
+            history.push("/");
+
+        }
     }
 
 
