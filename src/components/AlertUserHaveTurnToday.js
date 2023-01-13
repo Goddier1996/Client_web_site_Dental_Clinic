@@ -103,6 +103,9 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
 
                         let userData = JSON.parse(sessionStorage.getItem("user"));
 
+                        await ActiveHourInDataBase(codeHour);
+                        await UpdateDataUserRemoveTurn(code);
+
                         const obj = {
                             _id: userData._id,
                             FirstName: userData.FirstName,
