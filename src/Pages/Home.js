@@ -70,6 +70,16 @@ function Home() {
 
 
 
+    const closePopUpAppintment = () => {
+
+        // handleClose();
+        sessionStorage.removeItem("day");
+        window.location.reload(false);
+    }
+
+
+
+
     if (storedTheme === "light") {
 
         return (
@@ -94,9 +104,9 @@ function Home() {
 
                     {/* show model popup Appointment */}
                     <div className='bookClick'>
-                        <Modal show={show} onHide={handleClose} style={{ background: "rgba(0, 0, 0, 0.8)" }}>
+                        <Modal show={show} onHide={closePopUpAppintment} style={{ background: "rgba(0, 0, 0, 0.8)" }}>
 
-                            <p className="closes" onClick={handleClose} aria-label="Close">
+                            <p className="closes" onClick={closePopUpAppintment} aria-label="Close">
                                 &times;
                             </p>
 
@@ -145,9 +155,9 @@ function Home() {
 
                     {/* show model popup Appointment */}
                     <div className='bookClick'>
-                        <Modal show={show} onHide={handleClose} style={{ background: "rgba(0, 0, 0, 0.8)" }}>
+                        <Modal show={show} onHide={closePopUpAppintment} style={{ background: "rgba(0, 0, 0, 0.8)" }}>
 
-                            <p className="closes" onClick={handleClose} aria-label="Close">
+                            <p className="closes" onClick={closePopUpAppintment} aria-label="Close">
                                 &times;
                             </p>
 

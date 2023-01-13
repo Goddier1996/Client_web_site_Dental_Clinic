@@ -20,6 +20,15 @@ function Appointment(props) {
     const onClick = () => setShowResults(true)
 
 
+    // check in ResultsHours function today , which hours work and free today
+    let takeDayAndCodeDayInResultHour;
+    let date = new Date();
+    let takeDay = date.getDay();
+    const hoursAndMinutes = date.getHours() + ':' + '00';
+    const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let dayFromArray;
+
+
     // all data what we save in local storage and seesion storge
     let storedTheme = localStorage.getItem("theme");
 
@@ -46,11 +55,11 @@ function Appointment(props) {
 
         setHours(data);
 
-        let dataDay = { Day_date }
+        let dataDay = { Day: Day_date }
 
-        sessionStorage.setItem("day", JSON.stringify(dataDay))//1
+        sessionStorage.setItem("day", JSON.stringify(dataDay));
 
-        ResultsHours()
+        ResultsHours();
     }
 
 
@@ -58,24 +67,49 @@ function Appointment(props) {
     //show (jsx) return we see in pup up hours - and click to hour we save what day we chiose and hour to data base
     const ResultsHours = () => (
 
+        takeDayAndCodeDayInResultHour = JSON.parse(sessionStorage.getItem("day")),
+        dayFromArray = weekday[takeDay],
+
         onClick(),
 
         <div className='chioseDayAndDay'>
 
-            <h6>Chiose Hour Please :</h6>
+            <h6>Choose Hour Please :</h6>
 
             <div id="results" className="search-results">
 
                 <Row xs={2} md={4} lg={4} className="g-4">
 
-                    {Hours.map(hour =>
+                    {Hours.map(hour => {
 
-                        <div key={hour._id}>
-                            <p href='#'
-                                style={{ textDdecoration: "none" }}
-                                onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
-                            </p>
-                        </div>
+                        if (dayFromArray == takeDayAndCodeDayInResultHour.Day) {
+
+                            if (hour.Hour_day > hoursAndMinutes) {
+                                return (
+
+                                    <div key={hour._id}>
+                                        <p href='#'
+                                            style={{ textDdecoration: "none" }}
+                                            onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
+                                        </p>
+                                    </div>
+                                )
+                            }
+                        }
+
+
+                        else {
+
+                            return (
+                                <div key={hour._id}>
+                                    <p href='#'
+                                        style={{ textDdecoration: "none" }}
+                                        onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
+                                    </p>
+                                </div>
+                            )
+                        }
+                    }
                     )}
                 </Row>
             </div>
@@ -97,7 +131,7 @@ function Appointment(props) {
         let hourLocal = JSON.parse(sessionStorage.getItem("Hour"));
 
 
-        await UpdateDataUserAddTurn(userDataCode.User_code, userData, dayLocal.Day_date, hourLocal.Hour_day, hourLocal.Serial_code);
+        await UpdateDataUserAddTurn(userDataCode.User_code, userData, dayLocal.Day, hourLocal.Hour_day, hourLocal.Serial_code);
         await DeleteHour(hourLocal.Serial_code);
 
 
@@ -229,20 +263,6 @@ function Appointment(props) {
             }
 
         }
-
-
-        // if (userData.UserType_code == 3) {
-        //     Swal.fire({
-        //         icon: 'error',
-        //         title: 'Oops...',
-        //         text: 'you are Admin (You can not book an appointment) !',
-        //     }).then((result) => {
-
-        //         if (result.isConfirmed) {
-        //             window.location.reload(false);
-        //         }
-        //     })
-        // }
 
     }, [])
 
