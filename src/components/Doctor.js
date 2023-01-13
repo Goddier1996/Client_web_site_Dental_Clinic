@@ -33,13 +33,14 @@ function Doctor({ code_doctor }) {
 
 
     //update day and hour to null in user + active the hour to ather users can add , at end show popup Doctor send date Medical File to User
-    const updateDayHour = (User_code, FirstName, Email) => {
+    const updateDayHour = (User_code, FirstName, Email, codeHour) => {
 
         let date =
         {
             User_code: User_code,
             FirstName: FirstName,
-            Email: Email
+            Email: Email,
+            CodeHour: codeHour
         }
 
         sessionStorage.setItem("userDateMedical", JSON.stringify(date))
@@ -61,7 +62,9 @@ function Doctor({ code_doctor }) {
 
     const hideModelMedicalFile = () => {
 
-        setShow(false);
+        // setShow(false);
+        sessionStorage.removeItem("userDateMedical");
+        window.location.reload(false);
     }
 
 
@@ -130,7 +133,8 @@ function Doctor({ code_doctor }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }} >
                                                 {/* <Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.FirstName, user.Email)}>Send Medical File</Button> */}
                                                 <Button style={{ fontSize: "11px", color: "white", background: "green" }} variant="contained"
-                                                    onClick={() => updateDayHour(user._id, user.FirstName, user.Email)} startIcon={<RateReviewIcon />}>
+                                                    onClick={() => updateDayHour(user._id, user.FirstName, user.Email, user.Serial_codeHour)}
+                                                    startIcon={<RateReviewIcon />}>
                                                     File
                                                 </Button>
                                             </td>
@@ -138,8 +142,8 @@ function Doctor({ code_doctor }) {
 
                                         <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.50)" }} >
 
-                                            <AddMedicalFileUser hideModelMedicalFile={hideModelMedicalFile} codeHour={user.Serial_codeHour} userCode={user._id} />
-
+                                            <AddMedicalFileUser hideModelMedicalFile={hideModelMedicalFile} />
+                                            {/* codeHour={user.Serial_codeHour} userCode={user._id} */}
                                         </Modal>
                                     </tbody>
                                 )}
@@ -244,7 +248,8 @@ function Doctor({ code_doctor }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }} >
                                                 {/* <Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.FirstName, user.Email)}>Send Medical File</Button> */}
                                                 <Button style={{ fontSize: "11px", color: "white", background: "green" }} variant="contained"
-                                                    onClick={() => updateDayHour(user._id, user.FirstName, user.Email)} startIcon={<RateReviewIcon />}>
+                                                    onClick={() => updateDayHour(user._id, user.FirstName, user.Email, user.Serial_codeHour)}
+                                                    startIcon={<RateReviewIcon />}>
                                                     FIle
                                                 </Button>
                                             </td>
@@ -252,8 +257,8 @@ function Doctor({ code_doctor }) {
 
                                         <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.70)" }} >
 
-                                            <AddMedicalFileUser hideModelMedicalFile={hideModelMedicalFile} codeHour={user.Serial_codeHour} userCode={user._id} />
-
+                                            <AddMedicalFileUser hideModelMedicalFile={hideModelMedicalFile} />
+                                            {/* codeHour={user.Serial_codeHour} userCode={user._id} */}
                                         </Modal>
                                     </tbody>
                                 )}

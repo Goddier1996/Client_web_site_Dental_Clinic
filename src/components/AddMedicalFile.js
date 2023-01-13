@@ -71,11 +71,11 @@ function AddMedicalFileUser(props) {
             IsActive: "1"
         };
 
-        await ActiveHourInDataBase(props.codeHour);
+        await ActiveHourInDataBase(date.CodeHour);
 
         await DoctorAddMedicalFileUser(File);
 
-        await UpdateDataUserRemoveTurn(props.userCode);
+        await UpdateDataUserRemoveTurn(date.User_code);
 
         Swal.fire({
             title: 'success',
