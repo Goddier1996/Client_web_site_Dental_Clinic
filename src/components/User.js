@@ -591,14 +591,14 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice} $</td>
 
-                                            <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>
                                                 {/* <Button href={File.File_user} size="sm" variant="secondary">File</Button> */}
                                                 <Button style={{ fontSize: "11px", background: "gray", color: "white" }} variant="contained" href={File.File_user} startIcon={<AttachFileIcon />}>
                                                     File
                                                 </Button>
                                             </td>
 
-                                            <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>
                                                 {/* <Button size="sm" variant="success" onClick={() => OpenPopUpPay(File._id, File.priceSevice, File.name)}>Pay</Button> */}
                                                 <Button style={{ fontSize: "11px" }} variant="contained" onClick={() => OpenPopUpPay(File._id, File.priceSevice, File.name)} startIcon={<PaymentIcon />}>
                                                     Pay
@@ -639,7 +639,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice}</td>
 
-                                            <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>
                                                 {/* <Button href={File.File_user} size="sm" variant="secondary">File</Button> */}
                                                 <Button style={{ fontSize: "11px", background: "gray", color: "white" }} variant="contained" href={File.File_user} startIcon={<AttachFileIcon />}>
                                                     File
@@ -673,7 +673,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{MyReviews++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
-                                            <td>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>
                                                 {/* <Button size="sm" variant="danger"
                                                     onClick={() => DeleteItemsFromDataApi(Review._id)}>
                                                     delete</Button> */}
@@ -861,14 +861,14 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice} $</td>
 
-                                            <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>
                                                 {/* <Button href={File.File_user} size="sm" variant="secondary">File</Button> */}
                                                 <Button style={{ fontSize: "11px", background: "gray", color: "white" }} variant="contained" href={File.File_user} startIcon={<AttachFileIcon />}>
                                                     File
                                                 </Button>
                                             </td>
 
-                                            <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>
                                                 {/* <Button size="sm" variant="success" onClick={() => OpenPopUpPay(File._id, File.priceSevice, File.name)}>Pay</Button> */}
                                                 <Button style={{ fontSize: "11px" }} variant="contained" onClick={() => OpenPopUpPay(File._id, File.priceSevice, File.name)} startIcon={<PaymentIcon />}>
                                                     Pay
@@ -909,7 +909,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice}</td>
 
-                                            <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>
                                                 {/* <Button href={File.File_user} size="sm" variant="secondary">File</Button> */}
                                                 <Button style={{ fontSize: "11px", background: "gray", color: "white" }} variant="contained" href={File.File_user} startIcon={<AttachFileIcon />}>
                                                     File
@@ -942,7 +942,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{MyReviews++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
-                                            <td>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>
                                                 {/* <Button size="sm" variant="danger"
                                                 onClick={() => DeleteItemsFromDataApi(Review._id)}>
                                                 delete</Button> */}
@@ -1137,14 +1137,14 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice} $</td>
 
-                                            <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>
                                                 {/* <Button href={File.File_user} size="sm" variant="secondary">File</Button> */}
                                                 <Button style={{ fontSize: "11px", background: "gray", color: "white" }} variant="contained" href={File.File_user} startIcon={<AttachFileIcon />}>
                                                     File
                                                 </Button>
                                             </td>
 
-                                            <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>
                                                 {/* <Button size="sm" variant="success" onClick={() => OpenPopUpPay(File._id, File.priceSevice, File.name)}>Pay</Button> */}
                                                 <Button style={{ fontSize: "11px" }} variant="contained" onClick={() => OpenPopUpPay(File._id, File.priceSevice, File.name)} startIcon={<PaymentIcon />}>
                                                     Pay
@@ -1185,7 +1185,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice}</td>
 
-                                            <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>
                                                 {/* <Button href={File.File_user} size="sm" variant="secondary">File</Button> */}
                                                 <Button style={{ fontSize: "11px", background: "gray", color: "white" }} variant="contained" href={File.File_user} startIcon={<AttachFileIcon />}>
                                                     File
@@ -1218,7 +1218,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{MyReviews++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
-                                            <td>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>
                                                 {/* <Button size="sm" variant="danger"
                                                     onClick={() => DeleteItemsFromDataApi(Review._id)}>
                                                     delete

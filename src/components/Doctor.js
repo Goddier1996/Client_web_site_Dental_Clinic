@@ -127,7 +127,7 @@ function Doctor({ code_doctor }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Email}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Day_date}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Hour_day}</td>
-                                            <td style={{ textAlign: "center" }} >
+                                            <td style={{ textAlign: "center", fontSize: "14px" }} >
                                                 {/* <Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.FirstName, user.Email)}>Send Medical File</Button> */}
                                                 <Button style={{ fontSize: "11px", color: "white", background: "green" }} variant="contained"
                                                     onClick={() => updateDayHour(user._id, user.FirstName, user.Email)} startIcon={<RateReviewIcon />}>
@@ -172,7 +172,7 @@ function Doctor({ code_doctor }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.email}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.priceSevice}</td>
-                                            <td style={{ textAlign: "center" }} >
+                                            <td style={{ textAlign: "center", fontSize: "14px" }} >
                                                 {/* <Button size="sm" variant="secondary" onClick={() => window.location = 'https://mail.google.com'}>send email</Button> */}
                                                 <Button style={{ fontSize: "11px", color: "white" }} variant="contained"
                                                     onClick={() => window.location = 'https://mail.google.com'} startIcon={<MarkunreadIcon />}>
@@ -197,7 +197,6 @@ function Doctor({ code_doctor }) {
 
         return (
             <div>
-
 
                 <div>
 
@@ -242,7 +241,7 @@ function Doctor({ code_doctor }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Email}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Day_date}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Hour_day}</td>
-                                            <td style={{ textAlign: "center" }} >
+                                            <td style={{ textAlign: "center", fontSize: "14px" }} >
                                                 {/* <Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.FirstName, user.Email)}>Send Medical File</Button> */}
                                                 <Button style={{ fontSize: "11px", color: "white", background: "green" }} variant="contained"
                                                     onClick={() => updateDayHour(user._id, user.FirstName, user.Email)} startIcon={<RateReviewIcon />}>
@@ -282,12 +281,12 @@ function Doctor({ code_doctor }) {
 
                                     <tbody key={user._id} className='viewDateUser'>
                                         <tr>
-                                            <td>{ClientHowNeedPay++}</td>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{ClientHowNeedPay++}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.name}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.email}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.priceSevice}</td>
-                                            <td style={{ textAlign: "center" }} >
+                                            <td style={{ textAlign: "center", fontSize: "14px" }} >
                                                 {/* <Button size="sm" variant="secondary" onClick={() => window.location = 'https://mail.google.com'}>send email</Button> */}
                                                 <Button style={{ fontSize: "11px", color: "white" }} variant="contained"
                                                     onClick={() => window.location = 'https://mail.google.com'} startIcon={<MarkunreadIcon />}>
