@@ -9,7 +9,7 @@ import { DeleteHour, UpdateDataUserAddTurn } from '../Api/DeleteUpdateDataFromAp
 
 
 //here component we show data from data base (if you click to buttom in Home Page Book an appointment)
-function appointment() {
+function Appointment(props) {
 
     const [Days, SetDays] = useState([])
     const [Hours, setHours] = useState([])
@@ -108,6 +108,8 @@ function appointment() {
                 icon: 'success',
                 showConfirmButton: false,
                 timer: 1200,
+                toast: true,
+                position: 'top-end'
             })
             await sessionStorage.clear();
             window.location.reload(false);
@@ -124,6 +126,8 @@ function appointment() {
                 buttonColor: '#E96E00',
                 showConfirmButton: false,
                 timer: 1200,
+                toast: true,
+                position: 'top-end'
             })
             await sessionStorage.clear();
             window.location.reload(false);
@@ -138,11 +142,14 @@ function appointment() {
 
         if (storedTheme === "dark" && userData.Day_date != null) {
 
+            props.handleClose();
+
             Swal.fire({
                 title: 'You have an appointment, cancel it and book a new appointment',
                 icon: 'warning',
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
+                confirmButtonColor: "green"
             }).then((result) => {
 
                 if (result.isConfirmed) {
@@ -151,7 +158,10 @@ function appointment() {
             })
         }
 
+
         if (storedTheme === "light" && userData.Day_date != null) {
+
+            props.handleClose();
 
             Swal.fire({
                 title: 'You have an appointment, cancel it and book a new appointment',
@@ -159,7 +169,8 @@ function appointment() {
                 background: '#373E44',
                 color: '#ffffffab',
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
+                confirmButtonColor: "green"
             }).then((result) => {
 
                 if (result.isConfirmed) {
@@ -167,36 +178,71 @@ function appointment() {
                 }
             })
         }
+
 
         if (userData.Day_date == null) {
             LoadDataAppointmentFromApi();
         }
 
+
         if (userData.UserType_code == 2) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'you are doctor (You can not book an appointment) !',
-            }).then((result) => {
 
-                if (result.isConfirmed) {
-                    window.location.reload(false);
-                }
-            })
+            if (storedTheme == "dark") {
+
+                props.handleClose();
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'you are doctor (You can not book an appointment) !',
+                    toast: true,
+                    position: 'top-end',
+                    confirmButtonColor: "green"
+                }).then((result) => {
+
+                    if (result.isConfirmed) {
+                        window.location.reload(false);
+                    }
+                })
+            }
+
+
+            if (storedTheme == "light") {
+
+                props.handleClose();
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'you are doctor (You can not book an appointment) !',
+                    toast: true,
+                    position: 'top-end',
+                    confirmButtonColor: "green",
+                    background: '#373E44',
+                    color: '#ffffffab',
+                }).then((result) => {
+
+                    if (result.isConfirmed) {
+                        window.location.reload(false);
+                    }
+                })
+            }
+
         }
 
-        if (userData.UserType_code == 3) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'you are Admin (You can not book an appointment) !',
-            }).then((result) => {
 
-                if (result.isConfirmed) {
-                    window.location.reload(false);
-                }
-            })
-        }
+        // if (userData.UserType_code == 3) {
+        //     Swal.fire({
+        //         icon: 'error',
+        //         title: 'Oops...',
+        //         text: 'you are Admin (You can not book an appointment) !',
+        //     }).then((result) => {
+
+        //         if (result.isConfirmed) {
+        //             window.location.reload(false);
+        //         }
+        //     })
+        // }
 
     }, [])
 
@@ -232,4 +278,4 @@ function appointment() {
 }
 
 
-export default appointment;
+export default Appointment;

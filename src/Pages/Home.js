@@ -28,6 +28,8 @@ function Home() {
 
         if (userData == null && storedTheme === "dark") {
 
+            handleClose();
+
             Swal.fire({
                 icon: 'warning',
                 title: 'Login/Register',
@@ -41,6 +43,8 @@ function Home() {
         }
 
         if (userData == null && storedTheme === "light") {
+
+            handleClose();
 
             Swal.fire({
                 icon: 'warning',
@@ -102,7 +106,7 @@ function Home() {
 
                             <Modal.Body>
                                 <Form>
-                                    <Appointment />
+                                    <Appointment handleClose={handleClose} />
                                 </Form>
                             </Modal.Body>
                         </Modal>
@@ -152,7 +156,7 @@ function Home() {
                             </Modal.Header>
                             <Modal.Body>
                                 <Form>
-                                    <Appointment />
+                                    <Appointment handleClose={handleClose} />
                                 </Form>
                             </Modal.Body>
                         </Modal>
