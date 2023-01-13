@@ -136,7 +136,7 @@ function Doctor({ code_doctor }) {
                                             </td>
                                         </tr>
 
-                                        <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.70)" }} >
+                                        <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.50)" }} >
 
                                             <AddMedicalFileUser hideModelMedicalFile={hideModelMedicalFile} codeHour={user.Serial_codeHour} userCode={user._id} />
 

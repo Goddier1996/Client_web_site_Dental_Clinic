@@ -33,12 +33,12 @@ function PayService(props) {
 
             await DeletePayFile(PayDetails.Serial_code);
 
-            Swal.fire({
-                title: 'success',
+            await Swal.fire({
+                title: 'the payment was successful 🙂',
                 icon: 'success',
                 position: 'top-end',
                 showConfirmButton: false,
-                timer: 1500,
+                timer: 2500,
                 toast: true,
             })
             sessionStorage.removeItem('PayDetails');

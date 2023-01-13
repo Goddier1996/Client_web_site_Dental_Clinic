@@ -81,7 +81,8 @@ function AddMedicalFileUser(props) {
             title: 'success',
             icon: 'success',
             toast: true,
-            position: 'top-end'
+            position: 'top-end',
+            confirmButtonColor: "green"
         }).then((result) => {
 
             if (result.isConfirmed) {
@@ -96,7 +97,6 @@ function AddMedicalFileUser(props) {
 
 
     return (
-
 
         <div>
 
