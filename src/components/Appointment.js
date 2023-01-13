@@ -74,7 +74,7 @@ function Appointment(props) {
 
         <div className='chioseDayAndDay'>
 
-            <h6>Choose Hour Please :</h6>
+            <h6>Day {takeDayAndCodeDayInResultHour.Day} Choose Hour 🕜</h6>
 
             <div id="results" className="search-results">
 
@@ -94,6 +94,34 @@ function Appointment(props) {
                                         </p>
                                     </div>
                                 )
+                            }
+
+                            else {
+
+                                if (storedTheme == "dark") {
+                                    Swal.fire({
+                                        icon: 'info',
+                                        title: `The work day ${dayFromArray} is over 😁`,
+                                        html: 'If you want to book an appointment for the day you chose for next week, book tomorrow! ',
+                                        toast: true,
+                                        position: 'center',
+                                        confirmButtonColor: "green",
+                                    })
+                                }
+
+                                if (storedTheme == "light") {
+                                    Swal.fire({
+                                        icon: 'info',
+                                        title: `The work day ${dayFromArray} is over 😁`,
+                                        html: 'If you want to book an appointment for the day you chose for next week, book tomorrow! ',
+                                        toast: true,
+                                        position: 'center',
+                                        background: '#373E44',
+                                        confirmButtonColor: "green",
+                                        color: '#ffffffab',
+                                    })
+                                }
+
                             }
                         }
 
@@ -138,12 +166,13 @@ function Appointment(props) {
         if (storedTheme === "dark") {
 
             await Swal.fire({
-                title: 'Youre making an appointment',
+                title: `Youre making an appointment`,
+                text: `${dayLocal.Day} ${hourLocal.Hour_day}`,
                 icon: 'success',
                 showConfirmButton: false,
-                timer: 1200,
-                toast: true,
-                position: 'top-end'
+                timer: 4000,
+                // toast: true,
+                position: 'center'
             })
             await sessionStorage.clear();
             window.location.reload(false);
@@ -153,15 +182,16 @@ function Appointment(props) {
         if (storedTheme === "light") {
 
             await Swal.fire({
-                title: 'Youre making an appointment',
+                title: `Youre making an appointment`,
+                text: `${dayLocal.Day} ${hourLocal.Hour_day}`,
                 icon: 'success',
                 background: '#373E44',
                 color: '#ffffffab',
                 buttonColor: '#E96E00',
                 showConfirmButton: false,
-                timer: 1200,
-                toast: true,
-                position: 'top-end'
+                timer: 4000,
+                // toast: true,
+                position: 'center'
             })
             await sessionStorage.clear();
             window.location.reload(false);

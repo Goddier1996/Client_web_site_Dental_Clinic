@@ -104,14 +104,16 @@ function Home() {
 
                     {/* show model popup Appointment */}
                     <div className='bookClick'>
-                        <Modal show={show} onHide={closePopUpAppintment} style={{ background: "rgba(0, 0, 0, 0.8)" }}>
-
+                        <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.85)" }}>
+                            {/* onHide={closePopUpAppintment} */}
                             <p className="closes" onClick={closePopUpAppintment} aria-label="Close">
                                 &times;
                             </p>
 
                             <Modal.Header className='titleHeater'>
-                                <Modal.Title><h1>Select day :</h1></Modal.Title>
+                                <Modal.Title>
+                                    <h1>Select day 🗓️</h1>
+                                </Modal.Title>
                             </Modal.Header>
 
                             <Modal.Body>
@@ -155,14 +157,16 @@ function Home() {
 
                     {/* show model popup Appointment */}
                     <div className='bookClick'>
-                        <Modal show={show} onHide={closePopUpAppintment} style={{ background: "rgba(0, 0, 0, 0.8)" }}>
-
+                        <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.85)" }}>
+                            {/* onHide={closePopUpAppintment} */}
                             <p className="closes" onClick={closePopUpAppintment} aria-label="Close">
                                 &times;
                             </p>
 
                             <Modal.Header className='titleHeater'>
-                                <Modal.Title><h1>Select day :</h1></Modal.Title>
+                                <Modal.Title>
+                                    <h1>Select day 🗓️</h1>
+                                </Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
                                 <Form>
