@@ -1,102 +1,107 @@
 .cardPay {
-    border: none;
-    max-width: 380px;
-    border-radius: 15px;
-    padding: 35px;
-    padding-bottom: 20px !important;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 300px;
+    border-radius: 29px;
+}
+
+.cardPayDark {
+    background-color: #424242;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 300px;
+    border-radius: 29px;
+}
+
+.pay {
+    font-size: 18px;
+    color: #000;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.payDark {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.amount {
+    background-color: #f3f3fd;
+    border-radius: 8px;
+}
+
+.inner {
+    padding: 8px 19px;
+}
+
+.dollar {
+    color: #adb5bd;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.total {
+    font-size: 20px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.labeltxt {
+    font-size: 13px;
+    color: #adb5bd;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.imagePay {
+    position: relative;
+    top: 44px;
+    right: 13px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.inputtxt {
+    color: #000 !important;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 21px 15px;
+    border: 2px solid #adb5bd;
+    border-radius: 7px;
     background: white;
 }
 
-.heading {
-    color: #8b8b8b;
+.exptxt {
+    color: #adb5bd;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.cvvtxt {
+    color: #adb5bd;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.expiry {
+    padding: 21px 15px;
+    width: 120px;
     font-size: 14px;
-    font-weight: 500;
-}
-
-.cardPay img {
-    transform: translate(30px, -10px);
-}
-
-.cardPay h6 {
-    transform: translate(226px, -30px);
-    font-size: 20px;
-}
-
-
-.text-warning {
-    font-size: 12px;
-    font-weight: 500;
-    color: #00000071 !important;
-}
-
-
-#cno {
-    transform: translateY(-10px);
-}
-
-
-.cardPay input {
-    border-bottom: 1.5px solid #E8E5D2 !important;
     font-weight: bold;
-    border-radius: 0;
-    border: 0;
+    border: 2px solid #adb5bd;
+    border-radius: 7px;
+    background: white;
+    color: #000 !important;
 }
 
-
-.cardPay .form-group input:focus {
-    border: 0;
-    outline: 0;
-}
-
-.cardPay .col-sm-5 {
-    padding-left: 90px;
-}
-
-.cardPay .btn {
-    background: rgb(0, 153, 255) !important;
-    border: none;
-    border-radius: 30px;
-    transform: translate(-30px, 0px);
-}
-
-
-.closesPayService {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 5%;
-    font-size: 2.5rem;
-    line-height: 1;
-    color: rgb(0, 0, 0);
-    opacity: 1;
-    border: none;
-    background-color: none;
-    -webkit-appearance: none;
-    cursor: pointer;
-    margin-top: -6%;
-}
-
-
-
-@media(max-width:991px) {
-    .cardPay {
-        max-width: 350px;
-        border-radius: 15px;
-        padding: 15px;
-        padding-bottom: 20px !important;
-    }
-
-    .cardPay .btn {
-        transform: translate(159px, -10px);
-    }
-
-
-    .closesPayService {
-        margin-top: 0;
-    }
-}
-
-
-.styleButtonPosition {
-    display: flex;
-    justify-content: space-around;
+.cvv {
+    padding: 21px 15px;
+    width: 120px;
+    border: 2px solid #adb5bd;
+    border-radius: 7px;
+    background: white;
+    color: #000 !important;
 }

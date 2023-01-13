@@ -171,7 +171,7 @@ function Doctor({ code_doctor }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.name}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.email}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Date_published}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.priceSevice}</td>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.priceSevice} $</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }} >
                                                 {/* <Button size="sm" variant="secondary" onClick={() => window.location = 'https://mail.google.com'}>send email</Button> */}
                                                 <Button style={{ fontSize: "11px", color: "white" }} variant="contained"
@@ -285,7 +285,7 @@ function Doctor({ code_doctor }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.name}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.email}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Date_published}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.priceSevice}</td>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.priceSevice} $</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }} >
                                                 {/* <Button size="sm" variant="secondary" onClick={() => window.location = 'https://mail.google.com'}>send email</Button> */}
                                                 <Button style={{ fontSize: "11px", color: "white" }} variant="contained"

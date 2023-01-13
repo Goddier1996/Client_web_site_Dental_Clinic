@@ -332,7 +332,7 @@ function Sign_in(props) {
 
 
 
-    else {
+    if (storedTheme === "dark") {
 
         return (
 

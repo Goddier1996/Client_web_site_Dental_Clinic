@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import '../css/PayService.css'
 import Swal from 'sweetalert2'
 import { DeletePayFile } from '../Api/DeleteUpdateDataFromApi'
+import Button from '@mui/material/Button';
+import PaymentIcon from '@mui/icons-material/Payment';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 
@@ -16,12 +19,15 @@ function PayService(props) {
 
     let PayDetails = JSON.parse(sessionStorage.getItem("PayDetails"));
 
+    let storedTheme = localStorage.getItem("theme");
+
+
 
     //click button pay price and check if all input was good,if yes send to function DeletePayFile from DeleteUpdateDataFromAp component
     const Pay = async () => {
 
         if (CardNumber != '' && CardNumber.length === 16 &&
-            Expiration != '' && Expiration.length === 6 &&
+            Expiration != '' && Expiration.length === 4 &&
             Cvv != '' && Cvv.length === 3 &&
             CardholderName != '' && PayDetails.userName == CardholderName) {
 
@@ -53,78 +59,200 @@ function PayService(props) {
 
 
 
+    if (storedTheme === "dark") {
 
-    return (
+        return (
 
-        <div>
+            <div>
 
-            <div className="row d-flex justify-content-center">
-                <div className="col-sm-12">
-                    <div className="cardPay mx-auto">
+                <div className="container mt-4 d-flex justify-content-center main">
 
-                        <p className="closesPayService" onClick={props.hideModelPayService} aria-label="Close">
-                            &times;
-                        </p>
+                    <div className="cardPay">
 
-                        <p className="heading">PAYMENT DETAILS</p>
-                        <form className="cardPay-details ">
-                            <div className="form-group mb-0">
+                        <div className="d-flex justify-content-between px-3 pt-4">
 
-
-                                <p className="text-warning mb-0">Card Number</p>
-                                <input type="number" name="card-num" placeholder="1234 5678 9012 3457" size="17" id="cno" minLength="16" maxLength="16"
-                                    value={CardNumber}
-                                    pattern="[0-9]*"
-                                    onChange={(event) => setCardNumber(event.target.value)}
-                                />
-
-                                <img src="https://img.icons8.com/color/48/000000/visa.png" width="64px" height="60px" />
-                            </div>
-
-                            <div className="form-group">
-
-                                <p className="text-warning mb-0">Cardholder's Name</p>
-                                <input type="text" name="name" placeholder={PayDetails.userName} size="17"
-                                    value={CardholderName}
-                                    onChange={(event) => setCardholderName(event.target.value)}
-                                />
-
-                                <h6 className="text-warning mb-0">Pay : {PayDetails.priceSevice}$</h6>
-
-                            </div>
-                            <div className="form-group pt-2">
-                                <div className="row d-flex">
-
-                                    <div className="col-sm-4">
-                                        <p className="text-warning mb-0">Expiration</p>
-                                        <input type="text" name="exp" placeholder="MM/YYYY" size="7" id="exp" minLength="6" maxLength="6"
-                                            value={Expiration}
-                                            onChange={(event) => setExpiration(event.target.value)}
-                                        />
-                                    </div>
-
-
-
-                                    <div className="col-sm-3">
-                                        <p className="text-warning mb-0">Cvv</p>
-                                        <input type="password" name="cvv" placeholder="&#9679;&#9679;&#9679;" size="4" minLength="3" maxLength="3"
-                                            value={Cvv}
-                                            onChange={(event) => setCvv(event.target.value)}
-                                        />
-                                    </div>
-
-
-                                    <div className="col-sm-5 pt-0 pay">
-                                        <button type="button" className="btn btn-primary" onClick={Pay}><i className="fas fa-arrow-right px-3 py-2"></i></button>
-                                    </div>
+                            <span className="pay">Pay amount</span>
+                            <div className="amount">
+                                <div className="inner">
+                                    <span className="total">{PayDetails.priceSevice}</span>
+                                    <span className="dollar">$</span>
                                 </div>
                             </div>
-                        </form>
+
+                        </div>
+
+
+                        <div className="px-3 pt-3">
+
+                            <label htmlFor="cardPay number" className="d-flex justify-content-between">
+                                <span className="labeltxt">CARD NUMBER</span>
+                                <img src="https://i.postimg.cc/Znm2kbrb/download-4.png" height="25" className="imagePay" />
+                            </label>
+
+                            <input type="number" name="number" className="form-control inputtxt"
+                                placeholder="8881 2545 2545 2245" size="17" minLength="16" maxLength="16"
+                                value={CardNumber}
+                                onChange={(event) => setCardNumber(event.target.value)}
+                            />
+
+
+                            <label htmlFor="cardPay number" className="d-flex justify-content-between">
+                                <span className="labeltxt">CARDHOLDER'S NAME</span>
+                            </label>
+
+                            <input type="text" name="text" className="form-control inputtxt"
+                                placeholder={PayDetails.userName}
+                                value={CardholderName}
+                                onChange={(event) => setCardholderName(event.target.value)}
+                            />
+
+                        </div>
+
+
+                        <div className="d-flex justify-content-between px-3 pt-4">
+
+                            <div>
+                                <label htmlFor="date" className="exptxt">Expiry</label>
+                                <input type="text" name="number" className="form-control expiry"
+                                    placeholder="MM / YY" size="4" minLength="4" maxLength="4"
+                                    value={Expiration}
+                                    onChange={(event) => setExpiration(event.target.value)} />
+                            </div>
+
+                            <div>
+                                <label htmlFor="cvv" className="cvvtxt">CVV / CVC</label>
+                                <input type="password" name="number" className="form-control cvv"
+                                    placeholder="123" size="4" minLength="3" maxLength="3"
+                                    value={Cvv}
+                                    onChange={(event) => setCvv(event.target.value)} />
+                            </div>
+
+                        </div>
+
+
+                        {/* here buttom close or pay */}
+                        <div className="d-flex align-items-center justify-content-between px-3 py-4">
+
+                            <div>
+                                <Button style={{ background: "gray", fontSize: "13px" }} variant="contained"
+                                    onClick={props.hideModelPayService} startIcon={<CloseIcon />} >
+                                    Close
+                                </Button>
+                            </div>
+
+                            <div>
+                                <Button style={{ background: "green", fontSize: "13px" }} variant="contained"
+                                    onClick={Pay}
+                                    startIcon={<PaymentIcon />} >
+                                    Make Payment
+                                </Button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }
+
+
+
+    if (storedTheme === "light") {
+
+        return (
+
+            <div>
+
+                <div className="container mt-4 d-flex justify-content-center main">
+
+                    <div className="cardPayDark">
+
+                        <div className="d-flex justify-content-between px-3 pt-4">
+
+                            <span className="payDark">Pay amount</span>
+                            <div className="amount">
+                                <div className="inner">
+                                    <span className="total">{PayDetails.priceSevice}</span>
+                                    <span className="dollar">$</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div className="px-3 pt-3">
+
+                            <label htmlFor="cardPay number" className="d-flex justify-content-between">
+                                <span className="labeltxt">CARD NUMBER</span>
+                                <img src="https://i.postimg.cc/Znm2kbrb/download-4.png" height="25" className="imagePay" />
+                            </label>
+
+                            <input type="number" name="number" className="form-control inputtxt"
+                                placeholder="8881 2545 2545 2245" size="17" minLength="16" maxLength="16"
+                                value={CardNumber}
+                                onChange={(event) => setCardNumber(event.target.value)}
+                            />
+
+
+                            <label htmlFor="cardPay number" className="d-flex justify-content-between">
+                                <span className="labeltxt">CARDHOLDER'S NAME</span>
+                            </label>
+
+                            <input type="text" name="text" className="form-control inputtxt"
+                                placeholder={PayDetails.userName}
+                                value={CardholderName}
+                                onChange={(event) => setCardholderName(event.target.value)}
+                            />
+
+                        </div>
+
+
+                        <div className="d-flex justify-content-between px-3 pt-4">
+
+                            <div>
+                                <label htmlFor="date" className="exptxt">Expiry</label>
+                                <input type="text" name="number" className="form-control expiry"
+                                    placeholder="MM / YY" size="4" minLength="4" maxLength="4"
+                                    value={Expiration}
+                                    onChange={(event) => setExpiration(event.target.value)} />
+                            </div>
+
+                            <div>
+                                <label htmlFor="cvv" className="cvvtxt">CVV / CVC</label>
+                                <input type="password" name="number" className="form-control cvv"
+                                    placeholder="123" size="4" minLength="3" maxLength="3"
+                                    value={Cvv}
+                                    onChange={(event) => setCvv(event.target.value)} />
+                            </div>
+
+                        </div>
+
+
+                        {/* here buttom close or pay */}
+                        <div className="d-flex align-items-center justify-content-between px-3 py-4">
+
+                            <div>
+                                <Button style={{ background: "gray", fontSize: "13px" }} variant="contained"
+                                    onClick={props.hideModelPayService} startIcon={<CloseIcon />} >
+                                    Close
+                                </Button>
+                            </div>
+
+                            <div>
+                                <Button style={{ background: "green", fontSize: "13px" }} variant="contained"
+                                    onClick={Pay}
+                                    startIcon={<PaymentIcon />} >
+                                    Make Payment
+                                </Button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
 
 }
 
