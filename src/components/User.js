@@ -586,7 +586,7 @@ function User({ data_user }) {
 
                                     <tbody key={File._id}>
                                         <tr>
-                                            <td>{CountReview++}</td>
+                                            <td style={{ textAlign: "center", fontSize: "12px" }}>{CountReview++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{File.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice} $</td>
