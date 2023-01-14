@@ -52,7 +52,6 @@ function SendEmail(props) {
 
 
         else {
-alert(process.env.REACT_APP_SERVICE_KEY)
             e.preventDefault();
             send(
                 process.env.REACT_APP_SERVICE_KEY,
