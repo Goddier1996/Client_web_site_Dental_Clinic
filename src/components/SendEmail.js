@@ -5,6 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import Swal from "sweetalert2";
 import { send } from "emailjs-com";
+import dotenv from 'dotenv'
 
 
 
@@ -51,13 +52,13 @@ function SendEmail(props) {
 
 
         else {
-            alert(process.env.REACT_APP_API_KEY)
+alert(process.env.REACT_APP_SERVICE_KEY)
             e.preventDefault();
             send(
-                process.env.REACT_APP_API_KEY,
-                process.env.REACT_APP_AUTHDOMAIN,
+                process.env.REACT_APP_SERVICE_KEY,
+                process.env.REACT_APP_TEMPLATE,
                 toSend,
-                process.env.REACT_APP_PROJECT_ID
+                process.env.REACT_APP_PASSWORD
             )
                 .then((response) => {
 
@@ -67,7 +68,6 @@ function SendEmail(props) {
                             title: 'has been sent successfully',
                             text: 'Wait for the webmaster`s response',
                             icon: 'success',
-                            confirmButtonColor: "green"
                         }).then((result) => {
                             if (result.isConfirmed) {
                                 window.location.reload(false);
@@ -83,7 +83,6 @@ function SendEmail(props) {
                             text: 'Wait for the webmaster`s response',
                             icon: 'success',
                             background: '#373E44',
-                            confirmButtonColor: "green"
                         }).then((result) => {
                             if (result.isConfirmed) {
                                 window.location.reload(false);
