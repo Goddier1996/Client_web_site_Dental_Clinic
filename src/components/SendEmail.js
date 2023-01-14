@@ -52,7 +52,7 @@ function SendEmail(props) {
 
 
         else {
-
+            alert(process.env.REACT_APP_SERVICE,)
             e.preventDefault();
             send(
                 process.env.REACT_APP_SERVICE,
@@ -68,6 +68,7 @@ function SendEmail(props) {
                             title: 'has been sent successfully',
                             text: 'Wait for the webmaster`s response',
                             icon: 'success',
+                            confirmButtonColor: "green"
                         }).then((result) => {
                             if (result.isConfirmed) {
                                 window.location.reload(false);
@@ -83,6 +84,7 @@ function SendEmail(props) {
                             text: 'Wait for the webmaster`s response',
                             icon: 'success',
                             background: '#373E44',
+                            confirmButtonColor: "green"
                         }).then((result) => {
                             if (result.isConfirmed) {
                                 window.location.reload(false);

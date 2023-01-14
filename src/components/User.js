@@ -70,7 +70,8 @@ function User({ data_user }) {
                 icon: 'warning',
                 html: 'This option is Blocked Now !',
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
+                confirmButtonColor: "green"
             })
             return;
 
