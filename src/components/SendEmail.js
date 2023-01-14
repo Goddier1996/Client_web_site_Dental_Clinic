@@ -5,7 +5,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import Swal from "sweetalert2";
 import { send } from "emailjs-com";
-import dotenv from 'dotenv'
 
 
 
