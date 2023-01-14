@@ -21,6 +21,7 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^4.6.0",
     "cdbreact": "^1.5.2",
+    "cross-env": "^7.0.3",
     "emailjs-com": "^3.2.0",
     "env-cmd": "^10.1.0",
     "express": "^4.18.1",
