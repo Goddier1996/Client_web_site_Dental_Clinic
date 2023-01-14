@@ -51,13 +51,13 @@ function SendEmail(props) {
 
 
         else {
-            alert(process.env.REACT_APP_SERVICE,)
+            alert(process.env.REACT_APP_API_KEY)
             e.preventDefault();
             send(
-                process.env.REACT_APP_SERVICE,
-                process.env.REACT_APP_TEMPLATE,
+                process.env.REACT_APP_API_KEY,
+                process.env.REACT_APP_AUTHDOMAIN,
                 toSend,
-                process.env.REACT_APP_PASSWORD
+                process.env.REACT_APP_PROJECT_ID
             )
                 .then((response) => {
 
