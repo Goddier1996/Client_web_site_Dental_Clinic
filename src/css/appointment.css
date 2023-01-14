@@ -1,5 +1,4 @@
 .search-results {
-    border-top: 3px solid white;
     margin: 3%;
     margin-bottom: -10%;
     padding: 4%;
@@ -9,18 +8,21 @@
 
 
 .search-results p {
-    color: white;
-    cursor: -webkit-grabbing;
-    cursor: grabbing;
+    cursor: pointer;
     font-size: 18px;
+    color: rgba(0, 0, 0, 0.801);
+}
+
+.search-results p:hover {
+    border-bottom: 3px solid gray;
+    border-radius: 20%;
 }
 
 .chioseDayAndDay h6 {
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
-    color: #ffffffc8;
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
     margin-top: 2%;
 }
 
@@ -29,10 +31,45 @@
     text-align: center;
 }
 
-.showDay button {
+
+.showDay Button {
+    margin-top: 5%;
+    padding: 1%;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.801);
+    border: none;
+    border-radius: 25% 10%;
+}
+
+.showDay Button:hover {
+    border-bottom: 3px solid gray;
+    background: none;
+    color: rgba(0, 0, 0, 0.801);
+    border-radius: 20%;
+}
+
+
+.showDayDark Button {
     margin-top: 5%;
     padding: 2%;
     font-size: 18px;
     color: white;
     border: none;
+    border-radius: 25% 10%;
+}
+
+
+.showDayDark Button:hover {
+    border-bottom: 3px solid gray;
+    background: none;
+    border-radius: 20%;
+}
+
+
+
+.borderPlace {
+    border-bottom: 3px solid gray;
+    border-radius: 50%;
+    margin-top: 2%;
+    margin-bottom: 5%;
 }

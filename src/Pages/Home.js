@@ -5,6 +5,7 @@ import videoBg from '../images/FilmForth Untitled.mp4'
 import Category from '../components/category'
 import Appointment from '../components/Appointment'
 import Swal from 'sweetalert2'
+import CloseIcon from '@mui/icons-material/Close';
 
 
 
@@ -101,30 +102,33 @@ function Home() {
                         </Button>
                     </div>
 
-
                     {/* show model popup Appointment */}
                     <div className='bookClick'>
-                        <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.85)" }}>
-                            {/* onHide={closePopUpAppintment} */}
-                            <p className="closes" onClick={closePopUpAppintment} aria-label="Close">
-                                &times;
-                            </p>
+                        <Modal show={show} >
 
-                            <Modal.Header className='titleHeater'>
-                                <Modal.Title>
+                            <div className='showModelAddAppointmentUserDark'>
+
+                                <div className="closeModelAddAppointmentUser">
+
+                                    <Button style={{ background: "#424242" }} variant="contained" onClick={closePopUpAppintment} >
+                                        <CloseIcon style={{ fontSize: "20px", color: "white" }} />
+                                    </Button>
+                                </div>
+
+                                <div className='titleHeater'>
                                     <h1>Select day 🗓️</h1>
-                                </Modal.Title>
-                            </Modal.Header>
+                                </div>
 
-                            <Modal.Body>
                                 <Form>
                                     <Appointment handleClose={handleClose} />
                                 </Form>
-                            </Modal.Body>
+
+                            </div>
                         </Modal>
                     </div>
-
                 </div>
+
+                {/* show all Category from json file */}
                 <Category></Category>
             </div>
         );
@@ -157,26 +161,30 @@ function Home() {
 
                     {/* show model popup Appointment */}
                     <div className='bookClick'>
-                        <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.85)" }}>
-                            {/* onHide={closePopUpAppintment} */}
-                            <p className="closes" onClick={closePopUpAppintment} aria-label="Close">
-                                &times;
-                            </p>
+                        <Modal show={show} >
 
-                            <Modal.Header className='titleHeater'>
-                                <Modal.Title>
-                                    <h1>Select day 🗓️</h1>
-                                </Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
+                            <div className='showModelAddAppointmentUser'>
+
+                                <div className="closeModelAddAppointmentUser">
+                                    <Button style={{ background: "white" }} variant="contained" onClick={closePopUpAppintment} >
+                                        <CloseIcon style={{ fontSize: "20px", color: "black" }} />
+                                    </Button>
+                                </div>
+
+                                <div className='titleHeater'>
+                                    <h1 style={{ color: "black" }}>Select day 🗓️</h1>
+                                </div>
+
                                 <Form>
                                     <Appointment handleClose={handleClose} />
                                 </Form>
-                            </Modal.Body>
+
+                            </div>
                         </Modal>
                     </div>
-
                 </div>
+
+                {/* show all Category from json file */}
                 <Category></Category>
             </div>
         );

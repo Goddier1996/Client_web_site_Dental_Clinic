@@ -100,48 +100,106 @@ function SendEmail(props) {
 
 
 
-    return (
+    if (storedTheme === "dark") {
 
-        <>
-            <Modal.Header className='titleSendEmail'>
-                <Modal.Title><h1>Hello Here Can Send Email  <img style={{ height: "30px" }} src="https://img.icons8.com/doodle/48/000000/gmail-new.png" /></h1></Modal.Title>
-            </Modal.Header>
+        return (
 
+            <div className="cardModelSendEmail">
 
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Control
-                    type="email"
-                    name='reply_to'
-                    placeholder='Your Email'
-                    value={toSend.reply_to}
-                    onChange={handleChange}
-                    autoFocus
-                />
-            </Form.Group>
+                <div className="closeModelSendMessage">
+                    <Button style={{ background: "white" }} variant="contained" onClick={props.hideModelSendMessage} >
+                        <CloseIcon style={{ fontSize: "20px", color: "black" }} />
+                    </Button>
+                </div>
 
+                <div className='titleSendEmail'>
+                    <h1 style={{ color: "gray" }}>Send Message <img style={{ height: "30px" }} src="https://img.icons8.com/doodle/48/000000/gmail-new.png" /></h1>
+                </div>
 
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Control
-                    as="textarea" rows={3}
-                    name='message'
-                    placeholder='Your Message'
-                    value={toSend.message}
-                    onChange={handleChange}
-                />
-            </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Control
+                        type="email"
+                        name='reply_to'
+                        placeholder='Your Email'
+                        value={toSend.reply_to}
+                        onChange={handleChange}
+                        autoFocus
+                    />
+                </Form.Group>
 
 
-            <div className='buttonSendMessageOrClose'>
-                <Button onClick={onSubmit} variant="contained" startIcon={<SendIcon />}>
-                    Send Message
-                </Button>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Control
+                        as="textarea" rows={3}
+                        name='message'
+                        placeholder='Your Message'
+                        value={toSend.message}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
 
-                <Button onClick={props.hideModelSendMessage} style={{ background: "red" }} variant="contained" startIcon={<CloseIcon />}>
-                    Close
-                </Button>
+                <div className='buttonSendMessage'>
+                    <Button onClick={onSubmit} variant="contained"
+                        style={{ background: "green", fontSize: "13px" }}
+                        startIcon={<SendIcon />}>
+                        Send Message
+                    </Button>
+                </div>
+
             </div>
-        </>
-    )
+        )
+    }
+
+
+    if (storedTheme === "light") {
+
+        return (
+
+            <div className="cardModelSendEmailDark">
+
+                <div className="closeModelSendMessage">
+                    <Button style={{ background: "#424242" }} variant="contained" onClick={props.hideModelSendMessage} >
+                        <CloseIcon style={{ fontSize: "20px", color: "white" }} />
+                    </Button>
+                </div>
+
+                <div className='titleSendEmail'>
+                    <h1 style={{ color: "#ffffffab" }}>Send Message <img style={{ height: "30px" }} src="https://img.icons8.com/doodle/48/000000/gmail-new.png" /></h1>
+                </div>
+
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Control
+                        type="email"
+                        name='reply_to'
+                        placeholder='Your Email'
+                        value={toSend.reply_to}
+                        onChange={handleChange}
+                        autoFocus
+                    />
+                </Form.Group>
+
+
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Control
+                        as="textarea" rows={3}
+                        name='message'
+                        placeholder='Your Message'
+                        value={toSend.message}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+
+                <div className='buttonSendMessage'>
+                    <Button onClick={onSubmit} variant="contained"
+                        style={{ fontSize: "13px" }}
+                        startIcon={<SendIcon />}>
+                        Send Message
+                    </Button>
+                </div>
+
+            </div>
+        )
+    }
 
 }
 

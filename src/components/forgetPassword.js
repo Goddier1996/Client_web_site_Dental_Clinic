@@ -73,6 +73,7 @@ function ForgetPaswword() {
                         icon: 'info',
                         toast: true,
                         position: 'top-end',
+                        confirmButtonColor: "green",
                     }).then((result) => {
 
                         if (result.isConfirmed) {
@@ -91,7 +92,8 @@ function ForgetPaswword() {
                         background: '#373E44',
                         color: '#ffffffab',
                         toast: true,
-                        position: 'top-end'
+                        position: 'top-end',
+                        confirmButtonColor: "green",
                     }).then((result) => {
 
                         if (result.isConfirmed) {
@@ -138,7 +140,8 @@ function ForgetPaswword() {
                     toast: true,
                     background: '#373E44',
                     position: 'top-end',
-                    confirmButtonColor: "green"
+                    confirmButtonColor: "green",
+                    color: "white"
                 })
                 return;
             }
@@ -288,12 +291,11 @@ function ForgetPaswword() {
                     />
 
                     <div className='startChangePassword'>
-                        {/* <Button variant="warning" onClick={ForgetUser}>Ok</Button> */}
                         <Button style={{ fontSize: "13px", color: "white" }} variant="contained"
                             onClick={ForgetUser} startIcon={<DoneIcon />}>
                             Ok
                         </Button>
-                        {/* <Button variant="danger" onClick={closeForgetPassword}>Close</Button> */}
+
                         <Button style={{ fontSize: "13px", color: "white", background: "gray" }} variant="contained"
                             onClick={closeForgetPassword} startIcon={<CloseIcon />}>
                             Close

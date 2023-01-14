@@ -20,6 +20,7 @@ function AddMedicalFileUser(props) {
     const [priceSevice, setPriceSevice] = useState('');
 
     let date = JSON.parse(sessionStorage.getItem("userDateMedical"));
+    let storedTheme = localStorage.getItem("theme");
 
 
 
@@ -94,65 +95,137 @@ function AddMedicalFileUser(props) {
 
 
 
+    if (storedTheme == "dark") {
+
+        return (
+
+            <div className='modelPopUpSendFilePayToUser'>
 
 
-    return (
-
-        <div>
-
-            <Modal.Header>
-                <Modal.Title><h1>Medical File : {date.FirstName}</h1></Modal.Title>
-            </Modal.Header>
-
-            <div className='inputMedicalDate'>
-
-
-                <Form.Group className="mb-3">
-                    <Form.Control
-                        as="textarea" rows={3}
-                        placeholder="Patient review"
-                        value={textDoctor}
-                        onChange={(event) => setTextDoctor(event.target.value)}
-                        autoFocus
-                    />
-                </Form.Group>
-
-
-                <Form.Group className="mb-3">
-                    <Form.Control
-                        type="text"
-                        placeholder="price Service"
-                        value={priceSevice}
-                        onChange={(event) => setPriceSevice(event.target.value)}
-                    />
-                </Form.Group>
-
-
-                <Form.Group className="mb-3">
-                    <Form.Control
-                        type="text"
-                        placeholder="add link file"
-                        value={File_user}
-                        onChange={(event) => setFile_user(event.target.value)}
-                    />
-                </Form.Group>
-
-                <div className='styleButtonPosition'>
-                    {/* <Button variant="success" onClick={checkInput}>Success</Button> */}
-                    <Button style={{ fontSize: "11px", color: "white", background: "green" }} variant="contained"
-                        onClick={checkInput} startIcon={<DoneIcon />}>
-                        Success
-                    </Button>
-                    {/* <Button variant="secondary" onClick={props.hideModelMedicalFile}>Close</Button> */}
-                    <Button style={{ fontSize: "11px", color: "white", background: "red" }} variant="contained"
-                        onClick={props.hideModelMedicalFile} startIcon={<CloseIcon />}>
-                        Close
+                <div className="closeModelSendFilePayToUser">
+                    <Button style={{ background: "white" }} variant="contained" onClick={props.hideModelMedicalFile} >
+                        <CloseIcon style={{ fontSize: "20px", color: "black" }} />
                     </Button>
                 </div>
 
+
+                <div className='titleFileUser'>
+                    <h1 style={{ color: "gray" }}>Medical File 📁 {date.FirstName}</h1>
+                </div>
+
+                <div className='inputMedicalDate'>
+
+
+                    <Form.Group className="mb-3">
+                        <Form.Control
+                            as="textarea" rows={3}
+                            placeholder="Patient review"
+                            value={textDoctor}
+                            onChange={(event) => setTextDoctor(event.target.value)}
+                            autoFocus
+                        />
+                    </Form.Group>
+
+
+                    <Form.Group className="mb-3">
+                        <Form.Control
+                            type="text"
+                            placeholder="price Service"
+                            value={priceSevice}
+                            onChange={(event) => setPriceSevice(event.target.value)}
+                        />
+                    </Form.Group>
+
+
+                    <Form.Group className="mb-3">
+                        <Form.Control
+                            type="text"
+                            placeholder="add link file"
+                            value={File_user}
+                            onChange={(event) => setFile_user(event.target.value)}
+                        />
+                    </Form.Group>
+
+                    <div className='styleButtonPosition'>
+
+                        <Button style={{ fontSize: "13px", color: "white", background: "green" }} variant="contained"
+                            onClick={checkInput} startIcon={<DoneIcon />}>
+                            Success
+                        </Button>
+
+                    </div>
+
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
+
+
+
+    if (storedTheme == "light") {
+
+        return (
+
+            <div className='modelPopUpSendFilePayToUserDark'>
+
+
+                <div className="closeModelSendFilePayToUser">
+                    <Button style={{ background: "#424242" }} variant="contained" onClick={props.hideModelMedicalFile} >
+                        <CloseIcon style={{ fontSize: "20px", color: "white" }} />
+                    </Button>
+                </div>
+
+
+                <div className='titleFileUser'>
+                    <h1 style={{ color: "#ffffffab" }}>Medical File 📁 {date.FirstName}</h1>
+                </div>
+
+                <div className='inputMedicalDateDark'>
+
+                    <Form.Group className="mb-3">
+                        <Form.Control
+                            as="textarea" rows={3}
+                            placeholder="Patient review"
+                            value={textDoctor}
+                            onChange={(event) => setTextDoctor(event.target.value)}
+                            autoFocus
+                        />
+                    </Form.Group>
+
+
+                    <Form.Group className="mb-3">
+                        <Form.Control
+                            type="text"
+                            placeholder="price Service"
+                            value={priceSevice}
+                            onChange={(event) => setPriceSevice(event.target.value)}
+                        />
+                    </Form.Group>
+
+
+                    <Form.Group className="mb-3">
+                        <Form.Control
+                            type="text"
+                            placeholder="add link file"
+                            value={File_user}
+                            onChange={(event) => setFile_user(event.target.value)}
+                        />
+                    </Form.Group>
+
+                    <div className='styleButtonPosition'>
+
+                        <Button style={{ fontSize: "13px", color: "white", background: "green" }} variant="contained"
+                            onClick={checkInput} startIcon={<DoneIcon />}>
+                            Success
+                        </Button>
+
+                    </div>
+
+                </div>
+            </div>
+        );
+    }
+
 
 }
 

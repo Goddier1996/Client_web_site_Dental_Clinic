@@ -70,7 +70,6 @@ html::-webkit-scrollbar-thumb {
     background-size: cover;
     background-repeat: no-repeat;
     object-fit: cover;
-    /* border-radius: 30px; */
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
@@ -87,7 +86,6 @@ html::-webkit-scrollbar-thumb {
     left: 50%;
     transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, 0.301);
-    /* border-radius: 30px; */
     width: 92%;
 }
 
@@ -99,19 +97,30 @@ html::-webkit-scrollbar-thumb {
     align-items: center;
 }
 
+.showModelAddAppointmentUser {
+    background: rgba(255, 255, 255, 0.875);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: auto;
+    border-radius: 29px;
+    padding: 5%;
+}
 
-.closes {
+.showModelAddAppointmentUserDark {
+    background: #202020e6;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: auto;
+    border-radius: 29px;
+    padding: 5%;
+    border: 2px solid rgba(255, 255, 255, 0.526);
+}
+
+
+.closeModelAddAppointmentUser Button {
+    align-items: center;
+    text-align: center;
     display: flex;
-    justify-content: flex-end;
-    padding-right: 5%;
-    font-size: 2.5rem;
-    line-height: 1;
-    color: rgb(252, 252, 252);
-    opacity: 1;
-    border: none;
-    background-color: none;
-    -webkit-appearance: none;
-    cursor: pointer;
+    justify-content: center;
+    border-radius: 100% 50%;
 }
 
 

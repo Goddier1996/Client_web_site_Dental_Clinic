@@ -8,6 +8,9 @@ import { AddNewReviews, AddNewLikeReviews } from '../Api/ConnectOrAddFromApi'
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
+import RateReviewIcon from '@mui/icons-material/RateReview';
+
+
 
 //here we show Reviews and like and add them
 function service() {
@@ -216,43 +219,45 @@ function service() {
 
 
                 <div>
-                    <Modal show={showAddReviews} onHide={handleCloseAddReviews} style={{ background: "rgba(0, 0, 0, 0.70)" }}>
-                        <Modal.Header className='titleHeater'>
-                            <Modal.Title><h1>Here you can Add New Review :</h1></Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <Form>
-                                <Form.Group
-                                    className="mb-3"
-                                    controlId="exampleForm.ControlTextarea1">
-                                    <Form.Control as="textarea" rows={3}
-                                        value={textReviews}
-                                        onChange={(event) => setTextReviews(event.target.value)}
-                                        autoFocus
-                                    />
-                                </Form.Group>
-                            </Form>
-                        </Modal.Body>
+                    <Modal show={showAddReviews} onHide={handleCloseAddReviews}>
 
-                        <div className='buttonAddNewReviewOrCLose'>
-                            {/* 
-                            <Button variant="success" onClick={addReviews}>
-                                Add a Review
-                            </Button> */}
-                            <Button style={{ fontSize: "12px", color: "white" }} variant="contained"
-                                onClick={addReviews} startIcon={<AddIcon />}>
-                                Add a Review
-                            </Button>
-                            {/* 
-                            <Button variant="danger" onClick={handleCloseAddReviews}>
-                                Close
-                            </Button> */}
-                            <Button style={{ fontSize: "12px", color: "white", background: "red" }} variant="contained"
-                                onClick={handleCloseAddReviews} startIcon={<CloseIcon />}>
-                                Close
-                            </Button>
+                        <div className="cardModelAddNewReviewDark">
+
+                            <div className="closeModelAddReview">
+                                <Button style={{ background: "#424242" }} variant="contained" onClick={handleCloseAddReviews} >
+                                    <CloseIcon style={{ fontSize: "20px", color: "white" }} />
+                                </Button>
+                            </div>
+
+                            <div className='titleHeater'>
+                                <h1>Add New Review <RateReviewIcon style={{ fontSize: "30px" }} /></h1>
+                            </div>
+
+                            <Modal.Body>
+                                <Form>
+                                    <Form.Group
+                                        className="mb-3"
+                                        controlId="exampleForm.ControlTextarea1">
+                                        <Form.Control as="textarea" rows={3}
+                                            value={textReviews}
+                                            onChange={(event) => setTextReviews(event.target.value)}
+                                            autoFocus
+                                            placeholder='input your Review'
+                                        />
+                                    </Form.Group>
+                                </Form>
+                            </Modal.Body>
+
+                            <div className='buttonAddNewReviewOrCLose'>
+
+                                <Button style={{ fontSize: "12px", color: "white" }} variant="contained"
+                                    onClick={addReviews} startIcon={<AddIcon />}>
+                                    Add a Review
+                                </Button>
+
+                            </div>
+
                         </div>
-
                     </Modal>
                 </div>
 
@@ -326,43 +331,45 @@ function service() {
 
 
                 <div>
-                    <Modal show={showAddReviews} onHide={handleCloseAddReviews} style={{ background: "rgba(0, 0, 0, 0.8)" }}>
-                        <Modal.Header className='titleHeater'>
-                            <Modal.Title ><h1>Here you can Add New Review :</h1></Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <Form>
-                                <Form.Group
-                                    className="mb-3"
-                                    controlId="exampleForm.ControlTextarea1">
-                                    <Form.Control as="textarea" rows={3}
-                                        value={textReviews}
-                                        onChange={(event) => setTextReviews(event.target.value)}
-                                        autoFocus
-                                    />
-                                </Form.Group>
-                            </Form>
-                        </Modal.Body>
+                    <Modal show={showAddReviews} onHide={handleCloseAddReviews} >
 
-                        <div className='buttonAddNewReviewOrCLose'>
-                            {/* 
-                            <Button variant="success" onClick={addReviews}>
-                                Add a Review
-                            </Button> */}
-                            <Button style={{ fontSize: "12px", color: "white" }} variant="contained"
-                                onClick={addReviews} startIcon={<AddIcon />}>
-                                Add a Review
-                            </Button>
-                            {/* 
-                            <Button variant="danger" onClick={handleCloseAddReviews}>
-                                Close
-                            </Button> */}
-                            <Button style={{ fontSize: "12px", color: "white", background: "red" }} variant="contained"
-                                onClick={handleCloseAddReviews} startIcon={<CloseIcon />}>
-                                Close
-                            </Button>
+                        <div className="cardModelAddNewReview">
+
+                            <div className="closeModelAddReview">
+                                <Button style={{ background: "white" }} variant="contained" onClick={handleCloseAddReviews} >
+                                    <CloseIcon style={{ fontSize: "20px", color: "black" }} />
+                                </Button>
+                            </div>
+
+                            <div className='titleHeater'>
+                                <h1 style={{ color: "#00000094" }}>Add New Review <RateReviewIcon style={{ fontSize: "30px" }} /></h1>
+                            </div>
+
+                            <Modal.Body>
+                                <Form>
+                                    <Form.Group
+                                        className="mb-3"
+                                        controlId="exampleForm.ControlTextarea1">
+                                        <Form.Control as="textarea" rows={3}
+                                            value={textReviews}
+                                            onChange={(event) => setTextReviews(event.target.value)}
+                                            autoFocus
+                                            placeholder='input your Review'
+                                        />
+                                    </Form.Group>
+                                </Form>
+                            </Modal.Body>
+
+                            <div className='buttonAddNewReviewOrCLose'>
+
+                                <Button style={{ fontSize: "13px", color: "white", background: "green" }} variant="contained"
+                                    onClick={addReviews} startIcon={<AddIcon />}>
+                                    Add a Review
+                                </Button>
+
+                            </div>
+
                         </div>
-
                     </Modal>
                 </div>
 

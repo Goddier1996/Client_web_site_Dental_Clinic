@@ -74,7 +74,7 @@ function Location() {
                             </div>
 
                             <>
-                                <Modal show={showSendMessage} style={{ background: "rgba(0, 0, 0, 0.70)" }} >
+                                <Modal show={showSendMessage} onHide={closePopUpModelSendMessage} >
                                     <SendEmail hideModelSendMessage={closePopUpModelSendMessage} />
                                 </Modal>
                             </>
@@ -111,7 +111,7 @@ function Location() {
 
 
 
-    else {
+    if (storedTheme === "dark") {
 
         return (
             <div>
@@ -142,7 +142,7 @@ function Location() {
                         </div>
 
                         <>
-                            <Modal show={showSendMessage} style={{ background: "rgba(0, 0, 0, 0.70)" }} >
+                            <Modal show={showSendMessage} onHide={closePopUpModelSendMessage} >
                                 <SendEmail hideModelSendMessage={closePopUpModelSendMessage} />
                             </Modal>
                         </>

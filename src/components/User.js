@@ -219,7 +219,9 @@ function User({ data_user }) {
     // send this function to PayService component
     const hideModelPayService = () => {
 
-        setShowPayService(false);
+        // setShowPayService(false);
+        sessionStorage.removeItem("PayDetails");
+        window.location.reload(false);
     }
 
 
@@ -313,27 +315,26 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice} $</td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>
-                                                {/* <Button href={File.File_user} size="sm" variant="secondary">File</Button> */}
                                                 <Button style={{ fontSize: "11px", background: "gray", color: "white" }} variant="contained" href={File.File_user} startIcon={<AttachFileIcon />}>
                                                     File
                                                 </Button>
                                             </td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>
-                                                {/* <Button size="sm" variant="success" onClick={() => OpenPopUpPay(File._id, File.priceSevice, File.name)}>Pay</Button> */}
                                                 <Button style={{ fontSize: "11px" }} variant="contained" onClick={() => OpenPopUpPay(File._id, File.priceSevice, File.name)} startIcon={<PaymentIcon />}>
                                                     Pay
                                                 </Button>
                                             </td>
-
-
-                                            <Modal show={showPayService} onHide={handleClosePayService} >
-                                                <PayService hideModelPayService={hideModelPayService} />
-                                            </Modal>
                                         </tr>
                                     </tbody>
+
                                 )}
                             </Table>
+
+                            <Modal show={showPayService} onHide={hideModelPayService} >
+                                <PayService hideModelPayService={hideModelPayService} />
+                            </Modal>
+
                         </Tab>
 
 
@@ -592,27 +593,25 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice} $</td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>
-                                                {/* <Button href={File.File_user} size="sm" variant="secondary">File</Button> */}
                                                 <Button style={{ fontSize: "11px", background: "gray", color: "white" }} variant="contained" href={File.File_user} startIcon={<AttachFileIcon />}>
                                                     File
                                                 </Button>
                                             </td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>
-                                                {/* <Button size="sm" variant="success" onClick={() => OpenPopUpPay(File._id, File.priceSevice, File.name)}>Pay</Button> */}
                                                 <Button style={{ fontSize: "11px" }} variant="contained" onClick={() => OpenPopUpPay(File._id, File.priceSevice, File.name)} startIcon={<PaymentIcon />}>
                                                     Pay
                                                 </Button>
                                             </td>
-
-
-                                            <Modal show={showPayService} onHide={handleClosePayService} >
-                                                <PayService hideModelPayService={hideModelPayService} />
-                                            </Modal>
                                         </tr>
                                     </tbody>
                                 )}
                             </Table>
+
+                            <Modal show={showPayService} onHide={hideModelPayService} >
+                                <PayService hideModelPayService={hideModelPayService} />
+                            </Modal>
+
                         </Tab>
 
 
@@ -862,27 +861,25 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice} $</td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>
-                                                {/* <Button href={File.File_user} size="sm" variant="secondary">File</Button> */}
                                                 <Button style={{ fontSize: "11px", background: "gray", color: "white" }} variant="contained" href={File.File_user} startIcon={<AttachFileIcon />}>
                                                     File
                                                 </Button>
                                             </td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>
-                                                {/* <Button size="sm" variant="success" onClick={() => OpenPopUpPay(File._id, File.priceSevice, File.name)}>Pay</Button> */}
                                                 <Button style={{ fontSize: "11px" }} variant="contained" onClick={() => OpenPopUpPay(File._id, File.priceSevice, File.name)} startIcon={<PaymentIcon />}>
                                                     Pay
                                                 </Button>
                                             </td>
-
-
-                                            <Modal show={showPayService} onHide={handleClosePayService} >
-                                                <PayService hideModelPayService={hideModelPayService} />
-                                            </Modal>
                                         </tr>
                                     </tbody>
                                 )}
                             </Table>
+
+                            <Modal show={showPayService} onHide={hideModelPayService} >
+                                <PayService hideModelPayService={hideModelPayService} />
+                            </Modal>
+
                         </Tab>
 
 
@@ -1138,27 +1135,25 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice} $</td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>
-                                                {/* <Button href={File.File_user} size="sm" variant="secondary">File</Button> */}
                                                 <Button style={{ fontSize: "11px", background: "gray", color: "white" }} variant="contained" href={File.File_user} startIcon={<AttachFileIcon />}>
                                                     File
                                                 </Button>
                                             </td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>
-                                                {/* <Button size="sm" variant="success" onClick={() => OpenPopUpPay(File._id, File.priceSevice, File.name)}>Pay</Button> */}
                                                 <Button style={{ fontSize: "11px" }} variant="contained" onClick={() => OpenPopUpPay(File._id, File.priceSevice, File.name)} startIcon={<PaymentIcon />}>
                                                     Pay
                                                 </Button>
                                             </td>
-
-
-                                            <Modal show={showPayService} onHide={handleClosePayService} >
-                                                <PayService hideModelPayService={hideModelPayService} />
-                                            </Modal>
                                         </tr>
                                     </tbody>
                                 )}
                             </Table>
+
+                            <Modal show={showPayService} onHide={hideModelPayService} >
+                                <PayService hideModelPayService={hideModelPayService} />
+                            </Modal>
+
                         </Tab>
 
 

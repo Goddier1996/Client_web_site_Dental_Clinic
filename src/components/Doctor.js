@@ -131,7 +131,6 @@ function Doctor({ code_doctor }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Day_date}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Hour_day}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }} >
-                                                {/* <Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.FirstName, user.Email)}>Send Medical File</Button> */}
                                                 <Button style={{ fontSize: "11px", color: "white", background: "green" }} variant="contained"
                                                     onClick={() => updateDayHour(user._id, user.FirstName, user.Email, user.Serial_codeHour)}
                                                     startIcon={<RateReviewIcon />}>
@@ -140,10 +139,8 @@ function Doctor({ code_doctor }) {
                                             </td>
                                         </tr>
 
-                                        <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.50)" }} >
-
+                                        <Modal show={show}  >
                                             <AddMedicalFileUser hideModelMedicalFile={hideModelMedicalFile} />
-                                            {/* codeHour={user.Serial_codeHour} userCode={user._id} */}
                                         </Modal>
                                     </tbody>
                                 )}
@@ -246,7 +243,7 @@ function Doctor({ code_doctor }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Day_date}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Hour_day}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }} >
-                                                {/* <Button size="sm" variant="success" onClick={() => updateDayHour(user._id, user.FirstName, user.Email)}>Send Medical File</Button> */}
+                                                
                                                 <Button style={{ fontSize: "11px", color: "white", background: "green" }} variant="contained"
                                                     onClick={() => updateDayHour(user._id, user.FirstName, user.Email, user.Serial_codeHour)}
                                                     startIcon={<RateReviewIcon />}>
@@ -255,10 +252,8 @@ function Doctor({ code_doctor }) {
                                             </td>
                                         </tr>
 
-                                        <Modal show={show} style={{ background: "rgba(0, 0, 0, 0.70)" }} >
-
+                                        <Modal show={show}  >
                                             <AddMedicalFileUser hideModelMedicalFile={hideModelMedicalFile} />
-                                            {/* codeHour={user.Serial_codeHour} userCode={user._id} */}
                                         </Modal>
                                     </tbody>
                                 )}
