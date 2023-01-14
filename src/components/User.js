@@ -264,6 +264,7 @@ function User({ data_user }) {
 
 
     if (storedTheme === "dark" && data_user.day == null) {
+
         return (
 
             <div>
@@ -277,13 +278,11 @@ function User({ data_user }) {
                             <Modal.Dialog className='showMyQueues'>
 
                                 <Modal.Body>
-
                                     <p>You Don't Have Queues ! <br />
                                         Go to the home page, and order by clicking the queue button. <br />
                                         Or <br />
                                         Click <a style={{ textDecoration: "none", fontWeight: "bold" }} href='/'>Home Page</a>
                                     </p>
-
                                 </Modal.Body>
 
                             </Modal.Dialog>
@@ -360,10 +359,9 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{HistoryPayFile++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{File.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice}</td>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice} $</td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>
-                                                {/* <Button href={File.File_user} size="sm" variant="secondary">File</Button> */}
                                                 <Button style={{ fontSize: "11px", background: "gray", color: "white" }} variant="contained" href={File.File_user} startIcon={<AttachFileIcon />}>
                                                     File
                                                 </Button>
@@ -396,9 +394,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>
-                                                {/* <Button size="sm" variant="danger"
-                                                onClick={() => DeleteItemsFromDataApi(Review._id)}>
-                                                delete</Button> */}
+
                                                 <Button style={{ fontSize: "11px", background: "red", color: "white" }} variant="contained" onClick={() => DeleteItemsFromDataApi(Review._id)}
                                                     startIcon={<DeleteIcon />}>
                                                     Delete
@@ -509,7 +505,6 @@ function User({ data_user }) {
                                 </Row>
 
                                 <div className='enterUpdate'>
-                                    {/* <Button onClick={handleSubmit} variant="success">Submit form</Button> */}
                                     <Button style={{ fontSize: "13px", background: "green", color: "white" }} variant="contained" onClick={handleSubmit}
                                         startIcon={<UpgradeIcon />}>
                                         Update
@@ -534,7 +529,6 @@ function User({ data_user }) {
         return (
             <div>
 
-
                 <div className="bg-white">
 
                     <Tabs id="controlled-tab-example" className="mb-3 tabsChiose " >
@@ -557,8 +551,7 @@ function User({ data_user }) {
                                 </Modal.Body>
 
                                 <Modal.Footer className='ButtonQueues'>
-                                    {/* <Button variant="danger" onClick={() => ActiveHour()} >delete queues</Button> */}
-                                    <Button style={{ fontSize: "12px", color: "white", background: "red" }} variant="contained"
+                                    <Button style={{ fontSize: "12px", color: "white", background: "green" }} variant="contained"
                                         onClick={() => ActiveHour()} startIcon={<CloseIcon />}>
                                         Delete Queues
                                     </Button>
@@ -637,10 +630,9 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{HistoryPayFile++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{File.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice}</td>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice} $</td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>
-                                                {/* <Button href={File.File_user} size="sm" variant="secondary">File</Button> */}
                                                 <Button style={{ fontSize: "11px", background: "gray", color: "white" }} variant="contained" href={File.File_user} startIcon={<AttachFileIcon />}>
                                                     File
                                                 </Button>
@@ -674,9 +666,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>
-                                                {/* <Button size="sm" variant="danger"
-                                                    onClick={() => DeleteItemsFromDataApi(Review._id)}>
-                                                    delete</Button> */}
+
                                                 <Button style={{ fontSize: "11px", background: "red", color: "white" }} variant="contained" onClick={() => DeleteItemsFromDataApi(Review._id)}
                                                     startIcon={<DeleteIcon />}>
                                                     Delete
@@ -790,7 +780,6 @@ function User({ data_user }) {
                                 </Row>
 
                                 <div className='enterUpdate'>
-                                    {/* <Button onClick={handleSubmit} variant="success">Submit form</Button> */}
                                     <Button style={{ fontSize: "13px", background: "green", color: "white" }} variant="contained" onClick={handleSubmit}
                                         startIcon={<UpgradeIcon />}>
                                         Update
@@ -905,10 +894,9 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{HistoryPayFile++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{File.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice}</td>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice} $</td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>
-                                                {/* <Button href={File.File_user} size="sm" variant="secondary">File</Button> */}
                                                 <Button style={{ fontSize: "11px", background: "gray", color: "white" }} variant="contained" href={File.File_user} startIcon={<AttachFileIcon />}>
                                                     File
                                                 </Button>
@@ -941,9 +929,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>
-                                                {/* <Button size="sm" variant="danger"
-                                                onClick={() => DeleteItemsFromDataApi(Review._id)}>
-                                                delete</Button> */}
+
                                                 <Button style={{ fontSize: "11px", background: "red", color: "white" }} variant="contained" onClick={() => DeleteItemsFromDataApi(Review._id)}
                                                     startIcon={<DeleteIcon />}>
                                                     Delete
@@ -1055,7 +1041,6 @@ function User({ data_user }) {
                                 </Row>
 
                                 <div className='enterUpdate'>
-                                    {/* <Button onClick={handleSubmit} variant="success">Submit form</Button> */}
                                     <Button style={{ fontSize: "13px", background: "green", color: "white" }} variant="contained" onClick={handleSubmit}
                                         startIcon={<UpgradeIcon />}>
                                         Update
@@ -1099,8 +1084,7 @@ function User({ data_user }) {
                                 </Modal.Body>
 
                                 <Modal.Footer className='ButtonQueues' >
-                                    {/* <Button variant="danger" onClick={ActiveHour}>delete queues</Button> */}
-                                    <Button style={{ fontSize: "12px", color: "white", background: "red" }} variant="contained"
+                                    <Button style={{ fontSize: "12px", color: "white", background: "green" }} variant="contained"
                                         onClick={() => ActiveHour()} startIcon={<CloseIcon />}>
                                         Delete Queues
                                     </Button>
@@ -1179,10 +1163,9 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{HistoryPayFile++}</td>
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{File.Date_published}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{File.textDoctor}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice}</td>
+                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{File.priceSevice} $</td>
 
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>
-                                                {/* <Button href={File.File_user} size="sm" variant="secondary">File</Button> */}
                                                 <Button style={{ fontSize: "11px", background: "gray", color: "white" }} variant="contained" href={File.File_user} startIcon={<AttachFileIcon />}>
                                                     File
                                                 </Button>
@@ -1215,10 +1198,7 @@ function User({ data_user }) {
                                             <td style={{ textAlign: "center", fontSize: "12px" }}>{Review.DatePublished}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>
-                                                {/* <Button size="sm" variant="danger"
-                                                    onClick={() => DeleteItemsFromDataApi(Review._id)}>
-                                                    delete
-                                                </Button> */}
+
                                                 <Button style={{ fontSize: "11px", background: "red", color: "white" }} variant="contained" onClick={() => DeleteItemsFromDataApi(Review._id)}
                                                     startIcon={<DeleteIcon />}>
                                                     Delete
@@ -1329,7 +1309,6 @@ function User({ data_user }) {
                                 </Row>
 
                                 <div className='enterUpdate'>
-                                    {/* <Button onClick={handleSubmit} variant="success">Submit form</Button> */}
                                     <Button style={{ fontSize: "13px", background: "green", color: "white" }} variant="contained" onClick={handleSubmit}
                                         startIcon={<UpgradeIcon />}>
                                         Update
