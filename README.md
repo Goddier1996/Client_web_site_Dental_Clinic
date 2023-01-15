@@ -34,66 +34,88 @@ https://user-images.githubusercontent.com/59862302/212484617-c3dad147-d8c8-490f-
 
 # Home Page :
 
-![1](https://user-images.githubusercontent.com/59862302/181908265-6e717145-40df-440d-8371-c975ccd127dc.jpg)
-![11](https://user-images.githubusercontent.com/59862302/181908300-5f7d7b09-76c4-4956-bebd-7a37c90b1c80.jpg)
+![1](https://user-images.githubusercontent.com/59862302/212554927-689b757c-8b46-4013-9afe-911d30572fa1.jpg)
+![11](https://user-images.githubusercontent.com/59862302/212554930-11400b1b-b187-41d3-8361-38e23ba0003b.jpg)
 
-## here we To make an appointment !
 
-![111](https://user-images.githubusercontent.com/59862302/181908308-ee8d2763-4875-4faf-9573-3e0e9a7ec7f2.jpg)
-![1111](https://user-images.githubusercontent.com/59862302/181908333-6273d85a-969e-48f7-9ae2-b816ec18cc6e.jpg)
+## here we To make an appointment :
+
+![9](https://user-images.githubusercontent.com/59862302/212554965-d5a822cb-69ad-4116-9f00-c81e6e80199e.jpg)
+![99](https://user-images.githubusercontent.com/59862302/212554971-f2f5a7e7-b53f-4ffd-b44f-56894e614432.jpg)
+
 
 # About Page :
 
-![2](https://user-images.githubusercontent.com/59862302/181908343-e72e3b17-3dcd-4566-8157-de549ccca868.jpg)
-![22](https://user-images.githubusercontent.com/59862302/181908349-723f9490-ebe9-4bd9-add7-a60ec70c091a.jpg)
+![2](https://user-images.githubusercontent.com/59862302/212554983-a3c5b5de-4bfb-489d-8811-9b385db4bf6d.jpg)
+![22](https://user-images.githubusercontent.com/59862302/212554987-7adb4f42-6660-4628-849d-da0c3dde3019.jpg)
+
 
 # Sign In :
 
-![3](https://user-images.githubusercontent.com/59862302/181908386-95fce6a8-b4a9-4a1f-aa16-3fc7474275f0.jpg)
+![8](https://user-images.githubusercontent.com/59862302/212555008-fcd7eeb1-6534-4ef3-9095-c45febd5fc66.jpg)
 
-## forget Password !
-![33](https://user-images.githubusercontent.com/59862302/181908393-bff34c9d-48ec-46bc-a2ef-eadbd15d8f75.jpg)
+
+# forget Password :
+
+![7](https://user-images.githubusercontent.com/59862302/212555025-d3bb9890-487c-4ebc-aa1a-143d1a798334.jpg)
+
 
 # Register Page :
 
-![4](https://user-images.githubusercontent.com/59862302/181908428-d1d79032-3c35-4f01-949c-863abf759078.jpg)
+![3](https://user-images.githubusercontent.com/59862302/212555039-6834519c-dbd3-40be-ae91-38b8320b49b7.jpg)
+
 
 # Our Work Page :
 
-![5](https://user-images.githubusercontent.com/59862302/181908447-780d5447-af82-4db2-afb7-baf9efc660c8.jpg)
+![4](https://user-images.githubusercontent.com/59862302/212555068-e6fa5f0b-7a4a-4f62-8372-e0f487686cf7.jpg)
+
 
 # Reviews Page :
 
-![6](https://user-images.githubusercontent.com/59862302/181908461-6f4882ef-d5f7-4984-934d-0747c9614b57.jpg)
+![5](https://user-images.githubusercontent.com/59862302/212555151-a48c30e9-b765-4198-a69d-fae0ae11261d.jpg)
+![55](https://user-images.githubusercontent.com/59862302/212555163-ac1fb211-3aa0-4a61-bb1c-f437bf315076.jpg)
 
-## add new review !
-![66](https://user-images.githubusercontent.com/59862302/181908473-a56e2b84-1719-4161-a6fe-e9113a2da9ea.jpg)
 
 # Loction Page :
 
-![7](https://user-images.githubusercontent.com/59862302/181908492-d3a2c280-155e-42b7-88c5-de7d0f72effb.jpg)
+![6](https://user-images.githubusercontent.com/59862302/212555217-4f042bff-7b3e-4f0d-b36d-c859472f0554.jpg)
+![66](https://user-images.githubusercontent.com/59862302/212555229-05ce46a8-e52f-45a3-a7d1-40512a831dad.jpg)
+
 
 # Profile Page User :
 
-![8](https://user-images.githubusercontent.com/59862302/181908511-52618738-8586-4069-92a3-f172cf176cf9.jpg)
-![88](https://user-images.githubusercontent.com/59862302/181908523-de7a927b-10c2-4981-82f0-f854768eae6b.jpg)
+![0](https://user-images.githubusercontent.com/59862302/212555492-4881006f-0c06-4b24-9d70-822d807cb599.jpg)
 
-## Pay Service !
-![zzz](https://user-images.githubusercontent.com/59862302/181908900-53e2285e-4e1f-4e69-914c-1d3df331d708.jpg)
 
-![888](https://user-images.githubusercontent.com/59862302/181908525-be924135-58f1-4233-adea-d1641c56d926.jpg)
-![8888](https://user-images.githubusercontent.com/59862302/181908532-cf6692d3-bde7-4dff-8750-1993b9b89be0.jpg)
-![88888](https://user-images.githubusercontent.com/59862302/181908542-ae7a67c7-e4ed-4eb8-a0a8-50ab3be109e3.jpg)
+## Pay Service :
+
+![00](https://user-images.githubusercontent.com/59862302/212555565-78f314df-f269-4ffc-a632-7a003e378e3d.jpg)
+![001](https://user-images.githubusercontent.com/59862302/212555573-a71e6471-ba4b-4690-aa39-c1530787d4f6.jpg)
+
+## History Pay :
+
+![000](https://user-images.githubusercontent.com/59862302/212555600-10f133af-ee5a-4ba3-b7ce-25c0d98662db.jpg)
+
+## Comment User :
+
+![0000](https://user-images.githubusercontent.com/59862302/212555623-4ba2d8c5-9ac2-4ba5-8448-a9640ccdc192.jpg)
+
+## Updated Data User :
+
+![00000](https://user-images.githubusercontent.com/59862302/212555657-91615e3f-6b67-4ee6-abab-0cb11b22ab10.jpg)
+
 
 # Profile Page Doctor :
 
-![9](https://user-images.githubusercontent.com/59862302/181908558-dcd7291e-1948-4bce-8afa-9f11f2b912d3.jpg)
+![q4](https://user-images.githubusercontent.com/59862302/212555920-c8444630-bd97-4f08-857b-ecb99e837deb.jpg)
 
-## send to User file how much pay service and link !
-![99](https://user-images.githubusercontent.com/59862302/181908586-06cb4d36-6254-4a46-af06-9554047ec846.jpg)
+## send to User file how much pay service and link :
 
-## show users how need pay !
-![999](https://user-images.githubusercontent.com/59862302/181908609-24f112f8-9bee-4b03-b4a0-29e54757d6a3.jpg)
+![q1](https://user-images.githubusercontent.com/59862302/212555957-fbd12d49-bc94-4c56-bac5-05a8f8290514.jpg)
+
+## show users how need pay :
+
+![q2](https://user-images.githubusercontent.com/59862302/212555983-d1e12177-d9ca-4cbe-b059-d83fd2805f10.jpg)
 
 
 # Profile Page Admin :
@@ -103,19 +125,3 @@ https://user-images.githubusercontent.com/59862302/212484617-c3dad147-d8c8-490f-
 ![000](https://user-images.githubusercontent.com/59862302/181908648-32104004-36f9-47f5-941d-8daaa012da4d.jpg)
 ![0000](https://user-images.githubusercontent.com/59862302/181908658-50bcfe02-4df2-4e70-a9ab-92de339db519.jpg)
 ![00000](https://user-images.githubusercontent.com/59862302/181908660-c5db7378-ee4e-4e22-9bf1-8f3617238722.jpg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
