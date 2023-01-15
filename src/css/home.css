@@ -124,8 +124,14 @@ html::-webkit-scrollbar-thumb {
 }
 
 
-.titleHeater {
+/* .titleHeater {
     margin-top: -5%;
+} */
+
+.titleHeater img {
+    height: 90px;
+    margin-top: -13%;
+    margin-bottom: -5%;
 }
 
 

@@ -116,7 +116,8 @@ function Home() {
                                 </div>
 
                                 <div className='titleHeater'>
-                                    <h1>Select day 🗓️</h1>
+                                    {/* <h1>Select day 🗓️</h1> */}
+                                    <img src='https://i.postimg.cc/J0R7Js4X/day.png' />
                                 </div>
 
                                 <Form>
@@ -172,7 +173,8 @@ function Home() {
                                 </div>
 
                                 <div className='titleHeater'>
-                                    <h1 style={{ color: "black" }}>Select day 🗓️</h1>
+                                    {/* <h1 style={{ color: "black" }}>Select day  </h1> */}
+                                    <img src='https://i.postimg.cc/J0R7Js4X/day.png' />
                                 </div>
 
                                 <Form>

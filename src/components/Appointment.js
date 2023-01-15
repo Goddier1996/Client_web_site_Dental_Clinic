@@ -77,10 +77,10 @@ function Appointment(props) {
 
             <div className='chioseDayAndDay'>
 
-                <h6 style={{ color: "GrayText" }}>Day {takeDayAndCodeDayInResultHour.Day} Choose Hour 🕜</h6>
+                {/* <h6 style={{ color: "GrayText" }}>Day {takeDayAndCodeDayInResultHour.Day}</h6> */}
+                <img src='https://i.postimg.cc/zDW8DS7c/clock.png' />
 
                 <div id="results" className="search-results">
-
 
                     <Row xs={2} md={4} lg={4} className="g-4">
 
