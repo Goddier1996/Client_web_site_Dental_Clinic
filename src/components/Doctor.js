@@ -32,21 +32,60 @@ function Doctor({ code_doctor }) {
 
 
 
-    //update day and hour to null in user + active the hour to ather users can add , at end show popup Doctor send date Medical File to User
-    const updateDayHour = (User_code, FirstName, Email, codeHour) => {
+    //update day and hour to null in user + active the hour to anther users can add , at end show popup Doctor send date Medical File to User
+    const updateDayHour = (User_code, FirstName, Email, codeHour, Day) => {
 
-        let date =
-        {
-            User_code: User_code,
-            FirstName: FirstName,
-            Email: Email,
-            CodeHour: codeHour
+        let date = new Date();
+        let takeDay = date.getDay();
+        const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        let todayDay = weekday[takeDay];
+
+
+        if (todayDay == Day) {
+
+            let data =
+            {
+                User_code: User_code,
+                FirstName: FirstName,
+                Email: Email,
+                CodeHour: codeHour
+            }
+
+            sessionStorage.setItem("userDateMedical", JSON.stringify(data))
+            //show popup send a file medical to user
+            handleShow();
         }
 
-        sessionStorage.setItem("userDateMedical", JSON.stringify(date))
 
-        //show popup send a file medical to user
-        handleShow();
+        else {
+
+            if (storedTheme == "dark") {
+
+                Swal.fire({
+                    title: `Can't Send File Pay`,
+                    icon: 'warning',
+                    text: `${FirstName} Turn at Day ${Day} , And You Can't send Pay FIle !`,
+                    toast: true,
+                    position: 'top-end',
+                    confirmButtonColor: "green",
+                })
+            }
+
+            if (storedTheme == "light") {
+
+                Swal.fire({
+                    title: `Can't Send File Pay`,
+                    icon: 'warning',
+                    text: `${FirstName} Turn at Day ${Day} , And You Can't send Pay FIle !`,
+                    toast: true,
+                    position: 'top-end',
+                    confirmButtonColor: "green",
+                    background: '#373E44',
+                    color: '#ffffffab'
+                })
+            }
+        }
+
     }
 
 
@@ -132,7 +171,7 @@ function Doctor({ code_doctor }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Hour_day}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }} >
                                                 <Button style={{ fontSize: "11px", color: "white", background: "green" }} variant="contained"
-                                                    onClick={() => updateDayHour(user._id, user.FirstName, user.Email, user.Serial_codeHour)}
+                                                    onClick={() => updateDayHour(user._id, user.FirstName, user.Email, user.Serial_codeHour, user.Day_date)}
                                                     startIcon={<RateReviewIcon />}>
                                                     File
                                                 </Button>
@@ -243,9 +282,9 @@ function Doctor({ code_doctor }) {
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Day_date}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Hour_day}</td>
                                             <td style={{ textAlign: "center", fontSize: "14px" }} >
-                                                
+
                                                 <Button style={{ fontSize: "11px", color: "white", background: "green" }} variant="contained"
-                                                    onClick={() => updateDayHour(user._id, user.FirstName, user.Email, user.Serial_codeHour)}
+                                                    onClick={() => updateDayHour(user._id, user.FirstName, user.Email, user.Serial_codeHour, user.Day_date)}
                                                     startIcon={<RateReviewIcon />}>
                                                     FIle
                                                 </Button>

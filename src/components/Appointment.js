@@ -237,7 +237,7 @@ function Appointment(props) {
                 text: `${dayLocal.Day} ${hourLocal.Hour_day}`,
                 icon: 'success',
                 showConfirmButton: false,
-                timer: 4000,
+                timer: 1500,
                 // toast: true,
                 position: 'center'
             })
@@ -256,7 +256,7 @@ function Appointment(props) {
                 color: '#ffffffab',
                 buttonColor: '#E96E00',
                 showConfirmButton: false,
-                timer: 4000,
+                timer: 1500,
                 // toast: true,
                 position: 'center'
             })
