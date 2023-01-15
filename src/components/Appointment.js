@@ -102,7 +102,7 @@ function Appointment(props) {
                                         )
                                     }
 
-                                    if (hour.Hour_day > "19:00" || takeDayAndCodeDayInResultHour.Day == "Friday" && hour.Hour_day > "14:00") {
+                                    if (hour.Hour_day >= "19:00" || takeDayAndCodeDayInResultHour.Day == "Friday" && hour.Hour_day >= "14:00") {
 
                                         if (storedTheme == "dark") {
                                             Swal.fire({
@@ -162,7 +162,7 @@ function Appointment(props) {
                                         )
                                     }
 
-                                    if (hour.Hour_day > "19:00" || takeDayAndCodeDayInResultHour.Day == "Friday" && hour.Hour_day > "14:00") {
+                                    if (hour.Hour_day >= "19:00" || takeDayAndCodeDayInResultHour.Day == "Friday" && hour.Hour_day >= "14:00") {
 
                                         if (storedTheme == "dark") {
                                             Swal.fire({
