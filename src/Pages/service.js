@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Row, Form, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import '../css/service.css'
 import Swal from 'sweetalert2'
@@ -10,10 +10,11 @@ import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import RateReviewIcon from '@mui/icons-material/RateReview';
 
+import { useQuery } from 'react-query'
 
 
 //here we show Reviews and like and add them
-function service() {
+function Service() {
 
 
     const [showAddReviews, setShowAddReviews] = useState(false);
@@ -21,18 +22,15 @@ function service() {
     const handleShowAddReviews = () => setShowAddReviews(true);
 
     const [textReviews, setTextReviews] = useState('');
-    const [reviews, SetReviews] = useState([])
 
     let userData = JSON.parse(sessionStorage.getItem("user"));
     let storedTheme = localStorage.getItem("theme");
 
 
+    const { isLoading, data } = useQuery('reviews', () => {
 
-    // load data from LoadDataFromApi component
-    const LoadReviewsFromApi = async () => {
-
-        SetReviews(await LoadReviews());
-    }
+        return LoadReviews();
+    })
 
 
 
@@ -187,20 +185,14 @@ function service() {
 
 
 
-    //here we show pop up ui/ux when load this page
-    useEffect(() => {
+    if (isLoading) {
+        return (
 
-        Swal.fire({
-            title: '<img src="https://media3.giphy.com/media/lMl2tZmYHhrJHvY4rP/200w.gif?cid=82a1493bv5vympwzpd0gt9did8lb8r9vlei1poc0gx1gw4zx&rid=200w.gif&ct=s" height="170"></img>',
-            background: 'none',
-            showConfirmButton: false,
-            timer: 1000,
-        })
-
-        LoadReviewsFromApi();
-    }, [])
-
-
+            <div className='loadingReview'>
+                <img src="https://media3.giphy.com/media/lMl2tZmYHhrJHvY4rP/200w.gif?cid=82a1493bv5vympwzpd0gt9did8lb8r9vlei1poc0gx1gw4zx&rid=200w.gif&ct=s"></img>
+            </div>
+        )
+    }
 
 
 
@@ -268,7 +260,7 @@ function service() {
 
                     <Row xs={1} md={2} lg={3} className="g-4">
 
-                        {reviews.sort((a, b) => b.Count_likes.length - a.Count_likes.length).map((record) => (
+                        {data.sort((a, b) => b.Count_likes.length - a.Count_likes.length).map((record) => (
 
                             <div key={record._id} className="testimonial-box-container">
 
@@ -317,7 +309,7 @@ function service() {
 
 
 
-    else {
+    if (storedTheme === "dark") {
 
         return (
             <div>
@@ -381,7 +373,7 @@ function service() {
 
                     <Row xs={1} md={2} lg={3} className="g-4">
 
-                        {reviews.sort((a, b) => b.Count_likes.length - a.Count_likes.length).map((record) => (
+                        {data.sort((a, b) => b.Count_likes.length - a.Count_likes.length).map((record) => (
 
                             <div key={record._id} className="testimonial-box-container">
 
@@ -430,4 +422,4 @@ function service() {
 
 }
 
-export default service;
+export default Service;

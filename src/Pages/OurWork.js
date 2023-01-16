@@ -15,15 +15,15 @@ function ourWork() {
 
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        Swal.fire({
-            background: 'none',
-            showConfirmButton: false,
-            timer: 1000,
-            html: '<div class="loader"></div>'
-        })
-    }, [])
+    //     Swal.fire({
+    //         background: 'none',
+    //         showConfirmButton: false,
+    //         timer: 1000,
+    //         html: '<div class="loader"></div>'
+    //     })
+    // }, [])
 
 
 

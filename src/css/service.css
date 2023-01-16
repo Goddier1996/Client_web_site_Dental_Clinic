@@ -217,8 +217,16 @@
 
 
 
+.loadingReview {
+    display: flex;
+    justify-content: center;
+}
 
-
+.loadingReview img {
+    height: 170px;
+    margin-bottom: 17%;
+    margin-top: 10%;
+}
 
 
 @media(max-width:1060px) {

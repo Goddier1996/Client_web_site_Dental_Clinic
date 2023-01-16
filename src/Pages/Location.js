@@ -32,15 +32,15 @@ function Location() {
 
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        Swal.fire({
-            background: 'none',
-            showConfirmButton: false,
-            timer: 700,
-            html: '<div class="loader"></div>'
-        })
-    }, [])
+    //     Swal.fire({
+    //         background: 'none',
+    //         showConfirmButton: false,
+    //         timer: 700,
+    //         html: '<div class="loader"></div>'
+    //     })
+    // }, [])
 
 
 

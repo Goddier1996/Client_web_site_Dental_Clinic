@@ -4,55 +4,84 @@ import Swal from 'sweetalert2'
 import date1 from '../Json_date/date.json'
 import { LoadCountDoctors, LoadCountUsers, LoadCountReviews } from '../Api/LoadDataFromApi'
 
+import { useQuery } from 'react-query'
+
 
 //show about clinic info
 function About() {
 
 
-    const [ShowCountDoctor, SetShowCountDoctor] = useState([]);
-    const [ShowCountUsers, SetShowCountUsers] = useState([]);
-    const [ShowCountReviews, SetShowCountReviews] = useState([]);
-    const [ShowCountServiceOurWork, SetShowCountServiceOurWork] = useState('');
+    // const [ShowCountDoctor, SetShowCountDoctor] = useState([]);
+    // const [ShowCountUsers, SetShowCountUsers] = useState([]);
+    // const [ShowCountReviews, SetShowCountReviews] = useState([]);
+    // const [ShowCountServiceOurWork, SetShowCountServiceOurWork] = useState('');
 
 
     let storedTheme = localStorage.getItem("theme");
 
+    const { isLoading: Reviews, data: countReviews } = useQuery('CountReviews', () => {
+        return LoadCountReviews();
+    })
+
+    const { isLoading: Users, data: countUsers } = useQuery('CountUsers', () => {
+        return LoadCountUsers();
+    })
+
+    const { isLoading: Doctors, data: countDoctors } = useQuery('CountDoctors', () => {
+        return LoadCountDoctors();
+    })
+
+    const { isLoading: ServiceOurWork, data: countServiceOurWork } = useQuery('CountServiceOurWork ', () => {
+        return date1.work.length;
+    })
+
+
 
 
     // load data from LoadDataFromApi component
-    const LoadCountDetailsFromApi = async () => {
+    // const LoadCountDetailsFromApi = async () => {
 
-        SetShowCountDoctor(await LoadCountDoctors())
-        SetShowCountUsers(await LoadCountUsers())
-        SetShowCountReviews(await LoadCountReviews())
-    }
+    //     // SetShowCountDoctor(await LoadCountDoctors())
+    //     // SetShowCountUsers(await LoadCountUsers())
+    //     // SetShowCountReviews(await LoadCountReviews())
+    // }
 
 
 
     //long(count) service our work , from fle Json date1.work
-    const LoadCountServiceOurWork = () => {
+    // const LoadCountServiceOurWork = () => {
 
-        let longeur = date1.work.length;
+    //     // let longeur = date1.work.length;
 
-        SetShowCountServiceOurWork(longeur)
+    //     return date1.work.length;
+    // }
+
+
+
+
+    // useEffect(() => {
+
+    //     // LoadCountDetailsFromApi()
+    //     LoadCountServiceOurWork();
+
+    //     Swal.fire({
+    //         background: 'none',
+    //         showConfirmButton: false,
+    //         timer: 1000,
+    //         html: '<div class="loader"></div>'
+    //     })
+    // }, [])
+
+
+
+    if (Reviews || Users || Doctors || ServiceOurWork) {
+
+        return (
+            <div className='styleLoader'>
+                <div className="loader"></div>
+            </div>
+        )
     }
-
-
-
-
-    useEffect(() => {
-
-        LoadCountDetailsFromApi()
-        LoadCountServiceOurWork();
-
-        Swal.fire({
-            background: 'none',
-            showConfirmButton: false,
-            timer: 1000,
-            html: '<div class="loader"></div>'
-        })
-    }, [])
-
 
 
 
@@ -86,7 +115,7 @@ function About() {
                         <div className="text">
                             <h3>Doctor's :</h3>
                             <div>
-                                <p>{ShowCountDoctor}</p>
+                                <p>{countDoctors}</p>
                             </div>
                         </div>
                     </div>
@@ -103,7 +132,7 @@ function About() {
                         <div className="text">
                             <h3>Types Of Dental Care Service :</h3>
                             <div>
-                                <p>{ShowCountServiceOurWork}</p>
+                                <p>{countServiceOurWork}</p>
                             </div>
                         </div>
                     </div>
@@ -120,7 +149,7 @@ function About() {
                         <div className="text">
                             <h3>Our Customer's :</h3>
                             <div>
-                                <p>{ShowCountUsers}</p>
+                                <p>{countUsers}</p>
                             </div>
                         </div>
                     </div>
@@ -137,7 +166,7 @@ function About() {
                         <div className="text">
                             <h3>Customer Review's :</h3>
                             <div>
-                                <p>{ShowCountReviews}</p>
+                                <p>{countReviews}</p>
                             </div>
                         </div>
                     </div>
@@ -146,7 +175,6 @@ function About() {
             </>
         )
     }
-
 
 
 
@@ -179,7 +207,7 @@ function About() {
                         <div className="textDark">
                             <h3>Doctor's :</h3>
                             <div>
-                                <p>{ShowCountDoctor}</p>
+                                <p>{countDoctors}</p>
                             </div>
                         </div>
                     </div>
@@ -196,7 +224,7 @@ function About() {
                         <div className="textDark">
                             <h3>Types Of Dental Care Service :</h3>
                             <div>
-                                <p>{ShowCountServiceOurWork}</p>
+                                <p>{countServiceOurWork}</p>
                             </div>
                         </div>
                     </div>
@@ -213,7 +241,7 @@ function About() {
                         <div className="textDark">
                             <h3>Our Customer's :</h3>
                             <div>
-                                <p>{ShowCountUsers}</p>
+                                <p>{countUsers}</p>
                             </div>
                         </div>
                     </div>
@@ -231,7 +259,7 @@ function About() {
                         <div className="textDark">
                             <h3>Customer Review's :</h3>
                             <div>
-                                <p>{ShowCountReviews}</p>
+                                <p>{countReviews}</p>
                             </div>
                         </div>
                     </div>

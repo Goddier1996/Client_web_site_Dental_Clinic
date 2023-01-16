@@ -12,34 +12,40 @@ import About from './Pages/About'
 import DarkMode from "./components/DarkMode"
 import NotFoundPage from "./components/NotFoundPage";
 
+import { QueryClient, QueryClientProvider } from "react-query";
+const queryClient = new QueryClient();
+
 
 function App() {
 
   return (
-    <BrowserRouter>
 
-      {/* active dark node or light */}
-      <DarkMode />
+    <QueryClientProvider client={queryClient}>
 
-      {/* active menu */}
-      <Menu />
+      <BrowserRouter>
 
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/About" exact component={About} />
-        <Route path="/Register" exact component={Register} />
-        <Route path="/Location" exact component={Location} />
-        <Route path="/OurWork" exact component={OurWork} />
-        <Route path="/Service" exact component={Service} />
-        <Route path="/Profile/:id" exact component={profile} />
-        {/* active page not found */}
-        <Route path="*" exact component={NotFoundPage} />
-      </Switch>
+        {/* active dark node or light */}
+        <DarkMode />
 
-      <Fotter />
+        {/* active menu */}
+        <Menu />
 
-    </BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/About" exact component={About} />
+          <Route path="/Register" exact component={Register} />
+          <Route path="/Location" exact component={Location} />
+          <Route path="/OurWork" exact component={OurWork} />
+          <Route path="/Service" exact component={Service} />
+          <Route path="/Profile/:id" exact component={profile} />
+          {/* active page not found */}
+          <Route path="*" exact component={NotFoundPage} />
+        </Switch>
 
+        <Fotter />
+
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 
