@@ -4,6 +4,7 @@ import Doctor from '../components/Doctor'
 import User from '../components/User'
 
 
+
 // profile page , open profile page as per UserType_code from daya base , user-admin-doctor
 function profile() {
 

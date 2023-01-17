@@ -12,15 +12,13 @@ import About from './Pages/About'
 import DarkMode from "./components/DarkMode"
 import NotFoundPage from "./components/NotFoundPage";
 
-import { QueryClient, QueryClientProvider } from "react-query";
-const queryClient = new QueryClient();
+
 
 
 function App() {
 
   return (
 
-    <QueryClientProvider client={queryClient}>
 
       <BrowserRouter>
 
@@ -45,7 +43,6 @@ function App() {
         <Fotter />
 
       </BrowserRouter>
-    </QueryClientProvider>
   );
 }
 

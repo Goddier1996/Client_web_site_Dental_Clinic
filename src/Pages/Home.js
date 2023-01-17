@@ -27,6 +27,7 @@ function Home() {
     //here we check if user connect to side , if yes he can click to button book an appointment , else show pop he need login or reg
     const CheckUserConnected = () => {
 
+
         if (userData == null && storedTheme === "dark") {
 
             handleClose();
@@ -42,6 +43,7 @@ function Home() {
 
             return;
         }
+
 
         if (userData == null && storedTheme === "light") {
 
@@ -62,12 +64,98 @@ function Home() {
             return;
         }
 
-        if (userData != null) {
+
+        if (storedTheme === "dark" && userData.Day_date != null) {
+
+            handleClose();
+
+            Swal.fire({
+                title: 'You have an appointment, cancel it and book a new appointment',
+                icon: 'warning',
+                toast: true,
+                position: 'top-end',
+                confirmButtonColor: "green"
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+                    window.location.reload(false);
+                }
+            })
+        }
+
+
+        if (storedTheme === "light" && userData.Day_date != null) {
+
+            handleClose();
+
+            Swal.fire({
+                title: 'You have an appointment, cancel it and book a new appointment',
+                icon: 'warning',
+                background: '#373E44',
+                color: '#ffffffab',
+                toast: true,
+                position: 'top-end',
+                confirmButtonColor: "green"
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+                    window.location.reload(false);
+                }
+            })
+        }
+
+
+        if (userData.UserType_code == 2) {
+
+            if (storedTheme == "dark") {
+
+                handleClose();
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'you are doctor (You can not book an appointment) !',
+                    toast: true,
+                    position: 'top-end',
+                    confirmButtonColor: "green"
+                }).then((result) => {
+
+                    if (result.isConfirmed) {
+                        window.location.reload(false);
+                    }
+                })
+            }
+
+
+            if (storedTheme == "light") {
+
+                handleClose();
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'you are doctor (You can not book an appointment) !',
+                    toast: true,
+                    position: 'top-end',
+                    confirmButtonColor: "green",
+                    background: '#373E44',
+                    color: '#ffffffab',
+                }).then((result) => {
+
+                    if (result.isConfirmed) {
+                        window.location.reload(false);
+                    }
+                })
+            }
+
+        }
+
+
+        if (userData != null && userData.Day_date == null) {
             // show popup,Appointment
             handleShow();
         }
     }
-
 
 
 
@@ -116,7 +204,6 @@ function Home() {
                                 </div>
 
                                 <div className='titleHeater'>
-                                    {/* <h1>Select day 🗓️</h1> */}
                                     <img src='https://i.postimg.cc/J0R7Js4X/day.png' />
                                 </div>
 
@@ -173,7 +260,6 @@ function Home() {
                                 </div>
 
                                 <div className='titleHeater'>
-                                    {/* <h1 style={{ color: "black" }}>Select day  </h1> */}
                                     <img src='https://i.postimg.cc/J0R7Js4X/day.png' />
                                 </div>
 

@@ -220,6 +220,7 @@
 .loadingReview {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .loadingReview img {

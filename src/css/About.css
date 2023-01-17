@@ -171,11 +171,7 @@
 
 
 
-
-
-
-
-.loader {
+/* .loader {
   animation: spin 1s infinite linear;
   border: solid 2vmin transparent;
   border-radius: 50%;
@@ -184,7 +180,7 @@
   box-sizing: border-box;
   height: 20vmin;
   left: calc(50% - 10vmin);
-  /* position: fixed; */
+  position: fixed;
   top: calc(50% - 10vmin);
   width: 20vmin;
   z-index: 1;
@@ -225,8 +221,21 @@
   display: flex;
   justify-content: center;
   margin-top: 10%;
+} */
+
+
+.loadingCountPersonalClinic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+
+.loadingCountPersonalClinic img {
+  height: 200px;
+  margin-bottom: 17%;
+  margin-top: 10%;
+}
 
 
 @keyframes spin {
@@ -249,7 +258,7 @@
 
 
 
-@media(max-width:991px) {
+/* @media(max-width:991px) {
 
   .styleLoader {
     margin-bottom: 57%;
@@ -257,4 +266,4 @@
     justify-content: center;
     margin-top: 40%;
   }
-}
+} */

@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import date1 from '../Json_date/date.json'
 import '../css/ourWork.css'
 import { Card, Row, Col } from 'react-bootstrap'
-import Swal from 'sweetalert2'
 
 
 
@@ -12,19 +11,6 @@ function ourWork() {
 
 
     let storedTheme = localStorage.getItem("theme");
-
-
-
-    // useEffect(() => {
-
-    //     Swal.fire({
-    //         background: 'none',
-    //         showConfirmButton: false,
-    //         timer: 1000,
-    //         html: '<div class="loader"></div>'
-    //     })
-    // }, [])
-
 
 
 

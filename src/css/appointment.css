@@ -79,3 +79,13 @@
     margin-top: 2%;
     margin-bottom: 5%;
 }
+
+.loadingDaysHour {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadingDaysHour img {
+    height: 180px;
+}

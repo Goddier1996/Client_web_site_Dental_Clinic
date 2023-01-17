@@ -5,11 +5,11 @@ import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import '../css/forgetPassword.css'
 import { ForgetPasswordUpdate } from '../Api/DeleteUpdateDataFromApi'
-
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import DoneIcon from '@mui/icons-material/Done';
 import SaveIcon from '@mui/icons-material/Save';
+
 
 
 //here component forget Paswword use in sign In component

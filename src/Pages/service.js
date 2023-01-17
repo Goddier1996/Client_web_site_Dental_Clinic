@@ -4,13 +4,12 @@ import '../css/service.css'
 import Swal from 'sweetalert2'
 import { LoadReviews } from '../Api/LoadDataFromApi'
 import { AddNewReviews, AddNewLikeReviews } from '../Api/ConnectOrAddFromApi'
-
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import RateReviewIcon from '@mui/icons-material/RateReview';
-
 import { useQuery } from 'react-query'
+
 
 
 //here we show Reviews and like and add them
@@ -27,7 +26,7 @@ function Service() {
     let storedTheme = localStorage.getItem("theme");
 
 
-    const { isLoading, data } = useQuery('reviews', () => {
+    const { isLoading: LoadingReviews, data: showReviews } = useQuery('reviews', () => {
 
         return LoadReviews();
     })
@@ -185,7 +184,7 @@ function Service() {
 
 
 
-    if (isLoading) {
+    if (LoadingReviews) {
         return (
 
             <div className='loadingReview'>
@@ -260,7 +259,7 @@ function Service() {
 
                     <Row xs={1} md={2} lg={3} className="g-4">
 
-                        {data.sort((a, b) => b.Count_likes.length - a.Count_likes.length).map((record) => (
+                        {showReviews.sort((a, b) => b.Count_likes.length - a.Count_likes.length).map((record) => (
 
                             <div key={record._id} className="testimonial-box-container">
 
@@ -373,7 +372,7 @@ function Service() {
 
                     <Row xs={1} md={2} lg={3} className="g-4">
 
-                        {data.sort((a, b) => b.Count_likes.length - a.Count_likes.length).map((record) => (
+                        {showReviews.sort((a, b) => b.Count_likes.length - a.Count_likes.length).map((record) => (
 
                             <div key={record._id} className="testimonial-box-container">
 

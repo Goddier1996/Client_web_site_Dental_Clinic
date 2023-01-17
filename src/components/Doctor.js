@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Tabs, Tab, Modal, Table } from 'react-bootstrap';
 import '../css/profile.css';
 import AddMedicalFileUser from '../components/AddMedicalFile';
 import Swal from 'sweetalert2';
 import { LoadUsersActive_queues, LoadMedicalFileAllUsersHowNeedPay } from '../Api/LoadDataFromApi'
-
 import Button from '@mui/material/Button';
 import MarkunreadIcon from '@mui/icons-material/Markunread';
 import RateReviewIcon from '@mui/icons-material/RateReview';
+import { useQuery } from 'react-query'
 
 
 
@@ -18,17 +18,23 @@ function Doctor({ code_doctor }) {
 
     let storedTheme = localStorage.getItem("theme");
 
-
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const [medical_File_All_users, SetMedical_File_All_users] = useState([]);
-
-    const [usersActive_queues, SetUsersActive_queues] = useState([]);
-
     let ClientHowNeedPay = 1;
     let CountClient = 1;
+
+
+    
+    const { isLoading: UsersActive_queues, data: usersActive_queues } = useQuery('Active_queues', () => {
+        return LoadUsersActive_queues();
+    })
+
+
+    const { isLoading: Medical_File_All_users, data: medical_File_All_users } = useQuery('medical_FileUsers', () => {
+        return LoadMedicalFileAllUsersHowNeedPay();
+    })
 
 
 
@@ -85,16 +91,6 @@ function Doctor({ code_doctor }) {
                 })
             }
         }
-
-    }
-
-
-
-    // load data for doctor from LoadDataFromApi component
-    const LoadDataForDoctorFromApi = async () => {
-
-        SetUsersActive_queues(await LoadUsersActive_queues())
-        SetMedical_File_All_users(await LoadMedicalFileAllUsersHowNeedPay())
     }
 
 
@@ -108,18 +104,15 @@ function Doctor({ code_doctor }) {
 
 
 
-    useEffect(() => {
 
-        LoadDataForDoctorFromApi()
+    if (UsersActive_queues || Medical_File_All_users) {
 
-        Swal.fire({
-            background: 'none',
-            showConfirmButton: false,
-            timer: 2100,
-            html: '<img src="https://i.postimg.cc/pLT9cd9Z/12.png" height="200"></img>'
-        })
-    }, [])
-
+        return (
+            <div className='loadingReview'>
+                <img src="https://i.postimg.cc/pLT9cd9Z/12.png"></img>
+            </div>
+        )
+    }
 
 
 

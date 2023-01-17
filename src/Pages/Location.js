@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Card from 'react-bootstrap/Card'
 import '../css/loction.css'
 import date1 from '../Json_date/date.json'
-import Swal from 'sweetalert2'
 import Button from '@mui/material/Button';
 import EmailIcon from '@mui/icons-material/Email';
 import { Modal } from 'react-bootstrap';
@@ -26,21 +25,11 @@ function Location() {
     }
 
 
+
     const closePopUpModelSendMessage = () => {
         setShowSendMessage(false);
     }
 
-
-
-    // useEffect(() => {
-
-    //     Swal.fire({
-    //         background: 'none',
-    //         showConfirmButton: false,
-    //         timer: 700,
-    //         html: '<div class="loader"></div>'
-    //     })
-    // }, [])
 
 
 

@@ -7,7 +7,6 @@ import PayService from '../components/PayService'
 import { LoadMedicalFileUser, showAllMyReview, LoadMedicalFileUserIsNotActive } from '../Api/LoadDataFromApi'
 import { DeleteReview, UpdateDataUserRemoveTurn, ActiveHourInDataBase } from '../Api/DeleteUpdateDataFromApi'
 import { alertPopUpIfUserHaveTodayTurn } from './AlertUserHaveTurnToday'
-
 import Button from '@mui/material/Button';
 import PaymentIcon from '@mui/icons-material/Payment';
 import AttachFileIcon from '@mui/icons-material/AttachFile';

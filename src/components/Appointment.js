@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { API } from '../Api/API';
 import { Button, Row, Modal } from 'react-bootstrap';
 import '../css/appointment.css'
 import Swal from 'sweetalert2'
 import { LoadDays } from '../Api/LoadDataFromApi'
 import { DeleteHour, UpdateDataUserAddTurn } from '../Api/DeleteUpdateDataFromApi'
+import { useQuery } from 'react-query'
 
 
 
 //here component we show data from data base (if you click to buttom in Home Page Book an appointment)
 function Appointment(props) {
 
-    const [Days, SetDays] = useState([])
+
     const [Hours, setHours] = useState([])
 
 
@@ -31,19 +32,16 @@ function Appointment(props) {
 
     // all data what we save in local storage and seesion storge
     let storedTheme = localStorage.getItem("theme");
-
     let userData = JSON.parse(sessionStorage.getItem("user"));
-
     let userDataCode = JSON.parse(sessionStorage.getItem("userCode"));
 
 
 
+    // load data Appointment days,hours from LoadDataFromApi component
+    const { isLoading: LoadingDays, data: days } = useQuery('allDays', () => {
+        return LoadDays();
+    })
 
-    // load data Appointmen days,hours from LoadDataFromApi component
-    const LoadDataAppointmentFromApi = async () => {
-
-        SetDays(await LoadDays())
-    }
 
 
 
@@ -64,7 +62,7 @@ function Appointment(props) {
 
 
 
-    //show (jsx) return we see in pup up hours - and click to hour we save what day we chiose and hour to data base
+    //show (jsx) return we see in pup up hours - and click to hour we save what day we choose and hour to data base
     const ResultsHours = () => (
 
         takeDayAndCodeDayInResultHour = JSON.parse(sessionStorage.getItem("day")),
@@ -223,7 +221,6 @@ function Appointment(props) {
 
 
 
-
     // save to user date , hour and day what he chiose
     const saveDateUser = async (Hour_day, Serial_code) => {
 
@@ -247,7 +244,6 @@ function Appointment(props) {
                 icon: 'success',
                 showConfirmButton: false,
                 timer: 1500,
-                // toast: true,
                 position: 'center'
             })
             await sessionStorage.clear();
@@ -266,7 +262,6 @@ function Appointment(props) {
                 buttonColor: '#E96E00',
                 showConfirmButton: false,
                 timer: 1500,
-                // toast: true,
                 position: 'center'
             })
             await sessionStorage.clear();
@@ -277,100 +272,14 @@ function Appointment(props) {
 
 
 
-    //here we to do check if user have a hour he dont can chiose a new hour and day , he need to delete data what he was
-    useEffect(() => {
-
-        if (storedTheme === "dark" && userData.Day_date != null) {
-
-            props.handleClose();
-
-            Swal.fire({
-                title: 'You have an appointment, cancel it and book a new appointment',
-                icon: 'warning',
-                toast: true,
-                position: 'top-end',
-                confirmButtonColor: "green"
-            }).then((result) => {
-
-                if (result.isConfirmed) {
-                    window.location.reload(false);
-                }
-            })
-        }
-
-
-        if (storedTheme === "light" && userData.Day_date != null) {
-
-            props.handleClose();
-
-            Swal.fire({
-                title: 'You have an appointment, cancel it and book a new appointment',
-                icon: 'warning',
-                background: '#373E44',
-                color: '#ffffffab',
-                toast: true,
-                position: 'top-end',
-                confirmButtonColor: "green"
-            }).then((result) => {
-
-                if (result.isConfirmed) {
-                    window.location.reload(false);
-                }
-            })
-        }
-
-
-        if (userData.Day_date == null) {
-            LoadDataAppointmentFromApi();
-        }
-
-
-        if (userData.UserType_code == 2) {
-
-            if (storedTheme == "dark") {
-
-                props.handleClose();
-
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'you are doctor (You can not book an appointment) !',
-                    toast: true,
-                    position: 'top-end',
-                    confirmButtonColor: "green"
-                }).then((result) => {
-
-                    if (result.isConfirmed) {
-                        window.location.reload(false);
-                    }
-                })
-            }
-
-
-            if (storedTheme == "light") {
-
-                props.handleClose();
-
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'you are doctor (You can not book an appointment) !',
-                    toast: true,
-                    position: 'top-end',
-                    confirmButtonColor: "green",
-                    background: '#373E44',
-                    color: '#ffffffab',
-                }).then((result) => {
-
-                    if (result.isConfirmed) {
-                        window.location.reload(false);
-                    }
-                })
-            }
-
-        }
-
-    }, [])
+    // show loading when data from data base come
+    if (LoadingDays) {
+        return (
+            <div className='loadingDaysHour'>
+                <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!f305cw"></img>
+            </div>
+        )
+    }
 
 
 
@@ -382,7 +291,7 @@ function Appointment(props) {
                 <div className='showDay'>
                     <Row xs={2} md={5} lg={4} className="g-4">
 
-                        {Days.map(day =>
+                        {days.map(day =>
 
                             <div className='showDayItems' key={day._id}>
                                 <Button size="sm" variant="outline-secondary"
@@ -413,7 +322,7 @@ function Appointment(props) {
                 <div className='showDayDark'>
                     <Row xs={2} md={5} lg={4} className="g-4">
 
-                        {Days.map(day =>
+                        {days.map(day =>
 
                             <div className='showDayItems' key={day._id}>
                                 <Button size="sm" variant="outline-secondary"

@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import '../css/About.css'
-import Swal from 'sweetalert2'
 import date1 from '../Json_date/date.json'
 import { LoadCountDoctors, LoadCountUsers, LoadCountReviews } from '../Api/LoadDataFromApi'
-
 import { useQuery } from 'react-query'
 
 
@@ -11,74 +9,37 @@ import { useQuery } from 'react-query'
 function About() {
 
 
-    // const [ShowCountDoctor, SetShowCountDoctor] = useState([]);
-    // const [ShowCountUsers, SetShowCountUsers] = useState([]);
-    // const [ShowCountReviews, SetShowCountReviews] = useState([]);
-    // const [ShowCountServiceOurWork, SetShowCountServiceOurWork] = useState('');
-
-
     let storedTheme = localStorage.getItem("theme");
 
-    const { isLoading: Reviews, data: countReviews } = useQuery('CountReviews', () => {
+
+    const { isLoading: LoadingReviews, data: countReviews } = useQuery('CountReviews', () => {
         return LoadCountReviews();
     })
 
-    const { isLoading: Users, data: countUsers } = useQuery('CountUsers', () => {
+
+    const { isLoading: LoadingUsers, data: countUsers } = useQuery('CountUsers', () => {
         return LoadCountUsers();
     })
 
-    const { isLoading: Doctors, data: countDoctors } = useQuery('CountDoctors', () => {
+
+    const { isLoading: LoadingDoctors, data: countDoctors } = useQuery('CountDoctors', () => {
         return LoadCountDoctors();
     })
 
-    const { isLoading: ServiceOurWork, data: countServiceOurWork } = useQuery('CountServiceOurWork ', () => {
+
+    const { isLoading: LoadingServiceOurWork, data: countServiceOurWork } = useQuery('CountServiceOurWork ', () => {
         return date1.work.length;
     })
 
 
 
 
-    // load data from LoadDataFromApi component
-    // const LoadCountDetailsFromApi = async () => {
 
-    //     // SetShowCountDoctor(await LoadCountDoctors())
-    //     // SetShowCountUsers(await LoadCountUsers())
-    //     // SetShowCountReviews(await LoadCountReviews())
-    // }
-
-
-
-    //long(count) service our work , from fle Json date1.work
-    // const LoadCountServiceOurWork = () => {
-
-    //     // let longeur = date1.work.length;
-
-    //     return date1.work.length;
-    // }
-
-
-
-
-    // useEffect(() => {
-
-    //     // LoadCountDetailsFromApi()
-    //     LoadCountServiceOurWork();
-
-    //     Swal.fire({
-    //         background: 'none',
-    //         showConfirmButton: false,
-    //         timer: 1000,
-    //         html: '<div class="loader"></div>'
-    //     })
-    // }, [])
-
-
-
-    if (Reviews || Users || Doctors || ServiceOurWork) {
+    if (LoadingReviews || LoadingUsers || LoadingDoctors || LoadingServiceOurWork) {
 
         return (
-            <div className='styleLoader'>
-                <div className="loader"></div>
+            <div className='loadingCountPersonalClinic'>
+                <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!f305cw"></img>
             </div>
         )
     }
