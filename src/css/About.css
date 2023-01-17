@@ -223,6 +223,13 @@
   margin-top: 10%;
 } */
 
+/* @keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+} */
+
+
 
 .loadingCountPersonalClinic {
   display: flex;
@@ -233,16 +240,10 @@
 
 .loadingCountPersonalClinic img {
   height: 200px;
-  margin-bottom: 23%;
-  margin-top: 16%;
+  margin-bottom: 17%;
+  margin-top: 10%;
 }
 
-
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
 
 
@@ -253,6 +254,16 @@
   .titleAboutDark,
   .titleInformationDark {
     margin: 4%;
+  }
+
+  .loadingCountPersonalClinic h1 {
+    font-size: 22px;
+  }
+
+  .loadingCountPersonalClinic img {
+    height: 170px;
+    margin-bottom: 30%;
+    margin-top: 30%;
   }
 }
 
