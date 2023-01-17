@@ -77,8 +77,9 @@ function Appointment(props) {
 
             <div className='chioseDayAndDay'>
 
-                {/* <h6 style={{ color: "GrayText" }}>Day {takeDayAndCodeDayInResultHour.Day}</h6> */}
                 <img src='https://i.postimg.cc/zDW8DS7c/clock.png' />
+                <h6 style={{ color: "GrayText" }}>Day {takeDayAndCodeDayInResultHour.Day}</h6>
+
 
                 <div id="results" className="search-results">
 
@@ -89,6 +90,7 @@ function Appointment(props) {
                             if (storedTheme == "dark") {
 
                                 if (dayFromArray == takeDayAndCodeDayInResultHour.Day) {
+
 
                                     if (hour.Hour_day > hoursAndMinutes) {
                                         return (
@@ -102,7 +104,10 @@ function Appointment(props) {
                                         )
                                     }
 
-                                    if (hour.Hour_day >= "19:00" || takeDayAndCodeDayInResultHour.Day == "Friday" && hour.Hour_day >= "14:00") {
+
+                                    if (hour.Hour_day >= "19:00" && hour.Hour_day <= "23:00"
+                                        ||
+                                        takeDayAndCodeDayInResultHour.Day == "Friday" && hour.Hour_day >= "14:00") {
 
                                         if (storedTheme == "dark") {
                                             Swal.fire({
@@ -150,6 +155,7 @@ function Appointment(props) {
 
                                 if (dayFromArray == takeDayAndCodeDayInResultHour.Day) {
 
+
                                     if (hour.Hour_day > hoursAndMinutes) {
                                         return (
 
@@ -162,7 +168,10 @@ function Appointment(props) {
                                         )
                                     }
 
-                                    if (hour.Hour_day >= "19:00" || takeDayAndCodeDayInResultHour.Day == "Friday" && hour.Hour_day >= "14:00") {
+
+                                    if (hour.Hour_day >= "19:00" && hour.Hour_day <= "23:00"
+                                        ||
+                                        takeDayAndCodeDayInResultHour.Day == "Friday" && hour.Hour_day >= "14:00") {
 
                                         if (storedTheme == "dark") {
                                             Swal.fire({

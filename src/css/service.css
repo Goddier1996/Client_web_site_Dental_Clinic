@@ -419,4 +419,10 @@
     .titleOurReview h1 {
         font-size: 22px;
     }
+
+    .loadingReview img {
+        height: 170px;
+        margin-bottom: 30%;
+        margin-top: 30%;
+    }
 }

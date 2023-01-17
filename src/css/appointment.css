@@ -10,7 +10,7 @@
 .search-results p {
     cursor: pointer;
     font-size: 18px;
-    color: rgba(0, 0, 0, 0.801);
+    color: Gray Text;
 }
 
 .search-results p:hover {
@@ -19,16 +19,16 @@
 }
 
 .chioseDayAndDay {
-    /* font-family: 'Raleway', sans-serif;
-    font-weight: 300; */
     text-align: center;
-    /* font-size: 18px;
-    margin-top: 2%; */
+}
+
+.chioseDayAndDay h6 {
+    margin-top: 2%;
 }
 
 .chioseDayAndDay img {
-    height: 90px;
-    margin-top: -7%;
+    height: 60px;
+    margin-top: -10%;
     margin-bottom: -5%;
 }
 
@@ -42,7 +42,7 @@
     margin-top: 5%;
     padding: 1%;
     font-size: 18px;
-    color: rgba(0, 0, 0, 0.801);
+    color: Gray Text;
     border: none;
     border-radius: 25% 10%;
 }
