@@ -27,7 +27,6 @@ function Service() {
 
 
     const { isLoading: LoadingReviews, data: showReviews } = useQuery('reviews', () => {
-
         return LoadReviews();
     })
 
@@ -185,8 +184,8 @@ function Service() {
 
 
     if (LoadingReviews) {
+        
         return (
-
             <div className='loadingReview'>
                 <img src="https://media3.giphy.com/media/lMl2tZmYHhrJHvY4rP/200w.gif?cid=82a1493bv5vympwzpd0gt9did8lb8r9vlei1poc0gx1gw4zx&rid=200w.gif&ct=s"></img>
             </div>

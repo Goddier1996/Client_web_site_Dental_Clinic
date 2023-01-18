@@ -23,11 +23,8 @@ function Appointment(props) {
 
     // check in ResultsHours function today , which hours work and free today
     let takeDayAndCodeDayInResultHour;
-    let date = new Date();
-    let takeDay = date.getDay();
-    const hoursAndMinutes = date.getHours() + ':' + '00';
-    const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     let dayFromArray;
+    let hoursAndMinutes;
 
 
     // all data what we save in local storage and seesion storge
@@ -62,11 +59,34 @@ function Appointment(props) {
 
 
 
+    // use in ResultsHours function
+    const GetTime = (date) => {
+
+        let hours = date.getHours();
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        hours = hours < 10 ? '0' + hours : hours;
+        // appending zero in the start if hours less than 10
+        return hours + ':' + '00';
+    }
+
+    
+
+    // use in ResultsHours function
+    const GetDayWeekFromArray = (date) => {
+
+        let Day = date.getDay();
+        let weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        return weekday[Day];
+    }
+
+
+
     //show (jsx) return we see in pup up hours - and click to hour we save what day we choose and hour to data base
     const ResultsHours = () => (
 
         takeDayAndCodeDayInResultHour = JSON.parse(sessionStorage.getItem("day")),
-        dayFromArray = weekday[takeDay],
+        dayFromArray = GetDayWeekFromArray(new Date),
+        hoursAndMinutes = GetTime(new Date),
 
         onClick(),
 
@@ -90,22 +110,8 @@ function Appointment(props) {
                                 if (dayFromArray == takeDayAndCodeDayInResultHour.Day) {
 
 
-                                    if (hour.Hour_day > hoursAndMinutes) {
-                                        return (
-
-                                            <div key={hour._id}>
-                                                <p href='#'
-                                                    style={{ textDdecoration: "none" }}
-                                                    onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
-                                                </p>
-                                            </div>
-                                        )
-                                    }
-
-
-                                    if (hour.Hour_day >= "19:00" && hour.Hour_day <= "23:00"
-                                        ||
-                                        takeDayAndCodeDayInResultHour.Day == "Friday" && hour.Hour_day >= "14:00") {
+                                    if (hoursAndMinutes > "19:00" && hoursAndMinutes < "23:00"
+                                        || dayFromArray == "Friday" && hoursAndMinutes > "14:00") {
 
                                         if (storedTheme == "dark") {
                                             Swal.fire({
@@ -116,6 +122,7 @@ function Appointment(props) {
                                                 position: 'center',
                                                 confirmButtonColor: "green",
                                             })
+                                            return;
                                         }
 
                                         if (storedTheme == "light") {
@@ -129,9 +136,23 @@ function Appointment(props) {
                                                 confirmButtonColor: "green",
                                                 color: '#ffffffab',
                                             })
+                                            return;
                                         }
-
                                     }
+
+
+                                    if (hour.Hour_day >= hoursAndMinutes) {
+                                        return (
+
+                                            <div key={hour._id}>
+                                                <p href='#'
+                                                    style={{ textDdecoration: "none" }}
+                                                    onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
+                                                </p>
+                                            </div>
+                                        )
+                                    }
+
                                 }
 
 
@@ -154,22 +175,8 @@ function Appointment(props) {
                                 if (dayFromArray == takeDayAndCodeDayInResultHour.Day) {
 
 
-                                    if (hour.Hour_day > hoursAndMinutes) {
-                                        return (
-
-                                            <div key={hour._id}>
-                                                <p href='#'
-                                                    style={{ textDdecoration: "none", color: "white" }}
-                                                    onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
-                                                </p>
-                                            </div>
-                                        )
-                                    }
-
-
-                                    if (hour.Hour_day >= "19:00" && hour.Hour_day <= "23:00"
-                                        ||
-                                        takeDayAndCodeDayInResultHour.Day == "Friday" && hour.Hour_day >= "14:00") {
+                                    if (hoursAndMinutes > "19:00" && hoursAndMinutes < "23:00"
+                                        || dayFromArray == "Friday" && hoursAndMinutes > "14:00") {
 
                                         if (storedTheme == "dark") {
                                             Swal.fire({
@@ -180,6 +187,7 @@ function Appointment(props) {
                                                 position: 'center',
                                                 confirmButtonColor: "green",
                                             })
+                                            return;
                                         }
 
                                         if (storedTheme == "light") {
@@ -193,9 +201,24 @@ function Appointment(props) {
                                                 confirmButtonColor: "green",
                                                 color: '#ffffffab',
                                             })
+                                            return;
                                         }
 
                                     }
+
+
+                                    if (hour.Hour_day >= hoursAndMinutes) {
+                                        return (
+
+                                            <div key={hour._id}>
+                                                <p href='#'
+                                                    style={{ textDdecoration: "none", color: "white" }}
+                                                    onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
+                                                </p>
+                                            </div>
+                                        )
+                                    }
+
                                 }
 
 
