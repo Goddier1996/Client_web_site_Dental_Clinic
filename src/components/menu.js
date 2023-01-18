@@ -30,7 +30,7 @@ function Menu() {
 
         if (userData != null) {
             history.push(`/Profile/${userData._id}`);
-            window.location.reload(false);
+            // window.location.reload(false);
         }
     }
 

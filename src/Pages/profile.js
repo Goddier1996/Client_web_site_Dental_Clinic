@@ -6,7 +6,7 @@ import User from '../components/User'
 
 
 // profile page , open profile page as per UserType_code from daya base , user-admin-doctor
-function profile() {
+function Profile() {
 
 
     let userData = JSON.parse(sessionStorage.getItem("user"));
@@ -62,4 +62,4 @@ function profile() {
 }
 
 
-export default profile;
+export default Profile;
