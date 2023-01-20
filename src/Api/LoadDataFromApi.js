@@ -189,7 +189,7 @@ export async function LoadMedicalFileAllUsersHowNeedPay() {
 
 // APPOINTMENT
 
-export async function LoadDays() {
+export async function LoadDays() { // 1
 
     // USE FETCH
     // let res = await fetch(API.DAYS.GET, { method: 'GET' });
