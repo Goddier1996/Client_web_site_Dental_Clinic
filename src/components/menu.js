@@ -3,7 +3,7 @@ import { Nav, Navbar, Container, Button, Modal } from 'react-bootstrap'
 import React, { useState } from 'react'
 import '../css/menu.css'
 import "../css/login.css"
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import Sign_in from '../components/SignI_in'
 
@@ -12,8 +12,8 @@ import Sign_in from '../components/SignI_in'
 //here component menu we use in App Because we need show in all pages
 function Menu() {
 
-    let storedTheme = localStorage.getItem("theme");
 
+    let storedTheme = localStorage.getItem("theme");
     let userData = JSON.parse(sessionStorage.getItem("user"));
 
     const history = useHistory()
@@ -25,20 +25,15 @@ function Menu() {
 
 
 
-    //check if we have data user and if yes we send to profile page
     const sendUserToProfile = () => {
 
-        if (userData != null) {
-            history.push(`/Profile/${userData._id}`);
-            // window.location.reload(false);
-        }
+        history.push(`/Profile/${userData._id}`);
     }
 
 
 
-
-    // log out user from data seesion storge
-    const outUser = () => {
+    
+    const LogOutUser = () => {
 
         if (storedTheme === "dark") {
 
@@ -59,12 +54,9 @@ function Menu() {
                     history.push("/");
                     window.location.reload(false);
                 }
-
-                else if (result.isDenied) {
-                    window.location.reload(false);
-                }
             })
         }
+
 
         if (storedTheme === "light") {
 
@@ -86,10 +78,6 @@ function Menu() {
 
                     sessionStorage.clear('user');
                     history.push("/");
-                    window.location.reload(false);
-                }
-
-                else if (result.isDenied) {
                     window.location.reload(false);
                 }
             })
@@ -114,13 +102,15 @@ function Menu() {
                 <div className='menuDark'>
                     <Navbar collapseOnSelect expand="lg">
                         <Container>
-                            <a href='/'><Navbar.Brand ><img src={require("../images/z1z.png")} alt="icon"></img></Navbar.Brand></a>
+
+                            <Link to='/'><Navbar.Brand ><img src={require("../images/z1z.png")} alt="icon"></img></Navbar.Brand></Link>
+
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{ background: "rgba(255, 255, 255, 0.279)" }} />
                             <Navbar.Collapse id="responsive-navbar-nav">
 
                                 <Nav className="me-auto">
-                                    <Nav.Link style={{ color: "white" }} href="/">Home</Nav.Link>
-                                    <Nav.Link style={{ color: "white" }} href="/About">About</Nav.Link>
+                                    <Nav.Link style={{ color: "white", fontWeight: "600" }} as={Link} to="/">Home</Nav.Link>
+                                    <Nav.Link style={{ color: "white" }} as={Link} to="/About">About</Nav.Link>
                                 </Nav>
 
                                 <Navbar.Collapse className="justify-content-end link">
@@ -130,9 +120,11 @@ function Menu() {
                                             onClick={sendUserToProfile}>
                                             Hello {userData.FirstName} (Profile)
                                         </Button>{' '}
+
                                         <br />
+
                                         <Button variant="outline-danger"
-                                            onClick={outUser}>
+                                            onClick={LogOutUser}>
                                             Log out
                                         </Button>{' '}
                                     </div>
@@ -155,19 +147,21 @@ function Menu() {
                 <div className='menuDark'>
                     <Navbar collapseOnSelect expand="lg">
                         <Container>
-                            <a href='/'><Navbar.Brand ><img src={require("../images/z1z.png")} alt="icon"></img></Navbar.Brand></a>
+
+                            <Link to='/'><Navbar.Brand ><img src={require("../images/z1z.png")} alt="icon"></img></Navbar.Brand></Link>
+
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{ background: "rgba(255, 255, 255, 0.279)" }} />
                             <Navbar.Collapse id="responsive-navbar-nav">
 
                                 <Nav className="me-auto">
-                                    <Nav.Link style={{ color: "white" }} href="/">Home</Nav.Link>
-                                    <Nav.Link style={{ color: "white" }} href="/About">About</Nav.Link>
+                                    <Nav.Link style={{ color: "white", fontWeight: "600" }} as={Link} to="/">Home</Nav.Link>
+                                    <Nav.Link style={{ color: "white" }} as={Link} to="/About">About</Nav.Link>
                                 </Nav>
 
                                 <Navbar.Collapse className="justify-content-end link">
 
-                                    <Nav.Link onClick={handleShowModelSignIn} href="#">Login</Nav.Link>
-                                    <Nav.Link href='/Register'>Register</Nav.Link>
+                                    <Nav.Link onClick={handleShowModelSignIn}>Login</Nav.Link>
+                                    <Nav.Link as={Link} to='/Register'>Register</Nav.Link>
 
                                 </Navbar.Collapse>
 
@@ -192,13 +186,14 @@ function Menu() {
                 <div className='menu'>
                     <Navbar collapseOnSelect expand="lg">
                         <Container>
-                            <a href='/'><Navbar.Brand ><img src={require("../images/z1z.png")} alt="icon"></img></Navbar.Brand></a>
+
+                            <Link to='/'><Navbar.Brand ><img src={require("../images/z1z.png")} alt="icon"></img></Navbar.Brand></Link>
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                             <Navbar.Collapse id="responsive-navbar-nav">
 
                                 <Nav className="me-auto">
-                                    <Nav.Link style={{ color: "#00000094", fontWeight: "600" }} href="/">Home</Nav.Link>
-                                    <Nav.Link href="/About">About</Nav.Link>
+                                    <Nav.Link style={{ color: "#00000094", fontWeight: "600" }} as={Link} to="/">Home</Nav.Link>
+                                    <Nav.Link as={Link} to="/About">About</Nav.Link>
                                 </Nav>
 
                                 <Navbar.Collapse className="justify-content-end link">
@@ -208,11 +203,11 @@ function Menu() {
                                             onClick={sendUserToProfile}>
                                             Hello {userData.FirstName} (Profile)
                                         </Button>{' '}
+
                                         <br />
 
-
                                         <Button variant="outline-danger"
-                                            onClick={outUser}>
+                                            onClick={LogOutUser}>
                                             Log out
                                         </Button>{'  '}
                                     </div>
@@ -236,19 +231,20 @@ function Menu() {
                 <div className='menu'>
                     <Navbar collapseOnSelect expand="sm" >
                         <Container>
-                            <a href='/'><Navbar.Brand ><img src={require("../images/z1z.png")} alt="icon"></img></Navbar.Brand></a>
+
+                            <Link to='/'><Navbar.Brand ><img src={require("../images/z1z.png")} alt="icon"></img></Navbar.Brand></Link>
 
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                             <Navbar.Collapse id="responsive-navbar-nav">
 
                                 <Nav className="me-auto">
-                                    <Nav.Link style={{ color: "#00000094", fontWeight: "600" }} href="/">Home</Nav.Link>
-                                    <Nav.Link href="/About">About</Nav.Link>
+                                    <Nav.Link style={{ color: "#00000094", fontWeight: "600" }} as={Link} to="/">Home</Nav.Link>
+                                    <Nav.Link style={{ color: "#00000094" }} as={Link} to="/About">About</Nav.Link>
                                 </Nav>
 
                                 <Navbar.Collapse className="justify-content-end link">
-                                    <Nav.Link onClick={handleShowModelSignIn} href="#">Login</Nav.Link>
-                                    <Nav.Link href='/Register'>Register</Nav.Link>
+                                    <Nav.Link onClick={handleShowModelSignIn}>Login</Nav.Link>
+                                    <Nav.Link as={Link} to='/Register'>Register</Nav.Link>
                                 </Navbar.Collapse>
 
                                 <Modal show={showModelSignIn} onHide={handleCloseModelSignIn} >

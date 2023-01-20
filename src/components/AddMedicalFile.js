@@ -44,6 +44,12 @@ function AddMedicalFileUser(props) {
                 toast: true,
                 position: 'top-end',
                 confirmButtonColor: "green",
+                background: `${(storedTheme === "light") ? "#373E44" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                color: `${(storedTheme === "light") ? "#ffffffab" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                    (storedTheme === "dark") ? "" : ""}`
             })
             return;
         }
@@ -82,7 +88,13 @@ function AddMedicalFileUser(props) {
             icon: 'success',
             toast: true,
             position: 'top-end',
-            confirmButtonColor: "green"
+            confirmButtonColor: "green",
+            background: `${(storedTheme === "light") ? "#373E44" :
+                (storedTheme === "dark") ? "" : ""}`,
+            color: `${(storedTheme === "light") ? "#ffffffab" :
+                (storedTheme === "dark") ? "" : ""}`,
+            buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                (storedTheme === "dark") ? "" : ""}`
         }).then((result) => {
 
             if (result.isConfirmed) {
@@ -94,137 +106,69 @@ function AddMedicalFileUser(props) {
 
 
 
-    if (storedTheme == "dark") {
+    return (
 
-        return (
+        <div className={(storedTheme === "light") ? "modelPopUpSendFilePayToUserDark" : (storedTheme === "dark") ? "modelPopUpSendFilePayToUser" : ""}>
 
-            <div className='modelPopUpSendFilePayToUser'>
+            <div className="closeModelSendFilePayToUser">
+                <Button style={(storedTheme === "light") ? { background: "#424242" } :
+                    (storedTheme === "dark") ? { background: "white" } : ""}
+                    variant="contained"
+                    onClick={props.hideModelMedicalFile} >
+
+                    <CloseIcon style={(storedTheme === "light") ? { fontSize: "20px", color: "white" } :
+                        (storedTheme === "dark") ? { fontSize: "20px", color: "black" } : ""} />
+                </Button>
+            </div>
 
 
-                <div className="closeModelSendFilePayToUser">
-                    <Button style={{ background: "white" }} variant="contained" onClick={props.hideModelMedicalFile} >
-                        <CloseIcon style={{ fontSize: "20px", color: "black" }} />
+            <div className='titleFileUser'>
+                <h1 style={(storedTheme === "light") ? { color: "#ffffffab" } :
+                    (storedTheme === "dark") ? { color: "gray" } : ""}>
+                    Medical File 📁 {date.FirstName}</h1>
+            </div>
+
+
+            <div className={(storedTheme === "light") ? "inputMedicalDateDark" : (storedTheme === "dark") ? "inputMedicalDate" : ""}>
+
+                <Form.Group className="mb-3">
+                    <Form.Control
+                        as="textarea" rows={3}
+                        placeholder="Patient review"
+                        value={textDoctor}
+                        onChange={(event) => setTextDoctor(event.target.value)}
+                        autoFocus
+                    />
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                    <Form.Control
+                        type="text"
+                        placeholder="price Service"
+                        value={priceSevice}
+                        onChange={(event) => setPriceSevice(event.target.value)}
+                    />
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                    <Form.Control
+                        type="text"
+                        placeholder="add link file"
+                        value={File_user}
+                        onChange={(event) => setFile_user(event.target.value)}
+                    />
+                </Form.Group>
+
+                <div className='styleButtonPosition'>
+                    <Button style={{ fontSize: "13px", color: "white", background: "green" }} variant="contained"
+                        onClick={checkInput} startIcon={<DoneIcon />}>
+                        Success
                     </Button>
                 </div>
 
-
-                <div className='titleFileUser'>
-                    <h1 style={{ color: "gray" }}>Medical File 📁 {date.FirstName}</h1>
-                </div>
-
-                <div className='inputMedicalDate'>
-
-
-                    <Form.Group className="mb-3">
-                        <Form.Control
-                            as="textarea" rows={3}
-                            placeholder="Patient review"
-                            value={textDoctor}
-                            onChange={(event) => setTextDoctor(event.target.value)}
-                            autoFocus
-                        />
-                    </Form.Group>
-
-
-                    <Form.Group className="mb-3">
-                        <Form.Control
-                            type="text"
-                            placeholder="price Service"
-                            value={priceSevice}
-                            onChange={(event) => setPriceSevice(event.target.value)}
-                        />
-                    </Form.Group>
-
-
-                    <Form.Group className="mb-3">
-                        <Form.Control
-                            type="text"
-                            placeholder="add link file"
-                            value={File_user}
-                            onChange={(event) => setFile_user(event.target.value)}
-                        />
-                    </Form.Group>
-
-                    <div className='styleButtonPosition'>
-
-                        <Button style={{ fontSize: "13px", color: "white", background: "green" }} variant="contained"
-                            onClick={checkInput} startIcon={<DoneIcon />}>
-                            Success
-                        </Button>
-
-                    </div>
-
-                </div>
             </div>
-        );
-    }
-
-
-
-    if (storedTheme == "light") {
-
-        return (
-
-            <div className='modelPopUpSendFilePayToUserDark'>
-
-
-                <div className="closeModelSendFilePayToUser">
-                    <Button style={{ background: "#424242" }} variant="contained" onClick={props.hideModelMedicalFile} >
-                        <CloseIcon style={{ fontSize: "20px", color: "white" }} />
-                    </Button>
-                </div>
-
-
-                <div className='titleFileUser'>
-                    <h1 style={{ color: "#ffffffab" }}>Medical File 📁 {date.FirstName}</h1>
-                </div>
-
-                <div className='inputMedicalDateDark'>
-
-                    <Form.Group className="mb-3">
-                        <Form.Control
-                            as="textarea" rows={3}
-                            placeholder="Patient review"
-                            value={textDoctor}
-                            onChange={(event) => setTextDoctor(event.target.value)}
-                            autoFocus
-                        />
-                    </Form.Group>
-
-
-                    <Form.Group className="mb-3">
-                        <Form.Control
-                            type="text"
-                            placeholder="price Service"
-                            value={priceSevice}
-                            onChange={(event) => setPriceSevice(event.target.value)}
-                        />
-                    </Form.Group>
-
-
-                    <Form.Group className="mb-3">
-                        <Form.Control
-                            type="text"
-                            placeholder="add link file"
-                            value={File_user}
-                            onChange={(event) => setFile_user(event.target.value)}
-                        />
-                    </Form.Group>
-
-                    <div className='styleButtonPosition'>
-
-                        <Button style={{ fontSize: "13px", color: "white", background: "green" }} variant="contained"
-                            onClick={checkInput} startIcon={<DoneIcon />}>
-                            Success
-                        </Button>
-
-                    </div>
-
-                </div>
-            </div>
-        );
-    }
-
+        </div>
+    )
 
 }
 

@@ -6,7 +6,7 @@ import date1 from '../Json_date/date.json'
 
 //here component we take category from json file and show in Home Page
 
-function category() {
+function Category() {
 
     return (
         <div>
@@ -34,4 +34,4 @@ function category() {
     );
 }
 
-export default category;
+export default Category;

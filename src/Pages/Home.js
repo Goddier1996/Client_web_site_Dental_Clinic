@@ -28,127 +28,66 @@ function Home() {
     const CheckUserConnected = () => {
 
 
-        if (userData == null && storedTheme === "dark") {
-
-            handleClose();
+        if (userData == null) {
 
             Swal.fire({
                 icon: 'warning',
-                title: 'Login/Register',
+                title: 'Login / Register',
                 html: 'You need to log in or register, and you should book an appointment',
                 toast: true,
                 position: 'top-end',
-                confirmButtonColor: "green"
-            })
-
-            return;
-        }
-
-
-        if (userData == null && storedTheme === "light") {
-
-            handleClose();
-
-            Swal.fire({
-                icon: 'warning',
-                title: 'Login/Register',
-                html: 'You need to log in or register, and you should book an appointment',
-                toast: true,
-                position: 'top-end',
-                background: '#373E44',
                 confirmButtonColor: "green",
-                color: '#ffffffab',
-                buttonColor: '#E96E00'
+                background: `${(storedTheme === "light") ? "#373E44" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                color: `${(storedTheme === "light") ? "#ffffffab" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                    (storedTheme === "dark") ? "" : ""}`
             })
-
             return;
         }
 
 
-        if (storedTheme === "dark" && userData.Day_date != null) {
 
-            handleClose();
+        if (userData.Day_date != null) {
 
             Swal.fire({
                 title: 'You have an appointment, cancel it and book a new appointment',
                 icon: 'warning',
                 toast: true,
                 position: 'top-end',
-                confirmButtonColor: "green"
-            }).then((result) => {
-
-                if (result.isConfirmed) {
-                    window.location.reload(false);
-                }
+                confirmButtonColor: "green",
+                background: `${(storedTheme === "light") ? "#373E44" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                color: `${(storedTheme === "light") ? "#ffffffab" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                    (storedTheme === "dark") ? "" : ""}`
             })
+            return;
         }
 
-
-        if (storedTheme === "light" && userData.Day_date != null) {
-
-            handleClose();
-
-            Swal.fire({
-                title: 'You have an appointment, cancel it and book a new appointment',
-                icon: 'warning',
-                background: '#373E44',
-                color: '#ffffffab',
-                toast: true,
-                position: 'top-end',
-                confirmButtonColor: "green"
-            }).then((result) => {
-
-                if (result.isConfirmed) {
-                    window.location.reload(false);
-                }
-            })
-        }
 
 
         if (userData.UserType_code == 2) {
 
-            if (storedTheme == "dark") {
-
-                handleClose();
-
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'you are doctor (You can not book an appointment) !',
-                    toast: true,
-                    position: 'top-end',
-                    confirmButtonColor: "green"
-                }).then((result) => {
-
-                    if (result.isConfirmed) {
-                        window.location.reload(false);
-                    }
-                })
-            }
-
-
-            if (storedTheme == "light") {
-
-                handleClose();
-
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'you are doctor (You can not book an appointment) !',
-                    toast: true,
-                    position: 'top-end',
-                    confirmButtonColor: "green",
-                    background: '#373E44',
-                    color: '#ffffffab',
-                }).then((result) => {
-
-                    if (result.isConfirmed) {
-                        window.location.reload(false);
-                    }
-                })
-            }
-
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'you are doctor (You can not book an appointment) !',
+                toast: true,
+                position: 'top-end',
+                confirmButtonColor: "green",
+                background: `${(storedTheme === "light") ? "#373E44" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                color: `${(storedTheme === "light") ? "#ffffffab" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                    (storedTheme === "dark") ? "" : ""}`
+            })
+            return;
         }
+
 
 
         if (userData != null && userData.Day_date == null) {
@@ -161,122 +100,77 @@ function Home() {
 
     const closePopUpAppintment = () => {
 
-        // handleClose();
         sessionStorage.removeItem("day");
         window.location.reload(false);
     }
 
 
 
+    return (
 
-    if (storedTheme === "light") {
+        <div>
 
-        return (
-            <div>
+            <div className='main1'>
+                <video src={videoBg} loop autoPlay muted playsInline />
+                <div className="content">
+                    <h1>Welcome</h1>
+                    <p>to the Dental Care Clinic</p>
+                </div>
+            </div>
 
-                <div className='main1'>
-                    <video src={videoBg} loop autoPlay muted playsInline />
-                    <div className="content">
-                        <h1>Welcome</h1>
-                        <p>to the Dental Care Clinic</p>
-                    </div>
+
+            <div className='Click_appointment'>
+
+                <div className="d-grid gap-2 click">
+                    <Button
+                        variant={(storedTheme === "light") ? "warning" :
+                            (storedTheme === "dark") ? "success" : ""}
+                        size="sm"
+                        onClick={CheckUserConnected}>
+                        Click me - Book an appointment
+                    </Button>
                 </div>
 
-                <div className='Click_appointment'>
 
-                    <div className="d-grid gap-2 click">
-                        <Button variant="warning" size="sm" onClick={CheckUserConnected}>
-                            Click me - Book an appointment
-                        </Button>
-                    </div>
+                {/* show model popup Appointment */}
+                <div className='bookClick'>
+                    <Modal show={show} >
 
-                    {/* show model popup Appointment */}
-                    <div className='bookClick'>
-                        <Modal show={show} >
+                        <div className={(storedTheme === "light") ? "showModelAddAppointmentUserDark" : (storedTheme === "dark") ? "showModelAddAppointmentUser" : ""}>
 
-                            <div className='showModelAddAppointmentUserDark'>
+                            <div className="closeModelAddAppointmentUser">
 
-                                <div className="closeModelAddAppointmentUser">
+                                <Button
+                                    style={(storedTheme === "light") ? { background: "#424242" } :
+                                        (storedTheme === "dark") ? { background: "white" } : ""}
+                                    variant="contained"
+                                    onClick={closePopUpAppintment} >
 
-                                    <Button style={{ background: "#424242" }} variant="contained" onClick={closePopUpAppintment} >
-                                        <CloseIcon style={{ fontSize: "20px", color: "white" }} />
-                                    </Button>
-                                </div>
-
-                                <div className='titleHeater'>
-                                    <img src='https://i.postimg.cc/J0R7Js4X/day.png' />
-                                </div>
-
-                                <Form>
-                                    <Appointment handleClose={handleClose} />
-                                </Form>
+                                    <CloseIcon style={(storedTheme === "light") ? { fontSize: "#20px", color: "white" } :
+                                        (storedTheme === "dark") ? { fontSize: "#20px", color: "black" } : ""} />
+                                </Button>
 
                             </div>
-                        </Modal>
-                    </div>
-                </div>
 
-                {/* show all Category from json file */}
-                <Category></Category>
-            </div>
-        );
-    }
-
-
-
-    if (storedTheme === "dark") {
-
-
-        return (
-            <div>
-
-                <div className='main1'>
-                    <video src={videoBg} loop autoPlay muted playsInline />
-                    <div className="content">
-                        <h1>Welcome</h1>
-                        <p>to the Dental Care Clinic</p>
-                    </div>
-                </div>
-
-                <div className='Click_appointment'>
-
-                    <div className="d-grid gap-2 click">
-                        <Button variant="success" size="sm" onClick={CheckUserConnected}>
-                            Click me - Book an appointment
-                        </Button>
-                    </div>
-
-
-                    {/* show model popup Appointment */}
-                    <div className='bookClick'>
-                        <Modal show={show} >
-
-                            <div className='showModelAddAppointmentUser'>
-
-                                <div className="closeModelAddAppointmentUser">
-                                    <Button style={{ background: "white" }} variant="contained" onClick={closePopUpAppintment} >
-                                        <CloseIcon style={{ fontSize: "20px", color: "black" }} />
-                                    </Button>
-                                </div>
-
-                                <div className='titleHeater'>
-                                    <img src='https://i.postimg.cc/J0R7Js4X/day.png' />
-                                </div>
-
-                                <Form>
-                                    <Appointment handleClose={handleClose} />
-                                </Form>
-
+                            <div className='titleHeater'>
+                                <img src='https://i.postimg.cc/J0R7Js4X/day.png' />
                             </div>
-                        </Modal>
-                    </div>
-                </div>
 
-                {/* show all Category from json file */}
-                <Category></Category>
-            </div>
-        );
-    }
+                            <Form>
+                                <Appointment handleClose={handleClose} />
+                            </Form>
+
+                        </div>
+                    </Modal>
+                </div>
+            </div >
+
+
+
+            {/* show all Category from json file */}
+            < Category ></Category >
+        </div >
+    )
 
 }
 

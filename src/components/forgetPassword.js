@@ -42,7 +42,13 @@ function ForgetPaswword() {
                 icon: 'warning',
                 toast: true,
                 position: 'top-end',
-                confirmButtonColor: "green"
+                confirmButtonColor: "green",
+                background: `${(storedTheme === "light") ? "#373E44" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                color: `${(storedTheme === "light") ? "#ffffffab" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                    (storedTheme === "dark") ? "" : ""}`
             })
         }
 
@@ -65,46 +71,26 @@ function ForgetPaswword() {
 
                 let data = await res.json();
 
+                Swal.fire({
+                    title: `${data.FirstName} We found you. Let's change a new password :)`,
+                    icon: 'info',
+                    toast: true,
+                    position: 'top-end',
+                    confirmButtonColor: "green",
+                    background: `${(storedTheme === "light") ? "#373E44" :
+                        (storedTheme === "dark") ? "" : ""}`,
+                    color: `${(storedTheme === "light") ? "#ffffffab" :
+                        (storedTheme === "dark") ? "" : ""}`,
+                    buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                        (storedTheme === "dark") ? "" : ""}`
+                }).then((result) => {
 
-                if (storedTheme === "dark") {
+                    if (result.isConfirmed) {
 
-                    Swal.fire({
-                        title: `${data.FirstName} We found you. Let's change a new password :)`,
-                        icon: 'info',
-                        toast: true,
-                        position: 'top-end',
-                        confirmButtonColor: "green",
-                    }).then((result) => {
-
-                        if (result.isConfirmed) {
-
-                            sessionStorage.setItem("userForgetPassword", JSON.stringify(data));
-                            handleShowNewPassword() // show pop up change password
-                        }
-                    })
-                }
-
-                if (storedTheme === "light") {
-
-                    Swal.fire({
-                        title: `${data.FirstName} We found you. Let's change a new password :)`,
-                        icon: 'info',
-                        background: '#373E44',
-                        color: '#ffffffab',
-                        toast: true,
-                        position: 'top-end',
-                        confirmButtonColor: "green",
-                    }).then((result) => {
-
-                        if (result.isConfirmed) {
-
-                            sessionStorage.setItem("userForgetPassword", JSON.stringify(data));
-
-                            handleShowNewPassword() // show pop up change password
-                        }
-                    })
-                }
-
+                        sessionStorage.setItem("userForgetPassword", JSON.stringify(data));
+                        handleShowNewPassword() // show pop up change password
+                    }
+                })
 
             } catch (error) {
                 console.log(error);
@@ -119,33 +105,21 @@ function ForgetPaswword() {
 
         if (User_password == '' || Confirm_password == '') {
 
-            if (storedTheme === "dark") {
+            Swal.fire({
+                text: 'Please Input your new Password!',
+                icon: 'error',
+                toast: true,
+                position: 'top-end',
+                confirmButtonColor: "green",
+                background: `${(storedTheme === "light") ? "#373E44" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                color: `${(storedTheme === "light") ? "#ffffffab" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                    (storedTheme === "dark") ? "" : ""}`
+            })
 
-                Swal.fire({
-                    text: 'Please Input your new Password!',
-                    icon: 'error',
-                    toast: true,
-                    position: 'top-end',
-                    confirmButtonColor: "green"
-                })
-
-                return;
-            }
-
-            if (storedTheme === "light") {
-
-                Swal.fire({
-                    text: 'Please Input your new Password!',
-                    icon: 'error',
-                    toast: true,
-                    background: '#373E44',
-                    position: 'top-end',
-                    confirmButtonColor: "green",
-                    color: "white"
-                })
-                return;
-            }
-
+            return;
         }
 
 
@@ -154,29 +128,22 @@ function ForgetPaswword() {
             ForgetPassword();
         }
 
+
         else {
 
-            if (storedTheme === "dark") {
-
-                Swal.fire({
-                    text: 'Password NOT Equals!',
-                    icon: 'error',
-                    toast: true,
-                    position: 'top-end',
-                    confirmButtonColor: "green"
-                })
-            }
-
-            if (storedTheme === "light") {
-
-                Swal.fire({
-                    text: 'Password NOT Equals!',
-                    icon: 'error',
-                    background: '#373E44',
-                    toast: true,
-                    position: 'top-end'
-                })
-            }
+            Swal.fire({
+                text: 'Password NOT Equals!',
+                icon: 'error',
+                toast: true,
+                position: 'top-end',
+                confirmButtonColor: "green",
+                background: `${(storedTheme === "light") ? "#373E44" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                color: `${(storedTheme === "light") ? "#ffffffab" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                    (storedTheme === "dark") ? "" : ""}`
+            })
         }
 
     }
@@ -193,35 +160,22 @@ function ForgetPaswword() {
 
         await ForgetPasswordUpdate(userForget._id, user);
 
+        Swal.fire({
+            icon: 'success',
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1500,
+            toast: true,
+            background: `${(storedTheme === "light") ? "#373E44" :
+                (storedTheme === "dark") ? "" : ""}`,
+            color: `${(storedTheme === "light") ? "#ffffffab" :
+                (storedTheme === "dark") ? "" : ""}`,
+            buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                (storedTheme === "dark") ? "" : ""}`
+        })
 
-        if (storedTheme === "dark") {
-
-            Swal.fire({
-                icon: 'success',
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 1500,
-                toast: true,
-            })
-
-            sessionStorage.clear('userForgetPassword');
-            window.location.reload(false);
-        }
-
-        if (storedTheme === "light") {
-
-            Swal.fire({
-                icon: 'success',
-                background: '#373E44',
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 1500,
-                toast: true,
-            })
-
-            sessionStorage.clear('userForgetPassword');
-            window.location.reload(false);
-        }
+        sessionStorage.clear('userForgetPassword');
+        window.location.reload(false);
     }
 
 
@@ -230,49 +184,29 @@ function ForgetPaswword() {
     //if you click not save new password
     const closeForgetPassword = () => {
 
-        if (storedTheme === "dark") {
+        Swal.fire({
+            title: 'Are you sure don`t change Password?',
+            icon: 'question',
+            showDenyButton: true,
+            confirmButtonText: 'yes',
+            denyButtonText: `no`,
+            toast: true,
+            position: 'top-end',
+            confirmButtonColor: "green",
+            background: `${(storedTheme === "light") ? "#373E44" :
+                (storedTheme === "dark") ? "" : ""}`,
+            color: `${(storedTheme === "light") ? "#ffffffab" :
+                (storedTheme === "dark") ? "" : ""}`,
+            buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                (storedTheme === "dark") ? "" : ""}`
+        }).then((result) => {
 
-            Swal.fire({
-                title: 'Are you sure don`t change Password?',
-                icon: 'question',
-                showDenyButton: true,
-                confirmButtonText: 'yes',
-                denyButtonText: `no`,
-                toast: true,
-                position: 'top-end',
-                confirmButtonColor: "green"
-            }).then((result) => {
+            if (result.isConfirmed) {
 
-                if (result.isConfirmed) {
-
-                    sessionStorage.clear('userForgetPassword');
-                    window.location.reload(false);
-                }
-            })
-        }
-
-        if (storedTheme === "light") {
-
-            Swal.fire({
-                title: 'Are you sure don`t change Password?',
-                icon: 'question',
-                showDenyButton: true,
-                confirmButtonText: 'yes',
-                denyButtonText: `no`,
-                background: '#373E44',
-                color: '#ffffffab',
-                toast: true,
-                position: 'top-end',
-                confirmButtonColor: "green"
-            }).then((result) => {
-
-                if (result.isConfirmed) {
-
-                    sessionStorage.clear('userForgetPassword');
-                    window.location.reload(false);
-                }
-            })
-        }
+                sessionStorage.clear('userForgetPassword');
+                window.location.reload(false);
+            }
+        })
     }
 
 

@@ -5,80 +5,59 @@ import { Card, Row, Col } from 'react-bootstrap'
 
 
 
-//show from jsom file a what to do in this clinic service
+//show data from json file our work this clinic
 
 function ourWork() {
-
 
     let storedTheme = localStorage.getItem("theme");
 
 
+    return (
 
-    if (storedTheme === "light") {
+        <div>
 
-        return (
-            <div>
-
-                <div className='titleOurWorkDark'>
-                    <h1>here you can see our work :</h1>
-                </div>
-
-                <div className='OurWorkLook'>
-
-                    <Row xs={1} md={2} className="g-4">
-                        {date1.work.map((record) => (
-
-                            <Col key={record.id}>
-                                <Card style={{ marginTop: "10px", background: "#424242", borderRadius: "15px", padding: "3%" }}>
-                                    <Card.Img variant="top" src={record.path} />
-                                    <Card.Body style={{ color: "#ffffffab" }}>
-                                        <Card.Title><h3>{record.title} :</h3></Card.Title>
-                                        <Card.Text>
-                                            {record.text}
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        ))}
-                    </Row>
-                </div>
+            <div className={(storedTheme == "light") ? "titleOurWorkDark" : (storedTheme == "dark") ? "titleOurWork" : ""}>
+                <h1>here you can see our work :</h1>
             </div>
-        );
-    }
 
 
+            <div className='OurWorkLook'>
 
-    else {
+                <Row xs={1} md={2} className="g-4">
+                    {date1.work.map((record) => (
 
-        return (
-            <div>
+                        <Col key={record.id}>
 
-                <div className='titleOurWork'>
-                    <h1>here you can see our work :</h1>
-                </div>
+                            <Card
+                                style={(storedTheme === "light") ?
+                                    { marginTop: "10px", background: "#424242", borderRadius: "15px", padding: "3%" } :
+                                    (storedTheme === "dark") ?
+                                        { marginTop: "10px", borderRadius: "15px", padding: "3%" } : ""}>
 
-                <div className='OurWorkLook'>
+                                <Card.Img variant="top" src={record.path} />
 
-                    <Row xs={1} md={2} className="g-4">
-                        {date1.work.map((record) => (
+                                <Card.Body
+                                    style={(storedTheme === "light") ?
+                                        { color: "#ffffffab" } :
+                                        (storedTheme === "dark") ?
+                                            {} : ""}>
 
-                            <Col key={record.id}>
-                                <Card style={{ marginTop: "10px", borderRadius: "15px", padding: "3%" }}>
-                                    <Card.Img variant="top" src={record.path} />
-                                    <Card.Body>
-                                        <Card.Title><h3>{record.title} :</h3></Card.Title>
-                                        <Card.Text>
-                                            {record.text}
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        ))}
-                    </Row>
-                </div>
+                                    <Card.Title><h3>{record.title} :</h3></Card.Title>
+
+                                    <Card.Text>
+                                        {record.text}
+                                    </Card.Text>
+                                </Card.Body>
+
+                            </Card>
+                        </Col>
+                    ))}
+                </Row>
+
             </div>
-        );
-    }
+
+        </div>
+    )
 
 }
 

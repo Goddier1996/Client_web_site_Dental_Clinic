@@ -14,35 +14,33 @@ import NotFoundPage from "./components/NotFoundPage";
 
 
 
-
 function App() {
 
   return (
 
+    <BrowserRouter>
 
-      <BrowserRouter>
+      {/*Dark mode or light */}
+      <DarkMode />
 
-        {/* active dark node or light */}
-        <DarkMode />
+      <Menu />
 
-        {/* active menu */}
-        <Menu />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/About" exact component={About} />
+        <Route path="/Register" exact component={Register} />
+        <Route path="/Location" exact component={Location} />
+        <Route path="/OurWork" exact component={OurWork} />
+        <Route path="/Service" exact component={Service} />
+        <Route path="/Profile/:id" exact component={profile} />
 
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/About" exact component={About} />
-          <Route path="/Register" exact component={Register} />
-          <Route path="/Location" exact component={Location} />
-          <Route path="/OurWork" exact component={OurWork} />
-          <Route path="/Service" exact component={Service} />
-          <Route path="/Profile/:id" exact component={profile} />
-          {/* active page not found */}
-          <Route path="*" exact component={NotFoundPage} />
-        </Switch>
+        {/* active page not found */}
+        <Route path="*" exact component={NotFoundPage} />
+      </Switch>
 
-        <Fotter />
+      <Fotter />
 
-      </BrowserRouter>
+    </BrowserRouter>
   );
 }
 

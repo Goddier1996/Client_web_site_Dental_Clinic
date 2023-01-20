@@ -69,7 +69,7 @@ function Appointment(props) {
         return hours + ':' + '00';
     }
 
-    
+
 
     // use in ResultsHours function
     const GetDayWeekFromArray = (date) => {
@@ -96,8 +96,11 @@ function Appointment(props) {
             <div className='chioseDayAndDay'>
 
                 <img src='https://i.postimg.cc/zDW8DS7c/clock.png' />
-                <h6 style={{ color: "GrayText" }}>Day {takeDayAndCodeDayInResultHour.Day}</h6>
 
+                <h6 style={(storedTheme === "light") ? { color: "white" } :
+                    (storedTheme === "dark") ? { color: "GrayText" } : ""}>
+                    Day {takeDayAndCodeDayInResultHour.Day}
+                </h6>
 
                 <div id="results" className="search-results">
 
@@ -105,63 +108,34 @@ function Appointment(props) {
 
                         {Hours.map(hour => {
 
-                            if (storedTheme == "dark") {
+                            if (dayFromArray == takeDayAndCodeDayInResultHour.Day) {
 
-                                if (dayFromArray == takeDayAndCodeDayInResultHour.Day) {
+                                if (hoursAndMinutes > "19:00" && hoursAndMinutes < "23:00"
+                                    || dayFromArray == "Friday" && hoursAndMinutes > "14:00") {
 
-
-                                    if (hoursAndMinutes > "19:00" && hoursAndMinutes < "23:00"
-                                        || dayFromArray == "Friday" && hoursAndMinutes > "14:00") {
-
-                                        if (storedTheme == "dark") {
-                                            Swal.fire({
-                                                icon: 'info',
-                                                title: `The work day ${dayFromArray} is over 😁`,
-                                                html: 'If you want to book an appointment for the day you chose for next week, book tomorrow! ',
-                                                toast: true,
-                                                position: 'center',
-                                                confirmButtonColor: "green",
-                                            })
-                                            return;
-                                        }
-
-                                        if (storedTheme == "light") {
-                                            Swal.fire({
-                                                icon: 'info',
-                                                title: `The work day ${dayFromArray} is over 😁`,
-                                                html: 'If you want to book an appointment for the day you chose for next week, book tomorrow! ',
-                                                toast: true,
-                                                position: 'center',
-                                                background: '#373E44',
-                                                confirmButtonColor: "green",
-                                                color: '#ffffffab',
-                                            })
-                                            return;
-                                        }
-                                    }
-
-
-                                    if (hour.Hour_day >= hoursAndMinutes) {
-                                        return (
-
-                                            <div key={hour._id}>
-                                                <p href='#'
-                                                    style={{ textDdecoration: "none" }}
-                                                    onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
-                                                </p>
-                                            </div>
-                                        )
-                                    }
-
+                                    Swal.fire({
+                                        icon: 'info',
+                                        title: `The work day ${dayFromArray} is over 😁`,
+                                        html: 'If you want to book an appointment for the day you chose for next week, book tomorrow! ',
+                                        toast: true,
+                                        position: 'center',
+                                        background: `${(storedTheme === "light") ? "#373E44" :
+                                            (storedTheme === "dark") ? "" : ""}`,
+                                        confirmButtonColor: "green",
+                                        color: `${(storedTheme === "light") ? "#ffffffab" :
+                                            (storedTheme === "dark") ? "" : ""}`,
+                                    })
                                 }
 
 
-                                else {
+                                if (hour.Hour_day >= hoursAndMinutes) {
 
                                     return (
+
                                         <div key={hour._id}>
                                             <p href='#'
-                                                style={{ textDdecoration: "none" }}
+                                                style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
+                                                    (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
                                                 onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
                                             </p>
                                         </div>
@@ -170,71 +144,20 @@ function Appointment(props) {
                             }
 
 
-                            if (storedTheme == "light") {
+                            else {
 
-                                if (dayFromArray == takeDayAndCodeDayInResultHour.Day) {
-
-
-                                    if (hoursAndMinutes > "19:00" && hoursAndMinutes < "23:00"
-                                        || dayFromArray == "Friday" && hoursAndMinutes > "14:00") {
-
-                                        if (storedTheme == "dark") {
-                                            Swal.fire({
-                                                icon: 'info',
-                                                title: `The work day ${dayFromArray} is over 😁`,
-                                                html: 'If you want to book an appointment for the day you chose for next week, book tomorrow! ',
-                                                toast: true,
-                                                position: 'center',
-                                                confirmButtonColor: "green",
-                                            })
-                                            return;
-                                        }
-
-                                        if (storedTheme == "light") {
-                                            Swal.fire({
-                                                icon: 'info',
-                                                title: `The work day ${dayFromArray} is over 😁`,
-                                                html: 'If you want to book an appointment for the day you chose for next week, book tomorrow! ',
-                                                toast: true,
-                                                position: 'center',
-                                                background: '#373E44',
-                                                confirmButtonColor: "green",
-                                                color: '#ffffffab',
-                                            })
-                                            return;
-                                        }
-
-                                    }
-
-
-                                    if (hour.Hour_day >= hoursAndMinutes) {
-                                        return (
-
-                                            <div key={hour._id}>
-                                                <p href='#'
-                                                    style={{ textDdecoration: "none", color: "white" }}
-                                                    onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
-                                                </p>
-                                            </div>
-                                        )
-                                    }
-
-                                }
-
-
-                                else {
-
-                                    return (
-                                        <div key={hour._id}>
-                                            <p href='#'
-                                                style={{ textDdecoration: "none", color: "white" }}
-                                                onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
-                                            </p>
-                                        </div>
-                                    )
-                                }
+                                return (
+                                    <div key={hour._id}>
+                                        <p href='#'
+                                            style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
+                                                (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
+                                            onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
+                                        </p>
+                                    </div>
+                                )
                             }
                         }
+
                         )}
                     </Row>
                 </div>
@@ -258,40 +181,23 @@ function Appointment(props) {
         await UpdateDataUserAddTurn(userDataCode.User_code, userData, dayLocal.Day, hourLocal.Hour_day, hourLocal.Serial_code);
         await DeleteHour(hourLocal.Serial_code);
 
-
-        if (storedTheme === "dark") {
-
-            await Swal.fire({
-                title: `Youre making an appointment`,
-                text: `${dayLocal.Day} ${hourLocal.Hour_day}`,
-                icon: 'success',
-                showConfirmButton: false,
-                timer: 1500,
-                position: 'center'
-            })
-            await sessionStorage.clear();
-            window.location.reload(false);
-        }
-
-
-        if (storedTheme === "light") {
-
-            await Swal.fire({
-                title: `Youre making an appointment`,
-                text: `${dayLocal.Day} ${hourLocal.Hour_day}`,
-                icon: 'success',
-                background: '#373E44',
-                color: '#ffffffab',
-                buttonColor: '#E96E00',
-                showConfirmButton: false,
-                timer: 1500,
-                position: 'center'
-            })
-            await sessionStorage.clear();
-            window.location.reload(false);
-        }
+        await Swal.fire({
+            title: `Youre making an appointment`,
+            text: `${dayLocal.Day} ${hourLocal.Hour_day}`,
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500,
+            position: 'center',
+            background: `${(storedTheme === "light") ? "#373E44" :
+                (storedTheme === "dark") ? "" : ""}`,
+            color: `${(storedTheme === "light") ? "#ffffffab" :
+                (storedTheme === "dark") ? "" : ""}`,
+            buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                (storedTheme === "dark") ? "" : ""}`
+        })
+        await sessionStorage.clear();
+        window.location.reload(false);
     }
-
 
 
 
@@ -305,66 +211,31 @@ function Appointment(props) {
     }
 
 
+    return (
 
-    if (storedTheme == "dark") {
+        < div >
 
-        return (
-            <div>
+            <div className={(storedTheme === "light") ? "showDayDark" : (storedTheme === "dark") ? "showDay" : ""}>
+                <Row xs={2} md={5} lg={4} className="g-4">
 
-                <div className='showDay'>
-                    <Row xs={2} md={5} lg={4} className="g-4">
+                    {days.map(day =>
 
-                        {days.map(day =>
+                        <div className='showDayItems' key={day._id}>
+                            <Button size="sm" variant="outline-secondary"
+                                onClick={() => LoadHours(day.Serial_code, day.Day_date)}>
+                                {day.Day_date}
+                            </Button>
+                        </div>
+                    )}
+                </Row>
 
-                            <div className='showDayItems' key={day._id}>
-                                <Button size="sm" variant="outline-secondary"
-                                    onClick={() => LoadHours(day.Serial_code, day.Day_date)}>
-                                    {day.Day_date}
-                                </Button>
-                            </div>
+                <Modal.Body>
+                    {showResults ? <ResultsHours /> : null}
+                </Modal.Body>
 
-                        )}
-                    </Row>
-
-                    <Modal.Body>
-                        {showResults ? <ResultsHours /> : null}
-                    </Modal.Body>
-
-                </div>
             </div>
-        );
-    }
-
-
-
-    if (storedTheme == "light") {
-
-        return (
-            <div>
-
-                <div className='showDayDark'>
-                    <Row xs={2} md={5} lg={4} className="g-4">
-
-                        {days.map(day =>
-
-                            <div className='showDayItems' key={day._id}>
-                                <Button size="sm" variant="outline-secondary"
-                                    onClick={() => LoadHours(day.Serial_code, day.Day_date)}>
-                                    {day.Day_date}
-                                </Button>
-                            </div>
-
-                        )}
-                    </Row>
-
-                    <Modal.Body>
-                        {showResults ? <ResultsHours /> : null}
-                    </Modal.Body>
-
-                </div>
-            </div>
-        );
-    }
+        </div >
+    )
 
 }
 

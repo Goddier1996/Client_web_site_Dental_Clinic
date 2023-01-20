@@ -4,7 +4,6 @@ import { ActiveHourInDataBase, UpdateDataUserRemoveTurn } from '../Api/DeleteUpd
 
 export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, codeHour, code) {
 
-
     let date = new Date();
 
     let takeDay = date.getDay();
@@ -17,132 +16,73 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
 
     if (day == dayFromArray) {
 
+        if (hour < hoursAndMinutes) {
 
-        if (storedTheme === "dark") {
-
-            if (hour < hoursAndMinutes) {
-
-                Swal.fire({
-                    html: `<div class="alertUserHaveTodayTurn">
+            Swal.fire({
+                html: `<div class="alertUserHaveTodayTurn">
                     <h4>You didn't make it to the Queue Today at ${hour} !</h4>
                     <br/>
                     <p>Send Message in Contact Page , why you don't come today</p>
                     <p>Click Ok (and your turn Cancel)</p>
                     </div>`,
-                    icon: 'warning',
-                    position: 'center',
-                    allowOutsideClick: false,
-                    confirmButtonColor: "green"
+                icon: 'warning',
+                position: 'center',
+                allowOutsideClick: false,
+                confirmButtonColor: "green",
+                background: `${(storedTheme === "light") ? "#373E44" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                color: `${(storedTheme === "light") ? "#ffffffab" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                    (storedTheme === "dark") ? "" : ""}`
 
-                }).then(async (result) => {
+            }).then(async (result) => {
 
-                    if (result.isConfirmed) {
+                if (result.isConfirmed) {
 
-                        let userData = JSON.parse(sessionStorage.getItem("user"));
+                    let userData = JSON.parse(sessionStorage.getItem("user"));
 
-                        await ActiveHourInDataBase(codeHour);
-                        await UpdateDataUserRemoveTurn(code);
+                    await ActiveHourInDataBase(codeHour);
+                    await UpdateDataUserRemoveTurn(code);
 
-                        const obj = {
-                            _id: userData._id,
-                            FirstName: userData.FirstName,
-                            User_Login: userData.User_Login,
-                            Email: userData.Email,
-                            Birthday: userData.Birthday,
-                            User_password: userData.User_password,
-                            ConfirmPassword: userData.ConfirmPassword,
-                            Day_date: null,
-                            Hour_day: null,
-                            Serial_codeHour: null,
-                            IsActive: userData.IsActive,
-                            UserType_code: userData.UserType_code
-                        }
-
-                        sessionStorage.setItem("user", JSON.stringify(obj));
-                        await window.location.reload(false);
+                    const obj = {
+                        _id: userData._id,
+                        FirstName: userData.FirstName,
+                        User_Login: userData.User_Login,
+                        Email: userData.Email,
+                        Birthday: userData.Birthday,
+                        User_password: userData.User_password,
+                        ConfirmPassword: userData.ConfirmPassword,
+                        Day_date: null,
+                        Hour_day: null,
+                        Serial_codeHour: null,
+                        IsActive: userData.IsActive,
+                        UserType_code: userData.UserType_code
                     }
-                })
-            }
 
-            else {
-                Swal.fire({
-                    html: `<div class="alertUserHaveTodayTurn"><h4>you have turn today at ${hour}</h4>
-                        <p>* if you don't need this turn please cancel</p>
-                        </div>`,
-                    icon: 'warning',
-                    showConfirmButton: false,
-                    timer: 2500,
-                    position: 'center',
-                    allowOutsideClick: false
-                })
-            }
-
+                    sessionStorage.setItem("user", JSON.stringify(obj));
+                    await window.location.reload(false);
+                }
+            })
         }
 
-
-        if (storedTheme === "light") {
-
-            if (hour < hoursAndMinutes) {
-
-                Swal.fire({
-                    html: `<div class="alertUserHaveTodayTurn">
-                    <h4>You didn't make it to the Queue Today at ${hour} !</h4>
-                    <br/>
-                    <p>Send Message in Contact Page , why you don't come today</p>
-                    <p>Click Ok (and your turn Cancel)</p>
-                    </div>`,
-                    icon: 'warning',
-                    position: 'center',
-                    allowOutsideClick: false,
-                    confirmButtonColor: "green",
-                    background: '#373E44',
-                    color: '#ffffffab'
-                }).then(async (result) => {
-
-                    if (result.isConfirmed) {
-
-                        let userData = JSON.parse(sessionStorage.getItem("user"));
-
-                        await ActiveHourInDataBase(codeHour);
-                        await UpdateDataUserRemoveTurn(code);
-
-                        const obj = {
-                            _id: userData._id,
-                            FirstName: userData.FirstName,
-                            User_Login: userData.User_Login,
-                            Email: userData.Email,
-                            Birthday: userData.Birthday,
-                            User_password: userData.User_password,
-                            ConfirmPassword: userData.ConfirmPassword,
-                            Day_date: userData.Day_date,
-                            Hour_day: userData.Hour_day,
-                            Serial_codeHour: userData.Serial_codeHour,
-                            IsActive: userData.IsActive,
-                            UserType_code: userData.UserType_code
-                        }
-
-                        sessionStorage.setItem("user", JSON.stringify(obj));
-                        await window.location.reload(false);
-                    }
-                })
-            }
-
-            else {
-                Swal.fire({
-                    html: `<div class="alertUserHaveTodayTurn"><h4>you have turn today at ${hour}</h4>
+        else {
+            Swal.fire({
+                html: `<div class="alertUserHaveTodayTurn"><h4>you have turn today at ${hour}</h4>
                         <p>* if you don't need this turn please cancel</p>
                         </div>`,
-                    icon: 'warning',
-                    showConfirmButton: false,
-                    timer: 2500,
-                    position: 'center',
-                    allowOutsideClick: false,
-                    background: '#373E44',
-                    color: '#ffffffab'
-                })
-            }
+                icon: 'warning',
+                showConfirmButton: false,
+                timer: 2500,
+                position: 'center',
+                allowOutsideClick: false,
+                background: `${(storedTheme === "light") ? "#373E44" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                color: `${(storedTheme === "light") ? "#ffffffab" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                    (storedTheme === "dark") ? "" : ""}`
+            })
         }
-
     }
-
 }

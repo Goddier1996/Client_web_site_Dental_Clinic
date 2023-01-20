@@ -26,7 +26,7 @@ function Doctor({ code_doctor }) {
     let CountClient = 1;
 
 
-    
+
     const { isLoading: UsersActive_queues, data: usersActive_queues } = useQuery('Active_queues', () => {
         return LoadUsersActive_queues();
     })
@@ -65,31 +65,21 @@ function Doctor({ code_doctor }) {
 
         else {
 
-            if (storedTheme == "dark") {
-
-                Swal.fire({
-                    title: `Can't Send File Pay`,
-                    icon: 'warning',
-                    text: `${FirstName} Turn at Day ${Day} , And You Can't send Pay FIle !`,
-                    toast: true,
-                    position: 'top-end',
-                    confirmButtonColor: "green",
-                })
-            }
-
-            if (storedTheme == "light") {
-
-                Swal.fire({
-                    title: `Can't Send File Pay`,
-                    icon: 'warning',
-                    text: `${FirstName} Turn at Day ${Day} , And You Can't send Pay FIle !`,
-                    toast: true,
-                    position: 'top-end',
-                    confirmButtonColor: "green",
-                    background: '#373E44',
-                    color: '#ffffffab'
-                })
-            }
+            Swal.fire({
+                title: `Can't Send File Pay`,
+                icon: 'warning',
+                text: `${FirstName} Turn at Day ${Day} , And You Can't send Pay FIle !`,
+                toast: true,
+                position: 'top-end',
+                confirmButtonColor: "green",
+                background: `${(storedTheme === "light") ? "#373E44" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                color: `${(storedTheme === "light") ? "#ffffffab" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                    (storedTheme === "dark") ? "" : ""}`
+            })
+            return;
         }
     }
 
@@ -104,7 +94,6 @@ function Doctor({ code_doctor }) {
 
 
 
-
     if (UsersActive_queues || Medical_File_All_users) {
 
         return (
@@ -116,232 +105,109 @@ function Doctor({ code_doctor }) {
 
 
 
-    if (storedTheme === "dark") {
+    return (
 
-        return (
+        <div>
 
-            <div>
-                <div className="bg-white">
+            <div className={(storedTheme === "light") ? "" : (storedTheme === "dark") ? "bg-white" : ""}>
 
-                    <div className="profile">
-                        <div className="profile-headerDoctor">
-                            <div className="profile-header-cover"></div>
+                <div className="profile">
+                    <div className="profile-headerDoctor">
+                        <div className="profile-header-cover"></div>
 
-                            <div className="profile-header-content">
-                                <div className="profile-header-info">
-                                    <h4 className="m-t-10 m-b-5">Hello {code_doctor.name} </h4>
-                                </div>
+                        <div className="profile-header-content">
+                            <div className="profile-header-info">
+                                <h4 className="m-t-10 m-b-5">Hello {code_doctor.name} </h4>
                             </div>
                         </div>
                     </div>
-
-
-                    <Tabs id="controlled-tab-example" className="mb-3 tabsChiose " >
-
-                        <Tab eventKey="Active queues (customers)" title="Active queues (customers)" className='ActiveQueues'>
-
-
-                            <Table striped bordered hover size="sm">
-                                <thead>
-                                    <tr>
-                                        <th style={{ width: "1%", textAlign: "center" }}>#</th>
-                                        <th style={{ width: "8%", textAlign: "center" }}>Name client</th>
-                                        <th style={{ width: "10%", textAlign: "center" }}>Email</th>
-                                        <th style={{ width: "10%", textAlign: "center" }}>Day</th>
-                                        <th style={{ width: "10%", textAlign: "center" }}>Hour</th>
-                                        <td style={{ width: "1%" }}></td>
-                                    </tr>
-                                </thead>
-
-                                {usersActive_queues.map(user =>
-
-                                    <tbody key={user._id} className='viewDateUser'>
-                                        <tr>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{CountClient++}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.FirstName}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Email}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Day_date}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Hour_day}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }} >
-                                                <Button style={{ fontSize: "11px", color: "white", background: "green" }} variant="contained"
-                                                    onClick={() => updateDayHour(user._id, user.FirstName, user.Email, user.Serial_codeHour, user.Day_date)}
-                                                    startIcon={<RateReviewIcon />}>
-                                                    File
-                                                </Button>
-                                            </td>
-                                        </tr>
-
-                                        <Modal show={show}  >
-                                            <AddMedicalFileUser hideModelMedicalFile={hideModelMedicalFile} />
-                                        </Modal>
-                                    </tbody>
-                                )}
-                            </Table>
-
-                        </Tab>
-
-
-                        <Tab eventKey="Who should pay" title="Who should pay (users)" className='shouldPay'>
-
-
-                            <Table striped bordered hover size="sm">
-                                <thead>
-                                    <tr>
-                                        <th style={{ width: "1%", textAlign: "center" }}>#</th>
-                                        <th style={{ width: "8%", textAlign: "center" }}>Name client</th>
-                                        <th style={{ width: "10%", textAlign: "center" }}>Email</th>
-                                        <th style={{ width: "5%", textAlign: "center" }}>Date of visit</th>
-                                        <th style={{ width: "4%", textAlign: "center" }}>Need Pay</th>
-                                        <th style={{ width: "1%" }}>Need Pay</th>
-                                    </tr>
-                                </thead>
-
-                                {medical_File_All_users.map(user =>
-
-                                    <tbody key={user._id} className='viewDateUser'>
-                                        <tr>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{ClientHowNeedPay++}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.name}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.email}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Date_published}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.priceSevice} $</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }} >
-                                                {/* <Button size="sm" variant="secondary" onClick={() => window.location = 'https://mail.google.com'}>send email</Button> */}
-                                                <Button style={{ fontSize: "11px", color: "white" }} variant="contained"
-                                                    onClick={() => window.location = 'https://mail.google.com'} startIcon={<MarkunreadIcon />}>
-                                                    Send
-                                                </Button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                )}
-                            </Table>
-                        </Tab>
-                    </Tabs>
-                </div>
-            </div>
-        );
-    }
-
-
-
-    if (storedTheme == "light") {
-
-
-        return (
-            <div>
-
-                <div>
-
-                    <div className="profile">
-                        <div className="profile-headerDoctor">
-                            <div className="profile-header-cover"></div>
-
-                            <div className="profile-header-content">
-
-                                <div className="profile-header-info">
-                                    <h4 className="m-t-10 m-b-5">Hello {code_doctor.name}</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <Tabs id="controlled-tab-example" className="mb-3 tabsChioseDark " >
-
-
-                        <Tab eventKey="Active queues (customers)" title="Active queues (customers)" className='ActiveQueues'>
-
-
-                            <Table striped bordered hover variant="dark" size="sm">
-                                <thead>
-                                    <tr>
-                                        <th style={{ width: "1%", textAlign: "center" }}>#</th>
-                                        <th style={{ width: "8%", textAlign: "center" }}>Name client</th>
-                                        <th style={{ width: "10%", textAlign: "center" }}>Email</th>
-                                        <th style={{ width: "10%", textAlign: "center" }}>Day</th>
-                                        <th style={{ width: "10%", textAlign: "center" }}>Hour</th>
-                                        <th style={{ width: "1%" }}></th>
-                                    </tr>
-                                </thead>
-
-                                {usersActive_queues.map(user =>
-
-                                    <tbody key={user._id} className='viewDateUser'>
-                                        <tr>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{CountClient++}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.FirstName}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Email}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Day_date}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Hour_day}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }} >
-
-                                                <Button style={{ fontSize: "11px", color: "white", background: "green" }} variant="contained"
-                                                    onClick={() => updateDayHour(user._id, user.FirstName, user.Email, user.Serial_codeHour, user.Day_date)}
-                                                    startIcon={<RateReviewIcon />}>
-                                                    FIle
-                                                </Button>
-                                            </td>
-                                        </tr>
-
-                                        <Modal show={show}  >
-                                            <AddMedicalFileUser hideModelMedicalFile={hideModelMedicalFile} />
-                                        </Modal>
-                                    </tbody>
-                                )}
-                            </Table>
-
-                        </Tab>
-
-
-                        <Tab eventKey="Who should pay" title="Who should pay (users)" className='shouldPay'>
-
-
-                            <Table striped bordered hover variant="dark" size="sm">
-                                <thead>
-                                    <tr>
-                                        <th style={{ width: "1%", textAlign: "center" }}>#</th>
-                                        <th style={{ width: "8%", textAlign: "center" }}>Name client</th>
-                                        <th style={{ width: "10%", textAlign: "center" }}>Email</th>
-                                        <th style={{ width: "5%", textAlign: "center" }}>Date of visit</th>
-                                        <th style={{ width: "4%", textAlign: "center" }}>Need Pay</th>
-                                        <th style={{ width: "1%" }}>Need Pay</th>
-                                    </tr>
-                                </thead>
-
-                                {medical_File_All_users.map(user =>
-
-                                    <tbody key={user._id} className='viewDateUser'>
-                                        <tr>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{ClientHowNeedPay++}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.name}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.email}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Date_published}</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }}>{user.priceSevice} $</td>
-                                            <td style={{ textAlign: "center", fontSize: "14px" }} >
-                                                {/* <Button size="sm" variant="secondary" onClick={() => window.location = 'https://mail.google.com'}>send email</Button> */}
-                                                <Button style={{ fontSize: "11px", color: "white" }} variant="contained"
-                                                    onClick={() => window.location = 'https://mail.google.com'} startIcon={<MarkunreadIcon />}>
-                                                    Send
-                                                </Button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                )}
-                            </Table>
-
-                        </Tab>
-
-                    </Tabs>
-
                 </div>
 
-            </div>
-        )
-    }
 
+                <Tabs id="controlled-tab-example" className={(storedTheme === "light") ? "mb-3 tabsChioseDark" : (storedTheme === "dark") ? "mb-3 tabsChiose" : ""} >
+
+                    <Tab eventKey="Active queues (customers)" title="Active queues (customers)" className='ActiveQueues'>
+
+                        <Table striped bordered hover size="sm" variant={(storedTheme === "light") ? "dark" : (storedTheme === "dark") ? "" : ""}>
+                            <thead>
+                                <tr>
+                                    <th style={{ width: "1%", textAlign: "center" }}>#</th>
+                                    <th style={{ width: "8%", textAlign: "center" }}>Name client</th>
+                                    <th style={{ width: "10%", textAlign: "center" }}>Email</th>
+                                    <th style={{ width: "10%", textAlign: "center" }}>Day</th>
+                                    <th style={{ width: "10%", textAlign: "center" }}>Hour</th>
+                                    <td style={{ width: "1%" }}></td>
+                                </tr>
+                            </thead>
+
+                            {usersActive_queues.map(user =>
+
+                                <tbody key={user._id} className='viewDateUser'>
+                                    <tr>
+                                        <td style={{ textAlign: "center", fontSize: "14px" }}>{CountClient++}</td>
+                                        <td style={{ textAlign: "center", fontSize: "14px" }}>{user.FirstName}</td>
+                                        <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Email}</td>
+                                        <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Day_date}</td>
+                                        <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Hour_day}</td>
+                                        <td style={{ textAlign: "center", fontSize: "14px" }} >
+                                            <Button style={{ fontSize: "11px", color: "white", background: "green" }} variant="contained"
+                                                onClick={() => updateDayHour(user._id, user.FirstName, user.Email, user.Serial_codeHour, user.Day_date)}
+                                                startIcon={<RateReviewIcon />}>
+                                                File
+                                            </Button>
+                                        </td>
+                                    </tr>
+
+                                    <Modal show={show}  >
+                                        <AddMedicalFileUser hideModelMedicalFile={hideModelMedicalFile} />
+                                    </Modal>
+                                </tbody>
+                            )}
+                        </Table>
+
+                    </Tab>
+
+
+                    <Tab eventKey="Who should pay" title="Who should pay (users)" className='shouldPay'>
+
+                        <Table striped bordered hover size="sm" variant={(storedTheme === "light") ? "dark" : (storedTheme === "dark") ? "" : ""}>
+                            <thead>
+                                <tr>
+                                    <th style={{ width: "1%", textAlign: "center" }}>#</th>
+                                    <th style={{ width: "8%", textAlign: "center" }}>Name client</th>
+                                    <th style={{ width: "10%", textAlign: "center" }}>Email</th>
+                                    <th style={{ width: "5%", textAlign: "center" }}>Date of visit</th>
+                                    <th style={{ width: "4%", textAlign: "center" }}>Need Pay</th>
+                                    <th style={{ width: "1%" }}>Need Pay</th>
+                                </tr>
+                            </thead>
+
+                            {medical_File_All_users.map(user =>
+
+                                <tbody key={user._id} className='viewDateUser'>
+                                    <tr>
+                                        <td style={{ textAlign: "center", fontSize: "14px" }}>{ClientHowNeedPay++}</td>
+                                        <td style={{ textAlign: "center", fontSize: "14px" }}>{user.name}</td>
+                                        <td style={{ textAlign: "center", fontSize: "14px" }}>{user.email}</td>
+                                        <td style={{ textAlign: "center", fontSize: "14px" }}>{user.Date_published}</td>
+                                        <td style={{ textAlign: "center", fontSize: "14px" }}>{user.priceSevice} $</td>
+                                        <td style={{ textAlign: "center", fontSize: "14px" }} >
+                                            <Button style={{ fontSize: "11px", color: "white" }} variant="contained"
+                                                onClick={() => window.location = 'https://mail.google.com'} startIcon={<MarkunreadIcon />}>
+                                                Send
+                                            </Button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            )}
+                        </Table>
+                    </Tab>
+
+                </Tabs>
+            </div>
+        </div>
+    )
 }
-
 
 
 export default Doctor;
