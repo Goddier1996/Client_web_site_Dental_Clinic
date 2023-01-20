@@ -34,20 +34,20 @@ function About() {
 
 
 
+    {/* show Loading */ }
+    if (LoadingReviews || LoadingUsers || LoadingDoctors || LoadingServiceOurWork) {
+        return (
+            <div className='loadingCountPersonalClinic'>
+                <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!f305cw"></img>
+            </div>
+        )
+    }
+
+
 
     return (
 
         <>
-
-            {/* show Loading */}
-            {(LoadingReviews || LoadingUsers || LoadingDoctors || LoadingServiceOurWork ?
-                <div className='loadingCountPersonalClinic'>
-                    <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!f305cw"></img>
-                </div>
-                : ""
-            )}
-
-            
 
             <div className={(storedTheme === "light") ? "titleAboutDark" : (storedTheme === "dark") ? "titleAbout" : ""}>
                 <h1>About Dental Care Clinic</h1>
