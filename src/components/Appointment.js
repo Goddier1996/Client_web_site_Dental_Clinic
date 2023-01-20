@@ -6,6 +6,7 @@ import Swal from 'sweetalert2'
 import { LoadDays } from '../Api/LoadDataFromApi'
 import { DeleteHour, UpdateDataUserAddTurn } from '../Api/DeleteUpdateDataFromApi'
 import { useQuery } from 'react-query'
+import axios from 'axios';
 
 
 
@@ -45,10 +46,13 @@ function Appointment(props) {
     //here you show Hours from day what we chiose , from data base 
     const LoadHours = async (Serial_code, Day_date) => {
 
-        let res = await fetch(`${API.HOURS.GET}/${Serial_code}`, { method: 'GET' });
-        let data = await res.json();
+        // USE FETCH
+        // let res = await fetch(`${API.HOURS.GET}/${Serial_code}`, { method: 'GET' });
+        // let data = await res.json();
 
-        setHours(data);
+        // USE AXIOS
+        let response = await axios.get(`${API.HOURS.GET}/${Serial_code}`, { timeout: 5000 });
+        setHours(response.data);
 
         let dataDay = { Day: Day_date }
 
