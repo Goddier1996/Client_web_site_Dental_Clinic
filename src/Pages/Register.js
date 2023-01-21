@@ -14,7 +14,7 @@ function Register() {
 
     const history = useHistory()
 
-    // input date Birthday , and show defult date when input your date
+    // input date Birthday , and show default date when input your date
     let d = new Date();
     let DatePublished = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
     const [Birthday, setBirthday] = useState(DatePublished);
@@ -76,7 +76,7 @@ function Register() {
 
 
 
-    //register a new user , save in data base
+    
     const registerUser = async () => {
 
         let user = {

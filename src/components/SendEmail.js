@@ -13,7 +13,6 @@ function SendEmail(props) {
     let storedTheme = localStorage.getItem("theme");
 
 
-    //value input to message
     const [toSend, setToSend] = useState({
         reply_to: '',
         message: '',
@@ -28,7 +27,7 @@ function SendEmail(props) {
 
 
     //send meesage to admin Gmail use EmailJS ,and check value
-    const onSubmit = (e) => {
+    const sendMessage = (e) => {
 
         let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -134,7 +133,7 @@ function SendEmail(props) {
             </Form.Group>
 
             <div className='buttonSendMessage'>
-                <Button onClick={onSubmit}
+                <Button onClick={sendMessage}
                     variant="contained"
                     style={(storedTheme === "light") ? { fontSize: "13px" } :
                         (storedTheme === "dark") ? { background: "green", fontSize: "13px" } : ""}

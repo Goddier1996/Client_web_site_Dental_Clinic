@@ -32,7 +32,7 @@ function Service() {
 
 
 
-    //check if user connect , if yes can add new review
+    
     const CheckUserConnected = () => {
 
         if (userData == null) {
@@ -62,7 +62,7 @@ function Service() {
 
 
 
-    //add review to data base
+    
     const addReviews = async () => {
 
         if (textReviews < 1) {
@@ -125,7 +125,7 @@ function Service() {
 
 
 
-    //add likes to review what user chiose
+    
     const addReviewsLike = async (likeReview, Serial_code) => {
 
         if (userData != null) {

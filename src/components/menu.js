@@ -9,7 +9,6 @@ import Sign_in from '../components/SignI_in'
 
 
 
-//here component menu we use in App Because we need show in all pages
 function Menu() {
 
 
@@ -32,61 +31,37 @@ function Menu() {
 
 
 
-    
     const LogOutUser = () => {
 
-        if (storedTheme === "dark") {
+        Swal.fire({
+            title: 'Are you sure you want to leave?',
+            icon: 'question',
+            toast: true,
+            position: 'top-end',
+            showDenyButton: true,
+            confirmButtonText: 'yes',
+            denyButtonText: `no`,
+            confirmButtonColor: "green",
+            background: `${(storedTheme === "light") ? "#373E44" :
+                (storedTheme === "dark") ? "" : ""}`,
+            color: `${(storedTheme === "light") ? "#ffffffab" :
+                (storedTheme === "dark") ? "" : ""}`,
+            buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                (storedTheme === "dark") ? "" : ""}`
+        }).then((result) => {
 
-            Swal.fire({
-                title: 'Are you sure you want to leave??',
-                icon: 'question',
-                toast: true,
-                position: 'top-end',
-                showDenyButton: true,
-                confirmButtonText: 'yes',
-                denyButtonText: `no`,
-                confirmButtonColor: "green"
-            }).then((result) => {
+            if (result.isConfirmed) {
 
-                if (result.isConfirmed) {
-
-                    sessionStorage.clear('user');
-                    history.push("/");
-                    window.location.reload(false);
-                }
-            })
-        }
-
-
-        if (storedTheme === "light") {
-
-            Swal.fire({
-                title: 'Are you sure you want to leave??',
-                icon: 'question',
-                showDenyButton: true,
-                toast: true,
-                position: 'top-end',
-                confirmButtonText: 'yes',
-                denyButtonText: `no`,
-                background: '#373E44',
-                color: '#ffffffab',
-                buttonColor: '#E96E00',
-                confirmButtonColor: "green"
-            }).then((result) => {
-
-                if (result.isConfirmed) {
-
-                    sessionStorage.clear('user');
-                    history.push("/");
-                    window.location.reload(false);
-                }
-            })
-        }
+                sessionStorage.clear('user');
+                history.push("/");
+                window.location.reload(false);
+            }
+        })
     }
 
 
 
-    // hide a model sign in , send this function to Sign_In component
+    // send this function to Sign_In component
     const hideModelSignIn = () => {
 
         setShowModelSignIn(false);
@@ -95,170 +70,68 @@ function Menu() {
 
 
 
-    if (storedTheme === "light" && userData != null) {
+    return (
+        <>
 
-        return (
-            <div>
-                <div className='menuDark'>
-                    <Navbar collapseOnSelect expand="lg">
-                        <Container>
+            <div className={(storedTheme == "light") ? "menuDark" : (storedTheme == "dark") ? "menu" : ""}>
+                <Navbar collapseOnSelect expand="sm" >
+                    <Container>
 
-                            <Link to='/'><Navbar.Brand ><img src={require("../images/z1z.png")} alt="icon"></img></Navbar.Brand></Link>
+                        <Link to='/'><Navbar.Brand ><img src={require("../images/z1z.png")} alt="icon"></img></Navbar.Brand></Link>
 
-                            <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{ background: "rgba(255, 255, 255, 0.279)" }} />
-                            <Navbar.Collapse id="responsive-navbar-nav">
+                        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
-                                <Nav className="me-auto">
-                                    <Nav.Link style={{ color: "white", fontWeight: "600" }} as={Link} to="/">Home</Nav.Link>
-                                    <Nav.Link style={{ color: "white" }} as={Link} to="/About">About</Nav.Link>
-                                </Nav>
+                        <Navbar.Collapse id="responsive-navbar-nav">
 
-                                <Navbar.Collapse className="justify-content-end link">
+                            <Nav className="me-auto">
+                                <Nav.Link style={(storedTheme == "light") ? { color: "white", fontWeight: "600" } :
+                                    (storedTheme == "dark") ? { color: "#00000094", fontWeight: "600" } : ""}
+                                    as={Link} to="/">Home</Nav.Link>
+                                <Nav.Link style={(storedTheme == "light") ? { color: "white" } :
+                                    (storedTheme == "dark") ? { color: "#00000094" } : ""}
+                                    as={Link} to="/About">About</Nav.Link>
+                            </Nav>
+
+
+                            <Navbar.Collapse className="justify-content-end link">
+                                {userData != null ?
 
                                     <div className='imgPrf'>
-                                        <Button variant="outline-light"
+                                        <Button variant={(storedTheme == "light") ? "outline-light" :
+                                            (storedTheme == "dark") ? "outline-secondary" : ""}
                                             onClick={sendUserToProfile}>
                                             Hello {userData.FirstName} (Profile)
-                                        </Button>{' '}
+                                        </Button>
 
                                         <br />
 
                                         <Button variant="outline-danger"
                                             onClick={LogOutUser}>
                                             Log out
-                                        </Button>{' '}
+                                        </Button>
                                     </div>
 
-                                </Navbar.Collapse>
+                                    :
+
+                                    <>
+                                        <Nav.Link onClick={handleShowModelSignIn}>Login</Nav.Link>
+                                        <Nav.Link as={Link} to='/Register'>Register</Nav.Link>
+                                    </>
+                                }
                             </Navbar.Collapse>
-                        </Container>
-                    </Navbar>
-                </div>
+
+
+                            {/* model popup show Sign in */}
+                            <Modal show={showModelSignIn} onHide={handleCloseModelSignIn} >
+                                <Sign_in hideSignIn={hideModelSignIn} />
+                            </Modal>
+
+                        </Navbar.Collapse>
+                    </Container>
+                </Navbar>
             </div>
-        );
-    }
-
-
-
-    if (storedTheme === "light" && userData == null) {
-
-        return (
-            <div>
-                <div className='menuDark'>
-                    <Navbar collapseOnSelect expand="lg">
-                        <Container>
-
-                            <Link to='/'><Navbar.Brand ><img src={require("../images/z1z.png")} alt="icon"></img></Navbar.Brand></Link>
-
-                            <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{ background: "rgba(255, 255, 255, 0.279)" }} />
-                            <Navbar.Collapse id="responsive-navbar-nav">
-
-                                <Nav className="me-auto">
-                                    <Nav.Link style={{ color: "white", fontWeight: "600" }} as={Link} to="/">Home</Nav.Link>
-                                    <Nav.Link style={{ color: "white" }} as={Link} to="/About">About</Nav.Link>
-                                </Nav>
-
-                                <Navbar.Collapse className="justify-content-end link">
-
-                                    <Nav.Link onClick={handleShowModelSignIn}>Login</Nav.Link>
-                                    <Nav.Link as={Link} to='/Register'>Register</Nav.Link>
-
-                                </Navbar.Collapse>
-
-                                <Modal show={showModelSignIn} onHide={handleCloseModelSignIn} >
-                                    <Sign_in hideSignIn={hideModelSignIn} />
-                                </Modal>
-
-                            </Navbar.Collapse>
-                        </Container>
-                    </Navbar>
-                </div>
-            </div>
-        );
-    }
-
-
-
-    if (storedTheme === "dark" && userData != null) {
-
-        return (
-            <div>
-                <div className='menu'>
-                    <Navbar collapseOnSelect expand="lg">
-                        <Container>
-
-                            <Link to='/'><Navbar.Brand ><img src={require("../images/z1z.png")} alt="icon"></img></Navbar.Brand></Link>
-                            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                            <Navbar.Collapse id="responsive-navbar-nav">
-
-                                <Nav className="me-auto">
-                                    <Nav.Link style={{ color: "#00000094", fontWeight: "600" }} as={Link} to="/">Home</Nav.Link>
-                                    <Nav.Link as={Link} to="/About">About</Nav.Link>
-                                </Nav>
-
-                                <Navbar.Collapse className="justify-content-end link">
-
-                                    <div className='imgPrf'>
-                                        <Button variant="outline-secondary"
-                                            onClick={sendUserToProfile}>
-                                            Hello {userData.FirstName} (Profile)
-                                        </Button>{' '}
-
-                                        <br />
-
-                                        <Button variant="outline-danger"
-                                            onClick={LogOutUser}>
-                                            Log out
-                                        </Button>{'  '}
-                                    </div>
-
-                                </Navbar.Collapse>
-
-                            </Navbar.Collapse>
-                        </Container>
-                    </Navbar>
-                </div>
-            </div>
-        );
-    }
-
-
-
-    if (storedTheme === "dark" && userData == null) {
-
-        return (
-            <div>
-                <div className='menu'>
-                    <Navbar collapseOnSelect expand="sm" >
-                        <Container>
-
-                            <Link to='/'><Navbar.Brand ><img src={require("../images/z1z.png")} alt="icon"></img></Navbar.Brand></Link>
-
-                            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                            <Navbar.Collapse id="responsive-navbar-nav">
-
-                                <Nav className="me-auto">
-                                    <Nav.Link style={{ color: "#00000094", fontWeight: "600" }} as={Link} to="/">Home</Nav.Link>
-                                    <Nav.Link style={{ color: "#00000094" }} as={Link} to="/About">About</Nav.Link>
-                                </Nav>
-
-                                <Navbar.Collapse className="justify-content-end link">
-                                    <Nav.Link onClick={handleShowModelSignIn}>Login</Nav.Link>
-                                    <Nav.Link as={Link} to='/Register'>Register</Nav.Link>
-                                </Navbar.Collapse>
-
-                                <Modal show={showModelSignIn} onHide={handleCloseModelSignIn} >
-                                    <Sign_in hideSignIn={hideModelSignIn} />
-                                </Modal>
-
-                            </Navbar.Collapse>
-                        </Container>
-                    </Navbar>
-                </div>
-            </div>
-        );
-    }
-
+        </>
+    );
 }
 
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { API } from '../Api/API';
 import { Modal, Form } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import '../css/forgetPassword.css'
 import { ForgetPasswordUpdate } from '../Api/DeleteUpdateDataFromApi'
@@ -15,7 +14,6 @@ import SaveIcon from '@mui/icons-material/Save';
 //here component forget Paswword use in sign In component
 function ForgetPaswword() {
 
-    const history = useHistory()
 
     const [showNewNewPassword, setShowNewPassword] = useState(false);
     const handleShowNewPassword = () => setShowNewPassword(true);
@@ -26,7 +24,6 @@ function ForgetPaswword() {
     const [Confirm_password, setConfirm_password] = useState('');
 
 
-    //create a this sessioStorgae in ForgetUser
     let userForget = JSON.parse(sessionStorage.getItem("userForgetPassword"));
 
     let storedTheme = localStorage.getItem("theme");
@@ -34,7 +31,7 @@ function ForgetPaswword() {
 
 
     //here we search if we have this email in data bse , if have we send the data use from data base to sessionStorage
-    const ForgetUser = async () => {
+    const searchEmailFromDataBase = async () => {
 
         if (Email < 1) {
             Swal.fire({
@@ -160,7 +157,7 @@ function ForgetPaswword() {
 
         await ForgetPasswordUpdate(userForget._id, user);
 
-        Swal.fire({
+        await Swal.fire({
             icon: 'success',
             position: 'top-end',
             showConfirmButton: false,
@@ -226,7 +223,7 @@ function ForgetPaswword() {
 
                     <div className='startChangePassword'>
                         <Button style={{ fontSize: "13px", color: "white" }} variant="contained"
-                            onClick={ForgetUser} startIcon={<DoneIcon />}>
+                            onClick={searchEmailFromDataBase} startIcon={<DoneIcon />}>
                             Ok
                         </Button>
 

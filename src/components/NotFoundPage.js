@@ -3,9 +3,7 @@ import { Button } from 'react-bootstrap'
 import '../css/NotFoundPage.css'
 
 
-// here create page Not Found active this component in App.js
 export default function NotFoundPage() {
-
 
     return (
 

@@ -9,7 +9,7 @@ import SendEmail from '../components/SendEmail'
 
 
 
-//here we show loction the clinic , we use data from json file and show all data in this page
+//here we show Location the clinic , send message + show data from json file
 
 function Location() {
 
@@ -29,7 +29,6 @@ function Location() {
     const closePopUpModelSendMessage = () => {
         setShowSendMessage(false);
     }
-
 
 
 

@@ -22,7 +22,6 @@ function User({ data_user }) {
 
     // popup pay service
     const [showPayService, setShowPayService] = useState(false);
-    const handleClosePayService = () => setShowPayService(false);
     const handleShowPayService = () => setShowPayService(true);
 
     let history = useHistory();
@@ -97,8 +96,7 @@ function User({ data_user }) {
 
 
 
-    //active the hour in profile page if user dont need this turn , now status was delete after this function was active
-    const ActiveHour = () => {
+    const ActiveHourIfUserDontNeedTurn = () => {
 
         Swal.fire({
             title: 'Are you sure you want to cancel the queue?',
@@ -120,7 +118,7 @@ function User({ data_user }) {
             if (result.isConfirmed) {
 
                 ActiveHourInDataBase(data_user.codeHour);
-                saveDateUser();
+                saveDateUserAfterActiveHour();
             }
 
             else if (result.isDenied) {
@@ -131,8 +129,8 @@ function User({ data_user }) {
 
 
 
-    //update user date after active hour to NULL day hour and serial code hour
-    const saveDateUser = async () => {
+    //update to NULL day + hour + serial code hour
+    const saveDateUserAfterActiveHour = async () => {
 
         await UpdateDataUserRemoveTurn(data_user.code);
 
@@ -144,10 +142,9 @@ function User({ data_user }) {
 
 
 
-    // delete review this user from data base , user function from DeleteDataFromApi component
-    const DeleteItemsFromDataApi = async (Id) => {
+    const DeleteReviewUser = async (Id) => {
 
-        Swal.fire({
+        await Swal.fire({
             title: 'you delete this Review',
             icon: 'success',
             showConfirmButton: false,
@@ -163,6 +160,7 @@ function User({ data_user }) {
         })
 
         await DeleteReview(Id);
+        window.location.reload(false);
     }
 
 
@@ -277,7 +275,7 @@ function User({ data_user }) {
 
                                         <Modal.Footer className='ButtonQueues'>
                                             <Button style={{ fontSize: "12px", color: "white", background: "green" }} variant="contained"
-                                                onClick={() => ActiveHour()} startIcon={<CloseIcon />}>
+                                                onClick={() => ActiveHourIfUserDontNeedTurn()} startIcon={<CloseIcon />}>
                                                 Delete Queues
                                             </Button>
                                         </Modal.Footer>
@@ -392,7 +390,7 @@ function User({ data_user }) {
                                         <td style={{ textAlign: "center", fontSize: "14px" }}>{Review.textReviews}</td>
                                         <td style={{ textAlign: "center", fontSize: "14px" }}>
 
-                                            <Button style={{ fontSize: "11px", background: "red", color: "white" }} variant="contained" onClick={() => DeleteItemsFromDataApi(Review._id)}
+                                            <Button style={{ fontSize: "11px", background: "red", color: "white" }} variant="contained" onClick={() => DeleteReviewUser(Review._id)}
                                                 startIcon={<DeleteIcon />}>
                                                 Delete
                                             </Button>

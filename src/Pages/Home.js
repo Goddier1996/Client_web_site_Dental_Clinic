@@ -16,84 +16,43 @@ function Home() {
     let storedTheme = localStorage.getItem("theme");
 
     // show popup add , Appointment
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const [showModelAppointment, setShowModelAppointment] = useState(false);
+    const handleCloseModelAppointment = () => setShowModelAppointment(false);
+    const handleShowModelAppointment = () => setShowModelAppointment(true);
 
     let userData = JSON.parse(sessionStorage.getItem("user"));
 
 
 
-    //here we check if user connect to side , if yes he can click to button book an appointment , else show pop he need login or reg
+    
     const CheckUserConnected = () => {
 
-
-        if (userData == null) {
-
-            Swal.fire({
-                icon: 'warning',
-                title: 'Login / Register',
-                html: 'You need to log in or register, and you should book an appointment',
-                toast: true,
-                position: 'top-end',
-                confirmButtonColor: "green",
-                background: `${(storedTheme === "light") ? "#373E44" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                color: `${(storedTheme === "light") ? "#ffffffab" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
-                    (storedTheme === "dark") ? "" : ""}`
-            })
-            return;
-        }
-
-
-
-        if (userData.Day_date != null) {
-
-            Swal.fire({
-                title: 'You have an appointment, cancel it and book a new appointment',
-                icon: 'warning',
-                toast: true,
-                position: 'top-end',
-                confirmButtonColor: "green",
-                background: `${(storedTheme === "light") ? "#373E44" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                color: `${(storedTheme === "light") ? "#ffffffab" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
-                    (storedTheme === "dark") ? "" : ""}`
-            })
-            return;
-        }
-
-
-
-        if (userData.UserType_code == 2) {
-
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'you are doctor (You can not book an appointment) !',
-                toast: true,
-                position: 'top-end',
-                confirmButtonColor: "green",
-                background: `${(storedTheme === "light") ? "#373E44" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                color: `${(storedTheme === "light") ? "#ffffffab" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
-                    (storedTheme === "dark") ? "" : ""}`
-            })
-            return;
-        }
-
-
-
-        if (userData != null && userData.Day_date == null) {
+        if (userData != null && userData.Day_date == null && userData.UserType_code == 1) {
             // show popup,Appointment
-            handleShow();
+            handleShowModelAppointment();
         }
+
+        else {
+
+            Swal.fire({
+                icon: 'warning',
+                html: `${(userData == null) ? 'You need to LogIn / Register, and you should book an appointment' :
+                    (userData.Day_date != null) ? 'You have an Appointment, Cancel it and book a new Appointment' :
+                        (userData.UserType_code == 2) ? 'you are Doctor (You can not book an appointment) !' :
+                            (userData.UserType_code == 3) ? 'you are Admin (You can not book an appointment) !' : ""}`,
+                toast: true,
+                position: 'top-end',
+                confirmButtonColor: "green",
+                background: `${(storedTheme === "light") ? "#373E44" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                color: `${(storedTheme === "light") ? "#ffffffab" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                    (storedTheme === "dark") ? "" : ""}`
+            })
+            return;
+        }
+
     }
 
 
@@ -134,7 +93,7 @@ function Home() {
 
                 {/* show model popup Appointment */}
                 <div className='bookClick'>
-                    <Modal show={show} >
+                    <Modal show={showModelAppointment} >
 
                         <div className={(storedTheme === "light") ? "showModelAddAppointmentUserDark" : (storedTheme === "dark") ? "showModelAddAppointmentUser" : ""}>
 
@@ -157,7 +116,7 @@ function Home() {
                             </div>
 
                             <Form>
-                                <Appointment handleClose={handleClose} />
+                                <Appointment handleClose={handleCloseModelAppointment} />
                             </Form>
 
                         </div>

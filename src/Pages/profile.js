@@ -5,15 +5,14 @@ import User from '../components/User'
 
 
 
-// profile page , open profile page as per UserType_code from daya base , user-admin-doctor
+// profile page , open profile page as per UserType_code from data base , user-admin-doctor
 function Profile() {
 
 
     let userData = JSON.parse(sessionStorage.getItem("user"));
 
 
-    //save in opject all data user from session storage "user" , and save code user from "userCode"
-    //this opject for user compoment
+    //save in object all data user from session storage "user"
     const obj = {
         code: userData._id,
         name: userData.FirstName,
@@ -30,7 +29,6 @@ function Profile() {
 
 
     //user page
-
     if (userData.UserType_code == 1) {
 
         return (
@@ -40,7 +38,6 @@ function Profile() {
 
 
     //doctor page
-
     if (userData.UserType_code == 2) {
 
         return (
@@ -50,14 +47,12 @@ function Profile() {
 
 
     //admin page
-
     if (userData.UserType_code == 3) {
 
         return (
             <Admin />
         )
     }
-
 
 }
 

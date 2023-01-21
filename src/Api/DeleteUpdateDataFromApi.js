@@ -1,125 +1,202 @@
 import { API } from './API';
+import axios from 'axios';
 
 
 
 export async function DeleteUser(Id) {
 
-    await fetch(`${API.USERS.GET}/NotActive/${Id}`,
-        { method: 'PATCH' }
-    );
-    window.location.reload(false);
+    // USE FETCH
+    // await fetch(`${API.USERS.GET}/NotActive/${Id}`,
+    //     { method: 'PATCH' }
+    // );
+
+
+    // USE AXIOS
+    await axios.patch(`${API.USERS.GET}/NotActive/${Id}`);
 }
 
 
 
 export async function DeleteReview(Id) {
 
-    await fetch(`${API.REVIEWS.GET}/delete/${Id}`,
-        { method: 'DELETE' }
-    );
-    window.location.reload(false);
+    // USE FETCH
+    // await fetch(`${API.REVIEWS.GET}/delete/${Id}`,
+    //     { method: 'DELETE' }
+    // );
+
+
+    // USE AXIOS
+    await axios.delete(`${API.REVIEWS.GET}/delete/${Id}`);
 }
 
 
 
 export async function DeleteHour(Id) {
 
-    await fetch(`${API.HOURS.GET}/NotActive/${Id}`, { method: 'PATCH' });
+    // USE FETCH
+    // await fetch(`${API.HOURS.GET}/NotActive/${Id}`,
+    //     { method: 'PATCH' }
+    // );
+
+
+    // USE AXIOS
+    await axios.patch(`${API.HOURS.GET}/NotActive/${Id}`);
 }
 
 
 
 export async function UpdateDataUserRemoveTurn(codeUser) {
 
-    try {
+    // USE FETCH
+    // try {
 
-        let user = {
-            Day_date: null,
-            Hour_day: null,
-            Serial_codeHour: null
-        }
+    // let user = {
+    //     Day_date: null,
+    //     Hour_day: null,
+    //     Serial_codeHour: null
+    // }
 
-        await fetch(`${API.USERS.GET}/${codeUser}`, {
-            method: 'PATCH',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(user)
-        });
+    //     await fetch(`${API.USERS.GET}/${codeUser}`, {
+    //         method: 'PATCH',
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(user)
+    //     });
 
-    } catch (error) {
-        console.log(error)
+    // } catch (error) {
+    //     console.log(error)
+    // }
+
+
+    // USE AXIOS
+    let user = {
+        Day_date: null,
+        Hour_day: null,
+        Serial_codeHour: null
     }
+
+    const headers = {
+        'Content-Type': 'application/json'
+    }
+
+    await axios.patch(`${API.USERS.GET}/${codeUser}`, user, { headers: headers });
 }
 
 
 
 export async function UpdateDataUserAddTurn(id, userData, dayLocal, hourLocal, serial_code) {
 
-    try {
+    // USE FETCH
+    // try {
 
-        let user = {
-            FirstName: userData.FirstName,
-            User_Login: userData.User_Login,
-            Birthday: userData.Birthday,
-            Email: userData.Email,
-            User_password: userData.User_password,
-            UserType_code: "1",
-            Confirm_password: userData.Confirm_password,
-            Day_date: dayLocal,
-            Hour_day: hourLocal,
-            Serial_codeHour: serial_code
-        }
+    // let user = {
+    //     FirstName: userData.FirstName,
+    //     User_Login: userData.User_Login,
+    //     Birthday: userData.Birthday,
+    //     Email: userData.Email,
+    //     User_password: userData.User_password,
+    //     UserType_code: "1",
+    //     Confirm_password: userData.Confirm_password,
+    //     Day_date: dayLocal,
+    //     Hour_day: hourLocal,
+    //     Serial_codeHour: serial_code
+    // }
 
-        await fetch(`${API.USERS.GET}/${id}`, {
-            method: 'PATCH',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(user)
-        });
+    //     await fetch(`${API.USERS.GET}/${id}`, {
+    //         method: 'PATCH',
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(user)
+    //     });
 
-    } catch (error) {
-        console.log(error)
+    // } catch (error) {
+    //     console.log(error)
+    // }
+
+
+    // USE AXIOS
+    let user = {
+        FirstName: userData.FirstName,
+        User_Login: userData.User_Login,
+        Birthday: userData.Birthday,
+        Email: userData.Email,
+        User_password: userData.User_password,
+        UserType_code: "1",
+        Confirm_password: userData.Confirm_password,
+        Day_date: dayLocal,
+        Hour_day: hourLocal,
+        Serial_codeHour: serial_code
     }
+
+    const headers = {
+        'Content-Type': 'application/json'
+    }
+
+    await axios.patch(`${API.USERS.GET}/${id}`, user, { headers: headers });
 }
 
 
 
 export async function ActiveHourInDataBase(codeHour) {
 
-    await fetch(`${API.HOURS.GET}/active/${codeHour}`, { method: 'PATCH' });
+    // USE FETCH
+    // await fetch(`${API.HOURS.GET}/active/${codeHour}`, { method: 'PATCH' });
+
+
+    // USE AXIOS
+    await axios.patch(`${API.HOURS.GET}/active/${codeHour}`);
 }
 
 
 
 export async function ActiveUserInDataBase(Id) {
 
-    await fetch(`${API.USERS.GET}/active/${Id}`, { method: 'PATCH' });
+    // USE FETCH
+    // await fetch(`${API.USERS.GET}/active/${Id}`, { method: 'PATCH' });
+
+
+    // USE AXIOS
+    await axios.patch(`${API.USERS.GET}/active/${Id}`);
 }
 
 
 
 export async function DeletePayFile(Id) {
 
-    await fetch(`${API.MEDICAL_FILE.GET}/delete/${Id}`, { method: 'PATCH' });
+    // USE FETCH
+    // await fetch(`${API.MEDICAL_FILE.GET}/delete/${Id}`, { method: 'PATCH' });
+
+
+    // USE AXIOS
+    await axios.patch(`${API.MEDICAL_FILE.GET}/delete/${Id}`);
 }
 
 
 
 export async function ForgetPasswordUpdate(Id, user) {
 
-    try {
+    // USE FETCH
+    // try {
 
-        await fetch(`${API.USERS.GET}/${Id}`, {
-            method: 'PATCH',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(user)
-        });
+    //     await fetch(`${API.USERS.GET}/${Id}`, {
+    //         method: 'PATCH',
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(user)
+    //     });
 
-    } catch (error) {
-        console.log(error)
+    // } catch (error) {
+    //     console.log(error)
+    // }
+
+
+    // USE AXIOS
+    const headers = {
+        'Content-Type': 'application/json'
     }
+
+    await axios.patch(`${API.USERS.GET}/${Id}`, { headers: headers });
 }

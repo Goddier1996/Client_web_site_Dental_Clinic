@@ -87,7 +87,7 @@ function Admin() {
 
 
 
-    // load data from LoadDataFromApi component
+    //  take all func from LoadDataFromApi component
     const LoadDetailsFromApi = async () => {
 
         SetUsers(await LoadAllUsers())
@@ -98,17 +98,19 @@ function Admin() {
 
 
 
-    // delete items from DeleteDataFromApi component
+    // take all func from DeleteDataFromApi component
     const DeleteItemsFromDataApi = async (Id, item) => {
 
         if (item == "review") {
 
-            await DeleteReview(Id)
+            await DeleteReview(Id);
+            window.location.reload(false);
         }
 
         if (item == "user") {
 
             await DeleteUser(Id);
+            window.location.reload(false);
         }
     }
 
@@ -123,7 +125,6 @@ function Admin() {
 
 
 
-    //add a new doctor to data base
     const AddDoctor = async () => {
 
         let user = {

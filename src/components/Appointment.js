@@ -10,14 +10,14 @@ import axios from 'axios';
 
 
 
-//here component we show data from data base (if you click to buttom in Home Page Book an appointment)
+//here component we show days+hours (if you click to button in Home Page Book an appointment)
 function Appointment(props) {
 
 
     const [Hours, setHours] = useState([])
 
 
-    //show a pop up day and hour
+    //show a pop up hour
     const [showResults, setShowResults] = React.useState(false)
     const onClick = () => setShowResults(true)
 
@@ -31,8 +31,6 @@ function Appointment(props) {
     // all data what we save in local storage and seesion storge
     let storedTheme = localStorage.getItem("theme");
     let userData = JSON.parse(sessionStorage.getItem("user"));
-    let userDataCode = JSON.parse(sessionStorage.getItem("userCode"));
-
 
 
     // load data Appointment days,hours from LoadDataFromApi component
@@ -49,6 +47,7 @@ function Appointment(props) {
         // USE FETCH
         // let res = await fetch(`${API.HOURS.GET}/${Serial_code}`, { method: 'GET' });
         // let data = await res.json();
+
 
         // USE AXIOS
         let response = await axios.get(`${API.HOURS.GET}/${Serial_code}`, { timeout: 5000 });
@@ -182,7 +181,7 @@ function Appointment(props) {
         let hourLocal = JSON.parse(sessionStorage.getItem("Hour"));
 
 
-        await UpdateDataUserAddTurn(userDataCode.User_code, userData, dayLocal.Day, hourLocal.Hour_day, hourLocal.Serial_code);
+        await UpdateDataUserAddTurn(userData._id, userData, dayLocal.Day, hourLocal.Hour_day, hourLocal.Serial_code);
         await DeleteHour(hourLocal.Serial_code);
 
         await Swal.fire({
@@ -215,6 +214,7 @@ function Appointment(props) {
     }
 
 
+    
     return (
 
         < div >

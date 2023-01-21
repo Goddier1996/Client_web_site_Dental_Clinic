@@ -27,78 +27,30 @@ function Sign_in(props) {
 
 
 
-    // show pop up alert swal when we connect to login = use in loginUser
-    const openSwalWhenLogin = async (nameUser, UserType_code) => {
+    const openSwalWhenLoginShowTypeUser = async (nameUser, UserType_code) => {
 
-        //user
-        if (UserType_code == 1) {
-
-            await Swal.fire({
-                title: `Hello ${nameUser}`,
-                icon: 'success',
-                html: 'You can now use a variety of actions on our site.',
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 1500,
-                background: `${(storedTheme === "light") ? "#373E44" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                color: `${(storedTheme === "light") ? "#ffffffab" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
-                    (storedTheme === "dark") ? "" : ""}`
-            })
-            window.location.reload(false);
-        }
-
-
-        //doctor 
-        if (UserType_code == 2) {
-
-            await Swal.fire({
-                title: `Hello ${nameUser}`,
-                icon: 'success',
-                html: 'Let`s work :)',
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 1500,
-                background: `${(storedTheme === "light") ? "#373E44" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                color: `${(storedTheme === "light") ? "#ffffffab" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
-                    (storedTheme === "dark") ? "" : ""}`
-            })
-            window.location.reload(false);
-        }
-
-
-        //Admin
-        if (UserType_code == 3) {
-
-            await Swal.fire({
-                title: `Hello ${nameUser}`,
-                icon: 'success',
-                html: 'Let`s Control This Web Side',
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 1500,
-                background: `${(storedTheme === "light") ? "#373E44" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                color: `${(storedTheme === "light") ? "#ffffffab" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
-                    (storedTheme === "dark") ? "" : ""}`
-            })
-            window.location.reload(false);
-        }
+        await Swal.fire({
+            title: `Hello ${nameUser}`,
+            icon: 'success',
+            html: `${(UserType_code == 1) ? 'You can now use a variety of actions on our site.' :
+                (UserType_code == 2) ? 'Let`s work :)' :
+                    (UserType_code == 3) ? 'Let`s Control This Web Side' : ""}`,
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1500,
+            background: `${(storedTheme === "light") ? "#373E44" :
+                (storedTheme === "dark") ? "" : ""}`,
+            color: `${(storedTheme === "light") ? "#ffffffab" :
+                (storedTheme === "dark") ? "" : ""}`,
+            buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                (storedTheme === "dark") ? "" : ""}`
+        })
+        window.location.reload(false);
     }
 
 
 
-    // check if input value when sign in user , if not input show alert message
     const CheckValue = () => {
 
         if (Login == '' || Password == '') {
@@ -125,7 +77,6 @@ function Sign_in(props) {
 
 
 
-    // login check if have data base , if have we save in sessionStorage
     const loginUser = async () => {
 
         let user =
@@ -140,17 +91,29 @@ function Sign_in(props) {
 
         if (userData != null) {
 
-            openSwalWhenLogin(userData.FirstName, userData.UserType_code);
+            openSwalWhenLoginShowTypeUser(userData.FirstName, userData.UserType_code);
         }
 
         else {
-            return;
+            Swal.fire({
+                icon: 'warning',
+                text: 'Sorry dont have This user in Data Base , Try Again',
+                toast: true,
+                position: 'top-end',
+                confirmButtonColor: "green",
+                background: `${(storedTheme === "light") ? "#373E44" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                color: `${(storedTheme === "light") ? "#ffffffab" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                    (storedTheme === "dark") ? "" : ""}`
+            })
+            sessionStorage.clear();
         }
     }
 
 
 
-    //show pup up if we chiose forget password
     const showPopForgetPaswword = () => {
 
         handleShowForgetPassword();
@@ -158,30 +121,27 @@ function Sign_in(props) {
 
 
 
-    //here we connect demo user , for other users how went see can use demo user , instead of Register Or Login
     const connectDemoUser = async () => {
 
         await connectDemoUserShow();
 
         let userData = JSON.parse(sessionStorage.getItem("user"));
-        openSwalWhenLogin(userData.FirstName, userData.UserType_code);
+        openSwalWhenLoginShowTypeUser(userData.FirstName, userData.UserType_code);
     }
 
 
 
-    //connect demo doctor
     const connectDemoDoctor = async () => {
 
         await connectDemoDoctorShow();
 
         let userData = JSON.parse(sessionStorage.getItem("user"));
-        openSwalWhenLogin(userData.FirstName, userData.UserType_code);
+        openSwalWhenLoginShowTypeUser(userData.FirstName, userData.UserType_code);
     }
 
 
 
-    // show video info about Admin what he can to do in this website
-    const AdminInfo = () => {
+    const AdminInfoVideo = () => {
 
         Swal.fire({
             html: `<div class="styleVideoAdmin"><video controls autoplay loop muted playsinline src=${videoBg}></video></div>`,
@@ -268,7 +228,7 @@ function Sign_in(props) {
 
 
                             <div className={(storedTheme == "light") ? "infoVideoAAdminDark" : (storedTheme == "dark") ? "infoVideoAAdmin" : ""}>
-                                <a onClick={AdminInfo}>Click See What Admin can to do !</a>
+                                <a onClick={AdminInfoVideo}>Click See What Admin can to do !</a>
                             </div>
 
 

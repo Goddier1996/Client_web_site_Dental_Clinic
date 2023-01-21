@@ -23,7 +23,6 @@ function PayService(props) {
 
 
 
-    //click button pay price and check if all input was good,if yes send to function DeletePayFile from DeleteUpdateDataFromAp component
     const Pay = async () => {
 
         if (CardNumber != '' && CardNumber.length === 16 &&

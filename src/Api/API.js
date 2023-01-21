@@ -1,8 +1,6 @@
 import { Config } from "./config";
 
 
-//here we take all function from Node Js use config import
-
 export const API = {
 
     USERS: {

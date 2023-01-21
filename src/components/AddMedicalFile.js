@@ -23,18 +23,17 @@ function AddMedicalFileUser(props) {
 
 
 
-    // check if File_user was url link image
-    const checkIfUrlLinkFile = urlString => {
+    const checkIfUrlLinkImageFile = urlString => {
         var urlPattern = new RegExp('(jpg|jpeg|png|webp|avif|gif|svg)')
         return !!urlPattern.test(urlString);
     }
 
 
 
-    // check all input value
+    
     const checkInput = () => {
 
-        let check = checkIfUrlLinkFile(File_user)
+        let check = checkIfUrlLinkImageFile(File_user)
 
         if (textDoctor == '' || priceSevice == '' || isNaN(priceSevice) || check == false) {
 
@@ -61,7 +60,7 @@ function AddMedicalFileUser(props) {
 
 
 
-    // add mew medical file to user Id , save in data base
+
     const addMedicalFileUser = async () => {
 
         let d = new Date();
@@ -83,6 +82,7 @@ function AddMedicalFileUser(props) {
 
         await UpdateDataUserRemoveTurn(date.User_code);
 
+        
         Swal.fire({
             title: 'success',
             icon: 'success',

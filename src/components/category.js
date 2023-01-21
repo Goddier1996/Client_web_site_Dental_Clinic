@@ -5,7 +5,6 @@ import date1 from '../Json_date/date.json'
 
 
 //here component we take category from json file and show in Home Page
-
 function Category() {
 
     return (
