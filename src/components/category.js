@@ -8,7 +8,8 @@ import date1 from '../Json_date/date.json'
 function Category() {
 
     return (
-        <div>
+
+        <>
             <div className='categoryLook'>
 
                 <Row xs={1} md={3} className="g-4" style={{ width: "93%" }}>
@@ -29,7 +30,7 @@ function Category() {
                     )}
                 </Row>
             </div>
-        </div>
+        </>
     );
 }
 

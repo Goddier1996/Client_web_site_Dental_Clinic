@@ -269,25 +269,20 @@ function ForgetPaswword() {
 
                     <div className='startChangePassword'>
 
-                        {/* <Button variant="primary" onClick={checkValueInput}>
-                            Save Changes
-                        </Button> */}
                         <Button style={{ fontSize: "13px", color: "white" }} variant="contained"
                             onClick={checkValueInput} startIcon={<SaveIcon />}>
                             Save Changes
                         </Button>
-                        {/* <Button variant="secondary" onClick={closeForgetPassword}>
-                            Close
-                        </Button> */}
+
                         <Button style={{ fontSize: "13px", color: "white", background: "gray" }} variant="contained"
                             onClick={closeForgetPassword} startIcon={<CloseIcon />}>
                             Close
                         </Button>
+
                     </div>
                 </Modal>
             </div>
         </>
-
 
     )
 }

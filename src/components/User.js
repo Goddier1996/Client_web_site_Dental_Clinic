@@ -232,7 +232,7 @@ function User({ data_user }) {
 
     return (
 
-        <div>
+        <>
 
             <div className={(storedTheme === "light") ? "" : (storedTheme === "dark") ? "bg-white" : ""}>
 
@@ -525,7 +525,7 @@ function User({ data_user }) {
                 </Tabs>
 
             </div>
-        </div >
+        </>
 
     )
 }

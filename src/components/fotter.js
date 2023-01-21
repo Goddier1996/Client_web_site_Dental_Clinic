@@ -12,7 +12,7 @@ function Fotter() {
 
     return (
 
-        <div>
+        <>
             <div className='Fotr'>
 
                 <MDBFooter className={(storedTheme === "light") ? "text-center text-white fotrIconFirst" : (storedTheme === "dark") ? "text-center text-white fotrIcon" : ""}>
@@ -55,7 +55,7 @@ function Fotter() {
 
                 </MDBFooter>
             </div>
-        </div>
+        </>
     )
 
 }

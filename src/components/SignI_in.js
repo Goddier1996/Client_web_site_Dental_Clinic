@@ -157,7 +157,7 @@ function Sign_in(props) {
 
     return (
 
-        <div >
+        <>
 
             <div className="modelLogin">
 
@@ -250,7 +250,7 @@ function Sign_in(props) {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
 
     )
 

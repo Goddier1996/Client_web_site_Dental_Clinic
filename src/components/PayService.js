@@ -72,7 +72,7 @@ function PayService(props) {
 
     return (
 
-        <div>
+        <>
 
             <div className="container mt-4 d-flex justify-content-center main">
 
@@ -159,7 +159,7 @@ function PayService(props) {
 
                 </div>
             </div>
-        </div>
+        </>
     )
 
 }

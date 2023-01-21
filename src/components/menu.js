@@ -79,7 +79,8 @@ function Menu() {
 
                         <Link to='/'><Navbar.Brand ><img src={require("../images/z1z.png")} alt="icon"></img></Navbar.Brand></Link>
 
-                        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                        <Navbar.Toggle aria-controls="responsive-navbar-nav" style={(storedTheme == "light") ? { border: "1px solid gray", background: "#424242" } :
+                            (storedTheme == "dark") ? {} : ""} />
 
                         <Navbar.Collapse id="responsive-navbar-nav">
 

@@ -165,7 +165,7 @@ function Admin() {
 
     return (
 
-        <div>
+        <>
 
             <Tabs id="controlled-tab-example" className="mb-3 tabsChiose " >
 
@@ -378,7 +378,7 @@ function Admin() {
 
             </Tabs>
 
-        </div>
+        </>
     )
 
 }

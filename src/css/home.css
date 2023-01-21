@@ -54,18 +54,19 @@ html::-webkit-scrollbar-thumb {
     margin-top: 1%;
     margin-bottom: 1%;
     width: 100%;
-    font-family: 'Raleway', sans-serif;
     font-size: 17px;
     border: none;
+    font-weight: 500;
+    border-top-left-radius: 25%;
+    border-bottom-right-radius: 25%;
 }
 
 .choise img {
-    margin-top: 2%;
     margin-bottom: 2%;
     padding: 4%;
     position: relative;
     width: 100%;
-    height: 220px;
+    height: 200px;
     border-radius: 3%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -82,15 +83,15 @@ html::-webkit-scrollbar-thumb {
 
 .title {
     position: absolute;
-    top: 78%;
+    top: 75%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.301);
+    background: rgba(0, 0, 0, 0.280);
     width: 92%;
 }
 
 .title h1 {
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 500;
     color: #ffffff;
     text-align: center;
@@ -124,10 +125,6 @@ html::-webkit-scrollbar-thumb {
 }
 
 
-/* .titleHeater {
-    margin-top: -5%;
-} */
-
 .titleHeater img {
     height: 90px;
     margin-top: -13%;
@@ -144,7 +141,7 @@ html::-webkit-scrollbar-thumb {
 
     .title {
         position: absolute;
-        top: 82%;
+        top: 79%;
     }
 
     .title h1 {

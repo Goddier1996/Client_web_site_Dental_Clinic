@@ -107,7 +107,7 @@ function Doctor({ code_doctor }) {
 
     return (
 
-        <div>
+        <>
 
             <div className={(storedTheme === "light") ? "" : (storedTheme === "dark") ? "bg-white" : ""}>
 
@@ -205,7 +205,8 @@ function Doctor({ code_doctor }) {
 
                 </Tabs>
             </div>
-        </div>
+
+        </>
     )
 }
 

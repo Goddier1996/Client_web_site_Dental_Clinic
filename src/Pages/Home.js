@@ -24,7 +24,7 @@ function Home() {
 
 
 
-    
+
     const CheckUserConnected = () => {
 
         if (userData != null && userData.Day_date == null && userData.UserType_code == 1) {
@@ -84,9 +84,11 @@ function Home() {
                     <Button
                         variant={(storedTheme === "light") ? "warning" :
                             (storedTheme === "dark") ? "success" : ""}
+                        style={(storedTheme === "light") ? { color: "rgba(0, 0, 0, 0.58)" } :
+                            (storedTheme === "dark") ? { color: "#ffffff" } : ""}
                         size="sm"
                         onClick={CheckUserConnected}>
-                        Click me - Book an appointment
+                        Click me - Book an Appointment <img style={{ height: "30px" }} src='https://i.postimg.cc/MGZ8B27m/pngwing-com-2.png' />
                     </Button>
                 </div>
 

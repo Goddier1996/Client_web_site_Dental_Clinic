@@ -217,7 +217,7 @@ function Appointment(props) {
     
     return (
 
-        < div >
+        <>
 
             <div className={(storedTheme === "light") ? "showDayDark" : (storedTheme === "dark") ? "showDay" : ""}>
                 <Row xs={2} md={5} lg={4} className="g-4">
@@ -238,7 +238,7 @@ function Appointment(props) {
                 </Modal.Body>
 
             </div>
-        </div >
+        </>
     )
 
 }
