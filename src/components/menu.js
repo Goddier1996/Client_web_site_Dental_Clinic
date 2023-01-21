@@ -7,10 +7,10 @@ import { useHistory, Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import Sign_in from '../components/SignI_in'
 
-import DarkMode from './DarkMode'
 
 function Menu() {
 
+    // defult localStorage theme
     localStorage.setItem("theme", "dark");
 
     let storedTheme = localStorage.getItem("theme");
