@@ -2,16 +2,11 @@ import "../css/DarkMode.css";
 import React from 'react'
 
 
-//here component dark mode we can show in all pages in side - we use this component in Menu component
 
 function DarkMode() {
 
-
-  // 1
   const setDark = () => {
-    // 2
     localStorage.setItem("theme", "dark");
-    // 3
     document.documentElement.setAttribute("data-theme", "dark");
   };
 
@@ -23,8 +18,6 @@ function DarkMode() {
   };
 
 
-
-  // 4
   const storedTheme = localStorage.getItem("theme");
 
 
@@ -44,10 +37,9 @@ function DarkMode() {
 
 
 
-  // 5
   const toggleTheme = (e) => {
 
-    window.location.reload(false); // רענון דף
+    window.location.reload(false);
 
     if (e.target.checked) {
       setDark();
@@ -57,7 +49,7 @@ function DarkMode() {
   };
 
 
-  
+
 
   return (
 
@@ -67,7 +59,6 @@ function DarkMode() {
         <input
           type="checkbox"
           id="checkbox"
-          // 6
           onChange={toggleTheme}
           defaultChecked={defaultDark}
         />
@@ -80,6 +71,7 @@ function DarkMode() {
 };
 
 export default DarkMode;
+
 
 
 
