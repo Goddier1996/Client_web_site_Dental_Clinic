@@ -21,7 +21,7 @@ function App() {
     <BrowserRouter>
 
       {/*Dark mode or light */}
-      {/* <DarkMode /> */}
+      <DarkMode />
 
       <Menu />
 

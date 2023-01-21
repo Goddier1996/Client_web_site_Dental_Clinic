@@ -11,6 +11,7 @@ import DarkMode from './DarkMode'
 
 function Menu() {
 
+    localStorage.setItem("theme", "dark");
 
     let storedTheme = localStorage.getItem("theme");
     let userData = JSON.parse(sessionStorage.getItem("user"));
@@ -125,7 +126,6 @@ function Menu() {
                             <Modal show={showModelSignIn} onHide={handleCloseModelSignIn} >
                                 <Sign_in hideSignIn={hideModelSignIn} />
                             </Modal>
-                            <DarkMode/>
 
                         </Navbar.Collapse>
                     </Container>
