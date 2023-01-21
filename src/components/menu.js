@@ -7,7 +7,7 @@ import { useHistory, Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import Sign_in from '../components/SignI_in'
 
-
+import DarkMode from './DarkMode'
 
 function Menu() {
 
@@ -72,7 +72,6 @@ function Menu() {
 
     return (
         <>
-
             <div className={(storedTheme == "light") ? "menuDark" : (storedTheme == "dark") ? "menu" : ""}>
                 <Navbar collapseOnSelect expand="sm" >
                     <Container>
@@ -126,6 +125,7 @@ function Menu() {
                             <Modal show={showModelSignIn} onHide={handleCloseModelSignIn} >
                                 <Sign_in hideSignIn={hideModelSignIn} />
                             </Modal>
+                            <DarkMode/>
 
                         </Navbar.Collapse>
                     </Container>
