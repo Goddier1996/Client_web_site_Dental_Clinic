@@ -11,7 +11,7 @@ import Sign_in from '../components/SignI_in'
 function Menu() {
 
     // defult localStorage theme
-    localStorage.setItem("theme", "dark");
+    // localStorage.setItem("theme", "dark");
 
     let storedTheme = localStorage.getItem("theme");
     let userData = JSON.parse(sessionStorage.getItem("user"));
