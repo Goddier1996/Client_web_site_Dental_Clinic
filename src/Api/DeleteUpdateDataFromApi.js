@@ -198,5 +198,5 @@ export async function ForgetPasswordUpdate(Id, user) {
         'Content-Type': 'application/json'
     }
 
-    await axios.patch(`${API.USERS.GET}/${Id}`, { headers: headers });
+    await axios.patch(`${API.USERS.GET}/${Id}`, user, { headers: headers });
 }
