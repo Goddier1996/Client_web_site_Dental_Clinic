@@ -2,10 +2,8 @@ import "../css/DarkMode.css";
 import React from 'react'
 
 
+
 function DarkMode() {
-
-  const storedTheme = localStorage.getItem("theme");
-
 
   const setDark = () => {
     localStorage.setItem("theme", "dark");
@@ -20,9 +18,17 @@ function DarkMode() {
   };
 
 
-  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const storedTheme = localStorage.getItem("theme");
 
-  const defaultDark = storedTheme === "dark" || (storedTheme === null && prefersDark);
+
+  const prefersDark =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+
+
+  const defaultDark =
+    storedTheme === "dark" || (storedTheme === null && prefersDark);
 
 
   if (defaultDark) {
@@ -41,6 +47,7 @@ function DarkMode() {
       setLight();
     }
   };
+
 
 
 
