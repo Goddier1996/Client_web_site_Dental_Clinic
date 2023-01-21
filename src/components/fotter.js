@@ -50,7 +50,7 @@ function Fotter() {
                     </div>
 
                     <div className={(storedTheme === "light") ? "text-center p-3 endDark" : (storedTheme === "dark") ? "text-center p-3 end" : ""} >
-                        <p>© 2022 create Artem Kot</p>
+                        <p>© Create and Style Artem Kot</p>
                     </div>
 
                 </MDBFooter>

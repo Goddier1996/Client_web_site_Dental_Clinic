@@ -1,7 +1,7 @@
 .bannerLoction {
     display: grid;
     grid-template-columns: 1.8fr 1fr;
-    margin-bottom: 7%;
+    margin-bottom: 4%;
 }
 
 .bannerLoction .boxLoction {
