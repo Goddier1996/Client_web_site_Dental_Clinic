@@ -2,7 +2,7 @@
 export const Config = {
 
     API: {
-        BASE: process.env.REACT_APP_API
+        BASE: "https://privateserverdentalclinic-production.up.railway.app"
     }
 }
 
