@@ -10,22 +10,17 @@ import Sign_in from '../components/SignI_in'
 
 function Menu() {
 
-    // default localStorage theme
-    // localStorage.setItem("theme", "dark");
-
-
 
     let storedTheme = localStorage.getItem("theme");
     let userData = JSON.parse(sessionStorage.getItem("user"));
 
-    const defaultDark =
-    storedTheme === "dark" || (storedTheme === null);
+    const defaultDark = storedTheme === "dark" || (storedTheme === null);
 
 
-  if (defaultDark) {
-    localStorage.setItem("theme", "dark");
-    document.documentElement.setAttribute("data-theme", "dark");
-  }
+    if (defaultDark) {
+        localStorage.setItem("theme", "dark");
+        document.documentElement.setAttribute("data-theme", "dark");
+    }
 
 
     const history = useHistory()
