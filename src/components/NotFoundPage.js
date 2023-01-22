@@ -9,7 +9,11 @@ export default function NotFoundPage() {
 
         <div className='notFoundPage'>
 
-            <p className="zoom-area"><b>Oh no!!</b><br />You’re either misspelling the URL or requesting a page that's no longer here.</p>
+            <p className="zoom-area"><b>Oh no!!</b>
+                <br />You’re either misspelling the URL or requesting a page that's no longer here.
+                <br />
+                or information from the database does not come up
+            </p>
 
             <section className="error-show">
                 <span className="four"><span className="screen-reader-text">4</span></span>

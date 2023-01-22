@@ -30,7 +30,7 @@ function AddMedicalFileUser(props) {
 
 
 
-    
+
     const checkInput = () => {
 
         let check = checkIfUrlLinkImageFile(File_user)
@@ -82,7 +82,7 @@ function AddMedicalFileUser(props) {
 
         await UpdateDataUserRemoveTurn(date.User_code);
 
-        
+
         Swal.fire({
             title: 'success',
             icon: 'success',
@@ -94,14 +94,11 @@ function AddMedicalFileUser(props) {
             color: `${(storedTheme === "light") ? "#ffffffab" :
                 (storedTheme === "dark") ? "" : ""}`,
             buttonColor: `${(storedTheme === "light") ? "#E96E00" :
-                (storedTheme === "dark") ? "" : ""}`
-        }).then((result) => {
-
-            if (result.isConfirmed) {
-                sessionStorage.removeItem('userDateMedical');
-                window.location.reload(false);
-            }
+                (storedTheme === "dark") ? "" : ""}`,
+            timer: 1000
         })
+        sessionStorage.removeItem('userDateMedical');
+        window.location.reload(false);
     }
 
 
@@ -138,6 +135,8 @@ function AddMedicalFileUser(props) {
                         value={textDoctor}
                         onChange={(event) => setTextDoctor(event.target.value)}
                         autoFocus
+                        style={(storedTheme === "light") ? { color: "#ffffffab" } :
+                            (storedTheme === "dark") ? { color: "gray" } : ""}
                     />
                 </Form.Group>
 
@@ -147,6 +146,8 @@ function AddMedicalFileUser(props) {
                         placeholder="price Service"
                         value={priceSevice}
                         onChange={(event) => setPriceSevice(event.target.value)}
+                        style={(storedTheme === "light") ? { color: "#ffffffab" } :
+                            (storedTheme === "dark") ? { color: "gray" } : ""}
                     />
                 </Form.Group>
 
@@ -156,6 +157,8 @@ function AddMedicalFileUser(props) {
                         placeholder="add link file"
                         value={File_user}
                         onChange={(event) => setFile_user(event.target.value)}
+                        style={(storedTheme === "light") ? { color: "#ffffffab" } :
+                            (storedTheme === "dark") ? { color: "gray" } : ""}
                     />
                 </Form.Group>
 

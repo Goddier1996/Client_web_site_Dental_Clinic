@@ -5,8 +5,9 @@ import '../css/appointment.css'
 import Swal from 'sweetalert2'
 import { LoadDays } from '../Api/LoadDataFromApi'
 import { DeleteHour, UpdateDataUserAddTurn } from '../Api/DeleteUpdateDataFromApi'
-import { useQuery } from 'react-query'
 import axios from 'axios';
+import { useQueryOnlyLoadingData } from "../customHook/customQueryHook"
+import NotFoundPage from '../components/NotFoundPage'
 
 
 
@@ -33,11 +34,10 @@ function Appointment(props) {
     let userData = JSON.parse(sessionStorage.getItem("user"));
 
 
-    // load data Appointment days,hours from LoadDataFromApi component
-    const { isLoading: LoadingDays, data: days } = useQuery('allDays', () => {
-        return LoadDays();
-    })
 
+    // use custom hook , useQuery + days,hours
+    const { isLoading: LoadingDays, data: days, isError: ErrorDays } =
+        useQueryOnlyLoadingData('allDays', LoadDays, null);
 
 
 
@@ -204,40 +204,44 @@ function Appointment(props) {
 
 
 
-    // show loading when data from data base come
-    if (LoadingDays) {
-        return (
-            <div className='loadingDaysHour'>
-                <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!f305cw"></img>
-            </div>
-        )
-    }
 
-
-    
     return (
 
         <>
+            {/* show Loading */}
+            {(LoadingDays) ?
+                <div className='loadingDaysHour'>
+                    <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!f305cw"></img>
+                </div>
+                :
+                (ErrorDays) ?
+                    <>
+                        <NotFoundPage />
+                    </>
+                    :
+                    <>
 
-            <div className={(storedTheme === "light") ? "showDayDark" : (storedTheme === "dark") ? "showDay" : ""}>
-                <Row xs={2} md={5} lg={4} className="g-4">
+                        <div className={(storedTheme === "light") ? "showDayDark" : (storedTheme === "dark") ? "showDay" : ""}>
+                            <Row xs={2} md={5} lg={4} className="g-4">
 
-                    {days.map(day =>
+                                {days.map(day =>
 
-                        <div className='showDayItems' key={day._id}>
-                            <Button size="sm" variant="outline-secondary"
-                                onClick={() => LoadHours(day.Serial_code, day.Day_date)}>
-                                {day.Day_date}
-                            </Button>
+                                    <div className='showDayItems' key={day._id}>
+                                        <Button size="sm" variant="outline-secondary"
+                                            onClick={() => LoadHours(day.Serial_code, day.Day_date)}>
+                                            {day.Day_date}
+                                        </Button>
+                                    </div>
+                                )}
+                            </Row>
+
+                            <Modal.Body>
+                                {showResults ? <ResultsHours /> : null}
+                            </Modal.Body>
+
                         </div>
-                    )}
-                </Row>
-
-                <Modal.Body>
-                    {showResults ? <ResultsHours /> : null}
-                </Modal.Body>
-
-            </div>
+                    </>
+            }
         </>
     )
 
