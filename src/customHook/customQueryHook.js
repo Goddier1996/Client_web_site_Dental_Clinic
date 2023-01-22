@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query'
 
 
+
 export const useQueryDataLoadingRefetchAutoData = (typeData, LoadDataFromApi, id) => {
 
     return useQuery(
