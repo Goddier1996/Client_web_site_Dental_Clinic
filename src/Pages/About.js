@@ -34,109 +34,102 @@ function About() {
 
 
 
-    {/* show Loading */ }
-    if (LoadingReviews || LoadingUsers || LoadingDoctors || LoadingServiceOurWork) {
-        return (
-            <div className='loadingCountPersonalClinic'>
-                <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!f305cw"></img>
-            </div>
-        )
-    }
-
-
 
     return (
 
         <>
+            {/* show Loading */}
+            {(LoadingReviews || LoadingUsers || LoadingDoctors || LoadingServiceOurWork) ?
+                <div className='loadingCountPersonalClinic'>
+                    <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!f305cw" />
+                </div>
+                :
+                <>
+                    <div className={(storedTheme === "light") ? "titleAboutDark" : (storedTheme === "dark") ? "titleAbout" : ""}>
+                        <h1>About Dental Care Clinic</h1>
+                        <br />
+                        <p>(1) This Clinic was Number one in Kfar-Yona City.</p>
+                        <p>(2) We provide excellent customer service and also a good attitude towards our customers.</p>
+                        <p>(3) We handle every area related to dental care , Read more about our service - <a href='/OurWork'>Click Me</a>.</p>
+                        <p>(4) Have a Good Location Clinic and Contact - <a href='/Location'>See Location</a>.</p>
+                        <p>(5) See Customer reviews - <a href='/Service'>See Review's</a>.</p>
+                    </div>
 
-            <div className={(storedTheme === "light") ? "titleAboutDark" : (storedTheme === "dark") ? "titleAbout" : ""}>
-                <h1>About Dental Care Clinic</h1>
-                <br />
-                <p>(1) This Clinic was Number one in Kfar-Yona City.</p>
-                <p>(2) We provide excellent customer service and also a good attitude towards our customers.</p>
-                <p>(3) We handle every area related to dental care , Read more about our service - <a href='/OurWork'>Click Me</a>.</p>
-                <p>(4) Have a Good Location Clinic and Contact - <a href='/Location'>See Location</a>.</p>
-                <p>(5) See Customer reviews - <a href='/Service'>See Review's</a>.</p>
-            </div>
 
+                    <div className='cardsInfoAbout' >
 
+                        <div className="a-box">
+                            <div className="img">
+                                <div className="img-inner">
+                                    <div className="inner-skew">
+                                        <img src={require("../images/12.png")} alt="icon" />
+                                    </div>
+                                </div>
+                            </div>
 
-            <div className='cardsInfoAbout' >
-
-                <div className="a-box">
-                    <div className="img">
-                        <div className="img-inner">
-                            <div className="inner-skew">
-                                <img src={require("../images/12.png")} alt="icon" />
+                            <div className={(storedTheme === "light") ? "textDark" : (storedTheme === "dark") ? "text" : ""}>
+                                <h3>Doctor's :</h3>
+                                <div>
+                                    <p>{countDoctors}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className={(storedTheme === "light") ? "textDark" : (storedTheme === "dark") ? "text" : ""}>
-                        <h3>Doctor's :</h3>
-                        <div>
-                            <p>{countDoctors}</p>
-                        </div>
-                    </div>
-                </div>
+                        <div className="a-box" >
+                            <div className="img">
+                                <div className="img-inner">
+                                    <div className="inner-skew">
+                                        <img src={require("../images/ourworkservice.png")} alt="icon" />
+                                    </div>
+                                </div>
+                            </div>
 
-
-                <div className="a-box" >
-                    <div className="img">
-                        <div className="img-inner">
-                            <div className="inner-skew">
-                                <img src={require("../images/ourworkservice.png")} alt="icon" />
+                            <div className={(storedTheme === "light") ? "textDark" : (storedTheme === "dark") ? "text" : ""}>
+                                <h3>Types Of Dental Care Service :</h3>
+                                <div>
+                                    <p>{countServiceOurWork}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className={(storedTheme === "light") ? "textDark" : (storedTheme === "dark") ? "text" : ""}>
-                        <h3>Types Of Dental Care Service :</h3>
-                        <div>
-                            <p>{countServiceOurWork}</p>
-                        </div>
-                    </div>
-                </div>
+                        <div className="a-box">
+                            <div className="img">
+                                <div className="img-inner">
+                                    <div className="inner-skew">
+                                        <img src={require("../images/users.png")} alt="icon" />
+                                    </div>
+                                </div>
+                            </div>
 
-
-                <div className="a-box">
-                    <div className="img">
-                        <div className="img-inner">
-                            <div className="inner-skew">
-                                <img src={require("../images/users.png")} alt="icon" />
+                            <div className={(storedTheme === "light") ? "textDark" : (storedTheme === "dark") ? "text" : ""}>
+                                <h3>Our Customer's :</h3>
+                                <div>
+                                    <p>{countUsers}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div className={(storedTheme === "light") ? "textDark" : (storedTheme === "dark") ? "text" : ""}>
-                        <h3>Our Customer's :</h3>
-                        <div>
-                            <p>{countUsers}</p>
-                        </div>
-                    </div>
-                </div>
 
 
+                        <div className="a-box" >
+                            <div className="img">
+                                <div className="img-inner">
+                                    <div className="inner-skew">
+                                        <img src={require("../images/reviewuser.png")} alt="icon" />
+                                    </div>
+                                </div>
+                            </div>
 
-                <div className="a-box" >
-                    <div className="img">
-                        <div className="img-inner">
-                            <div className="inner-skew">
-                                <img src={require("../images/reviewuser.png")} alt="icon" />
+                            <div className={(storedTheme === "light") ? "textDark" : (storedTheme === "dark") ? "text" : ""}>
+                                <h3>Customer Review's :</h3>
+                                <div>
+                                    <p>{countReviews}</p>
+                                </div>
                             </div>
                         </div>
+
                     </div>
-
-                    <div className={(storedTheme === "light") ? "textDark" : (storedTheme === "dark") ? "text" : ""}>
-                        <h3>Customer Review's :</h3>
-                        <div>
-                            <p>{countReviews}</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
+                </>
+            }
         </>
     )
 

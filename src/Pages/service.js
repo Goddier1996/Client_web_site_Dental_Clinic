@@ -32,7 +32,7 @@ function Service() {
 
 
 
-    
+
     const CheckUserConnected = () => {
 
         if (userData == null) {
@@ -62,7 +62,7 @@ function Service() {
 
 
 
-    
+
     const addReviews = async () => {
 
         if (textReviews < 1) {
@@ -125,7 +125,7 @@ function Service() {
 
 
 
-    
+
     const addReviewsLike = async (likeReview, Serial_code) => {
 
         if (userData != null) {
@@ -171,146 +171,133 @@ function Service() {
 
 
 
-    if (LoadingReviews) {
-
-        return (
-            <div className='loadingReview'>
-                <img src="https://media3.giphy.com/media/lMl2tZmYHhrJHvY4rP/200w.gif?cid=82a1493bv5vympwzpd0gt9did8lb8r9vlei1poc0gx1gw4zx&rid=200w.gif&ct=s"></img>
-            </div>
-        )
-    }
-
-
 
     return (
 
-        <div>
+        <>
+            {/* show Loading */}
+            {(LoadingReviews) ?
+                <div className='loadingReview'>
+                    <img src="https://media3.giphy.com/media/lMl2tZmYHhrJHvY4rP/200w.gif?cid=82a1493bv5vympwzpd0gt9did8lb8r9vlei1poc0gx1gw4zx&rid=200w.gif&ct=s" />
+                </div>
+                :
+                <>
 
-            <div className={(storedTheme === "light") ? "titleOurReviewDark" : (storedTheme === "dark") ? "titleOurReview" : ""}>
-                <h1>Reviews of our clinic :</h1>
-            </div>
-
-
-            <div className="d-grid gap-2 addReviews" >
-                <button className={(storedTheme === "light") ? "button-55Dark" : (storedTheme === "dark") ? "button-55" : ""}
-                    role="button"
-                    onClick={CheckUserConnected}>
-                    Add new Review
-                </button>
-            </div>
-
-
-            <div>
-                <Modal show={showAddReviews} onHide={handleCloseAddReviews}>
-
-                    <div className={(storedTheme === "light") ? "cardModelAddNewReviewDark" : (storedTheme === "dark") ? "cardModelAddNewReview" : ""}>
-
-                        <div className="closeModelAddReview">
-
-                            <Button style={(storedTheme === "light") ? { background: "#424242" } :
-                                (storedTheme === "dark") ? { background: "white" } : ""}
-                                variant="contained"
-                                onClick={handleCloseAddReviews} >
-
-                                <CloseIcon style={(storedTheme === "light") ? { fontSize: "20px", color: "white" } :
-                                    (storedTheme === "dark") ? { fontSize: "20px", color: "black" } : ""}
-                                    variant="contained"
-                                    onClick={handleCloseAddReviews} />
-                            </Button>
-
-                        </div>
-
-
-                        <div className='titleHeater'>
-                            <h1 style={(storedTheme === "light") ? { color: "white" } :
-                                (storedTheme === "dark") ? { color: "#00000094" } : ""}>
-                                Add New Review <RateReviewIcon style={{ fontSize: "30px" }} />
-                            </h1>
-                        </div>
-
-
-                        <Modal.Body>
-                            <Form>
-                                <Form.Group
-                                    className="mb-3"
-                                    controlId="exampleForm.ControlTextarea1">
-                                    <Form.Control as="textarea" rows={3}
-                                        value={textReviews}
-                                        onChange={(event) => setTextReviews(event.target.value)}
-                                        autoFocus
-                                        placeholder='input your Review'
-                                    />
-                                </Form.Group>
-                            </Form>
-                        </Modal.Body>
-
-                        <div className='buttonAddNewReviewOrCLose'>
-
-                            <Button style={{ fontSize: "12px", color: "white" }} variant="contained"
-                                onClick={addReviews} startIcon={<AddIcon />}>
-                                Add a Review
-                            </Button>
-
-                        </div>
-
+                    <div className={(storedTheme === "light") ? "titleOurReviewDark" : (storedTheme === "dark") ? "titleOurReview" : ""}>
+                        <h1>Reviews of our clinic :</h1>
                     </div>
-                </Modal>
-            </div>
 
+                    <div className="d-grid gap-2 addReviews" >
+                        <button className={(storedTheme === "light") ? "button-55Dark" : (storedTheme === "dark") ? "button-55" : ""}
+                            role="button"
+                            onClick={CheckUserConnected}>
+                            Add new Review
+                        </button>
+                    </div>
 
-            <div className='space'></div>
+                    <div>
+                        <Modal show={showAddReviews} onHide={handleCloseAddReviews}>
 
+                            <div className={(storedTheme === "light") ? "cardModelAddNewReviewDark" : (storedTheme === "dark") ? "cardModelAddNewReview" : ""}>
 
-            <div className='OurReviews'>
+                                <div className="closeModelAddReview">
 
-                <Row xs={1} md={2} lg={3} className="g-4">
+                                    <Button style={(storedTheme === "light") ? { background: "#424242" } :
+                                        (storedTheme === "dark") ? { background: "white" } : ""}
+                                        variant="contained"
+                                        onClick={handleCloseAddReviews} >
 
-                    {showReviews.sort((a, b) => b.Count_likes.length - a.Count_likes.length).map((record) => (
+                                        <CloseIcon style={(storedTheme === "light") ? { fontSize: "20px", color: "white" } :
+                                            (storedTheme === "dark") ? { fontSize: "20px", color: "black" } : ""}
+                                            variant="contained"
+                                            onClick={handleCloseAddReviews} />
+                                    </Button>
 
-                        <div key={record._id} className="testimonial-box-container">
+                                </div>
 
-                            <div className="testimonial-box">
+                                <div className='titleHeater'>
+                                    <h1 style={(storedTheme === "light") ? { color: "white" } :
+                                        (storedTheme === "dark") ? { color: "#00000094" } : ""}>
+                                        Add New Review <RateReviewIcon style={{ fontSize: "30px" }} />
+                                    </h1>
+                                </div>
 
-                                <div className="box-top">
+                                <Modal.Body>
+                                    <Form>
+                                        <Form.Group
+                                            className="mb-3"
+                                            controlId="exampleForm.ControlTextarea1">
+                                            <Form.Control as="textarea" rows={3}
+                                                value={textReviews}
+                                                onChange={(event) => setTextReviews(event.target.value)}
+                                                autoFocus
+                                                placeholder='input your Review'
+                                            />
+                                        </Form.Group>
+                                    </Form>
+                                </Modal.Body>
 
-                                    <div className="profileReviews">
+                                <div className='buttonAddNewReviewOrCLose'>
+                                    <Button style={{ fontSize: "12px", color: "white" }} variant="contained"
+                                        onClick={addReviews} startIcon={<AddIcon />}>
+                                        Add a Review
+                                    </Button>
+                                </div>
 
-                                        <div className="nameInfo-userInfo">
-                                            <span>Name : {record.FirstName}</span>
+                            </div>
+                        </Modal>
+                    </div>
 
-                                            <span>Login : @{record.User_Login}</span>
+                    <div className='space'></div>
+
+                    <div className='OurReviews'>
+
+                        <Row xs={1} md={2} lg={3} className="g-4">
+
+                            {showReviews.sort((a, b) => b.Count_likes.length - a.Count_likes.length).map((record) => (
+
+                                <div key={record._id} className="testimonial-box-container">
+
+                                    <div className="testimonial-box">
+
+                                        <div className="box-top">
+
+                                            <div className="profileReviews">
+
+                                                <div className="nameInfo-userInfo">
+                                                    <span>Name : {record.FirstName}</span>
+
+                                                    <span>Login : @{record.User_Login}</span>
+                                                </div>
+                                            </div>
+
+                                            <div className="reviews">
+                                                <p>{record.DatePublished}</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="client-comment">
+                                            <p>{record.textReviews}</p>
+                                        </div>
+
+                                        <div className='clickLike'>
+                                            <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Like👍🏼</Tooltip>}>
+
+                                                <button className="button-30" role="button"
+                                                    onClick={() => addReviewsLike(record.FirstName, record._id)}>
+                                                    <i className="far fa-thumbs-up"></i> {record.Count_likes.length}
+                                                </button>
+
+                                            </OverlayTrigger>
                                         </div>
                                     </div>
-
-                                    <div className="reviews">
-                                        <p>{record.DatePublished}</p>
-                                    </div>
                                 </div>
-
-
-                                <div className="client-comment">
-                                    <p>{record.textReviews}</p>
-                                </div>
-
-
-                                <div className='clickLike'>
-                                    <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Like👍🏼</Tooltip>}>
-
-                                        <button className="button-30" role="button"
-                                            onClick={() => addReviewsLike(record.FirstName, record._id)}>
-                                            <i className="far fa-thumbs-up"></i> {record.Count_likes.length}
-                                        </button>
-
-                                    </OverlayTrigger>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </Row>
-            </div>
-
-        </div>
-
+                            ))}
+                        </Row>
+                    </div>
+                </>
+            }
+        </>
     )
 
 }
