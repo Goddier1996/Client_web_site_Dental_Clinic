@@ -189,7 +189,7 @@ export async function LoadMedicalFileAllUsersHowNeedPay() {
 
 // APPOINTMENT
 
-export async function LoadDays() { // 1
+export async function LoadDays() {
 
     // USE FETCH
     // let res = await fetch(API.DAYS.GET, { method: 'GET' });
@@ -198,5 +198,18 @@ export async function LoadDays() { // 1
 
     // USE AXIOS
     const response = await axios.get(API.DAYS.GET, { timeout: 5000 });
+    return response.data;
+}
+
+
+export async function LoadHour(Serial_code) {
+
+    // USE FETCH
+    // let res = await fetch(`${API.HOURS.GET}/${Serial_code}`, { method: 'GET' });
+    // let data = await res.json();
+
+    Serial_code = JSON.parse(sessionStorage.getItem("day"));
+    // USE AXIOS
+    let response = await axios.get(`${API.HOURS.GET}/${Serial_code.Serial_code}`, { timeout: 5000 });
     return response.data;
 }

@@ -1,21 +1,16 @@
 import React, { useState } from 'react'
-import { API } from '../Api/API';
 import { Button, Row, Modal } from 'react-bootstrap';
 import '../css/appointment.css'
 import Swal from 'sweetalert2'
-import { LoadDays } from '../Api/LoadDataFromApi'
+import { LoadDays, LoadHour } from '../Api/LoadDataFromApi'
 import { DeleteHour, UpdateDataUserAddTurn } from '../Api/DeleteUpdateDataFromApi'
-import axios from 'axios';
-import { useQueryOnlyLoadingData } from "../customHook/customQueryHook"
 import NotFoundPage from '../components/NotFoundPage'
+import { useQueryOnlyLoadingData, useQueryDataLoadingRefetchAutoData } from "../customHook/customQueryHook"
 
 
 
 //here component we show days+hours (if you click to button in Home Page Book an appointment)
 function Appointment(props) {
-
-
-    const [Hours, setHours] = useState([])
 
 
     //show a pop up hour
@@ -29,7 +24,7 @@ function Appointment(props) {
     let hoursAndMinutes;
 
 
-    // all data what we save in local storage and seesion storge
+    // all data what we save in local storage and session Storage
     let storedTheme = localStorage.getItem("theme");
     let userData = JSON.parse(sessionStorage.getItem("user"));
 
@@ -39,23 +34,17 @@ function Appointment(props) {
     const { isLoading: LoadingDays, data: days, isError: ErrorDays } =
         useQueryOnlyLoadingData('allDays', LoadDays, null);
 
+    const { isLoading: LoadingHours, data: Hours, isError: ErrorHours } =
+        useQueryDataLoadingRefetchAutoData('HourDayId', LoadHour, takeDayAndCodeDayInResultHour);
 
 
-    //here you show Hours from day what we chiose , from data base 
+
+    //here you show Hours from day what we choose , from data base 
     const LoadHours = async (Serial_code, Day_date) => {
 
-        // USE FETCH
-        // let res = await fetch(`${API.HOURS.GET}/${Serial_code}`, { method: 'GET' });
-        // let data = await res.json();
+        let dataDay = { Day: Day_date, Serial_code: Serial_code };
 
-
-        // USE AXIOS
-        let response = await axios.get(`${API.HOURS.GET}/${Serial_code}`, { timeout: 5000 });
-        setHours(response.data);
-
-        let dataDay = { Day: Day_date }
-
-        sessionStorage.setItem("day", JSON.stringify(dataDay));
+        await sessionStorage.setItem("day", JSON.stringify(dataDay));
 
         ResultsHours();
     }
@@ -86,11 +75,9 @@ function Appointment(props) {
 
     //show (jsx) return we see in pup up hours - and click to hour we save what day we choose and hour to data base
     const ResultsHours = () => (
-
         takeDayAndCodeDayInResultHour = JSON.parse(sessionStorage.getItem("day")),
         dayFromArray = GetDayWeekFromArray(new Date),
         hoursAndMinutes = GetTime(new Date),
-
         onClick(),
 
         <>
@@ -107,62 +94,75 @@ function Appointment(props) {
 
                 <div id="results" className="search-results">
 
-                    <Row xs={2} md={4} lg={4} className="g-4">
+                    {/* show Loading */}
+                    {(LoadingHours) ?
+                        <div className='loadingDaysHour'>
+                            <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!f305cw" />
+                        </div>
+                        :
+                        (ErrorHours) ?
+                            <>
+                                <NotFoundPage />
+                            </>
+                            :
+                            <>
+                                <Row xs={2} md={4} lg={4} className="g-4">
+                                    {Hours.map(hour => {
 
-                        {Hours.map(hour => {
+                                        if (dayFromArray == takeDayAndCodeDayInResultHour.Day) {
 
-                            if (dayFromArray == takeDayAndCodeDayInResultHour.Day) {
+                                            if (hoursAndMinutes > "19:00" && hoursAndMinutes < "23:00"
+                                                || dayFromArray == "Friday" && hoursAndMinutes > "14:00") {
 
-                                if (hoursAndMinutes > "19:00" && hoursAndMinutes < "23:00"
-                                    || dayFromArray == "Friday" && hoursAndMinutes > "14:00") {
-
-                                    Swal.fire({
-                                        icon: 'info',
-                                        title: `The work day ${dayFromArray} is over 😁`,
-                                        html: 'If you want to book an appointment for the day you chose for next week, book tomorrow! ',
-                                        toast: true,
-                                        position: 'center',
-                                        background: `${(storedTheme === "light") ? "#373E44" :
-                                            (storedTheme === "dark") ? "" : ""}`,
-                                        confirmButtonColor: "green",
-                                        color: `${(storedTheme === "light") ? "#ffffffab" :
-                                            (storedTheme === "dark") ? "" : ""}`,
-                                    })
-                                }
-
-
-                                if (hour.Hour_day >= hoursAndMinutes) {
-
-                                    return (
-
-                                        <div key={hour._id}>
-                                            <p href='#'
-                                                style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
-                                                    (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
-                                                onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
-                                            </p>
-                                        </div>
-                                    )
-                                }
-                            }
+                                                Swal.fire({
+                                                    icon: 'info',
+                                                    title: `The work day ${dayFromArray} is over 😁`,
+                                                    html: 'If you want to book an appointment for the day you chose for next week, book tomorrow! ',
+                                                    toast: true,
+                                                    position: 'center',
+                                                    background: `${(storedTheme === "light") ? "#373E44" :
+                                                        (storedTheme === "dark") ? "" : ""}`,
+                                                    confirmButtonColor: "green",
+                                                    color: `${(storedTheme === "light") ? "#ffffffab" :
+                                                        (storedTheme === "dark") ? "" : ""}`,
+                                                })
+                                            }
 
 
-                            else {
+                                            if (hour.Hour_day >= hoursAndMinutes) {
 
-                                return (
-                                    <div key={hour._id}>
-                                        <p href='#'
-                                            style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
-                                                (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
-                                            onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
-                                        </p>
-                                    </div>
-                                )
-                            }
-                        }
+                                                return (
 
-                        )}
-                    </Row>
+                                                    <div key={hour._id}>
+                                                        <p href='#'
+                                                            style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
+                                                                (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
+                                                            onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
+                                                        </p>
+                                                    </div>
+                                                )
+                                            }
+                                        }
+
+
+                                        else {
+
+                                            return (
+                                                <div key={hour._id}>
+                                                    <p href='#'
+                                                        style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
+                                                            (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
+                                                        onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
+                                                    </p>
+                                                </div>
+                                            )
+                                        }
+                                    }
+
+                                    )}
+                                </Row>
+                            </>
+                    }
                 </div>
             </div>
         </>
@@ -211,7 +211,7 @@ function Appointment(props) {
             {/* show Loading */}
             {(LoadingDays) ?
                 <div className='loadingDaysHour'>
-                    <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!f305cw"></img>
+                    <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!f305cw" />
                 </div>
                 :
                 (ErrorDays) ?
