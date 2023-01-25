@@ -14,8 +14,8 @@
 }
 
 .search-results p:hover {
-    border-bottom: 3px solid gray;
-    border-radius: 20%;
+    background: rgba(0, 128, 0, 0);
+    color: gray;
 }
 
 .chioseDayAndDay {
@@ -48,10 +48,8 @@
 }
 
 .showDay Button:hover {
-    border-bottom: 3px solid gray;
     background: none;
-    color: rgba(0, 0, 0, 0.801);
-    border-radius: 20%;
+    color: black;
 }
 
 
@@ -66,9 +64,8 @@
 
 
 .showDayDark Button:hover {
-    border-bottom: 3px solid gray;
     background: none;
-    border-radius: 20%;
+    color: gray;
 }
 
 

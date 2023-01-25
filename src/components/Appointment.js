@@ -111,24 +111,6 @@ function Appointment(props) {
 
                                         if (dayFromArray == takeDayAndCodeDayInResultHour.Day) {
 
-                                            if (hoursAndMinutes > "19:00" && hoursAndMinutes < "23:00"
-                                                || dayFromArray == "Friday" && hoursAndMinutes > "14:00") {
-
-                                                Swal.fire({
-                                                    icon: 'info',
-                                                    title: `The work day ${dayFromArray} is over 😁`,
-                                                    html: 'If you want to book an appointment for the day you chose for next week, book tomorrow! ',
-                                                    toast: true,
-                                                    position: 'center',
-                                                    background: `${(storedTheme === "light") ? "#373E44" :
-                                                        (storedTheme === "dark") ? "" : ""}`,
-                                                    confirmButtonColor: "green",
-                                                    color: `${(storedTheme === "light") ? "#ffffffab" :
-                                                        (storedTheme === "dark") ? "" : ""}`,
-                                                })
-                                            }
-
-
                                             if (hour.Hour_day >= hoursAndMinutes) {
 
                                                 return (
@@ -144,9 +126,7 @@ function Appointment(props) {
                                             }
                                         }
 
-
                                         else {
-
                                             return (
                                                 <div key={hour._id}>
                                                     <p href='#'
@@ -158,7 +138,6 @@ function Appointment(props) {
                                             )
                                         }
                                     }
-
                                     )}
                                 </Row>
                             </>
