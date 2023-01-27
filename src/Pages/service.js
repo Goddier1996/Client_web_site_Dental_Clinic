@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Row, Form, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import '../css/service.css'
 import Swal from 'sweetalert2'
-import { LoadReviews } from '../Api/LoadDataFromApi'
+import { LoadReviews, LoadCountReviews } from '../Api/LoadDataFromApi'
 import { AddNewReviews, AddNewLikeReviews } from '../Api/ConnectOrAddFromApi'
-import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import RateReviewIcon from '@mui/icons-material/RateReview';
 import NotFoundPage from '../components/NotFoundPage'
-import { useQueryDataLoadingRefetchAutoData } from "../customHook/customQueryHook"
+import { useQueryDataLoadingRefetchAutoData, useQueryOnlyLoadingData } from "../customHook/customQueryHook"
+import Button from '@mui/material/Button';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 
 
@@ -26,10 +28,37 @@ function Service() {
     let userData = JSON.parse(sessionStorage.getItem("user"));
     let storedTheme = localStorage.getItem("theme");
 
+    const [pageNumberNow, setPageNumberNow] = useState(1);
+    const [SizeAllPages, setSizeAllPages] = useState(0);
 
     // use custom hook , useQuery
     const { isLoading: LoadingReviews, data: showReviews, isError: ErrorReviews } =
-        useQueryDataLoadingRefetchAutoData('reviews', LoadReviews, null);
+        useQueryDataLoadingRefetchAutoData('reviews', pageNumberNow, LoadReviews, null);
+
+    const { data: countReviews } =
+        useQueryOnlyLoadingData('CountReviews', LoadCountReviews, null);
+
+
+
+
+    const ShowBackPageReviews = () => {
+
+        setPageNumberNow((p) => {
+            if (p === 1) return p;
+            return p - 1;
+        })
+    }
+
+
+
+    const ShowNextPageReviews = () => {
+
+        setPageNumberNow((p) => {
+            if (p === SizeAllPages) return p;
+            return p + 1;
+
+        })
+    }
 
 
 
@@ -168,6 +197,17 @@ function Service() {
 
 
 
+    // set count page we need to show Reviews
+    useEffect(() => {
+
+        let result = Math.round(countReviews / 4.2);
+
+        if (showReviews) {
+            setSizeAllPages(result - 1);
+        }
+    })
+
+
 
     return (
 
@@ -251,16 +291,16 @@ function Service() {
                         </div>
 
                         <div className='space'></div>
+                        <br />
 
-                        <div className='OurReviews'>
+                        <div className='modelsShowReview'>
 
-                            <Row xs={1} md={2} lg={3} className="g-4">
-
+                            <Row xs={1} md={2} lg={3} style={{ width: "100%" }}>
                                 {showReviews.sort((a, b) => b.Count_likes.length - a.Count_likes.length).map((record) => (
 
-                                    <div key={record._id} className="testimonial-box-container">
+                                    <div className="testimonial-box-container">
 
-                                        <div className="testimonial-box">
+                                        <div key={record._id} className="testimonial-box">
 
                                             <div className="box-top">
 
@@ -297,6 +337,25 @@ function Service() {
                                 ))}
                             </Row>
                         </div>
+
+
+
+                        <div className='nextOrPrev'>
+
+                            <div className='prevNextButton' style={{ width: "30%" }}>
+                                <Button variant="contained" color="success" style={{ color: "white" }}
+                                    onClick={ShowBackPageReviews} disabled={pageNumberNow === 1}>
+                                    <ArrowBackIosNewIcon />
+                                </Button>
+
+                                <Button variant="contained" color="success" style={{ color: "white" }}
+                                    onClick={ShowNextPageReviews} disabled={pageNumberNow === SizeAllPages}>
+                                    <ArrowForwardIosIcon />
+                                </Button>
+                            </div>
+
+                        </div>
+
                     </>
             }
         </>

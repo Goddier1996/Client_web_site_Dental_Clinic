@@ -38,7 +38,7 @@ function User({ data_user }) {
 
     // use custom hook , useQuery
     const { isLoading: MyReview, data: myReview, isError: ErrorMyReview } =
-        useQueryDataLoadingRefetchAutoData('myReview', showAllMyReview, data_user.code);
+        useQueryDataLoadingRefetchAutoData('myReview', null, showAllMyReview, data_user.code);
 
     const { isLoading: Medical_File, data: medical_File, isError: ErrorMedical_File } =
         useQueryOnlyLoadingData('medical_File', LoadMedicalFileUser, data_user.code);

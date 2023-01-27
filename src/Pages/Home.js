@@ -129,7 +129,7 @@ function Home() {
 
 
             {/* show all Category from json file */}
-            < Category ></Category >
+            < Category />
         </div >
     )
 

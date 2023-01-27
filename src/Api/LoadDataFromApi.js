@@ -4,7 +4,7 @@ import axios from 'axios';
 
 // ALL REVIEWS THIS CLINIC
 
-export async function LoadReviews() {
+export async function LoadReviews(page, pageNumber) {
 
     // USE FETCH
     // let res = await fetch(API.REVIEWS.GET, { method: 'GET' });
@@ -12,7 +12,7 @@ export async function LoadReviews() {
     // return data;
 
     // USE AXIOS
-    const response = await axios.get(API.REVIEWS.GET, { timeout: 5000 });
+    const response = await axios.get(`${API.REVIEWS.GET}?p=${pageNumber}`, { timeout: 5000 });
     return response.data;
 }
 
