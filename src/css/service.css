@@ -426,6 +426,7 @@
     justify-content: space-evenly;
     padding: 2%;
     margin-bottom: 7%;
+    width: 30%;
 }
 
 
@@ -446,27 +447,15 @@
     }
 }
 
-
-@media(max-width:991px) {
-
-    .titleOurReview h1 {
-        font-size: 22px;
-    }
-
-    .loadingReview img {
-        height: 170px;
-        margin-bottom: 30%;
-        margin-top: 30%;
-    }
-
-    .modelsShowReview {
-        max-width: 468px;
-    }
-}
 
 
 @media only screen and (max-width: 768px) {
     .modelsShowReview {
         max-width: 300px;
+    }
+
+    .prevNextButton {
+        padding: 5%;
+        width: 70%;
     }
 }

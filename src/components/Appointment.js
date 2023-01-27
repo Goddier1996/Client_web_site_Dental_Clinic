@@ -35,7 +35,7 @@ function Appointment(props) {
         useQueryOnlyLoadingData('allDays', LoadDays, null);
 
     const { isLoading: LoadingHours, data: Hours, isError: ErrorHours } =
-        useQueryDataLoadingRefetchAutoData('HourDayId', LoadHour, takeDayAndCodeDayInResultHour);
+        useQueryDataLoadingRefetchAutoData('HourDayId', null, LoadHour, takeDayAndCodeDayInResultHour);
 
 
 

@@ -44,7 +44,12 @@ function Service() {
     const ShowBackPageReviews = () => {
 
         setPageNumberNow((p) => {
-            if (p === 1) return p;
+            if (p === 1) {
+                return p;
+            }
+
+            window.scrollTo(0, 0)
+
             return p - 1;
         })
     }
@@ -54,9 +59,13 @@ function Service() {
     const ShowNextPageReviews = () => {
 
         setPageNumberNow((p) => {
-            if (p === SizeAllPages) return p;
-            return p + 1;
+            if (p === SizeAllPages) {
+                return p;
+            }
 
+            window.scrollTo(0, 0)
+
+            return p + 1;
         })
     }
 
@@ -342,7 +351,7 @@ function Service() {
 
                         <div className='nextOrPrev'>
 
-                            <div className='prevNextButton' style={{ width: "30%" }}>
+                            <div className='prevNextButton'>
                                 <Button variant="contained" color="success" style={{ color: "white" }}
                                     onClick={ShowBackPageReviews} disabled={pageNumberNow === 1}>
                                     <ArrowBackIosNewIcon />
