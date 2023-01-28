@@ -17,6 +17,32 @@
     color: #00000094;
 }
 
+.titleOurWork p {
+    font-size: 13px;
+    font-family: 'Raleway', sans-serif;
+    color: #00000094;
+}
+
+.titleOurWork a {
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #00000094;
+}
+
+.titleOurWorkDark p {
+    font-size: 13px;
+    font-family: 'Raleway', sans-serif;
+    color: #ffffffab;
+}
+
+.titleOurWorkDark a {
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffffffab;
+}
+
 
 .titleOurWorkDark h1 {
     font-size: 30px;
@@ -31,18 +57,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 16%;
-    margin-top: 3%;
+    margin: 10%;
+    margin-top: 2%;
 }
 
 
 .OurWorkLook img {
     width: 100%;
-    height: 100px;
+    height: 140px;
     background-size: cover;
     background-repeat: no-repeat;
     object-fit: cover;
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 
@@ -53,7 +80,6 @@
 .OurWorkLook h3 {
     font-size: 17px;
 }
-
 
 
 

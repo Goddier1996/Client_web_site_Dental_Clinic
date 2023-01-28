@@ -26,22 +26,24 @@ function ourWork() {
             <div className='styleOurWorksModel'>
 
                 <div className={(storedTheme == "light") ? "titleOurWorkDark" : (storedTheme == "dark") ? "titleOurWork" : ""}>
-                    <h1>A Service We Perform at The Clinic</h1>
+                    <br />
+                    <h1>Service We Perform at The Clinic</h1>
+                    <p>if you need Other Service <a href='/Location'>Click Move To Page Contact</a></p>
                 </div>
 
 
                 <div className='OurWorkLook'>
 
-                    <Row xs={1} md={2} className="g-4">
+                    <Row xs={1} md={2} lg={3} style={{ width: "100%" }}>
                         {date1.work.map((record) => (
 
                             <Col key={record.id}>
 
                                 <Card
                                     style={(storedTheme === "light") ?
-                                        { marginTop: "10px", background: "#424242", borderRadius: "15px", padding: "3%" } :
+                                        { marginTop: "10px", background: "#424242", borderBottomRightRadius: "55px", marginTop: "12%" } :
                                         (storedTheme === "dark") ?
-                                            { marginTop: "10px", borderRadius: "15px", padding: "3%" } : ""}>
+                                            { borderBottomRightRadius: "55px", marginTop: "12%" } : ""}>
 
                                     <Card.Img variant="top" src={record.path} />
 
@@ -51,7 +53,7 @@ function ourWork() {
                                             (storedTheme === "dark") ?
                                                 {} : ""}>
 
-                                        <Card.Title><h3>{record.title} :</h3></Card.Title>
+                                        <Card.Title><h3>{record.title}</h3></Card.Title>
 
                                         <Card.Text>
                                             {record.text}

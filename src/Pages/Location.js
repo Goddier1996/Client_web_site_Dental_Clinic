@@ -40,7 +40,7 @@ function Location() {
 
                 <div className={(storedTheme == "light") ? "boxLoctionDark" : (storedTheme == "dark") ? "boxLoction" : ""}>
 
-                    <h3>Contact :</h3>
+                    <h3>Contact</h3>
 
                     <m.p variants={item}><span className={(storedTheme == "light") ? "boldFirstWordDark" : (storedTheme == "dark") ? "boldFirstWord" : ""}>
                         City :</span> {date1.Map.country} , {date1.Map.City}
@@ -83,7 +83,7 @@ function Location() {
                 <div className={(storedTheme == "light") ? "box contectDark" : (storedTheme == "dark") ? "box contect" : ""}>
 
                     <div className={(storedTheme == "light") ? "logDark" : (storedTheme == "dark") ? "log" : ""}>
-                        <h3>Hours Work Clinic :</h3>
+                        <h3>Hours Work Clinic</h3>
 
                         {date1.hours_work.map((record) => (
 

@@ -26,38 +26,38 @@
 
     {
       "id": "1",
-      "title": "teeth cleaning",
+      "title": "Teeth Cleaning",
       "path": "https://i.postimg.cc/DyzShWZd/c2.jpg",
-      "text": "Most teeth cleaning is done by a dental hygienist. Before beginning the actual cleansing process, they begin with a physical examination of your entire mouth.The dental hygienist uses a small mirror to check around your teeth and gumsif there are any signs of gingivitis(inflammatory gums) or other potential concerns.If they identify major problems,the dental hygienist may call the dentist to make sure it is okay to continue."
+      "text": "Professional teeth cleaning, plus teeth whitening."
     },
 
     {
       "id": "2",
-      "title": "To straighten teeth",
-      "path": "https://i.postimg.cc/4xStq6Q9/c1.jpg",
-      "text": "Orthodontics is a specialty in dentistry that focuses on the prevention and correction of crooked, protruding or misaligned teeth. Put simply - it’s the area of practice that covers teeth straightening. Orthodontics (i.e. teeth straightening) can often be a crucial treatment for patients who have misaligned teeth, as not only does it affect your appearance, but ensuring teeth meet correctly when they bite helps ensure better tooth hygiene and reduces the chance of damage to prominent teeth."
+      "title": "Treatment of Holes (teeth)",
+      "path": "https://i.postimg.cc/0QTr0Zx8/c10.jpg",
+      "text": "A clinic that treats cavities that exist in the teeth and in addition those who have had orthodontic treatment with us have a free service."
     },
     {
       "id": "3",
-      "title": "Treatment of holes (teeth)",
-      "path": "https://i.postimg.cc/0QTr0Zx8/c10.jpg",
-      "text": "Almost everyone develops at least one cavity in their lifetime. It’s easy for bacteria to build up on the surfaces of your teeth, and if you don’t clean them adequately, a cavity can form. It’s also important to note that tooth decay is a progressive condition, meaning it gets worse over time if you don’t treat the cause. Even if your teeth are healthy now, you can still develop a cavity in the future. It’s important to catch cavities before the situation becomes exacerbated. A cavity can become so severe that a tooth filling won’t repair it."
+      "title": "Dental Implants",
+      "path": "https://i.postimg.cc/nrNbNwrW/c3.jpg",
+      "text": "A dental implant is a prosthesis that interfaces with the bone of the jaw or skull to support a dental prosthesis such as a crown, bridge, denture, or facial prosthesis or to act as an orthodontic anchor."
     },
     {
       "id": "4",
-      "title": "Dental implants",
-      "path": "https://i.postimg.cc/nrNbNwrW/c3.jpg",
-      "text": "Dental implant surgery is a procedure that replaces tooth roots with metal, screwlike posts and replaces damaged or missing teeth with artificial teeth that look and function much like real ones. Dental implant surgery can offer a welcome alternative to dentures or bridgework that doesn't fit well and can offer an option when a lack of natural teeth roots don't allow building denture or bridgework tooth replacements."
-    },
-    {
-      "id": "5",
-      "title": "Dental examination",
+      "title": "Dental Examination",
       "path": "https://i.postimg.cc/m26tgb1x/c7.jpg",
       "text": "Most adults and children should get a dental exam every six months. If you have swollen, bleeding gums (known as gingivitis) or other gum disease, your dentist may want to see you more often. Some adults with gum disease may see a dentist three or four times a year. More frequent exams may help prevent a serious gum disease known as periodontitis. Periodontitis can lead to infection and tooth loss."
     },
     {
+      "id": "5",
+      "title": "To Straighten Teeth",
+      "path": "https://i.postimg.cc/4xStq6Q9/c1.jpg",
+      "text": "Orthodontic treatment is a way of straightening or moving teeth, to improve the appearance of the teeth and how they work. It can also help to look after the long-term health of your teeth, gums and jaw joints, by spreading the biting pressure over all your teeth."
+    },
+    {
       "id": "6",
-      "title": "Dental care at any age",
+      "title": "Dental care at Any Age",
       "path": "https://i.postimg.cc/QC9vgkmJ/c8.png",
       "text": "We take care of all our clients no matter the age of the client adult, children, teens, we will take care of them all."
     }

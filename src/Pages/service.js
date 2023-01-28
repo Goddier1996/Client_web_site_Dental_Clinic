@@ -243,6 +243,7 @@ function Service() {
                     >
 
                         <div className={(storedTheme === "light") ? "titleOurReviewDark" : (storedTheme === "dark") ? "titleOurReview" : ""}>
+                            <br/>
                             <h1>Reviews of our clinic :</h1>
                         </div>
 

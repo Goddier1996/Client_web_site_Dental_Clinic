@@ -171,65 +171,6 @@
 
 
 
-/* .loader {
-  animation: spin 1s infinite linear;
-  border: solid 2vmin transparent;
-  border-radius: 50%;
-  border-right-color: #09f;
-  border-top-color: #09f;
-  box-sizing: border-box;
-  height: 20vmin;
-  left: calc(50% - 10vmin);
-  position: fixed;
-  top: calc(50% - 10vmin);
-  width: 20vmin;
-  z-index: 1;
-}
-
-.loader:before {
-  animation: spin 2s infinite linear;
-  border: solid 2vmin transparent;
-  border-radius: 50%;
-  border-right-color: #3cf;
-  border-top-color: #3cf;
-  box-sizing: border-box;
-  content: "";
-  height: 16vmin;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 16vmin;
-}
-
-.loader:after {
-  animation: spin 3s infinite linear;
-  border: solid 2vmin transparent;
-  border-radius: 50%;
-  border-right-color: #6ff;
-  border-top-color: #6ff;
-  box-sizing: border-box;
-  content: "";
-  height: 12vmin;
-  left: 2vmin;
-  position: absolute;
-  top: 2vmin;
-  width: 12vmin;
-}
-
-.styleLoader {
-  margin-bottom: 37%;
-  display: flex;
-  justify-content: center;
-  margin-top: 10%;
-} */
-
-/* @keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-} */
-
-
 
 .loadingCountPersonalClinic {
   display: flex;
@@ -254,6 +195,12 @@
   .titleAboutDark,
   .titleInformationDark {
     margin: 4%;
+  }
+
+  .titleAbout h1,
+  .titleAboutDark h1{
+    font-size: 22px;
+
   }
 
   .loadingCountPersonalClinic h1 {
