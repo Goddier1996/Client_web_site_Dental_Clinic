@@ -21,11 +21,9 @@ function Category() {
                             <Card style={{ border: "none", background: "none" }}>
                                 <Card.Img variant="top" src={record.path} />
                                 <div className='title'>
-                                    
-                                        <a style={{ textDecoration: "none",color:"#ffffff" }}
-                                            href={record.link}>{record.name}
-                                        </a>
-                                    
+                                    <a style={{ textDecoration: "none" }}
+                                        href={record.link}><h1>{record.name}</h1>
+                                    </a>
                                 </div>
                             </Card>
                         </div>
