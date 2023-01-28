@@ -91,10 +91,12 @@ html::-webkit-scrollbar-thumb {
     width: 92%;
 }
 
-.title h1 {
+.title a {
     font-size: 22px;
     font-weight: 500;
     color: #ffffff;
+    display: flex;
+    justify-content: center;
     text-align: center;
     align-items: center;
 }
