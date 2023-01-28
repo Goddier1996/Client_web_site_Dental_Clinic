@@ -12,6 +12,7 @@ import { useQueryDataLoadingRefetchAutoData, useQueryOnlyLoadingData } from "../
 import Button from '@mui/material/Button';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { motion as m } from "framer-motion/dist/framer-motion"
 
 
 
@@ -232,7 +233,14 @@ function Service() {
                         <NotFoundPage />
                     </>
                     :
-                    <>
+                    <m.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        // initial={{ y: "100%" }}
+                        // animate={{ y: "0%" }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.75, ease: "easeOut" }}
+                    >
 
                         <div className={(storedTheme === "light") ? "titleOurReviewDark" : (storedTheme === "dark") ? "titleOurReview" : ""}>
                             <h1>Reviews of our clinic :</h1>
@@ -348,24 +356,21 @@ function Service() {
                         </div>
 
 
-
                         <div className='nextOrPrev'>
-
                             <div className='prevNextButton'>
-                                <Button variant="contained" color="success" style={{ color: "white" }}
+                                <Button variant="contained" color="success" style={{ color: "white", height: "90%" }}
                                     onClick={ShowBackPageReviews} disabled={pageNumberNow === 1}>
-                                    <ArrowBackIosNewIcon />
+                                    <ArrowBackIosNewIcon style={{ fontSize: "18px" }} />
                                 </Button>
 
-                                <Button variant="contained" color="success" style={{ color: "white" }}
+                                <Button variant="contained" color="success" style={{ color: "white", height: "90%" }}
                                     onClick={ShowNextPageReviews} disabled={pageNumberNow === SizeAllPages}>
-                                    <ArrowForwardIosIcon />
+                                    <ArrowForwardIosIcon style={{ fontSize: "18px" }} />
                                 </Button>
                             </div>
-
                         </div>
 
-                    </>
+                    </m.div>
             }
         </>
     )

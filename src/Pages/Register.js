@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { AddNewUserRegester } from '../Api/ConnectOrAddFromApi'
 import Button from '@mui/material/Button';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
+import { motion as m } from "framer-motion/dist/framer-motion"
 
 
 
@@ -76,7 +77,7 @@ function Register() {
 
 
 
-    
+
     const registerUser = async () => {
 
         let user = {
@@ -100,7 +101,14 @@ function Register() {
 
     return (
 
-        <div>
+        <m.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            // initial={{ y: "100%" }}
+            // animate={{ y: "0%" }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.75, ease: "easeOut" }}
+        >
             <section className="banner1">
 
                 <div className={(storedTheme == "light") ? "box1 contect1Dark" : (storedTheme == "dark") ? "box1 contect1" : ""}>
@@ -196,7 +204,7 @@ function Register() {
 
                 <div className="box1 image1"></div>
             </section>
-        </div>
+        </m.div>
     )
 
 }

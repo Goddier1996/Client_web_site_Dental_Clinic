@@ -6,6 +6,7 @@ import Category from '../components/category'
 import Appointment from '../components/Appointment'
 import Swal from 'sweetalert2'
 import CloseIcon from '@mui/icons-material/Close';
+import { motion as m } from "framer-motion/dist/framer-motion"
 
 
 
@@ -67,7 +68,14 @@ function Home() {
 
     return (
 
-        <div>
+        <m.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            // initial={{ y: "100%" }}
+            // animate={{ y: "0%" }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.75, ease: "easeOut" }}
+        >
 
             <div className='main1'>
                 <video src={videoBg} loop autoPlay muted playsInline />
@@ -127,10 +135,10 @@ function Home() {
             </div >
 
 
-
             {/* show all Category from json file */}
             < Category />
-        </div >
+
+        </m.div >
     )
 
 }

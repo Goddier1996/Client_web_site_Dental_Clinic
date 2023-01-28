@@ -112,36 +112,5 @@
       "time": "Closed"
     }
 
-  ],
-
-  "Reviews": [{
-      "id": "1",
-      "userName": "artium",
-      "review": "This in very good clinc,they help me",
-      "path": "https://i.postimg.cc/xTvchz2v/pe3.jpg",
-      "datePublish": "20.07.20"
-    },
-    {
-      "id": "2",
-      "userName": "may",
-      "review": "in this Clinc was the best doctors",
-      "path": "https://i.postimg.cc/9M0mfDKn/pe1.jpg",
-      "datePublish": "15.02.20"
-    },
-    {
-      "id": "3",
-      "userName": "maksim",
-      "review": "i am not love this service,and doctor's was not good",
-      "path": "https://i.postimg.cc/sXMMNHjx/pe2.jpg",
-      "datePublish": "06.05.20"
-    },
-    {
-      "id": "4",
-      "userName": "dudu",
-      "review": "my mom love service",
-      "path": "https://i.postimg.cc/4dx6N1JR/pe4.jpg",
-      "datePublish": "12.11.20"
-    }
-
   ]
 }

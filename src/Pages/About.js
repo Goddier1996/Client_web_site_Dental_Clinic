@@ -4,6 +4,8 @@ import date1 from '../Json_date/date.json'
 import { LoadCountDoctors, LoadCountUsers, LoadCountReviews } from '../Api/LoadDataFromApi'
 import NotFoundPage from '../components/NotFoundPage'
 import { useQueryOnlyLoadingData } from "../customHook/customQueryHook"
+import { motion as m } from "framer-motion/dist/framer-motion"
+import { container, item } from "../styleComponents/StyleAnimation"
 
 
 
@@ -12,7 +14,6 @@ function About() {
 
 
     let storedTheme = localStorage.getItem("theme");
-
 
 
     const getLengthDataOurWorkFromJsonFile = () => {
@@ -52,17 +53,29 @@ function About() {
                         <NotFoundPage />
                     </>
                     :
-                    <>
-                        <div className={(storedTheme === "light") ? "titleAboutDark" : (storedTheme === "dark") ? "titleAbout" : ""}>
-                            <h1>About Dental Care Clinic</h1>
-                            <br />
-                            <p>(1) This Clinic was Number one in Kfar-Yona City.</p>
-                            <p>(2) We provide excellent customer service and also a good attitude towards our customers.</p>
-                            <p>(3) We handle every area related to dental care , Read more about our service - <a href='/OurWork'>Click Me</a>.</p>
-                            <p>(4) Have a Good Location Clinic and Contact - <a href='/Location'>See Location</a>.</p>
-                            <p>(5) See Customer reviews - <a href='/Service'>See Review's</a>.</p>
-                        </div>
+                    <m.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        // initial={{ y: "100%" }}
+                        // animate={{ y: "0%" }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.75, ease: "easeOut" }}
+                        style={{ paddingBottom: "1.8%" }}
+                    >
 
+                        <m.div variants={container} initial="hidden" animate="show"
+                            className={(storedTheme === "light") ? "titleAboutDark" : (storedTheme === "dark") ? "titleAbout" : ""}>
+                            <br />
+                            <h1 >About Dental Care Clinic</h1>
+                            <br />
+                            <m.p variants={item}>(1) This Clinic was Number one in Kfar-Yona City.</m.p>
+                            <m.p variants={item}>(2) Have a Good Location Clinic and Contact - <a href='/Location'>See Location</a>.</m.p>
+                            <m.p variants={item}>(3) See Customer reviews - <a href='/Service'>See Review's</a>.</m.p>
+                            <m.p variants={item}>(4) We provide excellent customer service and also a good attitude towards our customers.</m.p>
+                            <m.p variants={item}>(5) We handle every area related to dental care , Read more about our service - <a href='/OurWork'>Click Me</a>.</m.p>
+                        </m.div>
+
+                        <br />
 
                         <div className='cardsInfoAbout' >
 
@@ -136,7 +149,7 @@ function About() {
                             </div>
 
                         </div>
-                    </>
+                    </m.div>
             }
         </>
     )

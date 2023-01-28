@@ -15,6 +15,7 @@ import UpgradeIcon from '@mui/icons-material/Upgrade';
 import CloseIcon from '@mui/icons-material/Close';
 import { useQueryOnlyLoadingData, useQueryDataLoadingRefetchAutoData } from "../customHook/customQueryHook"
 import NotFoundPage from '../components/NotFoundPage'
+import { motion as m } from "framer-motion/dist/framer-motion"
 
 
 
@@ -239,7 +240,13 @@ function User({ data_user }) {
                         <NotFoundPage />
                     </>
                     :
-                    <>
+                    <m.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        // initial={{ y:"100%" }}
+                        // animate={{ y:"0%" }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.75, ease: "easeOut" }}>
                         <div className={(storedTheme === "light") ? "" : (storedTheme === "dark") ? "bg-white" : ""}>
 
                             <Tabs id="controlled-tab-example" className={(storedTheme === "light") ? "mb-3 tabsChioseDark" : (storedTheme === "dark") ? "mb-3 tabsChiose" : ""} >
@@ -526,7 +533,7 @@ function User({ data_user }) {
                             </Tabs>
 
                         </div>
-                    </>
+                    </m.div>
             }
         </>
     )

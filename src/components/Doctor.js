@@ -9,6 +9,7 @@ import MarkunreadIcon from '@mui/icons-material/Markunread';
 import RateReviewIcon from '@mui/icons-material/RateReview';
 import NotFoundPage from '../components/NotFoundPage'
 import { useQueryOnlyLoadingData } from "../customHook/customQueryHook"
+import { motion as m } from "framer-motion/dist/framer-motion"
 
 
 
@@ -106,7 +107,13 @@ function Doctor({ code_doctor }) {
                         <NotFoundPage />
                     </>
                     :
-                    <>
+                    <m.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        // initial={{ y:"100%" }}
+                        // animate={{ y:"0%" }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.75, ease: "easeOut" }}>
                         <div className={(storedTheme === "light") ? "" : (storedTheme === "dark") ? "bg-white" : ""}>
 
                             <div className="profile">
@@ -202,7 +209,7 @@ function Doctor({ code_doctor }) {
 
                             </Tabs>
                         </div>
-                    </>
+                    </m.div>
             }
         </>
     )
