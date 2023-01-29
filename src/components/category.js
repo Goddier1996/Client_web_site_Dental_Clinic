@@ -18,8 +18,12 @@ function Category() {
 
                         <div key={i} className='choise'>
 
+                            {/* can click to image or text and move to page what user choose */}
                             <Card style={{ border: "none", background: "none" }}>
-                                <Card.Img variant="top" src={record.path} />
+                                <a href={record.link}>
+                                    <Card.Img variant="top" src={record.path} />
+                                </a>
+
                                 <div className='title'>
                                     <a style={{ textDecoration: "none" }}
                                         href={record.link}><h1>{record.name}</h1>

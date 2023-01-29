@@ -88,16 +88,18 @@ html::-webkit-scrollbar-thumb {
     top: 75%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.280);
+    background: rgba(0, 0, 0, 0.230);
     width: 92%;
 }
 
 .title h1 {
-    font-size: 22px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 600;
     color: #ffffff;
     text-align: center;
     align-items: center;
+    letter-spacing: 1px;
+
 }
 
 .showModelAddAppointmentUser {
@@ -146,7 +148,7 @@ html::-webkit-scrollbar-thumb {
     }
 
     .title h1 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .Click_appointment .click button {
