@@ -21,7 +21,7 @@ html::-webkit-scrollbar-thumb {
     position: relative;
 }
 
-.main1 video {
+.main1 img {
     margin-top: -8px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -37,17 +37,18 @@ html::-webkit-scrollbar-thumb {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     position: absolute;
     color: #ffffff;
-    font-family: 'Raleway', sans-serif;
-    font-size: 62px;
-    font-weight: 800;
-    line-height: 72px;
-    margin: 0 0 24px;
+    /* font-family: 'Raleway', sans-serif; */
+    font-size: 45px;
+    font-weight: 780;
+    letter-spacing: 7px;
+    line-height: 62px;
+    /* margin: 0 0 24px; */
     text-align: center;
     text-transform: uppercase;
-    background-color: rgba(0, 0, 0, .4);
+    background-color: rgba(0, 0, 0, 0.280);
 }
 
 .Click_appointment .click button {

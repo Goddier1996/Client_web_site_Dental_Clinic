@@ -13,6 +13,7 @@ function ourWork() {
     let storedTheme = localStorage.getItem("theme");
 
 
+
     return (
 
         <m.div
@@ -33,7 +34,6 @@ function ourWork() {
 
 
                 <div className='OurWorkLook'>
-
                     <Row xs={1} md={2} lg={3} style={{ width: "100%" }}>
                         {date1.work.map((record) => (
 
@@ -64,9 +64,7 @@ function ourWork() {
                             </Col>
                         ))}
                     </Row>
-
                 </div>
-
             </div>
 
         </m.div>

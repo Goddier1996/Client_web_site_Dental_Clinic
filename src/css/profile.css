@@ -82,9 +82,9 @@
 
 
 .profile-headerDoctor .profile-header-cover {
-    background-image: url(../images/zxc.jpg);
+    background-image: url("https://i.postimg.cc/c1VvFZ9G/9498920-3135.jpg");
     width: 70%;
-    border-radius: 30px;
+    border-radius: 15px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -97,7 +97,7 @@
 
 
 .profile-headerDoctor .profile-header-cover:before {
-    border-radius: 30px;
+    border-radius: 15px;
     content: '';
     position: absolute;
     top: 0;

@@ -14,6 +14,7 @@ import DoneIcon from '@mui/icons-material/Done';
 //here component Add Medical File User , doctor add a file to user,and user can see how much pay need and see what doctor write and docoment = this component use in profile doctor
 function AddMedicalFileUser(props) {
 
+    
     const [File_user, setFile_user] = useState('');
     const [textDoctor, setTextDoctor] = useState('');
     const [priceSevice, setPriceSevice] = useState('');

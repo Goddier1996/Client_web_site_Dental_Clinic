@@ -1,12 +1,13 @@
 import { Button, Modal, Form } from 'react-bootstrap'
 import '../css/home.css'
 import React, { useState } from 'react'
-import videoBg from '../images/FilmForth Untitled.mp4'
+// import videoBg from '../images/FilmForth Untitled.mp4'
 import Category from '../components/category'
 import Appointment from '../components/Appointment'
 import Swal from 'sweetalert2'
 import CloseIcon from '@mui/icons-material/Close';
 import { motion as m } from "framer-motion/dist/framer-motion"
+import { container, item } from "../styleComponents/StyleAnimation"
 
 
 
@@ -22,7 +23,6 @@ function Home() {
     const handleShowModelAppointment = () => setShowModelAppointment(true);
 
     let userData = JSON.parse(sessionStorage.getItem("user"));
-
 
 
 
@@ -53,7 +53,6 @@ function Home() {
             })
             return;
         }
-
     }
 
 
@@ -78,11 +77,13 @@ function Home() {
         >
 
             <div className='main1'>
-                <video src={videoBg} loop autoPlay muted playsInline />
-                <div className="content">
-                    <h1>Welcome</h1>
-                    <p>to the Dental Care Clinic</p>
-                </div>
+                {/* <video src={videoBg} loop autoPlay muted playsInline /> */}
+                <img src='https://i.postimg.cc/KzGWXd0Z/5901203-2009.jpg' />
+                <m.div variants={container} initial="hidden" animate="show" className="content">
+                    <m.h1 variants={item}>Welcome</m.h1>
+                    <m.p variants={item}>Dental Care Clinic</m.p>
+                    <br />
+                </m.div>
             </div>
 
 

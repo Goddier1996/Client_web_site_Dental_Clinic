@@ -50,7 +50,7 @@ function Service() {
                 return p;
             }
 
-            window.scrollTo(0, 0)
+            window.scrollTo(0, 0);
 
             return p - 1;
         })
@@ -65,7 +65,7 @@ function Service() {
                 return p;
             }
 
-            window.scrollTo(0, 0)
+            window.scrollTo(0, 0);
 
             return p + 1;
         })
@@ -74,13 +74,17 @@ function Service() {
 
 
     const MoveToEndPage = () => {
+
         setPageNumberNow((Math.round(countReviews / 4.2)) - 1);
+        window.scrollTo(0, 0);
     }
 
 
 
     const MoveToStartPage = () => {
+
         setPageNumberNow(1);
+        window.scrollTo(0, 0);
     }
 
 
