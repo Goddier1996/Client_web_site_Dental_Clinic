@@ -1,4 +1,4 @@
-# Dental Clinic website - ReactJs , NodeJs , SQL Server (Not Active) , MongoDB (Active)
+# Dental Clinic website
   
 Link website - https://clinic-dental-israel.netlify.app      
    
@@ -15,6 +15,7 @@ In addition, the doctor can look at debts, customers who have not paid for their
  
 Admin can control users, delete them or restore the user, delete opinions, add new doctors or block a certain doctor.
  
+Skils use : ReactJs , UseQuery , bootstrap , Material-UI , NodeJs , SQL Server (Not Active) , MongoDB (Active)
  
 server this website (MongoDB = Active) - https://github.com/Goddier1996/Dental_Clinic_PublicServer
 
@@ -23,25 +24,26 @@ server this website (SQL Server = Not Active) - https://github.com/Goddier1996/S
    
 # video :
 
-https://user-images.githubusercontent.com/59862302/212484617-c3dad147-d8c8-490f-bb99-29cf03fc544e.mp4
+https://user-images.githubusercontent.com/59862302/215324844-0756653f-e54d-4dba-8eac-d63fba9f0d53.mp4
 
 
 ## Change baground Night Or Day :
 
-![z](https://user-images.githubusercontent.com/59862302/181908765-b7b807ad-ecf0-49d4-911b-e61da632d9b9.jpg)
-![zz](https://user-images.githubusercontent.com/59862302/181908768-3dee0c14-24cc-41da-905c-967c64ab5b67.jpg)
+![Screenshot 2023-01-29 140549](https://user-images.githubusercontent.com/59862302/215325008-f24d3e04-51f2-422e-83a4-fc4741ff6959.jpg)
 
 
 # Home Page :
+![Screenshot 2023-01-29 135446](https://user-images.githubusercontent.com/59862302/215325036-eed84f42-38e1-4c6e-93b0-d4a79ab0dfb2.jpg)
+![Screenshot 2023-01-29 140712](https://user-images.githubusercontent.com/59862302/215325077-ff0b6e50-7417-4fe2-9ad5-333db521907d.jpg)
 
-![1](https://user-images.githubusercontent.com/59862302/212554927-689b757c-8b46-4013-9afe-911d30572fa1.jpg)
-![11](https://user-images.githubusercontent.com/59862302/212554930-11400b1b-b187-41d3-8361-38e23ba0003b.jpg)
+
 
 
 ## here we To make an appointment :
 
-![9](https://user-images.githubusercontent.com/59862302/212554965-d5a822cb-69ad-4116-9f00-c81e6e80199e.jpg)
-![99](https://user-images.githubusercontent.com/59862302/212554971-f2f5a7e7-b53f-4ffd-b44f-56894e614432.jpg)
+![Screenshot 2023-01-29 140801](https://user-images.githubusercontent.com/59862302/215325137-52942d56-33e0-453d-ba10-50e482fa0758.jpg)
+![Screenshot 2023-01-29 140815](https://user-images.githubusercontent.com/59862302/215325138-1a669ecb-c216-43c4-bb35-ad4b92834a58.jpg)
+
 
 
 # About Page :
@@ -67,12 +69,12 @@ https://user-images.githubusercontent.com/59862302/212484617-c3dad147-d8c8-490f-
 
 # Our Work Page :
 
-![4](https://user-images.githubusercontent.com/59862302/212555068-e6fa5f0b-7a4a-4f62-8372-e0f487686cf7.jpg)
+![Screenshot 2023-01-29 140903](https://user-images.githubusercontent.com/59862302/215325167-1e674388-420a-4fe0-8791-8bb78a65a918.jpg)
 
 
 # Reviews Page :
-
-![5](https://user-images.githubusercontent.com/59862302/212555151-a48c30e9-b765-4198-a69d-fae0ae11261d.jpg)
+![Screenshot 2023-01-29 140954](https://user-images.githubusercontent.com/59862302/215325237-dca696a8-5842-4249-b1d7-0e07a0820b6e.jpg)
+![Screenshot 2023-01-29 141006](https://user-images.githubusercontent.com/59862302/215325240-e2727094-f8ab-4dc8-a72d-4e544ad888d7.jpg)
 ![55](https://user-images.githubusercontent.com/59862302/212555163-ac1fb211-3aa0-4a61-bb1c-f437bf315076.jpg)
 
 
