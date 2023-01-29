@@ -48,12 +48,11 @@ html::-webkit-scrollbar-thumb {
     /* margin: 0 0 24px; */
     text-align: center;
     text-transform: uppercase;
-    background-color: rgba(0, 0, 0, 0.280);
+    background-color: rgba(0, 0, 0, 0.240);
 }
 
 .Click_appointment .click button {
-    margin-top: 0.6%;
-    margin-bottom: 0.2%;
+    margin-top: 1.5%;
     width: 100%;
     font-size: 17px;
     border: none;
@@ -63,8 +62,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 .choise img {
-    margin-top: -2.5%;
-    margin-bottom: 2%;
+    margin-top: 1%;
     padding: 4%;
     position: relative;
     width: 100%;
@@ -85,10 +83,12 @@ html::-webkit-scrollbar-thumb {
 
 .title {
     position: absolute;
-    top: 75%;
+    top: 81%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.230);
+    background: rgba(0, 0, 0, 0.400);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     width: 92%;
 }
 
@@ -98,8 +98,7 @@ html::-webkit-scrollbar-thumb {
     color: #ffffff;
     text-align: center;
     align-items: center;
-    letter-spacing: 1px;
-
+    letter-spacing: 2px;
 }
 
 .showModelAddAppointmentUser {
@@ -144,7 +143,7 @@ html::-webkit-scrollbar-thumb {
 
     .title {
         position: absolute;
-        top: 79%;
+        top: 83%;
     }
 
     .title h1 {
@@ -152,6 +151,6 @@ html::-webkit-scrollbar-thumb {
     }
 
     .Click_appointment .click button {
-        margin-top: 1.7%;
+        margin-top: 4%;
     }
 }
