@@ -28,7 +28,7 @@ function ourWork() {
                 <div className={(storedTheme == "light") ? "titleOurWorkDark" : (storedTheme == "dark") ? "titleOurWork" : ""}>
                     <br />
                     <h1>Service We Perform at The Clinic</h1>
-                    <p>if you need Other Service <a href='/Location'>Click Move To Page Contact</a></p>
+                    <p>* if you need Other Service<br /> <a href='/Location'>Click Move To Page Contact</a></p>
                 </div>
 
 
@@ -41,9 +41,9 @@ function ourWork() {
 
                                 <Card
                                     style={(storedTheme === "light") ?
-                                        { marginTop: "10px", background: "#424242", borderBottomRightRadius: "55px", marginTop: "12%" } :
+                                        { marginTop: "10px", background: "#424242", borderBottomRightRadius: "25px", borderBottomLeftRadius: "25px", marginTop: "12%" } :
                                         (storedTheme === "dark") ?
-                                            { borderBottomRightRadius: "55px", marginTop: "12%" } : ""}>
+                                            { borderBottomRightRadius: "25px", borderBottomLeftRadius: "25px", marginTop: "12%" } : ""}>
 
                                     <Card.Img variant="top" src={record.path} />
 

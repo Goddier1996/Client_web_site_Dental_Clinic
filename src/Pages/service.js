@@ -32,6 +32,7 @@ function Service() {
     const [pageNumberNow, setPageNumberNow] = useState(1);
     const [SizeAllPages, setSizeAllPages] = useState(0);
 
+
     // use custom hook , useQuery
     const { isLoading: LoadingReviews, data: showReviews, isError: ErrorReviews } =
         useQueryDataLoadingRefetchAutoData('reviews', pageNumberNow, LoadReviews, null);
@@ -42,7 +43,7 @@ function Service() {
 
 
 
-    const ShowBackPageReviews = () => {
+    const BackPageReviews = () => {
 
         setPageNumberNow((p) => {
             if (p === 1) {
@@ -57,7 +58,7 @@ function Service() {
 
 
 
-    const ShowNextPageReviews = () => {
+    const NextPageReviews = () => {
 
         setPageNumberNow((p) => {
             if (p === SizeAllPages) {
@@ -68,6 +69,18 @@ function Service() {
 
             return p + 1;
         })
+    }
+
+
+
+    const MoveToEndPage = () => {
+        setPageNumberNow((Math.round(countReviews / 4.2)) - 1);
+    }
+
+
+
+    const MoveToStartPage = () => {
+        setPageNumberNow(1);
     }
 
 
@@ -184,7 +197,6 @@ function Service() {
             };
 
             await AddNewLikeReviews(user, Serial_code);
-            // window.location.reload(false);
         }
 
         else {
@@ -207,6 +219,7 @@ function Service() {
 
 
 
+
     // set count page we need to show Reviews
     useEffect(() => {
 
@@ -216,6 +229,7 @@ function Service() {
             setSizeAllPages(result - 1);
         }
     })
+
 
 
 
@@ -243,7 +257,7 @@ function Service() {
                     >
 
                         <div className={(storedTheme === "light") ? "titleOurReviewDark" : (storedTheme === "dark") ? "titleOurReview" : ""}>
-                            <br/>
+                            <br />
                             <h1>Reviews of our clinic :</h1>
                         </div>
 
@@ -254,6 +268,7 @@ function Service() {
                                 Add new Review
                             </button>
                         </div>
+
 
                         <div>
                             <Modal show={showAddReviews} onHide={handleCloseAddReviews}>
@@ -357,17 +372,36 @@ function Service() {
                         </div>
 
 
+                        {/* Button's move next page or back */}
                         <div className='nextOrPrev'>
                             <div className='prevNextButton'>
+
+                                <Button variant="contained" style={{ color: "white", height: "90%", fontSize: "11px" }}
+                                    title='Move to Start Page'
+                                    onClick={MoveToStartPage} disabled={pageNumberNow === 1}>
+                                    Start Page
+                                </Button>
+
+
                                 <Button variant="contained" color="success" style={{ color: "white", height: "90%" }}
-                                    onClick={ShowBackPageReviews} disabled={pageNumberNow === 1}>
-                                    <ArrowBackIosNewIcon style={{ fontSize: "18px" }} />
+                                    title='Previous Page'
+                                    onClick={BackPageReviews} disabled={pageNumberNow === 1}>
+                                    <ArrowBackIosNewIcon style={{ fontSize: "14px" }} />
                                 </Button>
 
                                 <Button variant="contained" color="success" style={{ color: "white", height: "90%" }}
-                                    onClick={ShowNextPageReviews} disabled={pageNumberNow === SizeAllPages}>
-                                    <ArrowForwardIosIcon style={{ fontSize: "18px" }} />
+                                    title='Next Page'
+                                    onClick={NextPageReviews} disabled={pageNumberNow === SizeAllPages}>
+                                    <ArrowForwardIosIcon style={{ fontSize: "14px" }} />
                                 </Button>
+
+
+                                <Button variant="contained" style={{ color: "white", height: "90%", fontSize: "11px" }}
+                                    title="Move to End Page"
+                                    onClick={MoveToEndPage} disabled={pageNumberNow === SizeAllPages}>
+                                    End Page
+                                </Button>
+
                             </div>
                         </div>
 
