@@ -376,30 +376,30 @@ function Service() {
                         <div className='nextOrPrev'>
                             <div className='prevNextButton'>
 
-                                <Button variant="contained" style={{ color: "white", height: "90%", fontSize: "11px" }}
+                                <Button variant="contained" style={{ color: "white" }}
                                     title='Move to Start Page'
                                     onClick={MoveToStartPage} disabled={pageNumberNow === 1}>
-                                    Start Page
+                                    Start
                                 </Button>
 
 
-                                <Button variant="contained" color="success" style={{ color: "white", height: "90%" }}
+                                <Button variant="contained" color="success" style={{ color: "white" }}
                                     title='Previous Page'
                                     onClick={BackPageReviews} disabled={pageNumberNow === 1}>
                                     <ArrowBackIosNewIcon style={{ fontSize: "14px" }} />
                                 </Button>
 
-                                <Button variant="contained" color="success" style={{ color: "white", height: "90%" }}
+                                <Button variant="contained" color="success" style={{ color: "white" }}
                                     title='Next Page'
                                     onClick={NextPageReviews} disabled={pageNumberNow === SizeAllPages}>
                                     <ArrowForwardIosIcon style={{ fontSize: "14px" }} />
                                 </Button>
 
 
-                                <Button variant="contained" style={{ color: "white", height: "90%", fontSize: "11px" }}
+                                <Button variant="contained" style={{ color: "white" }}
                                     title="Move to End Page"
                                     onClick={MoveToEndPage} disabled={pageNumberNow === SizeAllPages}>
-                                    End Page
+                                    End
                                 </Button>
 
                             </div>

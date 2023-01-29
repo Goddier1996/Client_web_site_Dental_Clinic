@@ -429,8 +429,14 @@
 .prevNextButton {
     display: flex;
     justify-content: space-evenly;
-    width: 50%;
+    width: 35%;
 }
+
+.prevNextButton Button {
+    height: 23px;
+    font-size: 12px;
+}
+
 
 
 @media(max-width:991px) {
@@ -458,11 +464,13 @@
     }
 
     .prevNextButton {
-        padding: 5%;
-        width: 90%;
+        padding-top: 20px;
+
+        width: 100%;
     }
 
     .nextOrPrev {
         padding-top: 0;
     }
+
 }
