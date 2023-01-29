@@ -52,8 +52,8 @@ html::-webkit-scrollbar-thumb {
 }
 
 .Click_appointment .click button {
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
+    margin-top: 0.6%;
+    margin-bottom: 0.2%;
     width: 100%;
     font-size: 17px;
     border: none;
@@ -147,5 +147,9 @@ html::-webkit-scrollbar-thumb {
 
     .title h1 {
         font-size: 20px;
+    }
+
+    .Click_appointment .click button {
+        margin-top: 1.7%;
     }
 }
