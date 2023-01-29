@@ -44,7 +44,7 @@ html::-webkit-scrollbar-thumb {
     font-size: 45px;
     font-weight: 780;
     letter-spacing: 7px;
-    line-height: 62px;
+    line-height: 52px;
     /* margin: 0 0 24px; */
     text-align: center;
     text-transform: uppercase;
@@ -138,7 +138,6 @@ html::-webkit-scrollbar-thumb {
 
     .content {
         font-size: 30px;
-        font-weight: 600;
     }
 
     .title {
