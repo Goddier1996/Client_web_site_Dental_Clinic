@@ -93,7 +93,7 @@ function Location() {
                         ))}
                         <br />
                         <br />
-                        <Card.Img variant="top" src={require("../images/1zx.png")} />
+                        <Card.Img variant="top" src="https://i.postimg.cc/508kqF22/1zx.png" />
                         <br />
                         <br />
                     </div>

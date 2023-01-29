@@ -82,7 +82,7 @@ function About() {
                                 <div className="img">
                                     <div className="img-inner">
                                         <div className="inner-skew">
-                                            <img src={require("../images/12.png")} alt="icon" />
+                                            <img src="https://i.postimg.cc/TP3RsfDx/12.png" alt="icon" />
                                         </div>
                                     </div>
                                 </div>
@@ -99,7 +99,7 @@ function About() {
                                 <div className="img">
                                     <div className="img-inner">
                                         <div className="inner-skew">
-                                            <img src={require("../images/ourworkservice.png")} alt="icon" />
+                                            <img src="https://i.postimg.cc/R0hBRdkV/ourworkservice.png" alt="icon" />
                                         </div>
                                     </div>
                                 </div>
@@ -116,7 +116,7 @@ function About() {
                                 <div className="img">
                                     <div className="img-inner">
                                         <div className="inner-skew">
-                                            <img src={require("../images/users.png")} alt="icon" />
+                                            <img src="https://i.postimg.cc/nVBt0CP7/users.png" alt="icon" />
                                         </div>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@ function About() {
                                 <div className="img">
                                     <div className="img-inner">
                                         <div className="inner-skew">
-                                            <img src={require("../images/reviewuser.png")} alt="icon" />
+                                            <img src="https://i.postimg.cc/rm47nPQc/reviewuser.png" alt="icon" />
                                         </div>
                                     </div>
                                 </div>
