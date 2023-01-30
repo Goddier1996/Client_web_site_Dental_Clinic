@@ -57,8 +57,8 @@ html::-webkit-scrollbar-thumb {
     font-size: 17px;
     border: none;
     font-weight: 500;
-    border-top-left-radius: 25%;
-    border-bottom-right-radius: 25%;
+    border-top-left-radius: 70%;
+    border-bottom-right-radius: 70%;
 }
 
 .choise img {
@@ -71,8 +71,9 @@ html::-webkit-scrollbar-thumb {
     background-size: cover;
     background-repeat: no-repeat;
     object-fit: cover;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    /* border-top-left-radius: 30px;
+    border-top-right-radius: 30px; */
+    border-radius: 30px;
 }
 
 .categoryLook {
@@ -87,8 +88,9 @@ html::-webkit-scrollbar-thumb {
     left: 50%;
     transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, 0.400);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    /* border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
+    border-radius: 10px;
     width: 92%;
 }
 
@@ -152,5 +154,7 @@ html::-webkit-scrollbar-thumb {
 
     .Click_appointment .click button {
         margin-top: 4%;
+        border-top-left-radius: 50%;
+        border-bottom-right-radius: 50%;
     }
 }

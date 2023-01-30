@@ -11,7 +11,7 @@ import { AddNewUserRegester } from '../Api/ConnectOrAddFromApi'
 //here component Admin we to do what admin can do = this component use in profile
 function Admin() {
 
-    
+
     const [Users, SetUsers] = useState([])
     const [UsersBlocked, SetUsersBlocked] = useState([])
     const [Doctors, SetDoctors] = useState([])
@@ -182,6 +182,7 @@ function Admin() {
                                 <th style={{ width: "3%", textAlign: "center" }}>Email</th>
                                 <th style={{ width: "3%", textAlign: "center" }}>Birthday</th>
                                 <th style={{ width: "3%", textAlign: "center" }}>Password</th>
+                                <td style={{ width: "1%" }}></td>
                             </tr>
                         </thead>
 
@@ -196,7 +197,7 @@ function Admin() {
                                     <td style={{ textAlign: "center", fontSize: "13px" }}>{user.Birthday}</td>
                                     <td style={{ textAlign: "center", fontSize: "13px" }}>{user.User_password}</td>
 
-                                    <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
+                                    <td style={{ textAlign: "center", fontSize: "14px" }}>
                                         <Button size="sm" variant="danger" onClick={() => DeleteItemsFromDataApi(user._id, "user")}>Block</Button>
                                     </td>
                                 </tr>
@@ -218,6 +219,7 @@ function Admin() {
                                 <th style={{ width: "3%", textAlign: "center" }}>Email</th>
                                 <th style={{ width: "3%", textAlign: "center" }}>Birthday</th>
                                 <th style={{ width: "3%", textAlign: "center" }}>Password</th>
+                                <td style={{ width: "1%" }}></td>
                             </tr>
                         </thead>
 
@@ -233,7 +235,7 @@ function Admin() {
                                     <td style={{ textAlign: "center", fontSize: "13px" }}>{user.User_password}</td>
 
 
-                                    <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
+                                    <td style={{ textAlign: "center", fontSize: "14px" }}>
                                         <Button size="sm" variant="success" onClick={() => ActiveUser(user._id)}>Reactive</Button>
                                     </td>
                                 </tr>
@@ -254,6 +256,7 @@ function Admin() {
                                 <th style={{ width: "4%", textAlign: "center" }}>First Name</th>
                                 <th style={{ width: "3%", textAlign: "center" }}>Email</th>
                                 <th style={{ width: "3%", textAlign: "center" }}>Password</th>
+                                <td style={{ width: "1%" }}></td>
                             </tr>
                         </thead>
 
@@ -268,7 +271,7 @@ function Admin() {
                                     <td style={{ textAlign: "center", fontSize: "13px" }}>{doctor.User_password}</td>
 
 
-                                    <td style={{ textAlign: "center", fontSize: "14px", width: "1%" }}>
+                                    <td style={{ textAlign: "center", fontSize: "14px" }}>
                                         <Button size="sm" variant="danger" onClick={() => DeleteItemsFromDataApi(doctor._id, "user")}>Block</Button>
                                     </td>
                                 </tr>
@@ -355,6 +358,7 @@ function Admin() {
                                 <th style={{ width: "1%", textAlign: "center" }}>First Name</th>
                                 <th style={{ width: "10%", textAlign: "center" }}>Reviews</th>
                                 <th style={{ width: "1%", textAlign: "center" }}>Date Published</th>
+                                <td style={{ width: "1%" }}></td>
                             </tr>
                         </thead>
 
@@ -368,7 +372,7 @@ function Admin() {
                                     <td style={{ textAlign: "center", fontSize: "13px" }}>{Review.DatePublished}</td>
 
 
-                                    <td style={{ textAlign: "center", fontSize: "13px", width: "1%" }}>
+                                    <td style={{ textAlign: "center", fontSize: "13px" }}>
                                         <Button size="sm" variant="danger" onClick={() => DeleteItemsFromDataApi(Review._id, "review")}>Block</Button>
                                     </td>
                                 </tr>
