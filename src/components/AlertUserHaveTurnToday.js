@@ -2,16 +2,32 @@ import Swal from 'sweetalert2'
 import { ActiveHourInDataBase, UpdateDataUserRemoveTurn } from '../Api/DeleteUpdateDataFromApi'
 
 
+
+export function GetTime(date) {
+
+    let hours = date.getHours();
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    hours = hours < 10 ? '0' + hours : hours;
+    // appending zero in the start if hours less than 10
+    return hours + ':' + '00';
+}
+
+
+
+export function GetDayWeekFromArray(date) {
+
+    let Day = date.getDay();
+    let weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    return weekday[Day];
+}
+
+
+
 export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, codeHour, code) {
 
-    let date = new Date();
 
-    let takeDay = date.getDay();
-
-    const hoursAndMinutes = date.getHours() + ':' + '00';
-
-    const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    let dayFromArray = weekday[takeDay];
+    const hoursAndMinutes = GetTime(new Date);
+    const dayFromArray = GetDayWeekFromArray(new Date);
 
 
     if (day == dayFromArray) {

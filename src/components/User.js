@@ -172,7 +172,6 @@ function User({ data_user }) {
 
 
 
-
     //open pop up pay service , save the data to sessionStorage , to use in component PayService
     const OpenPopUpPay = (Serial_code, priceSevice, FirstName) => {
 

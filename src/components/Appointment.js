@@ -6,6 +6,8 @@ import { LoadDays, LoadHour } from '../Api/LoadDataFromApi'
 import { DeleteHour, UpdateDataUserAddTurn } from '../Api/DeleteUpdateDataFromApi'
 import NotFoundPage from '../components/NotFoundPage'
 import { useQueryOnlyLoadingData, useQueryDataLoadingRefetchAutoData } from "../customHook/customQueryHook"
+import { GetTime, GetDayWeekFromArray } from './AlertUserHaveTurnToday'
+
 
 
 
@@ -49,27 +51,6 @@ function Appointment(props) {
         ResultsHours();
     }
 
-
-
-    // use in ResultsHours function
-    const GetTime = (date) => {
-
-        let hours = date.getHours();
-        hours = hours ? hours : 12; // the hour '0' should be '12'
-        hours = hours < 10 ? '0' + hours : hours;
-        // appending zero in the start if hours less than 10
-        return hours + ':' + '00';
-    }
-
-
-
-    // use in ResultsHours function
-    const GetDayWeekFromArray = (date) => {
-
-        let Day = date.getDay();
-        let weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        return weekday[Day];
-    }
 
 
 
