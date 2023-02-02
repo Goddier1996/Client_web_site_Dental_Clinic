@@ -1,21 +1,21 @@
 // connect to local host Node js server mongoDB
-// export const Config = {
+export const Config = {
 
-//     API: {
-//         BASE: process.env.REACT_APP_API
-//     }
-// }
+    API: {
+        BASE: process.env.REACT_APP_API
+    }
+}
 
 
 
 
 // here for test connect nodeJs server
 
-export const Config = {
+// export const Config = {
 
 
-    API: {
-        BASE: "http://localhost:5000",
-    }
+//     API: {
+//         BASE: "http://localhost:5000",
+//     }
 
-}
+// }
