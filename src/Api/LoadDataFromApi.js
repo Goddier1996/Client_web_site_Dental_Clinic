@@ -17,6 +17,19 @@ export async function LoadReviews(page, pageNumber) {
 }
 
 
+export async function CheckIfUserAddLikeThisReview(id, publishByLike) {
+
+    const response = await axios.get(`${API.REVIEWS.GET}/showReviewCheckUserLike/${id}/${publishByLike}`);
+    
+    if (response.data) {
+        sessionStorage.setItem("likeReview", true);
+    }
+    else {
+        sessionStorage.setItem("likeReview", false);
+    }
+}
+
+
 
 // ADOUT THIS CLINIC COUNT DETAILS
 

@@ -212,6 +212,17 @@ export async function AddNewLikeReviews(like, Serial_code) {
 
 
 
+export async function RemoveReviewLike(id, PublishBy) {
+
+    const headers = {
+        'Content-Type': 'application/json'
+    }
+
+    await axios.patch(`${API.REVIEWS.PATCH}/${id}/${PublishBy}`, { headers: headers })
+}
+
+
+
 export async function AddNewUserRegester(newUser) {
 
     // USE FETCH

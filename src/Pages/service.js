@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Row, Form, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import '../css/service.css'
 import Swal from 'sweetalert2'
-import { LoadReviews, LoadCountReviews } from '../Api/LoadDataFromApi'
+import { LoadReviews, LoadCountReviews, CheckIfUserAddLikeThisReview } from '../Api/LoadDataFromApi'
+import { RemoveReviewLike } from '../Api/ConnectOrAddFromApi'
+
 import { AddNewReviews, AddNewLikeReviews } from '../Api/ConnectOrAddFromApi'
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
@@ -40,6 +42,8 @@ function Service() {
     const { data: countReviews } =
         useQueryOnlyLoadingData('CountReviews', LoadCountReviews, null);
 
+
+    const [CheckIfUserAddLikeSameReview, SetCheckIfUserAddLikeSameReview] = useState([]);
 
 
 
@@ -179,28 +183,45 @@ function Service() {
     }
 
 
-
+    // check in this func  , if user have like in this review (remove),if dont have(add)
     const addReviewsLike = async (likeReview, Serial_code) => {
+
 
         if (userData != null) {
 
-            let Publish_by = userData._id;
-            let FirstName = userData.FirstName;
-            let User_Login = userData.User_Login;
+            SetCheckIfUserAddLikeSameReview(await CheckIfUserAddLikeThisReview(Serial_code, userData._id));
 
-            let d = new Date();
+            let getResultIfUserHaveLikeInThisReview = JSON.parse(sessionStorage.getItem("likeReview"));
 
-            let user = {
-                textReviews,
-                DatePublished: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
-                Publish_by,
-                FirstName,
-                User_Login,
-                IsActive: "1",
-                Count_likes: [likeReview]
-            };
+            // if this review user have like remove like
+            if (getResultIfUserHaveLikeInThisReview == true) {
+                // alert("you have here like !")
+                RemoveReviewLike(Serial_code, userData._id)
+                sessionStorage.removeItem("likeReview");
+            }
 
-            await AddNewLikeReviews(user, Serial_code);
+            // else user dont have like in this review add Like
+            else {
+
+                let Publish_by = userData._id;
+                let FirstName = userData.FirstName;
+                let User_Login = userData.User_Login;
+
+                let d = new Date();
+
+                let user = {
+                    textReviews,
+                    DatePublished: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
+                    Publish_by,
+                    FirstName,
+                    User_Login,
+                    IsActive: "1",
+                    Count_likes: [likeReview]
+                };
+
+                await AddNewLikeReviews(user, Serial_code);
+                sessionStorage.removeItem("likeReview");
+            }
         }
 
         else {

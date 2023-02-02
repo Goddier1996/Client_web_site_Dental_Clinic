@@ -16,6 +16,7 @@ export const API = {
 
         GET: `${Config.API.BASE}/api/reviews`,
         ADD: `${Config.API.BASE}/api/reviews`,
+        PATCH: `${Config.API.BASE}/api/reviews/removeLike`
     },
 
     HOURS: {
