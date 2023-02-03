@@ -243,7 +243,7 @@ function Service() {
             }
         }
 
-        
+
         else {
             Swal.fire({
                 icon: 'error',
@@ -421,31 +421,64 @@ function Service() {
                         <div className='nextOrPrev'>
                             <div className='prevNextButton'>
 
-                                <Button variant="contained" style={{ color: "white" }}
-                                    title='Move to Start Page'
-                                    onClick={MoveToStartPage} disabled={pageNumberNow === 1}>
-                                    Start
-                                </Button>
+                                {(pageNumberNow === 1) ?
+                                    <>
+                                        <Button variant="contained" color="success" style={{ color: "white" }}
+                                            title='Next Page'
+                                            onClick={NextPageReviews} disabled={pageNumberNow === SizeAllPages}>
+                                            <ArrowForwardIosIcon style={{ fontSize: "14px" }} />
+                                        </Button>
 
+                                        <Button variant="contained" style={{ color: "white" }}
+                                            title="Move to End Page"
+                                            onClick={MoveToEndPage} disabled={pageNumberNow === SizeAllPages}>
+                                            End
+                                        </Button>
+                                    </>
 
-                                <Button variant="contained" color="success" style={{ color: "white" }}
-                                    title='Previous Page'
-                                    onClick={BackPageReviews} disabled={pageNumberNow === 1}>
-                                    <ArrowBackIosNewIcon style={{ fontSize: "14px" }} />
-                                </Button>
+                                    :
+                                    (pageNumberNow === SizeAllPages) ?
+                                        <>
+                                            <Button variant="contained" style={{ color: "white" }}
+                                                title='Move to Start Page'
+                                                onClick={MoveToStartPage} disabled={pageNumberNow === 1}>
+                                                Start
+                                            </Button>
 
-                                <Button variant="contained" color="success" style={{ color: "white" }}
-                                    title='Next Page'
-                                    onClick={NextPageReviews} disabled={pageNumberNow === SizeAllPages}>
-                                    <ArrowForwardIosIcon style={{ fontSize: "14px" }} />
-                                </Button>
+                                            <Button variant="contained" color="success" style={{ color: "white" }}
+                                                title='Previous Page'
+                                                onClick={BackPageReviews} disabled={pageNumberNow === 1}>
+                                                <ArrowBackIosNewIcon style={{ fontSize: "14px" }} />
+                                            </Button>
+                                        </>
 
+                                        :
+                                        <>
+                                            <Button variant="contained" style={{ color: "white" }}
+                                                title='Move to Start Page'
+                                                onClick={MoveToStartPage} disabled={pageNumberNow === 1}>
+                                                Start
+                                            </Button>
 
-                                <Button variant="contained" style={{ color: "white" }}
-                                    title="Move to End Page"
-                                    onClick={MoveToEndPage} disabled={pageNumberNow === SizeAllPages}>
-                                    End
-                                </Button>
+                                            <Button variant="contained" color="success" style={{ color: "white" }}
+                                                title='Previous Page'
+                                                onClick={BackPageReviews} disabled={pageNumberNow === 1}>
+                                                <ArrowBackIosNewIcon style={{ fontSize: "14px" }} />
+                                            </Button>
+
+                                            <Button variant="contained" color="success" style={{ color: "white" }}
+                                                title='Next Page'
+                                                onClick={NextPageReviews} disabled={pageNumberNow === SizeAllPages}>
+                                                <ArrowForwardIosIcon style={{ fontSize: "14px" }} />
+                                            </Button>
+
+                                            <Button variant="contained" style={{ color: "white" }}
+                                                title="Move to End Page"
+                                                onClick={MoveToEndPage} disabled={pageNumberNow === SizeAllPages}>
+                                                End
+                                            </Button>
+                                        </>
+                                }
 
                             </div>
                         </div>
