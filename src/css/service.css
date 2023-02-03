@@ -436,6 +436,21 @@
 }
 
 
+.showPageNumber {
+    display: flex;
+    justify-content: center;
+    margin-bottom: -2%;
+    margin-top: 1%;
+
+}
+
+.showPageNumber p {
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    color: #00000094;
+}
+
 
 @media(max-width:991px) {
 

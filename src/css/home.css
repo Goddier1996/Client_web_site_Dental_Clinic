@@ -95,7 +95,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 .title h1 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     color: #ffffff;
     text-align: center;
@@ -146,10 +146,6 @@ html::-webkit-scrollbar-thumb {
     .title {
         position: absolute;
         top: 84%;
-    }
-
-    .title h1 {
-        font-size: 18px;
     }
 
     .Click_appointment .click button {

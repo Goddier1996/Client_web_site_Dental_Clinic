@@ -417,6 +417,11 @@ function Service() {
                         </div>
 
 
+                        <div className='showPageNumber'>
+                            <p>Page {pageNumberNow} of {SizeAllPages} </p>
+                        </div>
+
+
                         {/* Button's move next page or back */}
                         <div className='nextOrPrev'>
                             <div className='prevNextButton'>
