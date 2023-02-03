@@ -401,7 +401,7 @@ function Service() {
                                             </div>
 
                                             <div className='clickLike'>
-                                                <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Like👍🏼</Tooltip>}>
+                                                <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Like ❤️</Tooltip>}>
 
                                                     <button className="button-30" role="button"
                                                         onClick={() => addReviewsLike(record.FirstName, record._id)}>
@@ -423,41 +423,41 @@ function Service() {
 
                                 {(pageNumberNow === 1) ?
                                     <>
-                                        <Button variant="contained" color="success" style={{ color: "white" }}
+                                        <Button variant="contained" color="success" style={{ color: "white", textTransform: "capitalize" }}
                                             title='Next Page'
                                             onClick={NextPageReviews} disabled={pageNumberNow === SizeAllPages}>
-                                            <ArrowForwardIosIcon style={{ fontSize: "14px" }} />
+                                            Next Page
                                         </Button>
 
-                                        <Button variant="contained" style={{ color: "white" }}
+                                        <Button variant="contained" style={{ color: "white", textTransform: "capitalize" }}
                                             title="Move to End Page"
                                             onClick={MoveToEndPage} disabled={pageNumberNow === SizeAllPages}>
-                                            End
+                                            Last Page
                                         </Button>
                                     </>
 
                                     :
                                     (pageNumberNow === SizeAllPages) ?
                                         <>
-                                            <Button variant="contained" style={{ color: "white" }}
+                                            <Button variant="contained" style={{ color: "white", textTransform: "capitalize" }}
                                                 title='Move to Start Page'
                                                 onClick={MoveToStartPage} disabled={pageNumberNow === 1}>
-                                                Start
+                                                First Page
                                             </Button>
 
-                                            <Button variant="contained" color="success" style={{ color: "white" }}
+                                            <Button variant="contained" color="success" style={{ color: "white", textTransform: "capitalize" }}
                                                 title='Previous Page'
                                                 onClick={BackPageReviews} disabled={pageNumberNow === 1}>
-                                                <ArrowBackIosNewIcon style={{ fontSize: "14px" }} />
+                                                Previous Page
                                             </Button>
                                         </>
 
                                         :
                                         <>
-                                            <Button variant="contained" style={{ color: "white" }}
-                                                title='Move to Start Page'
+                                            <Button variant="contained" style={{ color: "white", textTransform: "capitalize" }}
+                                                title='Move to First Page'
                                                 onClick={MoveToStartPage} disabled={pageNumberNow === 1}>
-                                                Start
+                                                <ArrowBackIosNewIcon style={{ fontSize: "14px" }} /><ArrowBackIosNewIcon style={{ fontSize: "14px" }} />
                                             </Button>
 
                                             <Button variant="contained" color="success" style={{ color: "white" }}
@@ -472,10 +472,10 @@ function Service() {
                                                 <ArrowForwardIosIcon style={{ fontSize: "14px" }} />
                                             </Button>
 
-                                            <Button variant="contained" style={{ color: "white" }}
-                                                title="Move to End Page"
+                                            <Button variant="contained" style={{ color: "white", textTransform: "capitalize" }}
+                                                title="Move to Last Page"
                                                 onClick={MoveToEndPage} disabled={pageNumberNow === SizeAllPages}>
-                                                End
+                                                <ArrowForwardIosIcon style={{ fontSize: "14px" }} /><ArrowForwardIosIcon style={{ fontSize: "14px" }} />
                                             </Button>
                                         </>
                                 }
