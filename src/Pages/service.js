@@ -4,7 +4,6 @@ import '../css/service.css'
 import Swal from 'sweetalert2'
 import { LoadReviews, LoadCountReviews, CheckIfUserAddLikeThisReview } from '../Api/LoadDataFromApi'
 import { RemoveReviewLike } from '../Api/ConnectOrAddFromApi'
-
 import { AddNewReviews, AddNewLikeReviews } from '../Api/ConnectOrAddFromApi'
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
@@ -183,6 +182,7 @@ function Service() {
     }
 
 
+
     // check in this func  , if user have like in this review (remove),if dont have(add)
     const addReviewsLike = async (likeReview, Serial_code) => {
 
@@ -195,10 +195,20 @@ function Service() {
 
             // if this review user have like remove like
             if (getResultIfUserHaveLikeInThisReview == true) {
-                // alert("you have here like !")
-                RemoveReviewLike(Serial_code, userData._id)
+
+                await RemoveReviewLike(Serial_code, userData._id);
                 sessionStorage.removeItem("likeReview");
+
+                Swal.fire({
+                    position: "center",
+                    background: "none",
+                    showConfirmButton: false,
+                    timer: 2200,
+                    allowOutsideClick: false,
+                    html: '<div class="loadingReview"> <img src="https://i.postimg.cc/qvz9yCqh/desLike.gif"> </div>'
+                });
             }
+
 
             // else user dont have like in this review add Like
             else {
@@ -221,9 +231,19 @@ function Service() {
 
                 await AddNewLikeReviews(user, Serial_code);
                 sessionStorage.removeItem("likeReview");
+
+                Swal.fire({
+                    position: "center",
+                    background: "none",
+                    showConfirmButton: false,
+                    timer: 2200,
+                    allowOutsideClick: false,
+                    html: '<div class="loadingReview"> <img src="https://i.postimg.cc/3w0nJXR1/likeGif.gif"> </div>'
+                });
             }
         }
 
+        
         else {
             Swal.fire({
                 icon: 'error',

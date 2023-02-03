@@ -117,8 +117,6 @@
 
 
 
-
-
 .modelsShowReview {
     max-width: 968px;
     margin: auto;
@@ -133,7 +131,7 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     padding: 23px;
     margin: 8px;
-    background-image: url("../images/vc1.jpg");
+    background-image: url("https://i.postimg.cc/yNwMj6t1/vc1.jpg");
     object-fit: cover;
     background-size: cover;
     background-repeat: no-repeat;

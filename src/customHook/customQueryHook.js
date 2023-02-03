@@ -10,7 +10,7 @@ export const useQueryDataLoadingRefetchAutoData = (typeData, pageNumber, LoadDat
         },
         {
             // when add new item refersh 1 secound auto
-            refetchInterval: 1000,
+            refetchInterval: 2000,
             refetchIntervalInBackground: true
         }
     )

@@ -174,7 +174,7 @@ function Sign_in(props) {
 
 
                         <h4 className="text-primary text-center">
-                            <img className="d-block w-100" src={require("../images/qqq.gif")} />
+                            <img className="d-block w-100" src="https://i.postimg.cc/NGVgVYXH/qqq.gif" />
                         </h4>
                         <div className="image"></div>
                     </div>
