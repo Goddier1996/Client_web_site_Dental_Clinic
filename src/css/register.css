@@ -68,6 +68,19 @@ input[type="date"].date-input--has-value::-webkit-datetime-edit-year-field {
     height: 30px;
 }
 
+
+.ShowImageWhenRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ShowImageWhenRegister img {
+    height: 300px;
+    margin-bottom: 17%;
+    margin-top: 10%;
+}
+
 @media(max-width:1100px) {
 
     .banner1 {

@@ -27,36 +27,31 @@ function Register() {
     const [Password, setPassword] = useState('');
     const [ConfirmPassword, setConfirmPassword] = useState('');
 
-
     let storedTheme = localStorage.getItem("theme");
 
 
-    //check all input if all good 
-    const [validated, setValidated] = useState(false);
 
+    const checkInputValueRegister = async () => {
 
-    const handleSubmit = (event) => {
+        let mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-        const form = event.currentTarget;
-
-        let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-        if (form.checkValidity() === false ||
-            Password != ConfirmPassword ||
+        if (Password != ConfirmPassword ||
             Password.length < 6 && ConfirmPassword.length <= 6 ||
-            mailformat.test(Email) == false) {
-
-            event.preventDefault();
-            event.stopPropagation();
+            User_Login == '' ||
+            FirstName == '' ||
+            Email == '' ||
+            Password == '' ||
+            ConfirmPassword == '' ||
+            mailFormat.test(Email) == false) {
 
             Swal.fire({
                 icon: 'error',
-                title: 'Oops...',
+                title: 'Please Check',
                 toast: true,
                 confirmButtonColor: "green",
-                html: `(1) you need input all value(Incorrect input) ! <br/>
-                 (2) Or Password NOT Equals ! <br/>
-                 (3) Or enter a password with 6 or more digits or letters ! <br/>
+                html: `(1) input all value(Incorrect input) ! <br/>
+                 (2) Password NOT Equals ! <br/>
+                 (3) Password with 6 or more digits or letters ! <br/>
                  (4) Check if your Email was Good`,
                 position: 'top-end',
                 background: `${(storedTheme === "light") ? "#373E44" :
@@ -66,15 +61,27 @@ function Register() {
                 buttonColor: `${(storedTheme === "light") ? "#E96E00" :
                     (storedTheme === "dark") ? "" : ""}`
             })
+            return;
         }
+
 
         else {
-            setValidated(true)
-            registerUser();
-            history.push(`/`);
-        }
-    };
 
+            await registerUser();
+
+            await Swal.fire({
+                position: "center",
+                background: "none",
+                showConfirmButton: false,
+                timer: 3000,
+                allowOutsideClick: false,
+                html: '<div class="ShowImageWhenRegister"><img src="https://i.postimg.cc/MZP7Xzk6/cute-penguin.gif"> </div>',
+            });
+
+            history.push("/")
+        }
+
+    }
 
 
 
@@ -115,7 +122,7 @@ function Register() {
 
                     <div className={(storedTheme == "light") ? "log1Dark" : (storedTheme == "dark") ? "log1" : ""}>
 
-                        <Form noValidate validated={validated} onSubmit={handleSubmit}
+                        <Form
                             style={(storedTheme === "light") ? { textAlign: "center", alignItems: "center", color: "white" } :
                                 (storedTheme === "dark") ? { textAlign: "center", alignItems: "center", color: "#4b4b4b" } : ""}>
 
@@ -127,7 +134,7 @@ function Register() {
                                         placeholder='Enter Login'
                                         value={User_Login}
                                         onChange={(event) => setLogin(event.target.value)}
-                                        required />
+                                    />
                                 </Form.Group>
 
                                 <Form.Group as={Col} md="6">
@@ -137,7 +144,7 @@ function Register() {
                                         placeholder='Enter First Name'
                                         value={FirstName}
                                         onChange={(event) => setFirstName(event.target.value)}
-                                        required />
+                                    />
                                 </Form.Group>
                             </Row>
 
@@ -150,7 +157,7 @@ function Register() {
                                         placeholder='Enter Email'
                                         value={Email}
                                         onChange={(event) => setEmail(event.target.value)}
-                                        required />
+                                    />
                                 </Form.Group>
                             </Row>
 
@@ -162,7 +169,7 @@ function Register() {
                                         placeholder='Enter Password'
                                         value={Password}
                                         onChange={(event) => setPassword(event.target.value)}
-                                        required />
+                                    />
                                 </Form.Group>
 
                                 <Form.Group as={Col} md="6">
@@ -172,7 +179,7 @@ function Register() {
                                         placeholder='Enter Confirm Password'
                                         value={ConfirmPassword}
                                         onChange={(event) => setConfirmPassword(event.target.value)}
-                                        required />
+                                    />
                                 </Form.Group>
                             </Row>
 
@@ -189,12 +196,13 @@ function Register() {
                                             (storedTheme === "dark") ? { background: "rgba(0, 0, 0, 0.1)", fontSize: "14px", textAlign: "center" } : ""} type="date"
                                         value={Birthday}
                                         onChange={(event) => setBirthday(event.target.value)}
-                                        required />
+                                    />
                                 </Form.Group>
                             </Row>
 
 
-                            <Button type="submit" style={{ fontSize: "13px", color: "white" }} variant="contained"
+                            <Button style={{ fontSize: "13px", color: "white" }} variant="contained"
+                                onClick={checkInputValueRegister}
                                 startIcon={<HowToRegIcon />}>
                                 Register
                             </Button>
