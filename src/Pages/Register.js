@@ -73,7 +73,7 @@ function Register() {
                 position: "center",
                 background: "none",
                 showConfirmButton: false,
-                timer: 3000,
+                timer: 4000,
                 allowOutsideClick: false,
                 html: '<div class="ShowImageWhenRegister"><img src="https://i.postimg.cc/MZP7Xzk6/cute-penguin.gif"> </div>',
             });
