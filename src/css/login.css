@@ -137,6 +137,15 @@
 }
 
 
+.enterUpdate {
+    margin-top: 2%;
+}
+
+.personalDataPlaceFree {
+    padding-top: 2%;
+}
+
+
 .infoVideoAAdmin a {
     animation: color-changeInfoAdmin 2s infinite;
     text-decoration: none;

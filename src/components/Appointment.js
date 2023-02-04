@@ -141,7 +141,7 @@ function Appointment(props) {
         let hourLocal = JSON.parse(sessionStorage.getItem("Hour"));
 
 
-        await UpdateDataUserAddTurn(userData._id, userData, dayLocal.Day, hourLocal.Hour_day, hourLocal.Serial_code);
+        await UpdateDataUserAddTurn(userData._id, dayLocal.Day, hourLocal.Hour_day, hourLocal.Serial_code);
         await DeleteHour(hourLocal.Serial_code);
 
         await Swal.fire({

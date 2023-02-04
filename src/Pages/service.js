@@ -176,7 +176,8 @@ function Service() {
                 buttonColor: `${(storedTheme === "light") ? "#E96E00" :
                     (storedTheme === "dark") ? "" : ""}`
             })
-            handleCloseAddReviews()
+            handleCloseAddReviews();
+            setTextReviews('');
             // window.location.reload(false);
         }
     }
@@ -270,9 +271,7 @@ function Service() {
 
         let result = Math.round(countReviews / 4.2);
 
-        if (showReviews) {
-            setSizeAllPages(result - 1);
-        }
+        setSizeAllPages(result - 1);
     })
 
 

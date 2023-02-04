@@ -45,6 +45,17 @@ export async function DeleteHour(Id) {
 
 
 
+export async function UpdateDataUser(id, user) {
+
+    const headers = {
+        'Content-Type': 'application/json'
+    }
+
+    await axios.put(`${API.USERS.GET}/${id}`, user, { headers });
+}
+
+
+
 export async function UpdateDataUserRemoveTurn(codeUser) {
 
     // USE FETCH
@@ -85,7 +96,7 @@ export async function UpdateDataUserRemoveTurn(codeUser) {
 
 
 
-export async function UpdateDataUserAddTurn(id, userData, dayLocal, hourLocal, serial_code) {
+export async function UpdateDataUserAddTurn(id, dayLocal, hourLocal, serial_code) {
 
     // USE FETCH
     // try {
@@ -118,23 +129,16 @@ export async function UpdateDataUserAddTurn(id, userData, dayLocal, hourLocal, s
 
     // USE AXIOS
     let user = {
-        FirstName: userData.FirstName,
-        User_Login: userData.User_Login,
-        Birthday: userData.Birthday,
-        Email: userData.Email,
-        User_password: userData.User_password,
-        UserType_code: "1",
-        Confirm_password: userData.Confirm_password,
         Day_date: dayLocal,
         Hour_day: hourLocal,
         Serial_codeHour: serial_code
     }
 
-    const headers = {
-        'Content-Type': 'application/json'
-    }
+    // const headers = {
+    //     'Content-Type': 'application/json'
+    // }
 
-    await axios.patch(`${API.USERS.GET}/${id}`, user, { headers: headers });
+    await axios.patch(`${API.USERS.GET}/${id}`, user);
 }
 
 

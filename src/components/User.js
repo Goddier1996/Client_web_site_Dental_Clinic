@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import PayService from '../components/PayService'
 import { LoadMedicalFileUser, showAllMyReview, LoadMedicalFileUserIsNotActive } from '../Api/LoadDataFromApi'
-import { DeleteReview, UpdateDataUserRemoveTurn, ActiveHourInDataBase } from '../Api/DeleteUpdateDataFromApi'
+import { DeleteReview, UpdateDataUserRemoveTurn, ActiveHourInDataBase, UpdateDataUser } from '../Api/DeleteUpdateDataFromApi'
 import { alertPopUpIfUserHaveTodayTurn } from './AlertUserHaveTurnToday'
 import Button from '@mui/material/Button';
 import PaymentIcon from '@mui/icons-material/Payment';
@@ -49,13 +49,19 @@ function User({ data_user }) {
 
 
 
-    //check in forum input(update user value) if all value input = if yes update , else show erorr
-    // const [validated, setValidated] = useState(false);
+    const [Login, setLogin] = useState('');
+    const [FirstName, setFirstName] = useState('');
+    const [Email, setEmail] = useState('');
+    const [Birthday, setBirthday] = useState('');
+    const [Password, setPassword] = useState('');
+    const [ConfirmPassword, setConfirmPassword] = useState('');
 
-    const handleSubmit = () => {
 
-        // const form = event.currentTarget;
 
+
+    const CheckValueAndUpdateDataUser = async () => {
+
+        // check value
         if (Password != ConfirmPassword || Password.length < 6 &&
             ConfirmPassword.length <= 6 || Password == '' || ConfirmPassword == '' ||
             Login == '' || FirstName == '' || Email == '' || Birthday == '') {
@@ -77,11 +83,14 @@ function User({ data_user }) {
             return;
         }
 
-        else {
+
+        // demo user cant update data
+        if (data_user.login == "User") {
 
             Swal.fire({
                 icon: 'warning',
-                html: 'This option is Blocked Now !',
+                title: 'Oops...',
+                html: 'Demo User Can t Update data !',
                 toast: true,
                 position: 'top-end',
                 confirmButtonColor: "green",
@@ -93,13 +102,41 @@ function User({ data_user }) {
                     (storedTheme === "dark") ? "" : ""}`
             })
             return;
-
-            // updateDateUser();
-            // sessionStorage.clear();
-            // history.push("/");
-            // window.location.reload(false);
         }
-    };
+
+
+        // update data
+        else {
+
+            let user = {
+                FirstName: FirstName,
+                User_Login: Login,
+                Birthday: Birthday,
+                Email: Email,
+                User_password: Password,
+                UserType_code: "1",
+                ConfirmPassword: ConfirmPassword,
+                Day_date: data_user.day,
+                Hour_day: data_user.hour,
+                Serial_codeHour: data_user.codeHour
+            }
+
+            await UpdateDataUser(data_user.code, user);
+
+            await Swal.fire({
+                position: "center",
+                background: "none",
+                showConfirmButton: false,
+                timer: 1000,
+                allowOutsideClick: false,
+                html: '<div class="ShowImageWhenRegister"><img src="https://i.postimg.cc/X7RTsp8v/pantsbear-goodjob.gif"> </div>',
+            });
+
+            await sessionStorage.clear();
+            history.push("/");
+            window.location.reload(false);
+        }
+    }
 
 
 
@@ -155,7 +192,7 @@ function User({ data_user }) {
             title: 'you delete this Review',
             icon: 'success',
             showConfirmButton: false,
-            timer: 1000,
+            timer: 2000,
             toast: true,
             position: 'top-end',
             background: `${(storedTheme === "light") ? "#373E44" :
@@ -199,14 +236,6 @@ function User({ data_user }) {
     }
 
 
-
-    //show use date- when i update user date i show all value in input and choise what i need update
-    const [Login, setLogin] = useState('');
-    const [FirstName, setFirstName] = useState('');
-    const [Email, setEmail] = useState('');
-    const [Birthday, setBirthday] = useState('');
-    const [Password, setPassword] = useState('');
-    const [ConfirmPassword, setConfirmPassword] = useState('');
 
 
     useEffect(() => {
@@ -343,7 +372,7 @@ function User({ data_user }) {
                                 </Tab>
 
 
-                                <Tab eventKey="History (medical File)" title="History (medical File)" className='HistoryMedical'>
+                                <Tab eventKey="History (medical File)" title="History (Medical File)" className='HistoryMedical'>
 
                                     <Table striped bordered hover size="sm" variant={(storedTheme === "light") ? "dark" : (storedTheme === "dark") ? "" : ""}>
                                         <thead>
@@ -410,13 +439,13 @@ function User({ data_user }) {
                                 </Tab>
 
 
-                                <Tab eventKey="personal data" title="personal data (Update)" className='updateDateUser'>
+                                <Tab eventKey="personal data" title="Personal Data (Update)" className='updateDateUser'>
 
                                     <Form>
 
                                         <Row>
 
-                                            <Form.Group as={Col} md="4" controlId="validationCustom01">
+                                            <Form.Group as={Col} md="4" className='personalDataPlaceFree'>
 
                                                 <Form.Label className={(storedTheme === "light") ? "colorTextDark" : (storedTheme === "colorText") ? "" : ""}>
                                                     Login
@@ -426,17 +455,15 @@ function User({ data_user }) {
                                                     value={Login}
                                                     type="text"
                                                     onChange={(event) => setLogin(event.target.value)}
-                                                    required
-                                                />
-                                                <Form.Control.Feedback type="invalid">
-                                                    Please provide a valid login.
-                                                </Form.Control.Feedback>
+                                                    style={{ backgroundColor: "white", fontWeight: "600", color: "#00000071" }} />
+
                                             </Form.Group>
 
 
-                                            <Form.Group as={Col} md="4" ccontrolId="validationCustom02">
+                                            <Form.Group as={Col} md="4" className='personalDataPlaceFree'>
+
                                                 <Form.Label className={(storedTheme === "light") ? "colorTextDark" : (storedTheme === "colorText") ? "" : ""}>
-                                                    FirstName
+                                                    First Name
                                                 </Form.Label>
 
                                                 <Form.Control
@@ -444,16 +471,15 @@ function User({ data_user }) {
                                                     type="text"
                                                     value={FirstName}
                                                     onChange={(event) => setFirstName(event.target.value)}
-                                                    required />
-                                                <Form.Control.Feedback type="invalid">
-                                                    Please provide a valid FirstName.
-                                                </Form.Control.Feedback>
+                                                    style={{ backgroundColor: "white", fontWeight: "600", color: "#00000071" }} />
+
                                             </Form.Group>
 
 
-                                            <Form.Group as={Col} md="4" controlId="validationCustom03">
+                                            <Form.Group as={Col} md="4" className='personalDataPlaceFree'>
+
                                                 <Form.Label className={(storedTheme === "light") ? "colorTextDark" : (storedTheme === "colorText") ? "" : ""}>
-                                                    mail
+                                                    Email
                                                 </Form.Label>
 
                                                 <Form.Control
@@ -461,14 +487,13 @@ function User({ data_user }) {
                                                     type="text"
                                                     value={Email}
                                                     onChange={(event) => setEmail(event.target.value)}
-                                                    required />
-                                                <Form.Control.Feedback type="invalid">
-                                                    Please provide a valid mail.
-                                                </Form.Control.Feedback>
+                                                    style={{ backgroundColor: "white", fontWeight: "600", color: "#00000071" }} />
+
                                             </Form.Group>
 
 
-                                            <Form.Group as={Col} md="4" controlId="validationCustom04">
+                                            <Form.Group as={Col} md="4" className='personalDataPlaceFree'>
+
                                                 <Form.Label className={(storedTheme === "light") ? "colorTextDark" : (storedTheme === "colorText") ? "" : ""}>
                                                     Date
                                                 </Form.Label>
@@ -478,14 +503,13 @@ function User({ data_user }) {
                                                     type="Date"
                                                     value={Birthday}
                                                     onChange={(event) => setBirthday(event.target.value)}
-                                                    required />
-                                                <Form.Control.Feedback type="invalid">
-                                                    Please provide a valid Date.
-                                                </Form.Control.Feedback>
+                                                    style={{ backgroundColor: "white", fontWeight: "600", color: "#00000071" }} />
+
                                             </Form.Group>
 
 
-                                            <Form.Group as={Col} md="4" controlId="validationCustom05">
+                                            <Form.Group as={Col} md="4" className='personalDataPlaceFree'>
+
                                                 <Form.Label className={(storedTheme === "light") ? "colorTextDark" : (storedTheme === "colorText") ? "" : ""}>
                                                     Password
                                                 </Form.Label>
@@ -495,14 +519,13 @@ function User({ data_user }) {
                                                     type="Password"
                                                     value={Password}
                                                     onChange={(event) => setPassword(event.target.value)}
-                                                    required />
-                                                <Form.Control.Feedback type="invalid">
-                                                    Please provide a valid Password.
-                                                </Form.Control.Feedback>
+                                                    style={{ backgroundColor: "white", fontWeight: "600", color: "#00000071" }} />
+
                                             </Form.Group>
 
 
-                                            <Form.Group as={Col} md="4" controlId="validationCustom06">
+                                            <Form.Group as={Col} md="4" className='personalDataPlaceFree'>
+
                                                 <Form.Label className={(storedTheme === "light") ? "colorTextDark" : (storedTheme === "colorText") ? "" : ""}>
                                                     Confirm Password
                                                 </Form.Label>
@@ -512,15 +535,14 @@ function User({ data_user }) {
                                                     type="Password"
                                                     value={ConfirmPassword}
                                                     onChange={(event) => setConfirmPassword(event.target.value)}
-                                                    required />
-                                                <Form.Control.Feedback type="invalid">
-                                                    Please provide a valid Confirm Password.
-                                                </Form.Control.Feedback>
+                                                    style={{ backgroundColor: "white", fontWeight: "600", color: "#00000071" }} />
+
                                             </Form.Group>
                                         </Row>
 
                                         <div className='enterUpdate'>
-                                            <Button style={{ fontSize: "13px", background: "green", color: "white" }} variant="contained" onClick={handleSubmit}
+                                            <Button style={{ fontSize: "13px", background: "green", color: "white" }} variant="contained"
+                                                onClick={CheckValueAndUpdateDataUser}
                                                 startIcon={<UpgradeIcon />}>
                                                 Update
                                             </Button>
@@ -543,7 +565,9 @@ function User({ data_user }) {
 export default User;
 
 
-    // USEState
+
+
+    // USE State
 
     // const [MyReview, SetMyReview] = useState([]);
     // const [medical_File, SetMedical_File] = useState([]);
