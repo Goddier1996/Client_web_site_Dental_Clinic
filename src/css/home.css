@@ -145,7 +145,13 @@ html::-webkit-scrollbar-thumb {
 
     .title {
         position: absolute;
-        top: 84%;
+        top: 85%;
+    }
+
+    .title h1 {
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 1px;
     }
 
     .Click_appointment .click button {
