@@ -11,9 +11,10 @@ import RateReviewIcon from '@mui/icons-material/RateReview';
 import NotFoundPage from '../components/NotFoundPage'
 import { useQueryDataLoadingRefetchAutoData, useQueryOnlyLoadingData } from "../customHook/customQueryHook"
 import Button from '@mui/material/Button';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+// import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+// import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { motion as m } from "framer-motion/dist/framer-motion"
+import Pagination from '@mui/material/Pagination';
 
 
 
@@ -46,49 +47,53 @@ function Service() {
 
 
 
-    const BackPageReviews = () => {
 
-        setPageNumberNow((p) => {
-            if (p === 1) {
-                return p;
-            }
-
-            window.scrollTo(0, 0);
-
-            return p - 1;
-        })
-    }
-
-
-
-    const NextPageReviews = () => {
-
-        setPageNumberNow((p) => {
-            if (p === SizeAllPages) {
-                return p;
-            }
-
-            window.scrollTo(0, 0);
-
-            return p + 1;
-        })
-    }
-
-
-
-    const MoveToEndPage = () => {
-
-        setPageNumberNow((Math.round(countReviews / 4.2)) - 1);
+    const handleChangePageNumber = (event, value) => {
+        setPageNumberNow(value);
         window.scrollTo(0, 0);
-    }
+    };
 
 
+    // const BackPageReviews = () => {
 
-    const MoveToStartPage = () => {
+    //     setPageNumberNow((p) => {
+    //         if (p === 1) {
+    //             return p;
+    //         }
 
-        setPageNumberNow(1);
-        window.scrollTo(0, 0);
-    }
+    //         window.scrollTo(0, 0);
+
+    //         return p - 1;
+    //     })
+    // }
+
+
+    // const NextPageReviews = () => {
+
+    //     setPageNumberNow((p) => {
+    //         if (p === SizeAllPages) {
+    //             return p;
+    //         }
+
+    //         window.scrollTo(0, 0);
+
+    //         return p + 1;
+    //     })
+    // }
+
+
+    // const MoveToEndPage = () => {
+
+    //     setPageNumberNow((Math.round(countReviews / 4.2)) - 1);
+    //     window.scrollTo(0, 0);
+    // }
+
+
+    // const MoveToStartPage = () => {
+
+    //     setPageNumberNow(1);
+    //     window.scrollTo(0, 0);
+    // }
 
 
 
@@ -416,16 +421,29 @@ function Service() {
                         </div>
 
 
-                        <div className='showPageNumber'>
+                        {/* <div className='showPageNumber'>
                             <p>Page {pageNumberNow} of {SizeAllPages} </p>
-                        </div>
+                        </div> */}
 
 
                         {/* Button's move next page or back */}
                         <div className='nextOrPrev'>
                             <div className='prevNextButton'>
 
-                                {(pageNumberNow === 1) ?
+                                <Pagination
+                                    sx={(storedTheme === "light") ? { button: { color: '#ffffff' } } : (storedTheme === "dark") ? "" : ""}
+                                    count={SizeAllPages}
+                                    page={pageNumberNow}
+                                    onChange={handleChangePageNumber}
+                                    showFirstButton
+                                    showLastButton
+                                    size="large"
+                                    color='success'
+                                />
+
+
+                                {/* my first UI next page */}
+                                {/* {(pageNumberNow === 1) ?
                                     <>
                                         <Button variant="contained" color="success" style={{ color: "white", textTransform: "capitalize" }}
                                             title='Next Page'
@@ -482,10 +500,12 @@ function Service() {
                                                 <ArrowForwardIosIcon style={{ fontSize: "14px" }} /><ArrowForwardIosIcon style={{ fontSize: "14px" }} />
                                             </Button>
                                         </>
-                                }
+                                } */}
 
                             </div>
                         </div>
+
+
 
                     </m.div>
             }
