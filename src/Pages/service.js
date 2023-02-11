@@ -18,6 +18,7 @@ import Pagination from '@mui/material/Pagination';
 
 
 
+
 //here we show Reviews and like and add them
 function Service() {
 
@@ -32,7 +33,7 @@ function Service() {
     let storedTheme = localStorage.getItem("theme");
 
     const [pageNumberNow, setPageNumberNow] = useState(1);
-    const [SizeAllPages, setSizeAllPages] = useState(0);
+    const [SizeAllPages, setSizeAllPages] = useState(5);
 
 
     // use custom hook , useQuery
@@ -43,15 +44,6 @@ function Service() {
         useQueryOnlyLoadingData('CountReviews', LoadCountReviews, null);
 
 
-    const [CheckIfUserAddLikeSameReview, SetCheckIfUserAddLikeSameReview] = useState([]);
-
-
-
-
-    const handleChangePageNumber = (event, value) => {
-        setPageNumberNow(value);
-        window.scrollTo(0, 0);
-    };
 
 
     // const BackPageReviews = () => {
@@ -195,7 +187,7 @@ function Service() {
 
         if (userData != null) {
 
-            SetCheckIfUserAddLikeSameReview(await CheckIfUserAddLikeThisReview(Serial_code, userData._id));
+            await CheckIfUserAddLikeThisReview(Serial_code, userData._id);
 
             let getResultIfUserHaveLikeInThisReview = JSON.parse(sessionStorage.getItem("likeReview"));
 
@@ -271,6 +263,7 @@ function Service() {
 
 
 
+
     // set count page we need to show Reviews
     useEffect(() => {
 
@@ -306,7 +299,6 @@ function Service() {
                     >
 
                         <div className={(storedTheme === "light") ? "titleOurReviewDark" : (storedTheme === "dark") ? "titleOurReview" : ""}>
-                            <br />
                             <h1>Reviews of our clinic :</h1>
                         </div>
 
@@ -434,7 +426,12 @@ function Service() {
                                     sx={(storedTheme === "light") ? { button: { color: '#ffffff' } } : (storedTheme === "dark") ? "" : ""}
                                     count={SizeAllPages}
                                     page={pageNumberNow}
-                                    onChange={handleChangePageNumber}
+
+                                    onChange={(event, value) => {
+                                        setPageNumberNow(value)
+                                        { (pageNumberNow != value) ? window.scrollTo(0, 0) : console.log() }
+                                    }}
+
                                     showFirstButton
                                     showLastButton
                                     size="large"
