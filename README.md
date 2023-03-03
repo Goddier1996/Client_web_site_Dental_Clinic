@@ -1,6 +1,6 @@
 # Dental Clinic WebSite
   
-Link WebSite - https://clinic-dental-israel.netlify.app      
+Link WebSite - https://dental-clinic-israel-vip.web.app     
    
 On this website, customers can make an appointment for a dental clinic.
 and leave an opinion on the service.
