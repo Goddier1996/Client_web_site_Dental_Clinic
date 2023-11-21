@@ -90,6 +90,7 @@
 
 .gifImageRobot img {
     height: 290px;
+    margin-top: -8.5%;
 }
 
 .showRobotBoxAppoinment {
@@ -99,6 +100,9 @@
     align-items: center;
 }
 
+.appointmentRobotBoxButton {
+    margin-top: 1.5%;
+}
 
 
 @media(max-width:991px) {

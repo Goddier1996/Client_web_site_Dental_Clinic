@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Row, Modal } from 'react-bootstrap';
+import ButtonMui from '@mui/material/Button';
 import '../css/appointment.css'
 import Swal from 'sweetalert2'
 import { LoadDays, LoadHour } from '../Api/LoadDataFromApi'
@@ -11,14 +12,12 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 
 
-
 //here component we show days+hours (if you click to button in Home Page Book an appointment)
 function Appointment(props) {
 
     // show pop up
     const [showPopUpRobotBox, setShowPopUpRobotBox] = useState(false);
     const handleShowPopUpRobotBox = () => setShowPopUpRobotBox(true);
-    const handleClosePopUpRobotBox = () => setShowPopUpRobotBox(false);
 
 
     // check box if user not robot
@@ -144,10 +143,11 @@ function Appointment(props) {
     const showPopUpReCAPTCHA = (Hour_day, Serial_code) => {
 
         handleShowPopUpRobotBox();
-        let dataHour = { Hour_day, Serial_code }
 
+        let dataHour = { Hour_day, Serial_code }
         sessionStorage.setItem("Hour", JSON.stringify(dataHour))
     }
+
 
 
     // save to user date , hour and day what he chiose
@@ -155,15 +155,8 @@ function Appointment(props) {
 
         if (capVal) {
 
-            await handleClosePopUpRobotBox();
-
-            // let dataHour = { Hour_day, Serial_code }
-
-            // sessionStorage.setItem("Hour", JSON.stringify(dataHour))
-
             let dayLocal = JSON.parse(sessionStorage.getItem("day"));
             let hourLocal = JSON.parse(sessionStorage.getItem("Hour"));
-
 
             await UpdateDataUserAddTurn(userData._id, dayLocal.Day, hourLocal.Hour_day, hourLocal.Serial_code);
             await DeleteHour(hourLocal.Serial_code);
@@ -185,7 +178,6 @@ function Appointment(props) {
             await sessionStorage.clear();
             window.location.reload(false);
         }
-
     }
 
 
@@ -230,6 +222,7 @@ function Appointment(props) {
             }
 
 
+
             <Modal show={showPopUpRobotBox} style={{ background: "rgba(0, 0, 0, 0.75)" }}>
 
                 <div className='showRobotBoxAppoinment'>
@@ -246,13 +239,20 @@ function Appointment(props) {
                         />
                     </div>
 
-                    <Button onClick={saveDateUser}
-                        disabled={!capVal}
-                        variant="contained"
-                        style={(storedTheme === "light") ? { fontSize: "13px" } :
-                            (storedTheme === "dark") ? { background: "green", fontSize: "13px" } : ""}>
-                        Save Turn
-                    </Button>
+
+                    <div className='appointmentRobotBoxButton' style={!capVal ? { cursor: "not-allowed" } : {}}>
+                        <ButtonMui onClick={saveDateUser}
+                            disabled={!capVal}
+                            variant="contained"
+                            style={(storedTheme === "light") ? { fontSize: "13px", color: "white" } :
+                                (storedTheme === "dark") ? { background: "green", fontSize: "13px", color: "white" } : ""}
+                        >
+                            {capVal ?
+                                "Click And We Save Turn"
+                                : "Save Turn"
+                            }
+                        </ButtonMui>
+                    </div>
 
                 </div>
             </Modal>
