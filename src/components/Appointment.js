@@ -8,6 +8,7 @@ import NotFoundPage from '../components/NotFoundPage'
 import { useQueryOnlyLoadingData, useQueryDataLoadingRefetchAutoData } from "../customHook/customQueryHook"
 import { GetTime, GetDayWeekFromArray } from './AlertUserHaveTurnToday'
 import PopUpCheckIfRobotAppoinment from './ReCAPTCHA/PopUpCheckIfRobotAppoinment';
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 
@@ -225,7 +226,17 @@ function Appointment(props) {
 
 
             <Modal show={showPopUpRobotBox} style={{ background: "rgba(0, 0, 0, 0.75)" }}>
-                <PopUpCheckIfRobotAppoinment props={setCapVal}/>
+
+                <PopUpCheckIfRobotAppoinment />
+
+                {/* check box if user dont robot */}
+                <div>
+                    <ReCAPTCHA
+                        sitekey={process.env.REACT_APP_RECAPTCHA || ""}
+                        onChange={(val) => props(val)}
+                    />
+                </div>
+
             </Modal>
         </>
     )

@@ -1,9 +1,6 @@
 import React from 'react'
-import ReCAPTCHA from "react-google-recaptcha";
 
-
-
-const PopUpCheckIfRobotAppoinment = (props) => {
+const PopUpCheckIfRobotAppoinment = () => {
 
     return (
 
@@ -13,13 +10,6 @@ const PopUpCheckIfRobotAppoinment = (props) => {
                 <img src='https://i.postimg.cc/bvjTR4mC/robot.gif' />
             </div>
 
-            {/* check box if user dont robot */}
-            <div>
-                <ReCAPTCHA
-                    sitekey={process.env.REACT_APP_RECAPTCHA || ""}
-                    onChange={(val) => props(val)}
-                />
-            </div>
         </div>
     )
 }
