@@ -7,6 +7,7 @@ import { AddNewUserRegester } from '../Api/ConnectOrAddFromApi'
 import Button from '@mui/material/Button';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import { motion as m } from "framer-motion/dist/framer-motion"
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 
@@ -28,6 +29,9 @@ function Register() {
     const [ConfirmPassword, setConfirmPassword] = useState('');
 
     let storedTheme = localStorage.getItem("theme");
+
+    // check box if user not robot
+    const [capVal, setCapVal] = useState(null);
 
 
 
@@ -111,8 +115,6 @@ function Register() {
         <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            // initial={{ y: "100%" }}
-            // animate={{ y: "0%" }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.75, ease: "easeOut" }}
         >
@@ -201,11 +203,25 @@ function Register() {
                             </Row>
 
 
-                            <Button style={{ fontSize: "13px", color: "white" }} variant="contained"
-                                onClick={checkInputValueRegister}
-                                startIcon={<HowToRegIcon />}>
-                                Register
-                            </Button>
+                            {/* check box if user dont robot */}
+                            <div className="checkBox">
+                                <ReCAPTCHA
+                                    sitekey={process.env.REACT_APP_RECAPTCHA || ""}
+                                    onChange={(val) => setCapVal(val)}
+                                />
+                            </div>
+
+
+                            <div style={!capVal ? { cursor: "not-allowed" } : {}}>
+                                <Button style={{ fontSize: "13px", color: "white" }}
+                                    variant="contained"
+                                    disabled={!capVal}
+                                    onClick={checkInputValueRegister}
+                                    startIcon={<HowToRegIcon />}>
+                                    Register
+                                </Button>
+                            </div>
+
                         </Form>
                     </div>
                 </div>
