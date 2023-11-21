@@ -7,7 +7,6 @@ import { DeleteHour, UpdateDataUserAddTurn } from '../Api/DeleteUpdateDataFromAp
 import NotFoundPage from '../components/NotFoundPage'
 import { useQueryOnlyLoadingData, useQueryDataLoadingRefetchAutoData } from "../customHook/customQueryHook"
 import { GetTime, GetDayWeekFromArray } from './AlertUserHaveTurnToday'
-import PopUpCheckIfRobotAppoinment from './ReCAPTCHA/PopUpCheckIfRobotAppoinment';
 import ReCAPTCHA from "react-google-recaptcha";
 
 
@@ -19,6 +18,8 @@ function Appointment(props) {
     // show pop up
     const [showPopUpRobotBox, setShowPopUpRobotBox] = useState(false);
     const handleShowPopUpRobotBox = () => setShowPopUpRobotBox(true);
+    const handleClosePopUpRobotBox = () => setShowPopUpRobotBox(false);
+
 
     // check box if user not robot
     const [capVal, setCapVal] = useState(null);
@@ -143,14 +144,12 @@ function Appointment(props) {
     // save to user date , hour and day what he chiose
     const saveDateUser = async (Hour_day, Serial_code) => {
 
-
         if (!capVal) {
             handleShowPopUpRobotBox();
         }
 
-
-        else {
-            setShowPopUpRobotBox(false);
+        if (capVal) {
+            handleClosePopUpRobotBox();
 
             let dataHour = { Hour_day, Serial_code }
 
@@ -227,16 +226,21 @@ function Appointment(props) {
 
             <Modal show={showPopUpRobotBox} style={{ background: "rgba(0, 0, 0, 0.75)" }}>
 
-                <PopUpCheckIfRobotAppoinment />
+                <div className='showRobotBoxAppoinment'>
 
-                {/* check box if user dont robot */}
-                <div>
-                    <ReCAPTCHA
-                        sitekey={process.env.REACT_APP_RECAPTCHA || ""}
-                        onChange={(val) => setCapVal(val)}
-                    />
+                    <div className='gifImageRobot'>
+                        <img src='https://i.postimg.cc/bvjTR4mC/robot.gif' />
+                    </div>
+
+                    {/* check box if user dont robot */}
+                    <div>
+                        <ReCAPTCHA
+                            sitekey={process.env.REACT_APP_RECAPTCHA || ""}
+                            onChange={(val) => setCapVal(val)}
+                        />
+                    </div>
+
                 </div>
-
             </Modal>
         </>
     )
