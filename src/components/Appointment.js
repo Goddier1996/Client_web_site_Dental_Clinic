@@ -111,7 +111,7 @@ function Appointment(props) {
                                                         <p href='#'
                                                             style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
                                                                 (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
-                                                            onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
+                                                            onClick={() => showPopUpReCAPTCHA(hour.Hour_day, hour._id)}>{hour.Hour_day}
                                                         </p>
                                                     </div>
                                                 )
@@ -124,7 +124,7 @@ function Appointment(props) {
                                                     <p href='#'
                                                         style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
                                                             (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
-                                                        onClick={() => saveDateUser(hour.Hour_day, hour._id)}>{hour.Hour_day}
+                                                        onClick={() => showPopUpReCAPTCHA(hour.Hour_day, hour._id)}>{hour.Hour_day}
                                                     </p>
                                                 </div>
                                             )
@@ -141,18 +141,25 @@ function Appointment(props) {
 
 
 
-    // save to user date , hour and day what he chiose
-    const saveDateUser = async (Hour_day, Serial_code) => {
+    const showPopUpReCAPTCHA = (Hour_day, Serial_code) => {
 
-        await handleShowPopUpRobotBox();
+        handleShowPopUpRobotBox();
+        let dataHour = { Hour_day, Serial_code }
+
+        sessionStorage.setItem("Hour", JSON.stringify(dataHour))
+    }
+
+
+    // save to user date , hour and day what he chiose
+    const saveDateUser = async () => {
 
         if (capVal) {
 
             await handleClosePopUpRobotBox();
 
-            let dataHour = { Hour_day, Serial_code }
+            // let dataHour = { Hour_day, Serial_code }
 
-            sessionStorage.setItem("Hour", JSON.stringify(dataHour))
+            // sessionStorage.setItem("Hour", JSON.stringify(dataHour))
 
             let dayLocal = JSON.parse(sessionStorage.getItem("day"));
             let hourLocal = JSON.parse(sessionStorage.getItem("Hour"));
@@ -238,6 +245,14 @@ function Appointment(props) {
                             onChange={(val) => setCapVal(val)}
                         />
                     </div>
+
+                    <Button onClick={saveDateUser}
+                        disabled={!capVal}
+                        variant="contained"
+                        style={(storedTheme === "light") ? { fontSize: "13px" } :
+                            (storedTheme === "dark") ? { background: "green", fontSize: "13px" } : ""}>
+                        Save Turn
+                    </Button>
 
                 </div>
             </Modal>
