@@ -144,12 +144,10 @@ function Appointment(props) {
     // save to user date , hour and day what he chiose
     const saveDateUser = async (Hour_day, Serial_code) => {
 
-        if (!capVal) {
-            handleShowPopUpRobotBox();
-        }
+        await handleShowPopUpRobotBox();
+        await handleClosePopUpRobotBox();
 
         if (capVal) {
-            handleClosePopUpRobotBox();
 
             let dataHour = { Hour_day, Serial_code }
 
