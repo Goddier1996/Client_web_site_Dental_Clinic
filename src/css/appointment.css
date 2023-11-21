@@ -86,3 +86,24 @@
 .loadingDaysHour img {
     height: 180px;
 }
+
+
+.gifImageRobot img {
+    height: 290px;
+}
+
+.showRobotBoxAppoinment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+@media(max-width:991px) {
+
+    .gifImageRobot img {
+        height: 390px;
+    }
+}

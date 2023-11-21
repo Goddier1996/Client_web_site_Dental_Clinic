@@ -7,12 +7,20 @@ import { DeleteHour, UpdateDataUserAddTurn } from '../Api/DeleteUpdateDataFromAp
 import NotFoundPage from '../components/NotFoundPage'
 import { useQueryOnlyLoadingData, useQueryDataLoadingRefetchAutoData } from "../customHook/customQueryHook"
 import { GetTime, GetDayWeekFromArray } from './AlertUserHaveTurnToday'
+import PopUpCheckIfRobotAppoinment from './ReCAPTCHA/PopUpCheckIfRobotAppoinment';
 
 
 
 
 //here component we show days+hours (if you click to button in Home Page Book an appointment)
 function Appointment(props) {
+
+    // show pop up
+    const [showPopUpRobotBox, setShowPopUpRobotBox] = useState(false);
+    const handleShowPopUpRobotBox = () => setShowPopUpRobotBox(true);
+
+    // check box if user not robot
+    const [capVal, setCapVal] = useState(null);
 
 
     //show a pop up hour
@@ -56,6 +64,7 @@ function Appointment(props) {
 
     //show (jsx) return we see in pup up hours - and click to hour we save what day we choose and hour to data base
     const ResultsHours = () => (
+
         takeDayAndCodeDayInResultHour = JSON.parse(sessionStorage.getItem("day")),
         dayFromArray = GetDayWeekFromArray(new Date),
         hoursAndMinutes = GetTime(new Date),
@@ -133,33 +142,44 @@ function Appointment(props) {
     // save to user date , hour and day what he chiose
     const saveDateUser = async (Hour_day, Serial_code) => {
 
-        let dataHour = { Hour_day, Serial_code }
 
-        sessionStorage.setItem("Hour", JSON.stringify(dataHour))
-
-        let dayLocal = JSON.parse(sessionStorage.getItem("day"));
-        let hourLocal = JSON.parse(sessionStorage.getItem("Hour"));
+        if (!capVal) {
+            handleShowPopUpRobotBox();
+        }
 
 
-        await UpdateDataUserAddTurn(userData._id, dayLocal.Day, hourLocal.Hour_day, hourLocal.Serial_code);
-        await DeleteHour(hourLocal.Serial_code);
+        else {
+            setShowPopUpRobotBox(false);
 
-        await Swal.fire({
-            title: `Youre making an appointment`,
-            text: `${dayLocal.Day} ${hourLocal.Hour_day}`,
-            icon: 'success',
-            showConfirmButton: false,
-            timer: 1500,
-            position: 'center',
-            background: `${(storedTheme === "light") ? "#373E44" :
-                (storedTheme === "dark") ? "" : ""}`,
-            color: `${(storedTheme === "light") ? "#ffffffab" :
-                (storedTheme === "dark") ? "" : ""}`,
-            buttonColor: `${(storedTheme === "light") ? "#E96E00" :
-                (storedTheme === "dark") ? "" : ""}`
-        })
-        await sessionStorage.clear();
-        window.location.reload(false);
+            let dataHour = { Hour_day, Serial_code }
+
+            sessionStorage.setItem("Hour", JSON.stringify(dataHour))
+
+            let dayLocal = JSON.parse(sessionStorage.getItem("day"));
+            let hourLocal = JSON.parse(sessionStorage.getItem("Hour"));
+
+
+            await UpdateDataUserAddTurn(userData._id, dayLocal.Day, hourLocal.Hour_day, hourLocal.Serial_code);
+            await DeleteHour(hourLocal.Serial_code);
+
+            await Swal.fire({
+                title: `Youre making an appointment`,
+                text: `${dayLocal.Day} ${hourLocal.Hour_day}`,
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500,
+                position: 'center',
+                background: `${(storedTheme === "light") ? "#373E44" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                color: `${(storedTheme === "light") ? "#ffffffab" :
+                    (storedTheme === "dark") ? "" : ""}`,
+                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                    (storedTheme === "dark") ? "" : ""}`
+            })
+            await sessionStorage.clear();
+            window.location.reload(false);
+        }
+
     }
 
 
@@ -202,6 +222,11 @@ function Appointment(props) {
                         </div>
                     </>
             }
+
+
+            <Modal show={showPopUpRobotBox} style={{ background: "rgba(0, 0, 0, 0.75)" }}>
+                <PopUpCheckIfRobotAppoinment props={setCapVal}/>
+            </Modal>
         </>
     )
 
