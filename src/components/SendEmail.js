@@ -5,6 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import Swal from "sweetalert2";
 import { send } from "emailjs-com";
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 
@@ -17,6 +18,10 @@ function SendEmail(props) {
         reply_to: '',
         message: '',
     });
+
+
+    // check box if user not robot
+    const [capVal, setCapVal] = useState(null);
 
 
 
@@ -132,8 +137,19 @@ function SendEmail(props) {
                 />
             </Form.Group>
 
-            <div className='buttonSendMessage'>
+
+            {/* check box if user dont robot */}
+            <div className="checkBox" style={{ marginTop: "3%" }}>
+                <ReCAPTCHA
+                    sitekey={process.env.REACT_APP_RECAPTCHA || ""}
+                    onChange={(val) => setCapVal(val)}
+                />
+            </div>
+
+
+            <div className='buttonSendMessage' style={!capVal ? { cursor: "not-allowed" } : {}}>
                 <Button onClick={sendMessage}
+                    disabled={!capVal}
                     variant="contained"
                     style={(storedTheme === "light") ? { fontSize: "13px" } :
                         (storedTheme === "dark") ? { background: "green", fontSize: "13px" } : ""}
