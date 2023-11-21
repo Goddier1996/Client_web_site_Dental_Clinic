@@ -15,6 +15,7 @@ import Button from '@mui/material/Button';
 // import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { motion as m } from "framer-motion/dist/framer-motion"
 import Pagination from '@mui/material/Pagination';
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 
@@ -43,7 +44,8 @@ function Service() {
     const { data: countReviews } =
         useQueryOnlyLoadingData('CountReviews', LoadCountReviews, null);
 
-
+    // check box if user not robot
+    const [capVal, setCapVal] = useState(null);
 
 
     // const BackPageReviews = () => {
@@ -292,8 +294,6 @@ function Service() {
                     <m.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        // initial={{ y: "100%" }}
-                        // animate={{ y: "0%" }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.75, ease: "easeOut" }}
                     >
@@ -311,6 +311,7 @@ function Service() {
                         </div>
 
 
+                        {/* here model pop up add new review */}
                         <div>
                             <Modal show={showAddReviews} onHide={handleCloseAddReviews}>
 
@@ -353,8 +354,19 @@ function Service() {
                                         </Form>
                                     </Modal.Body>
 
-                                    <div className='buttonAddNewReviewOrCLose'>
-                                        <Button style={{ fontSize: "12px", color: "white" }} variant="contained"
+
+                                    {/* check box if user dont robot */}
+                                    <div className="checkBox">
+                                        <ReCAPTCHA
+                                            sitekey={process.env.REACT_APP_RECAPTCHA || ""}
+                                            onChange={(val) => setCapVal(val)}
+                                        />
+                                    </div>
+
+                                    <div className='buttonAddNewReviewOrCLose' style={!capVal ? { cursor: "not-allowed" } : {}}>
+                                        <Button style={{ fontSize: "12px", color: "white" }}
+                                            disabled={!capVal}
+                                            variant="contained"
                                             onClick={addReviews} startIcon={<AddIcon />}>
                                             Add a Review
                                         </Button>
@@ -502,13 +514,10 @@ function Service() {
                             </div>
                         </div>
 
-
-
                     </m.div>
             }
         </>
     )
-
 }
 
 export default Service;
