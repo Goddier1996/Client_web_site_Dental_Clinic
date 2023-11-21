@@ -233,7 +233,7 @@ function Appointment(props) {
                 <div>
                     <ReCAPTCHA
                         sitekey={process.env.REACT_APP_RECAPTCHA || ""}
-                        onChange={(val) => props(val)}
+                        onChange={(val) => setCapVal(val)}
                     />
                 </div>
 
