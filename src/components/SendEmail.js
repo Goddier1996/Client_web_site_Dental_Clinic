@@ -138,7 +138,7 @@ function SendEmail(props) {
             </Form.Group>
 
 
-            {/* check box if user dont robot */}
+            {/* check box if user don't robot */}
             <div className="checkBox" style={{ marginTop: "3%" }}>
                 <ReCAPTCHA
                     sitekey={process.env.REACT_APP_RECAPTCHA || ""}
