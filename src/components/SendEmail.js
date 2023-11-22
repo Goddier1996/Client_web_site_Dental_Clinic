@@ -5,7 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import Swal from "sweetalert2";
 import { send } from "emailjs-com";
-import ReCAPTCHA from "react-google-recaptcha";
+import RobotBox from './ReCAPTCHA/RobotBox';
 
 
 
@@ -21,7 +21,7 @@ function SendEmail(props) {
 
 
     // check box if user not robot
-    const [capVal, setCapVal] = useState(null);
+    const [capVal, setCapVal] = useState(false);
 
 
 
@@ -82,6 +82,7 @@ function SendEmail(props) {
                             (storedTheme === "dark") ? "" : ""}`
                     }).then((result) => {
                         if (result.isConfirmed) {
+                            setCapVal(false);
                             window.location.reload(false);
                         }
                     })
@@ -91,6 +92,11 @@ function SendEmail(props) {
                 });
         }
     };
+
+
+    const activeRobotBox = () => {
+        setCapVal(true);
+    }
 
 
 
@@ -139,11 +145,8 @@ function SendEmail(props) {
 
 
             {/* check box if user don't robot */}
-            <div className="checkBox" style={{ marginTop: "3%" }}>
-                <ReCAPTCHA
-                    sitekey={process.env.REACT_APP_RECAPTCHA || ""}
-                    onChange={(val) => setCapVal(val)}
-                />
+            <div style={{ marginTop: "8%" }}>
+                <RobotBox activeRobotBox={activeRobotBox} />
             </div>
 
 

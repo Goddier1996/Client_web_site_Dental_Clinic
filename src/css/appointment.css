@@ -68,8 +68,6 @@
     color: gray;
 }
 
-
-
 .borderPlace {
     border-bottom: 3px solid gray;
     border-radius: 50%;
@@ -87,27 +85,33 @@
     height: 180px;
 }
 
+.gifImageRobot {
+    display: flex;
+    justify-content: center;
+    margin-top: -5%;
+}
 
 .gifImageRobot img {
-    height: 290px;
-    margin-top: -8.5%;
+    height: 270px;
+    margin-bottom: 3%;
 }
 
 .showRobotBoxAppoinment {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .appointmentRobotBoxButton {
-    margin-top: 1.5%;
+    margin-top: 0.5%;
+    display: flex;
+    justify-content: space-around;
 }
 
 
 @media(max-width:991px) {
 
-    .gifImageRobot img {
-        height: 390px;
+    .gifImageRobot {
+        margin-top: 0%;
     }
+
 }

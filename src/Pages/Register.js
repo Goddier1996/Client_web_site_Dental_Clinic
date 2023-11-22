@@ -7,7 +7,7 @@ import { AddNewUserRegester } from '../Api/ConnectOrAddFromApi'
 import Button from '@mui/material/Button';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import { motion as m } from "framer-motion/dist/framer-motion"
-import ReCAPTCHA from "react-google-recaptcha";
+import RobotBox from '../components/ReCAPTCHA/RobotBox';
 
 
 
@@ -31,7 +31,7 @@ function Register() {
     let storedTheme = localStorage.getItem("theme");
 
     // check box if user not robot
-    const [capVal, setCapVal] = useState(null);
+    const [capVal, setCapVal] = useState(false);
 
 
 
@@ -108,6 +108,10 @@ function Register() {
         await AddNewUserRegester(user);
     }
 
+
+    const activeRobotBox = () => {
+        setCapVal(true);
+    }
 
 
     return (
@@ -204,11 +208,8 @@ function Register() {
 
 
                             {/* check box if user dont robot */}
-                            <div className="checkBox">
-                                <ReCAPTCHA
-                                    sitekey={process.env.REACT_APP_RECAPTCHA || ""}
-                                    onChange={(val) => setCapVal(val)}
-                                />
+                            <div>
+                                <RobotBox activeRobotBox={activeRobotBox} />
                             </div>
 
 

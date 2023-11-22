@@ -15,7 +15,7 @@ import Button from '@mui/material/Button';
 // import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { motion as m } from "framer-motion/dist/framer-motion"
 import Pagination from '@mui/material/Pagination';
-import ReCAPTCHA from "react-google-recaptcha";
+import RobotBox from '../components/ReCAPTCHA/RobotBox'
 
 
 
@@ -44,8 +44,9 @@ function Service() {
     const { data: countReviews } =
         useQueryOnlyLoadingData('CountReviews', LoadCountReviews, null);
 
+
     // check box if user not robot
-    const [capVal, setCapVal] = useState(null);
+    const [capVal, setCapVal] = useState(false);
 
 
     // const BackPageReviews = () => {
@@ -177,7 +178,7 @@ function Service() {
             })
             handleCloseAddReviews();
             setTextReviews('');
-            // window.location.reload(false);
+            setCapVal(false);
         }
     }
 
@@ -263,6 +264,9 @@ function Service() {
     }
 
 
+    const activeRobotBox = () => {
+        setCapVal(true);
+    }
 
 
 
@@ -355,13 +359,11 @@ function Service() {
                                     </Modal.Body>
 
 
-                                    {/* check box if user dont robot */}
-                                    <div className="checkBox">
-                                        <ReCAPTCHA
-                                            sitekey={process.env.REACT_APP_RECAPTCHA || ""}
-                                            onChange={(val) => setCapVal(val)}
-                                        />
+                                    {/* check robot box if user dont robot */}
+                                    <div>
+                                        <RobotBox activeRobotBox={activeRobotBox} />
                                     </div>
+
 
                                     <div className='buttonAddNewReviewOrCLose' style={!capVal ? { cursor: "not-allowed" } : {}}>
                                         <Button style={{ fontSize: "12px", color: "white" }}

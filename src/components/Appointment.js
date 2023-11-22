@@ -8,12 +8,13 @@ import { DeleteHour, UpdateDataUserAddTurn } from '../Api/DeleteUpdateDataFromAp
 import NotFoundPage from '../components/NotFoundPage'
 import { useQueryOnlyLoadingData, useQueryDataLoadingRefetchAutoData } from "../customHook/customQueryHook"
 import { GetTime, GetDayWeekFromArray } from './AlertUserHaveTurnToday'
-import ReCAPTCHA from "react-google-recaptcha";
+import RobotBox from './ReCAPTCHA/RobotBox';
 
 
 
 //here component we show days+hours (if you click to button in Home Page Book an appointment)
 function Appointment(props) {
+
 
     // show pop up
     const [showPopUpRobotBox, setShowPopUpRobotBox] = useState(false);
@@ -21,7 +22,7 @@ function Appointment(props) {
 
 
     // check box if user not robot
-    const [capVal, setCapVal] = useState(null);
+    const [capVal, setCapVal] = useState(false);
 
 
     //show a pop up hour
@@ -59,7 +60,6 @@ function Appointment(props) {
 
         ResultsHours();
     }
-
 
 
 
@@ -176,10 +176,21 @@ function Appointment(props) {
                     (storedTheme === "dark") ? "" : ""}`
             })
             await sessionStorage.clear();
+            setCapVal(false);
             window.location.reload(false);
         }
     }
 
+
+    const activeRobotBox = () => {
+        setCapVal(true);
+    }
+
+    const closePopUpRobotBoxUserExit = () => {
+
+        setShowPopUpRobotBox(false);
+        setCapVal(false);
+    }
 
 
 
@@ -233,24 +244,32 @@ function Appointment(props) {
 
                     {/* check box if user dont robot */}
                     <div>
-                        <ReCAPTCHA
-                            sitekey={process.env.REACT_APP_RECAPTCHA || ""}
-                            onChange={(val) => setCapVal(val)}
-                        />
+                        <RobotBox activeRobotBox={activeRobotBox} />
                     </div>
 
 
                     <div className='appointmentRobotBoxButton' style={!capVal ? { cursor: "not-allowed" } : {}}>
-                        <ButtonMui onClick={saveDateUser}
+
+                        <ButtonMui
+                            onClick={saveDateUser}
                             disabled={!capVal}
                             variant="contained"
                             style={(storedTheme === "light") ? { fontSize: "13px", color: "white" } :
-                                (storedTheme === "dark") ? { background: "green", fontSize: "13px", color: "white" } : ""}
+                                (storedTheme === "dark") ? { fontSize: "13px", color: "white" } : ""}
                         >
                             {capVal ?
                                 "Click And We Save Turn"
                                 : "Save Turn"
                             }
+                        </ButtonMui>
+
+                        <ButtonMui
+                            onClick={closePopUpRobotBoxUserExit}
+                            variant="contained"
+                            style={(storedTheme === "light") ? { background: "red", fontSize: "13px", color: "white" } :
+                                (storedTheme === "dark") ? { background: "red", fontSize: "13px", color: "white" } : ""}
+                        >
+                            Close
                         </ButtonMui>
                     </div>
 
