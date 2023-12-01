@@ -14,6 +14,7 @@ import RobotBox from '../components/ReCAPTCHA/RobotBox';
 // here Register Page
 function Register() {
 
+
     const history = useHistory()
 
     // input date Birthday , and show default date when input your date
@@ -204,9 +205,9 @@ function Register() {
 
 
                             {/* check box if user dont robot */}
-                            <div>
+                            <>
                                 <RobotBox activeRobotBox={() => setCapVal(true)} />
-                            </div>
+                            </>
 
 
                             <div style={!capVal ? { cursor: "not-allowed" } : {}}>

@@ -11,8 +11,8 @@ import SaveIcon from '@mui/icons-material/Save';
 
 
 
-//here component forget Paswword use in sign In component
-function ForgetPaswword() {
+//here component forget Password use in sign In component
+function ForgetPassword() {
 
 
     const [showNewNewPassword, setShowNewPassword] = useState(false);
@@ -288,4 +288,4 @@ function ForgetPaswword() {
 }
 
 
-export default ForgetPaswword;
+export default ForgetPassword;

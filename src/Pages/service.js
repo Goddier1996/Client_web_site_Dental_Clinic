@@ -166,8 +166,6 @@ function Service() {
                         </div>
 
 
-
-
                         {/* Button's move next page or back */}
                         <div className='nextOrPrev'>
                             <div className='prevNextButton'>

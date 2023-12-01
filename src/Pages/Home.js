@@ -10,7 +10,7 @@ import { container, item } from "../styleComponents/StyleAnimation"
 
 
 
-// Home page
+
 function Home() {
 
 
@@ -18,7 +18,6 @@ function Home() {
 
     // show popup add , Appointment
     const [showModelAppointment, setShowModelAppointment] = useState(false);
-    const handleCloseModelAppointment = () => setShowModelAppointment(false);
     const handleShowModelAppointment = () => setShowModelAppointment(true);
 
     let userData = JSON.parse(sessionStorage.getItem("user"));
@@ -28,6 +27,7 @@ function Home() {
     const CheckUserConnected = () => {
 
         if (userData != null && userData.Day_date == null && userData.UserType_code == 1) {
+
             // show popup,Appointment
             handleShowModelAppointment();
         }
@@ -69,8 +69,6 @@ function Home() {
         <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            // initial={{ y: "100%" }}
-            // animate={{ y: "0%" }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.75, ease: "easeOut" }}
         >

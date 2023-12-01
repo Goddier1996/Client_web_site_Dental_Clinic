@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Button, Row, Modal } from 'react-bootstrap';
-import ButtonMui from '@mui/material/Button';
 import '../../css/appointment.css'
 import Swal from 'sweetalert2'
 import { LoadDays, LoadHour } from '../../Api/LoadDataFromApi'
@@ -8,7 +7,7 @@ import { DeleteHour, UpdateDataUserAddTurn } from '../../Api/DeleteUpdateDataFro
 import NotFoundPage from '../tools/NotFoundPage'
 import { useQueryOnlyLoadingData, useQueryDataLoadingRefetchAutoData } from "../../customHook/customQueryHook"
 import { GetTime, GetDayWeekFromArray } from './AlertUserHaveTurnToday'
-import RobotBox from '../ReCAPTCHA/RobotBox';
+import ModelPopUpSaveTurn from './ModelPopUpSaveTurn';
 
 
 
@@ -26,8 +25,10 @@ function Appointment() {
 
 
     //show a pop up hour
-    const [showResults, setShowResults] = React.useState(false)
-    const onClick = () => setShowResults(true)
+    const [showResultsHours, setShowResultsHours] = useState(false);
+
+
+    const [writeNoQueuesToday, setWriteNoQueuesToday] = useState(false);
 
 
     // check in ResultsHours function today , which hours work and free today
@@ -58,7 +59,7 @@ function Appointment() {
 
         await sessionStorage.setItem("day", JSON.stringify(dataDay));
 
-        ResultsHours();
+        setShowResultsHours(true);
     }
 
 
@@ -69,7 +70,6 @@ function Appointment() {
         takeDayAndCodeDayInResultHour = JSON.parse(sessionStorage.getItem("day")),
         dayFromArray = GetDayWeekFromArray(new Date),
         hoursAndMinutes = GetTime(new Date),
-        onClick(),
 
         <>
             <div className='borderPlace'></div>
@@ -97,27 +97,48 @@ function Appointment() {
                             </>
                             :
                             <>
-                                <Row xs={2} md={4} lg={4} className="g-4">
-                                    {Hours.map(hour => {
+                                {dayFromArray == takeDayAndCodeDayInResultHour.Day ?
+                                    <>
+                                        {!writeNoQueuesToday ?
+                                            <Row xs={2} md={4} lg={4}>
+                                                {Hours.map(hourThisDay => {
 
-                                        if (dayFromArray == takeDayAndCodeDayInResultHour.Day) {
-
-                                            if (hour.Hour_day >= hoursAndMinutes) {
-
-                                                return (
-
-                                                    <div key={hour._id}>
-                                                        <p href='#'
-                                                            style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
-                                                                (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
-                                                            onClick={() => showPopUpReCAPTCHA(hour.Hour_day, hour._id)}>{hour.Hour_day}
-                                                        </p>
-                                                    </div>
+                                                    return (
+                                                        <>
+                                                            {hourThisDay.Hour_day >= hoursAndMinutes ?
+                                                                <div key={hourThisDay._id}>
+                                                                    <p href='#'
+                                                                        style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
+                                                                            (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
+                                                                        onClick={() => showPopUpReCAPTCHA(hourThisDay.Hour_day, hourThisDay._id)}>{hourThisDay.Hour_day}
+                                                                    </p>
+                                                                </div>
+                                                                :
+                                                                setWriteNoQueuesToday(true)
+                                                            }
+                                                        </>
+                                                    )
+                                                }
                                                 )
-                                            }
+                                                }
+                                            </Row>
+                                            :
+                                            <div className='writeNotHaveTodayTurn'>
+                                                <h6
+                                                    style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
+                                                        (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
+                                                >
+                                                    No queues today
+                                                    <br /><br />
+                                                    A working day is over 😁
+                                                </h6>
+                                            </div>
                                         }
+                                    </>
+                                    :
+                                    <Row xs={2} md={4} lg={4}>
+                                        {Hours.map(hour => {
 
-                                        else {
                                             return (
                                                 <div key={hour._id}>
                                                     <p href='#'
@@ -128,9 +149,9 @@ function Appointment() {
                                                 </div>
                                             )
                                         }
-                                    }
-                                    )}
-                                </Row>
+                                        )}
+                                    </Row>
+                                }
                             </>
                     }
                 </div>
@@ -222,7 +243,7 @@ function Appointment() {
                             </Row>
 
                             <Modal.Body>
-                                {showResults ? <ResultsHours /> : null}
+                                {showResultsHours ? <ResultsHours /> : null}
                             </Modal.Body>
 
                         </div>
@@ -230,52 +251,20 @@ function Appointment() {
             }
 
 
-
+            {/* show popUp check if user not robot and save Turn */}
             <Modal show={showPopUpRobotBox} style={{ background: "rgba(0, 0, 0, 0.75)" }}>
 
-                <div className='showRobotBoxAppoinment'>
+                <ModelPopUpSaveTurn
+                    capVal={capVal}
+                    saveDateUser={saveDateUser}
+                    closePopUpRobotBoxUserExit={closePopUpRobotBoxUserExit}
+                    setCapVal={() => setCapVal(true)}
+                />
 
-                    <div className='gifImageRobot'>
-                        <img src='https://i.postimg.cc/bvjTR4mC/robot.gif' />
-                    </div>
-
-                    {/* check box if user don't robot */}
-                    <div>
-                        <RobotBox activeRobotBox={() => setCapVal(true)} />
-                    </div>
-
-
-                    <div className='appointmentRobotBoxButton' style={!capVal ? { cursor: "not-allowed" } : {}}>
-
-                        <ButtonMui
-                            onClick={saveDateUser}
-                            disabled={!capVal}
-                            variant="contained"
-                            style={(storedTheme === "light") ? { fontSize: "13px", color: "white" } :
-                                (storedTheme === "dark") ? { fontSize: "13px", color: "white" } : ""}
-                        >
-                            {capVal ?
-                                "Click And We Save Turn"
-                                : "Save Turn"
-                            }
-                        </ButtonMui>
-
-                        <ButtonMui
-                            onClick={closePopUpRobotBoxUserExit}
-                            variant="contained"
-                            style={(storedTheme === "light") ? { background: "red", fontSize: "13px", color: "white" } :
-                                (storedTheme === "dark") ? { background: "red", fontSize: "13px", color: "white" } : ""}
-                        >
-                            Close
-                        </ButtonMui>
-                    </div>
-
-                </div>
             </Modal>
         </>
     )
 
 }
-
 
 export default Appointment;

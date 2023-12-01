@@ -271,8 +271,6 @@ function User({ data_user }) {
                     <m.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        // initial={{ y:"100%" }}
-                        // animate={{ y:"0%" }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.75, ease: "easeOut" }}>
                         <div className={(storedTheme === "light") ? "" : (storedTheme === "dark") ? "bg-white" : ""}>

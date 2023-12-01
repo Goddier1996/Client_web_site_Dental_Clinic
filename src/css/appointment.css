@@ -108,6 +108,16 @@
 }
 
 
+.writeNotHaveTodayTurn {
+    display: flex;
+    justify-content: center;
+}
+
+.writeNotHaveTodayTurn h6 {
+    color: Gray Text;
+}
+
+
 @media(max-width:991px) {
 
     .gifImageRobot {

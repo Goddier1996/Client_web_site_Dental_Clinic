@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Swal from 'sweetalert2'
 import { Modal, Form } from 'react-bootstrap';
 import '../../css/login.css'
-import ForgetPaswword from './forgetPassword'
+import ForgetPassword from './forgetPassword'
 import videoBg from '../../images/video11.mp4'
 import { connectUserLogin, connectDemoUserShow, connectDemoDoctorShow } from '../../Api/ConnectOrAddFromApi'
 import CloseIcon from '@mui/icons-material/Close';
@@ -240,7 +240,7 @@ function Sign_in(props) {
                                 <Modal.Body>
 
                                     <Form>
-                                        <ForgetPaswword />
+                                        <ForgetPassword />
                                     </Form>
 
                                 </Modal.Body>
