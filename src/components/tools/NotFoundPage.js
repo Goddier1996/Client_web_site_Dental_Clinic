@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
-import '../css/NotFoundPage.css'
+import '../../css/NotFoundPage.css'
 
 
 export default function NotFoundPage() {

@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import { Tabs, Tab, Modal, Form, Col, Row, Table } from 'react-bootstrap';
-import '../css/profile.css'
+import '../../css/profile.css'
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2'
-import PayService from '../components/PayService'
-import { LoadMedicalFileUser, showAllMyReview, LoadMedicalFileUserIsNotActive } from '../Api/LoadDataFromApi'
-import { DeleteReview, UpdateDataUserRemoveTurn, ActiveHourInDataBase, UpdateDataUser } from '../Api/DeleteUpdateDataFromApi'
-import { alertPopUpIfUserHaveTodayTurn } from './AlertUserHaveTurnToday'
+import PayService from './userService/PayService'
+import { LoadMedicalFileUser, showAllMyReview, LoadMedicalFileUserIsNotActive } from '../../Api/LoadDataFromApi'
+import { DeleteReview, UpdateDataUserRemoveTurn, ActiveHourInDataBase, UpdateDataUser } from '../../Api/DeleteUpdateDataFromApi'
+import { alertPopUpIfUserHaveTodayTurn } from '../addAppointment/AlertUserHaveTurnToday'
 import Button from '@mui/material/Button';
 import PaymentIcon from '@mui/icons-material/Payment';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import DeleteIcon from '@mui/icons-material/Delete';
 import UpgradeIcon from '@mui/icons-material/Upgrade';
 import CloseIcon from '@mui/icons-material/Close';
-import { useQueryOnlyLoadingData, useQueryDataLoadingRefetchAutoData } from "../customHook/customQueryHook"
-import NotFoundPage from '../components/NotFoundPage'
+import { useQueryOnlyLoadingData, useQueryDataLoadingRefetchAutoData } from "../../customHook/customQueryHook"
+import NotFoundPage from '../tools/NotFoundPage'
 import { motion as m } from "framer-motion/dist/framer-motion"
 
 
@@ -563,19 +563,3 @@ function User({ data_user }) {
 
 
 export default User;
-
-
-
-
-    // USE State
-
-    // const [MyReview, SetMyReview] = useState([]);
-    // const [medical_File, SetMedical_File] = useState([]);
-    // const [medical_File_Is_Not_Active, SetMedical_File_Is_Not_Active] = useState([]);
-
-    // load data user from LoadDataFromApi component
-    // const LoadDataUserFromApi = async () => {
-    //      SetMedical_File(await LoadMedicalFileUser(data_user.code))
-    //      SetMyReview(await showAllMyReview(data_user.code))
-    //      SetMedical_File_Is_Not_Active(await LoadMedicalFileUserIsNotActive(data_user.code))
-    // }

@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
 import { Button, Row, Modal } from 'react-bootstrap';
 import ButtonMui from '@mui/material/Button';
-import '../css/appointment.css'
+import '../../css/appointment.css'
 import Swal from 'sweetalert2'
-import { LoadDays, LoadHour } from '../Api/LoadDataFromApi'
-import { DeleteHour, UpdateDataUserAddTurn } from '../Api/DeleteUpdateDataFromApi'
-import NotFoundPage from '../components/NotFoundPage'
-import { useQueryOnlyLoadingData, useQueryDataLoadingRefetchAutoData } from "../customHook/customQueryHook"
+import { LoadDays, LoadHour } from '../../Api/LoadDataFromApi'
+import { DeleteHour, UpdateDataUserAddTurn } from '../../Api/DeleteUpdateDataFromApi'
+import NotFoundPage from '../tools/NotFoundPage'
+import { useQueryOnlyLoadingData, useQueryDataLoadingRefetchAutoData } from "../../customHook/customQueryHook"
 import { GetTime, GetDayWeekFromArray } from './AlertUserHaveTurnToday'
-import RobotBox from './ReCAPTCHA/RobotBox';
+import RobotBox from '../ReCAPTCHA/RobotBox';
 
 
 
 //here component we show days+hours (if you click to button in Home Page Book an appointment)
-function Appointment(props) {
+function Appointment() {
 
 
     // show pop up
@@ -182,9 +182,6 @@ function Appointment(props) {
     }
 
 
-    const activeRobotBox = () => {
-        setCapVal(true);
-    }
 
     const closePopUpRobotBoxUserExit = () => {
 
@@ -242,9 +239,9 @@ function Appointment(props) {
                         <img src='https://i.postimg.cc/bvjTR4mC/robot.gif' />
                     </div>
 
-                    {/* check box if user dont robot */}
+                    {/* check box if user don't robot */}
                     <div>
-                        <RobotBox activeRobotBox={activeRobotBox} />
+                        <RobotBox activeRobotBox={() => setCapVal(true)} />
                     </div>
 
 

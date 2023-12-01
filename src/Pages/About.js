@@ -2,7 +2,7 @@ import React from 'react'
 import '../css/About.css'
 import date1 from '../Json_date/date.json'
 import { LoadCountDoctors, LoadCountUsers, LoadCountReviews } from '../Api/LoadDataFromApi'
-import NotFoundPage from '../components/NotFoundPage'
+import NotFoundPage from '../components/tools/NotFoundPage'
 import { useQueryOnlyLoadingData } from "../customHook/customQueryHook"
 import { motion as m } from "framer-motion/dist/framer-motion"
 import { container, item } from "../styleComponents/StyleAnimation"

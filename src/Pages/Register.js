@@ -109,10 +109,6 @@ function Register() {
     }
 
 
-    const activeRobotBox = () => {
-        setCapVal(true);
-    }
-
 
     return (
 
@@ -209,7 +205,7 @@ function Register() {
 
                             {/* check box if user dont robot */}
                             <div>
-                                <RobotBox activeRobotBox={activeRobotBox} />
+                                <RobotBox activeRobotBox={() => setCapVal(true)} />
                             </div>
 
 

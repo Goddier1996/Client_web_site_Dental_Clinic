@@ -1,22 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { Row, Form, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import { Row, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import '../css/service.css'
 import Swal from 'sweetalert2'
-import { LoadReviews, LoadCountReviews, CheckIfUserAddLikeThisReview } from '../Api/LoadDataFromApi'
-import { RemoveReviewLike } from '../Api/ConnectOrAddFromApi'
-import { AddNewReviews, AddNewLikeReviews } from '../Api/ConnectOrAddFromApi'
-import CloseIcon from '@mui/icons-material/Close';
-import AddIcon from '@mui/icons-material/Add';
-import RateReviewIcon from '@mui/icons-material/RateReview';
-import NotFoundPage from '../components/NotFoundPage'
+import { LoadReviews, LoadCountReviews } from '../Api/LoadDataFromApi'
+import NotFoundPage from '../components/tools/NotFoundPage'
 import { useQueryDataLoadingRefetchAutoData, useQueryOnlyLoadingData } from "../customHook/customQueryHook"
-import Button from '@mui/material/Button';
-// import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-// import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { motion as m } from "framer-motion/dist/framer-motion"
 import Pagination from '@mui/material/Pagination';
-import RobotBox from '../components/ReCAPTCHA/RobotBox'
-
+import UserAddNewReview from '../components/reviewsClinic/UserAddNewReview'
+import AddReviewLike from '../components/reviewsClinic/AddReviewLike'
 
 
 
@@ -28,7 +20,6 @@ function Service() {
     const handleCloseAddReviews = () => setShowAddReviews(false);
     const handleShowAddReviews = () => setShowAddReviews(true);
 
-    const [textReviews, setTextReviews] = useState('');
 
     let userData = JSON.parse(sessionStorage.getItem("user"));
     let storedTheme = localStorage.getItem("theme");
@@ -44,51 +35,6 @@ function Service() {
     const { data: countReviews } =
         useQueryOnlyLoadingData('CountReviews', LoadCountReviews, null);
 
-
-    // check box if user not robot
-    const [capVal, setCapVal] = useState(false);
-
-
-    // const BackPageReviews = () => {
-
-    //     setPageNumberNow((p) => {
-    //         if (p === 1) {
-    //             return p;
-    //         }
-
-    //         window.scrollTo(0, 0);
-
-    //         return p - 1;
-    //     })
-    // }
-
-
-    // const NextPageReviews = () => {
-
-    //     setPageNumberNow((p) => {
-    //         if (p === SizeAllPages) {
-    //             return p;
-    //         }
-
-    //         window.scrollTo(0, 0);
-
-    //         return p + 1;
-    //     })
-    // }
-
-
-    // const MoveToEndPage = () => {
-
-    //     setPageNumberNow((Math.round(countReviews / 4.2)) - 1);
-    //     window.scrollTo(0, 0);
-    // }
-
-
-    // const MoveToStartPage = () => {
-
-    //     setPageNumberNow(1);
-    //     window.scrollTo(0, 0);
-    // }
 
 
 
@@ -121,155 +67,6 @@ function Service() {
 
 
 
-    const addReviews = async () => {
-
-        if (textReviews < 1) {
-
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...you don`t input Reviews!',
-                toast: true,
-                position: 'top-end',
-                confirmButtonColor: "green",
-                background: `${(storedTheme === "light") ? "#373E44" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                color: `${(storedTheme === "light") ? "#ffffffab" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
-                    (storedTheme === "dark") ? "" : ""}`
-            })
-            return;
-        }
-
-
-        else {
-
-            let Publish_by = userData._id;
-            let FirstName = userData.FirstName;
-            let User_Login = userData.User_Login;
-
-            let d = new Date();
-
-            let user = {
-                textReviews,
-                DatePublished: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
-                Publish_by,
-                FirstName,
-                User_Login,
-                IsActive: "1",
-                Count_likes: []
-            };
-
-            await AddNewReviews(user);
-
-            await Swal.fire({
-                title: 'Added a comment successfully',
-                icon: 'success',
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 1500,
-                background: `${(storedTheme === "light") ? "#373E44" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                color: `${(storedTheme === "light") ? "#ffffffab" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
-                    (storedTheme === "dark") ? "" : ""}`
-            })
-            handleCloseAddReviews();
-            setTextReviews('');
-            setCapVal(false);
-        }
-    }
-
-
-
-    // check in this func  , if user have like in this review (remove),if dont have(add)
-    const addReviewsLike = async (likeReview, Serial_code) => {
-
-
-        if (userData != null) {
-
-            await CheckIfUserAddLikeThisReview(Serial_code, userData._id);
-
-            let getResultIfUserHaveLikeInThisReview = JSON.parse(sessionStorage.getItem("likeReview"));
-
-            // if this review user have like remove like
-            if (getResultIfUserHaveLikeInThisReview == true) {
-
-                await RemoveReviewLike(Serial_code, userData._id);
-                sessionStorage.removeItem("likeReview");
-
-                Swal.fire({
-                    position: "center",
-                    background: "none",
-                    showConfirmButton: false,
-                    timer: 2200,
-                    allowOutsideClick: false,
-                    html: '<div class="loadingReview"> <img src="https://i.postimg.cc/qvz9yCqh/desLike.gif"> </div>'
-                });
-            }
-
-
-            // else user dont have like in this review add Like
-            else {
-
-                let Publish_by = userData._id;
-                let FirstName = userData.FirstName;
-                let User_Login = userData.User_Login;
-
-                let d = new Date();
-
-                let user = {
-                    textReviews,
-                    DatePublished: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
-                    Publish_by,
-                    FirstName,
-                    User_Login,
-                    IsActive: "1",
-                    Count_likes: [likeReview]
-                };
-
-                await AddNewLikeReviews(user, Serial_code);
-                sessionStorage.removeItem("likeReview");
-
-                Swal.fire({
-                    position: "center",
-                    background: "none",
-                    showConfirmButton: false,
-                    timer: 2200,
-                    allowOutsideClick: false,
-                    html: '<div class="loadingReview"> <img src="https://i.postimg.cc/3w0nJXR1/likeGif.gif"> </div>'
-                });
-            }
-        }
-
-
-        else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...Please connect and you can add like (:',
-                toast: true,
-                position: 'top-end',
-                confirmButtonColor: "green",
-                background: `${(storedTheme === "light") ? "#373E44" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                color: `${(storedTheme === "light") ? "#ffffffab" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
-                    (storedTheme === "dark") ? "" : ""}`
-            })
-            return;
-        }
-    }
-
-
-    const activeRobotBox = () => {
-        setCapVal(true);
-    }
-
-
-
     // set count page we need to show Reviews
     useEffect(() => {
 
@@ -277,7 +74,6 @@ function Service() {
 
         setSizeAllPages(result - 1);
     })
-
 
 
 
@@ -315,68 +111,12 @@ function Service() {
                         </div>
 
 
-                        {/* here model pop up add new review */}
-                        <div>
-                            <Modal show={showAddReviews} onHide={handleCloseAddReviews}>
-
-                                <div className={(storedTheme === "light") ? "cardModelAddNewReviewDark" : (storedTheme === "dark") ? "cardModelAddNewReview" : ""}>
-
-                                    <div className="closeModelAddReview">
-
-                                        <Button style={(storedTheme === "light") ? { background: "#424242" } :
-                                            (storedTheme === "dark") ? { background: "white" } : ""}
-                                            variant="contained"
-                                            onClick={handleCloseAddReviews} >
-
-                                            <CloseIcon style={(storedTheme === "light") ? { fontSize: "20px", color: "white" } :
-                                                (storedTheme === "dark") ? { fontSize: "20px", color: "black" } : ""}
-                                                variant="contained"
-                                                onClick={handleCloseAddReviews} />
-                                        </Button>
-
-                                    </div>
-
-                                    <div className='titleHeater'>
-                                        <h1 style={(storedTheme === "light") ? { color: "white" } :
-                                            (storedTheme === "dark") ? { color: "#00000094" } : ""}>
-                                            Add New Review <RateReviewIcon style={{ fontSize: "30px" }} />
-                                        </h1>
-                                    </div>
-
-                                    <Modal.Body>
-                                        <Form>
-                                            <Form.Group
-                                                className="mb-3"
-                                                controlId="exampleForm.ControlTextarea1">
-                                                <Form.Control as="textarea" rows={3}
-                                                    value={textReviews}
-                                                    onChange={(event) => setTextReviews(event.target.value)}
-                                                    autoFocus
-                                                    placeholder='input your Review'
-                                                />
-                                            </Form.Group>
-                                        </Form>
-                                    </Modal.Body>
+                        {/* here model pop up user add new review */}
+                        <Modal show={showAddReviews} onHide={handleCloseAddReviews}>
+                            <UserAddNewReview closePopUp={handleCloseAddReviews} />
+                        </Modal>
 
 
-                                    {/* check robot box if user dont robot */}
-                                    <div>
-                                        <RobotBox activeRobotBox={activeRobotBox} />
-                                    </div>
-
-
-                                    <div className='buttonAddNewReviewOrCLose' style={!capVal ? { cursor: "not-allowed" } : {}}>
-                                        <Button style={{ fontSize: "12px", color: "white" }}
-                                            disabled={!capVal}
-                                            variant="contained"
-                                            onClick={addReviews} startIcon={<AddIcon />}>
-                                            Add a Review
-                                        </Button>
-                                    </div>
-
-                                </div>
-                            </Modal>
-                        </div>
 
                         <div className='space'></div>
                         <br />
@@ -410,13 +150,12 @@ function Service() {
                                                 <p>{record.textReviews}</p>
                                             </div>
 
+
+                                            {/* add Like Review */}
                                             <div className='clickLike'>
                                                 <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Like ❤️</Tooltip>}>
 
-                                                    <button className="button-30" role="button"
-                                                        onClick={() => addReviewsLike(record.FirstName, record._id)}>
-                                                        <i className="far fa-thumbs-up"></i> {record.Count_likes.length}
-                                                    </button>
+                                                    <AddReviewLike FirstName={record.FirstName} id={record._id} CountLikes={record.Count_likes} />
 
                                                 </OverlayTrigger>
                                             </div>
@@ -427,9 +166,6 @@ function Service() {
                         </div>
 
 
-                        {/* <div className='showPageNumber'>
-                            <p>Page {pageNumberNow} of {SizeAllPages} </p>
-                        </div> */}
 
 
                         {/* Button's move next page or back */}

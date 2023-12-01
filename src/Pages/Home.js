@@ -1,9 +1,8 @@
 import { Button, Modal, Form } from 'react-bootstrap'
 import '../css/home.css'
 import React, { useState } from 'react'
-// import videoBg from '../images/FilmForth Untitled.mp4'
 import Category from '../components/category'
-import Appointment from '../components/Appointment'
+import Appointment from '../components/addAppointment/Appointment'
 import Swal from 'sweetalert2'
 import CloseIcon from '@mui/icons-material/Close';
 import { motion as m } from "framer-motion/dist/framer-motion"
@@ -77,7 +76,6 @@ function Home() {
         >
 
             <div className='main1'>
-                {/* <video src={videoBg} loop autoPlay muted playsInline /> */}
                 <img src='https://i.postimg.cc/KzGWXd0Z/5901203-2009.jpg' />
                 <m.div variants={container} initial="hidden" animate="show" className="content">
                     <m.h1 variants={item}>Welcome</m.h1>
@@ -127,7 +125,7 @@ function Home() {
                             </div>
 
                             <Form>
-                                <Appointment handleClose={handleCloseModelAppointment} />
+                                <Appointment />
                             </Form>
 
                         </div>
@@ -137,7 +135,9 @@ function Home() {
 
 
             {/* show all Category from json file */}
-            < Category />
+            <>
+                < Category />
+            </>
 
         </m.div >
     )

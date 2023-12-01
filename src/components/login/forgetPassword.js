@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { API } from '../Api/API';
+import { API } from '../../Api/API';
 import { Modal, Form } from 'react-bootstrap';
 import Swal from 'sweetalert2'
-import '../css/forgetPassword.css'
-import { ForgetPasswordUpdate } from '../Api/DeleteUpdateDataFromApi'
+import '../../css/forgetPassword.css'
+import { ForgetPasswordUpdate } from '../../Api/DeleteUpdateDataFromApi'
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import DoneIcon from '@mui/icons-material/Done';

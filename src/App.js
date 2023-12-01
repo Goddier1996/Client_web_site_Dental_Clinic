@@ -9,8 +9,8 @@ import OurWork from './Pages/OurWork'
 import Service from './Pages/service'
 import profile from './Pages/profile'
 import About from './Pages/About'
-import DarkMode from "./components/DarkMode"
-import NotFoundPage from "./components/NotFoundPage";
+import DarkMode from "./components/tools/DarkMode"
+import NotFoundPage from "./components/tools/NotFoundPage";
 
 
 

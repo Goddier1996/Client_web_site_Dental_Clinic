@@ -1,5 +1,5 @@
 import React from 'react'
-import date1 from '../Json_date/date.json'
+import date from '../Json_date/date.json'
 import '../css/ourWork.css'
 import { Card, Row, Col } from 'react-bootstrap'
 import { motion as m } from "framer-motion/dist/framer-motion"
@@ -11,7 +11,6 @@ function ourWork() {
 
 
     let storedTheme = localStorage.getItem("theme");
-
 
 
     return (
@@ -35,7 +34,7 @@ function ourWork() {
 
                 <div className='OurWorkLook'>
                     <Row xs={1} md={2} lg={3} style={{ width: "100%" }}>
-                        {date1.work.map((record) => (
+                        {date.work.map((record) => (
 
                             <Col key={record.id}>
 

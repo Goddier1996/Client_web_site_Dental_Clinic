@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import '../css/PayService.css'
+import '../../../css/PayService.css'
 import Swal from 'sweetalert2'
 import { Form } from 'react-bootstrap';
-import '../css/profile.css'
-import { DoctorAddMedicalFileUser } from '../Api/ConnectOrAddFromApi'
-import { UpdateDataUserRemoveTurn, ActiveHourInDataBase } from '../Api/DeleteUpdateDataFromApi'
+import '../../../css/profile.css'
+import { DoctorAddMedicalFileUser } from '../../../Api/ConnectOrAddFromApi'
+import { UpdateDataUserRemoveTurn, ActiveHourInDataBase } from '../../../Api/DeleteUpdateDataFromApi'
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import DoneIcon from '@mui/icons-material/Done';

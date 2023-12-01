@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Tabs, Tab, Modal, Table } from 'react-bootstrap';
-import '../css/profile.css';
-import AddMedicalFileUser from '../components/AddMedicalFile';
+import '../../css/profile.css';
+import AddMedicalFileUser from './doctorService/AddMedicalFile';
 import Swal from 'sweetalert2';
-import { LoadUsersActive_queues, LoadMedicalFileAllUsersHowNeedPay } from '../Api/LoadDataFromApi'
+import { LoadUsersActive_queues, LoadMedicalFileAllUsersHowNeedPay } from '../../Api/LoadDataFromApi'
 import Button from '@mui/material/Button';
 import MarkunreadIcon from '@mui/icons-material/Markunread';
 import RateReviewIcon from '@mui/icons-material/RateReview';
-import NotFoundPage from '../components/NotFoundPage'
-import { useQueryOnlyLoadingData } from "../customHook/customQueryHook"
+import NotFoundPage from '../tools/NotFoundPage'
+import { useQueryOnlyLoadingData } from "../../customHook/customQueryHook"
 import { motion as m } from "framer-motion/dist/framer-motion"
 
 

@@ -1,7 +1,7 @@
 import React from 'react'
-import Admin from '../components/Admin'
-import Doctor from '../components/Doctor'
-import User from '../components/User'
+import Admin from '../components/profile/Admin'
+import Doctor from '../components/profile/Doctor'
+import User from '../components/profile/User'
 
 
 

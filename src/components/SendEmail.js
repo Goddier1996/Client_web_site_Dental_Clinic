@@ -94,10 +94,6 @@ function SendEmail(props) {
     };
 
 
-    const activeRobotBox = () => {
-        setCapVal(true);
-    }
-
 
 
     return (
@@ -146,7 +142,7 @@ function SendEmail(props) {
 
             {/* check box if user don't robot */}
             <div style={{ marginTop: "8%" }}>
-                <RobotBox activeRobotBox={activeRobotBox} />
+                <RobotBox activeRobotBox={() => setCapVal(true)} />
             </div>
 
 

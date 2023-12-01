@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import '../css/PayService.css'
+import '../../../css/PayService.css'
 import Swal from 'sweetalert2'
-import { DeletePayFile } from '../Api/DeleteUpdateDataFromApi'
+import { DeletePayFile } from '../../../Api/DeleteUpdateDataFromApi'
 import Button from '@mui/material/Button';
 import PaymentIcon from '@mui/icons-material/Payment';
 import CloseIcon from '@mui/icons-material/Close';

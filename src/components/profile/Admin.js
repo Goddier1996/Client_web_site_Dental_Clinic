@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Tabs, Tab, Button, Row, Form, Col, Table } from 'react-bootstrap';
-import '../css/profile.css'
+import '../../css/profile.css'
 import Swal from 'sweetalert2'
-import { LoadAllUsers, LoadAllUsersBlocked, LoadAllDoctors, LoadAllReviews } from '../Api/LoadDataFromApi'
-import { DeleteUser, DeleteReview, ActiveUserInDataBase } from '../Api/DeleteUpdateDataFromApi'
-import { AddNewUserRegester } from '../Api/ConnectOrAddFromApi'
+import { LoadAllUsers, LoadAllUsersBlocked, LoadAllDoctors, LoadAllReviews } from '../../Api/LoadDataFromApi'
+import { DeleteUser, DeleteReview, ActiveUserInDataBase } from '../../Api/DeleteUpdateDataFromApi'
+import { AddNewUserRegester } from '../../Api/ConnectOrAddFromApi'
 
 
 

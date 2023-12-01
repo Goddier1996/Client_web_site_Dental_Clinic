@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2'
-import { ActiveHourInDataBase, UpdateDataUserRemoveTurn } from '../Api/DeleteUpdateDataFromApi'
+import { ActiveHourInDataBase, UpdateDataUserRemoveTurn } from '../../Api/DeleteUpdateDataFromApi'
 
 
 

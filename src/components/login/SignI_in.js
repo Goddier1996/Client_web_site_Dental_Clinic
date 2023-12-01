@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import Swal from 'sweetalert2'
 import { Modal, Form } from 'react-bootstrap';
-import '../css/login.css'
-import ForgetPaswword from '../components/forgetPassword'
-import videoBg from '../images/video11.mp4'
-import { connectUserLogin, connectDemoUserShow, connectDemoDoctorShow } from '../Api/ConnectOrAddFromApi'
+import '../../css/login.css'
+import ForgetPaswword from './forgetPassword'
+import videoBg from '../../images/video11.mp4'
+import { connectUserLogin, connectDemoUserShow, connectDemoDoctorShow } from '../../Api/ConnectOrAddFromApi'
 import CloseIcon from '@mui/icons-material/Close';
 import LoginIcon from '@mui/icons-material/Login';
 import Button from '@mui/material/Button';
