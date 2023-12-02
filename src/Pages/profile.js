@@ -4,13 +4,10 @@ import Doctor from '../components/profile/Doctor'
 import User from '../components/profile/User'
 
 
-
 // profile page , open profile page as per UserType_code from data base , user-admin-doctor
 function Profile() {
 
-
     let userData = JSON.parse(sessionStorage.getItem("user"));
-
 
     //save in object all data user from session storage "user"
     const obj = {
@@ -27,32 +24,21 @@ function Profile() {
     }
 
 
+    return (
+        <>
+            {
+                userData.UserType_code == 1 ?
+                    <User data_user={obj} /> :
 
-    //user page
-    if (userData.UserType_code == 1) {
+                    userData.UserType_code == 2 ?
+                        <Doctor code_doctor={obj} /> :
 
-        return (
-            <User data_user={obj} />
-        )
-    }
-
-
-    //doctor page
-    if (userData.UserType_code == 2) {
-
-        return (
-            <Doctor code_doctor={obj} />
-        )
-    }
-
-
-    //admin page
-    if (userData.UserType_code == 3) {
-
-        return (
-            <Admin />
-        )
-    }
+                        userData.UserType_code == 3 ?
+                            <Admin />
+                            : ""
+            }
+        </>
+    )
 
 }
 
