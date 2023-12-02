@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Row, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import { Row, Modal } from 'react-bootstrap'
 import '../css/service.css'
 import Swal from 'sweetalert2'
 import { LoadReviews, LoadCountReviews } from '../Api/LoadDataFromApi'
@@ -8,7 +8,7 @@ import { useQueryDataLoadingRefetchAutoData, useQueryOnlyLoadingData } from "../
 import { motion as m } from "framer-motion/dist/framer-motion"
 import Pagination from '@mui/material/Pagination';
 import UserAddNewReview from '../components/reviewsClinic/UserAddNewReview'
-import AddReviewLike from '../components/reviewsClinic/AddReviewLike'
+import ShowAllReview from '../components/reviewsClinic/ShowAllReview'
 
 
 
@@ -117,50 +117,16 @@ function Service() {
                         </Modal>
 
 
-
                         <div className='space'></div>
                         <br />
+
 
                         <div className='modelsShowReview'>
 
                             <Row xs={1} md={2} lg={3} style={{ width: "100%" }}>
                                 {showReviews.sort((a, b) => b.Count_likes.length - a.Count_likes.length).map((record) => (
 
-                                    <div className="testimonial-box-container">
-
-                                        <div key={record._id} className="testimonial-box">
-
-                                            <div className="box-top">
-
-                                                <div className="profileReviews">
-
-                                                    <div className="nameInfo-userInfo">
-                                                        <span>Name : {record.FirstName}</span>
-
-                                                        <span>Login : @{record.User_Login}</span>
-                                                    </div>
-                                                </div>
-
-                                                <div className="reviews">
-                                                    <p>{record.DatePublished}</p>
-                                                </div>
-                                            </div>
-
-                                            <div className="client-comment">
-                                                <p>{record.textReviews}</p>
-                                            </div>
-
-
-                                            {/* add Like Review */}
-                                            <div className='clickLike'>
-                                                <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Like ❤️</Tooltip>}>
-
-                                                    <AddReviewLike FirstName={record.FirstName} id={record._id} CountLikes={record.Count_likes} />
-
-                                                </OverlayTrigger>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ShowAllReview allReview={record} />
                                 ))}
                             </Row>
                         </div>
@@ -185,68 +151,6 @@ function Service() {
                                     size="large"
                                     color='success'
                                 />
-
-
-                                {/* my first UI next page */}
-                                {/* {(pageNumberNow === 1) ?
-                                    <>
-                                        <Button variant="contained" color="success" style={{ color: "white", textTransform: "capitalize" }}
-                                            title='Next Page'
-                                            onClick={NextPageReviews} disabled={pageNumberNow === SizeAllPages}>
-                                            Next Page
-                                        </Button>
-
-                                        <Button variant="contained" style={{ color: "white", textTransform: "capitalize" }}
-                                            title="Move to End Page"
-                                            onClick={MoveToEndPage} disabled={pageNumberNow === SizeAllPages}>
-                                            Last Page
-                                        </Button>
-                                    </>
-
-                                    :
-                                    (pageNumberNow === SizeAllPages) ?
-                                        <>
-                                            <Button variant="contained" style={{ color: "white", textTransform: "capitalize" }}
-                                                title='Move to Start Page'
-                                                onClick={MoveToStartPage} disabled={pageNumberNow === 1}>
-                                                First Page
-                                            </Button>
-
-                                            <Button variant="contained" color="success" style={{ color: "white", textTransform: "capitalize" }}
-                                                title='Previous Page'
-                                                onClick={BackPageReviews} disabled={pageNumberNow === 1}>
-                                                Previous Page
-                                            </Button>
-                                        </>
-
-                                        :
-                                        <>
-                                            <Button variant="contained" style={{ color: "white", textTransform: "capitalize" }}
-                                                title='Move to First Page'
-                                                onClick={MoveToStartPage} disabled={pageNumberNow === 1}>
-                                                <ArrowBackIosNewIcon style={{ fontSize: "14px" }} /><ArrowBackIosNewIcon style={{ fontSize: "14px" }} />
-                                            </Button>
-
-                                            <Button variant="contained" color="success" style={{ color: "white" }}
-                                                title='Previous Page'
-                                                onClick={BackPageReviews} disabled={pageNumberNow === 1}>
-                                                <ArrowBackIosNewIcon style={{ fontSize: "14px" }} />
-                                            </Button>
-
-                                            <Button variant="contained" color="success" style={{ color: "white" }}
-                                                title='Next Page'
-                                                onClick={NextPageReviews} disabled={pageNumberNow === SizeAllPages}>
-                                                <ArrowForwardIosIcon style={{ fontSize: "14px" }} />
-                                            </Button>
-
-                                            <Button variant="contained" style={{ color: "white", textTransform: "capitalize" }}
-                                                title="Move to Last Page"
-                                                onClick={MoveToEndPage} disabled={pageNumberNow === SizeAllPages}>
-                                                <ArrowForwardIosIcon style={{ fontSize: "14px" }} /><ArrowForwardIosIcon style={{ fontSize: "14px" }} />
-                                            </Button>
-                                        </>
-                                } */}
-
                             </div>
                         </div>
 

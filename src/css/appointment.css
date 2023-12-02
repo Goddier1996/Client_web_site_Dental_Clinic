@@ -96,6 +96,17 @@
     margin-bottom: 3%;
 }
 
+.gifImageUserSaveData {
+    display: flex;
+    justify-content: center;
+}
+
+.gifImageUserSaveData img {
+    height: 220px;
+    margin-top: 15%;
+    margin-bottom: 5%;
+}
+
 .showRobotBoxAppoinment {
     display: flex;
     flex-direction: column;
@@ -108,13 +119,38 @@
 }
 
 
-.writeNotHaveTodayTurn {
+.writeNotHaveTodayTurn,
+.saveUserTurn {
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .writeNotHaveTodayTurn h6 {
     color: Gray Text;
+}
+
+.saveUserTurn p {
+    font-size: 19px;
+    width: 500px;
+    color: white;
+    animation: blink 1.5s infinite;
+    animation-fill-mode: both;
+    cursor: none;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0
+    }
 }
 
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Row, Modal } from 'react-bootstrap';
+import { Row, Modal } from 'react-bootstrap';
 import '../../css/appointment.css'
 import Swal from 'sweetalert2'
 import { LoadDays, LoadHour } from '../../Api/LoadDataFromApi'
@@ -8,6 +8,10 @@ import NotFoundPage from '../tools/NotFoundPage'
 import { useQueryOnlyLoadingData, useQueryDataLoadingRefetchAutoData } from "../../customHook/customQueryHook"
 import { GetTime, GetDayWeekFromArray } from './AlertUserHaveTurnToday'
 import ModelPopUpSaveTurn from './ModelPopUpSaveTurn';
+import ShowDays from './ShowDays';
+import ShowHours from './ShowHours';
+import NoQueusesToday from './NoQueusesToday';
+import LoadingDaysHour from './LoadingDaysHour';
 
 
 
@@ -87,14 +91,10 @@ function Appointment() {
 
                     {/* show Loading */}
                     {(LoadingHours) ?
-                        <div className='loadingDaysHour'>
-                            <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!f305cw" />
-                        </div>
+                        <LoadingDaysHour />
                         :
                         (ErrorHours) ?
-                            <>
-                                <NotFoundPage />
-                            </>
+                            <NotFoundPage />
                             :
                             <>
                                 {dayFromArray == takeDayAndCodeDayInResultHour.Day ?
@@ -107,11 +107,7 @@ function Appointment() {
                                                         <>
                                                             {hourThisDay.Hour_day >= hoursAndMinutes ?
                                                                 <div key={hourThisDay._id}>
-                                                                    <p href='#'
-                                                                        style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
-                                                                            (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
-                                                                        onClick={() => showPopUpReCAPTCHA(hourThisDay.Hour_day, hourThisDay._id)}>{hourThisDay.Hour_day}
-                                                                    </p>
+                                                                    <ShowHours hours={hourThisDay} ShowPopUpReCAPTCHA={() => showPopUpReCAPTCHA(hourThisDay.Hour_day, hourThisDay._id)} />
                                                                 </div>
                                                                 :
                                                                 setWriteNoQueuesToday(true)
@@ -123,29 +119,15 @@ function Appointment() {
                                                 }
                                             </Row>
                                             :
-                                            <div className='writeNotHaveTodayTurn'>
-                                                <h6
-                                                    style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
-                                                        (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
-                                                >
-                                                    No queues today
-                                                    <br /><br />
-                                                    A working day is over 😁
-                                                </h6>
-                                            </div>
+                                            <NoQueusesToday />
                                         }
                                     </>
                                     :
                                     <Row xs={2} md={4} lg={4}>
                                         {Hours.map(hour => {
-
                                             return (
                                                 <div key={hour._id}>
-                                                    <p href='#'
-                                                        style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
-                                                            (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
-                                                        onClick={() => showPopUpReCAPTCHA(hour.Hour_day, hour._id)}>{hour.Hour_day}
-                                                    </p>
+                                                    <ShowHours hours={hour} ShowPopUpReCAPTCHA={() => showPopUpReCAPTCHA(hour.Hour_day, hour._id)} />
                                                 </div>
                                             )
                                         }
@@ -213,41 +195,31 @@ function Appointment() {
 
 
     return (
-
         <>
             {/* show Loading */}
             {(LoadingDays) ?
-                <div className='loadingDaysHour'>
-                    <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!f305cw" />
-                </div>
+                <LoadingDaysHour />
                 :
                 (ErrorDays) ?
-                    <>
-                        <NotFoundPage />
-                    </>
+                    <NotFoundPage />
                     :
-                    <>
 
-                        <div className={(storedTheme === "light") ? "showDayDark" : (storedTheme === "dark") ? "showDay" : ""}>
-                            <Row xs={2} md={5} lg={4} className="g-4">
+                    <div className={(storedTheme === "light") ? "showDayDark" : (storedTheme === "dark") ? "showDay" : ""}>
+                        <Row xs={2} md={5} lg={4} className="g-4">
 
-                                {days.map(day =>
+                            {days.map(day =>
 
-                                    <div className='showDayItems' key={day._id}>
-                                        <Button size="sm" variant="outline-secondary"
-                                            onClick={() => LoadHours(day.Serial_code, day.Day_date)}>
-                                            {day.Day_date}
-                                        </Button>
-                                    </div>
-                                )}
-                            </Row>
+                                <div className='showDayItems' key={day._id}>
+                                    <ShowDays showDay={day} funcLoadHoursThisDay={LoadHours} />
+                                </div>
+                            )}
+                        </Row>
 
-                            <Modal.Body>
-                                {showResultsHours ? <ResultsHours /> : null}
-                            </Modal.Body>
+                        <Modal.Body>
+                            {showResultsHours ? <ResultsHours /> : null}
+                        </Modal.Body>
 
-                        </div>
-                    </>
+                    </div>
             }
 
 
