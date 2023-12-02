@@ -11,7 +11,7 @@ import ModelPopUpSaveTurn from './ModelPopUpSaveTurn';
 import ShowDays from './ShowDays';
 import ShowHours from './ShowHours';
 import NoQueusesToday from './NoQueusesToday';
-import LoadingDaysHour from './LoadingDaysHour';
+import LoadingDaysHour from '../loading/LoadingDaysHour';
 
 
 

@@ -16,7 +16,6 @@ function Menu() {
     let userData = JSON.parse(sessionStorage.getItem("user"));
 
 
-    
     const defaultDark = storedTheme === "dark" || (storedTheme === null);
 
     if (defaultDark) {

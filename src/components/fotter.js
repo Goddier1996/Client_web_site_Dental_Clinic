@@ -6,9 +6,7 @@ import '../css/fotter.css'
 
 function Fotter() {
 
-
     let storedTheme = localStorage.getItem("theme");
-
 
     return (
 

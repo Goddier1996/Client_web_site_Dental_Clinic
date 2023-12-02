@@ -10,7 +10,6 @@ import { container, item } from "../styleComponents/StyleAnimation"
 
 
 
-
 function Home() {
 
 

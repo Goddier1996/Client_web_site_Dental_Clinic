@@ -16,6 +16,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useQueryOnlyLoadingData, useQueryDataLoadingRefetchAutoData } from "../../customHook/customQueryHook"
 import NotFoundPage from '../tools/NotFoundPage'
 import { motion as m } from "framer-motion/dist/framer-motion"
+import LoadingUserData from "../loading/LoadingUserData"
 
 
 
@@ -257,16 +258,11 @@ function User({ data_user }) {
     return (
 
         <>
-
             {(MyReview || Medical_File || Medical_File_Is_Not_Active) ?
-                <div className='loadingCountPersonalClinic'>
-                    <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!f305cw" />
-                </div>
+                <LoadingUserData />
                 :
                 (ErrorMyReview || ErrorMedical_File || ErrorMedical_File_Is_Not_Active) ?
-                    <>
-                        <NotFoundPage />
-                    </>
+                    <NotFoundPage />
                     :
                     <m.div
                         initial={{ opacity: 0 }}
@@ -440,9 +436,7 @@ function User({ data_user }) {
                                 <Tab eventKey="personal data" title="Personal Data (Update)" className='updateDateUser'>
 
                                     <Form>
-
                                         <Row>
-
                                             <Form.Group as={Col} md="4" className='personalDataPlaceFree'>
 
                                                 <Form.Label className={(storedTheme === "light") ? "colorTextDark" : (storedTheme === "colorText") ? "" : ""}>

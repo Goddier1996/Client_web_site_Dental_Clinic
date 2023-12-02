@@ -73,7 +73,6 @@ function PayService(props) {
     return (
 
         <>
-
             <div className="container mt-4 d-flex justify-content-center main">
 
                 <div className={(storedTheme === "light") ? "cardPayDark" : (storedTheme === "dark") ? "cardPay" : ""}>

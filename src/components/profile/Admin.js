@@ -167,7 +167,6 @@ function Admin() {
     return (
 
         <>
-
             <Tabs id="controlled-tab-example" className="mb-3 tabsChiose " >
 
                 <Tab eventKey="show all users" title="All Users" className='AllUsers'>

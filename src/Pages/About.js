@@ -6,7 +6,7 @@ import NotFoundPage from '../components/tools/NotFoundPage'
 import { useQueryOnlyLoadingData } from "../customHook/customQueryHook"
 import { motion as m } from "framer-motion/dist/framer-motion"
 import { container, item } from "../styleComponents/StyleAnimation"
-
+import LoadingCountPersonalClinic from "../components/loading/LoadingCountPersonalClinic"
 
 
 //show about clinic info
@@ -44,14 +44,10 @@ function About() {
         <>
             {/* show Loading */}
             {(LoadingReviews || LoadingUsers || LoadingDoctors || LoadingServiceOurWork) ?
-                <div className='loadingCountPersonalClinic'>
-                    <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!f305cw" />
-                </div>
+                <LoadingCountPersonalClinic />
                 :
                 (ErrorReviews || ErrorUsers || ErrorDoctors || ErrorOurWork) ?
-                    <>
-                        <NotFoundPage />
-                    </>
+                    <NotFoundPage />
                     :
                     <m.div
                         initial={{ opacity: 0 }}

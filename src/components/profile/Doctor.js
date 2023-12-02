@@ -10,7 +10,7 @@ import RateReviewIcon from '@mui/icons-material/RateReview';
 import NotFoundPage from '../tools/NotFoundPage'
 import { useQueryOnlyLoadingData } from "../../customHook/customQueryHook"
 import { motion as m } from "framer-motion/dist/framer-motion"
-
+import LoadingDoctorData from "../loading/LoadingDoctorData"
 
 
 //here component Doctor we to do what doctor can do = this component use in profile
@@ -98,14 +98,10 @@ function Doctor({ code_doctor }) {
 
         <>
             {(UsersActive_queues || Medical_File_All_users) ?
-                <div className='loadingReview'>
-                    <img src="https://i.postimg.cc/pLT9cd9Z/12.png" />
-                </div>
+                <LoadingDoctorData />
                 :
                 (ErrorActive_queues || ErrorFile_All_users) ?
-                    <>
-                        <NotFoundPage />
-                    </>
+                    <NotFoundPage />
                     :
                     <m.div
                         initial={{ opacity: 0 }}
@@ -204,7 +200,6 @@ function Doctor({ code_doctor }) {
                                         )}
                                     </Table>
                                 </Tab>
-
                             </Tabs>
                         </div>
                     </m.div>
