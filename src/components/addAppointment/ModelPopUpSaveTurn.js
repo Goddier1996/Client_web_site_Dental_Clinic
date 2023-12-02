@@ -19,7 +19,7 @@ const ModelPopUpSaveTurn = ({ capVal, saveDateUser, closePopUpRobotBoxUserExit, 
 
         setTimeout(() => {
             saveDateUser();
-        }, 2000);
+        }, 2300);
     }
 
 
