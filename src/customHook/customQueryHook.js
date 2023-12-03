@@ -9,9 +9,10 @@ export const useQueryDataLoadingRefetchAutoData = (typeData, pageNumber, LoadDat
             return LoadDataFromApi(id, pageNumber);
         },
         {
-            // when add new item refersh 1 secound auto
-            refetchInterval: 2000,
-            refetchIntervalInBackground: true
+            // use This useQuery in Appointment show hours , add option refresh because updated hours was active now!
+            // and use in Review , when user add new review or like/dislike we see in live what add and what like user.
+            refetchOnWindowFocus: true,
+            refetchInterval: 1000,
         }
     )
 }
