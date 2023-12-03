@@ -10,6 +10,7 @@ import Pagination from '@mui/material/Pagination';
 import UserAddNewReview from '../components/reviewsClinic/UserAddNewReview'
 import ShowAllReview from '../components/reviewsClinic/ShowAllReview'
 import LoadingReview from "../components/loading/LoadingReview"
+import ButtonAddNewReview from '../components/reviewsClinic/ButtonAddNewReview'
 
 
 //here we show Reviews and like and add them
@@ -98,13 +99,8 @@ function Service() {
                             <h1>Reviews of our clinic :</h1>
                         </div>
 
-                        <div className="d-grid gap-2 addReviews" >
-                            <button className={(storedTheme === "light") ? "button-55Dark" : (storedTheme === "dark") ? "button-55" : ""}
-                                role="button"
-                                onClick={CheckUserConnected}>
-                                Add new Review
-                            </button>
-                        </div>
+                        {/* add new review */}
+                        <ButtonAddNewReview CheckUserConnected={CheckUserConnected} />
 
 
                         {/* here model pop up user add new review */}
