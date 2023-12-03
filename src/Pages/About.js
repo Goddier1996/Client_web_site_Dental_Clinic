@@ -7,6 +7,7 @@ import { useQueryOnlyLoadingData } from "../customHook/customQueryHook"
 import { motion as m } from "framer-motion/dist/framer-motion"
 import { container, item } from "../styleComponents/StyleAnimation"
 import LoadingCountPersonalClinic from "../components/loading/LoadingCountPersonalClinic"
+import InfoCounts from '../components/aboutClinic/InfoCounts'
 
 
 //show about clinic info
@@ -70,77 +71,12 @@ function About() {
 
                         <br />
 
+                        {/* here show count */}
                         <div className='cardsInfoAbout' >
-
-                            <div className="a-box">
-                                <div className="img">
-                                    <div className="img-inner">
-                                        <div className="inner-skew">
-                                            <img src="https://i.postimg.cc/TP3RsfDx/12.png" alt="icon" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className={(storedTheme === "light") ? "textDark" : (storedTheme === "dark") ? "text" : ""}>
-                                    <h3>Doctor's :</h3>
-                                    <div>
-                                        <p>{countDoctors}</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="a-box" >
-                                <div className="img">
-                                    <div className="img-inner">
-                                        <div className="inner-skew">
-                                            <img src="https://i.postimg.cc/R0hBRdkV/ourworkservice.png" alt="icon" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className={(storedTheme === "light") ? "textDark" : (storedTheme === "dark") ? "text" : ""}>
-                                    <h3>Types Of Dental Care Service :</h3>
-                                    <div>
-                                        <p>{countServiceOurWork}</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="a-box">
-                                <div className="img">
-                                    <div className="img-inner">
-                                        <div className="inner-skew">
-                                            <img src="https://i.postimg.cc/nVBt0CP7/users.png" alt="icon" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className={(storedTheme === "light") ? "textDark" : (storedTheme === "dark") ? "text" : ""}>
-                                    <h3>Our Customer's :</h3>
-                                    <div>
-                                        <p>{countUsers}</p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div className="a-box" >
-                                <div className="img">
-                                    <div className="img-inner">
-                                        <div className="inner-skew">
-                                            <img src="https://i.postimg.cc/rm47nPQc/reviewuser.png" alt="icon" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className={(storedTheme === "light") ? "textDark" : (storedTheme === "dark") ? "text" : ""}>
-                                    <h3>Customer Review's :</h3>
-                                    <div>
-                                        <p>{countReviews}</p>
-                                    </div>
-                                </div>
-                            </div>
-
+                            <InfoCounts type={"Doctor's"} count={countDoctors} img={"https://i.postimg.cc/TP3RsfDx/12.png"} />
+                            <InfoCounts type={"Types Of Dental Care Service"} count={countServiceOurWork} img={"https://i.postimg.cc/R0hBRdkV/ourworkservice.png"} />
+                            <InfoCounts type={"Our Customer's"} count={countUsers} img={"https://i.postimg.cc/nVBt0CP7/users.png"} />
+                            <InfoCounts type={"Customer Review's"} count={countReviews} img={"https://i.postimg.cc/rm47nPQc/reviewuser.png"} />
                         </div>
                     </m.div>
             }
