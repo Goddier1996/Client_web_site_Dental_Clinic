@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Row, Modal } from 'react-bootstrap';
 import '../../css/appointment.css'
 import Swal from 'sweetalert2'
@@ -99,11 +99,16 @@ function Appointment() {
                             <>
                                 {dayFromArray == takeDayAndCodeDayInResultHour.Day ?
                                     <>
-                                        {!writeNoQueuesToday ?
-                                            <Row xs={2} md={4} lg={4}>
-                                                {Hours.map(hourThisDay => {
 
+                                        {writeNoQueuesToday ?
+                                            <NoQueusesToday />
+                                            :
+                                            <Row xs={2} md={4} lg={4}>
+
+                                                {Hours.map(hourThisDay => {
                                                     return (
+
+                                                        setWriteNoQueuesToday(false),
                                                         <>
                                                             {hourThisDay.Hour_day >= hoursAndMinutes ?
                                                                 <div key={hourThisDay._id}>
@@ -118,8 +123,6 @@ function Appointment() {
                                                 )
                                                 }
                                             </Row>
-                                            :
-                                            <NoQueusesToday />
                                         }
                                     </>
                                     :
@@ -140,6 +143,7 @@ function Appointment() {
             </div>
         </>
     )
+
 
 
 
