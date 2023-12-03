@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Row, Modal } from 'react-bootstrap';
 import '../../css/appointment.css'
 import Swal from 'sweetalert2'
@@ -110,7 +110,7 @@ function Appointment() {
 
                                                         setWriteNoQueuesToday(false),
                                                         <>
-                                                            {hourThisDay.Hour_day >= hoursAndMinutes ?
+                                                            {hourThisDay.Hour_day > hoursAndMinutes ?
                                                                 <div key={hourThisDay._id}>
                                                                     <ShowHours hours={hourThisDay} ShowPopUpReCAPTCHA={() => showPopUpReCAPTCHA(hourThisDay.Hour_day, hourThisDay._id)} />
                                                                 </div>
