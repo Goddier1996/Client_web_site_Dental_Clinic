@@ -1,7 +1,7 @@
 import { Card, Row } from 'react-bootstrap'
-import '../css/home.css'
+import '../../css/home.css'
 import React from 'react'
-import date from '../Json_date/date.json'
+import date from '../../Json_date/date.json'
 
 
 //here component we take category from json file and show in Home Page

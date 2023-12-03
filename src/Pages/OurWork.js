@@ -36,7 +36,6 @@ function ourWork() {
                         {date.work.map((record) => (
 
                             <ShowOurWorkClinic infoOurWork={record} />
-
                         ))}
                     </Row>
                 </div>

@@ -1,12 +1,11 @@
-import { Button, Modal, Form } from 'react-bootstrap'
 import '../css/home.css'
 import React, { useState } from 'react'
-import Category from '../components/category'
-import Appointment from '../components/addAppointment/Appointment'
+import Category from '../components/homeOptions/Category'
 import Swal from 'sweetalert2'
-import CloseIcon from '@mui/icons-material/Close';
 import { motion as m } from "framer-motion/dist/framer-motion"
 import { container, item } from "../styleComponents/StyleAnimation"
+import ButtonAppointment from '../components/homeOptions/ButtonAppointment'
+import PopUpAppointment from '../components/homeOptions/PopUpAppointment'
 
 
 
@@ -55,7 +54,7 @@ function Home() {
 
 
 
-    const closePopUpAppintment = () => {
+    const closePopUpAppointment = () => {
 
         sessionStorage.removeItem("day");
         window.location.reload(false);
@@ -84,61 +83,19 @@ function Home() {
 
             <div className='Click_appointment'>
 
-                <div className="d-grid gap-2 click">
-                    <Button
-                        variant={(storedTheme === "light") ? "warning" :
-                            (storedTheme === "dark") ? "success" : ""}
-                        style={(storedTheme === "light") ? { color: "rgba(0, 0, 0, 0.58)" } :
-                            (storedTheme === "dark") ? { color: "#ffffff" } : ""}
-                        size="sm"
-                        onClick={CheckUserConnected}>
-                        Click me - Book an Appointment <img style={{ height: "30px" }} src='https://i.postimg.cc/MGZ8B27m/pngwing-com-2.png' />
-                    </Button>
-                </div>
-
+                <ButtonAppointment CheckUserConnectedFunc={CheckUserConnected} />
 
                 {/* show model popup Appointment */}
-                <div className='bookClick'>
-                    <Modal show={showModelAppointment} >
+                <PopUpAppointment showModelAppointment={showModelAppointment} closePopUpAppointment={closePopUpAppointment} />
 
-                        <div className={(storedTheme === "light") ? "showModelAddAppointmentUserDark" : (storedTheme === "dark") ? "showModelAddAppointmentUser" : ""}>
-
-                            <div className="closeModelAddAppointmentUser">
-
-                                <Button
-                                    style={(storedTheme === "light") ? { background: "#424242" } :
-                                        (storedTheme === "dark") ? { background: "white" } : ""}
-                                    variant="contained"
-                                    onClick={closePopUpAppintment} >
-
-                                    <CloseIcon style={(storedTheme === "light") ? { fontSize: "#20px", color: "white" } :
-                                        (storedTheme === "dark") ? { fontSize: "#20px", color: "black" } : ""} />
-                                </Button>
-
-                            </div>
-
-                            <div className='titleHeater'>
-                                <img src='https://i.postimg.cc/J0R7Js4X/day.png' />
-                            </div>
-
-                            <Form>
-                                <Appointment />
-                            </Form>
-
-                        </div>
-                    </Modal>
-                </div>
             </div >
 
 
             {/* show all Category from json file */}
-            <>
-                < Category />
-            </>
+            < Category />
 
         </m.div >
     )
-
 }
 
 export default Home;

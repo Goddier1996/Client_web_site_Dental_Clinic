@@ -205,9 +205,7 @@ function Register() {
 
 
                             {/* check box if user dont robot */}
-                            <>
-                                <RobotBox activeRobotBox={() => setCapVal(true)} />
-                            </>
+                            <RobotBox activeRobotBox={() => setCapVal(true)} />
 
 
                             <div style={!capVal ? { cursor: "not-allowed" } : {}}>
