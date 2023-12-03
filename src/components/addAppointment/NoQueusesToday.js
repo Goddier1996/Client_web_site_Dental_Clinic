@@ -11,9 +11,7 @@ const NoQueusesToday = () => {
                 style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
                     (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
             >
-                No queues today
-                <br /><br />
-                A working day is over 😁
+                Working day is over , No queues today 🕒
             </h6>
         </div>
     )
