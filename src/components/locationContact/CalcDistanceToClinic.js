@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 const CalcDistanceToClinic = () => {
@@ -15,16 +15,21 @@ const CalcDistanceToClinic = () => {
         longitude: 34.93413
     }
 
-    navigator.geolocation.getCurrentPosition(
-        (position) => {
 
-            setDistance(haversine(position.coords, end, { unit: 'km' }))
-        },
-        () => {
-            console.log("Position could not be determined.")
-        }
-    );
 
+    useEffect(() => {
+
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+
+                setDistance(haversine(position.coords, end, { unit: 'km' }))
+            },
+            () => {
+                console.log("Position could not be determined.")
+            }
+        );
+
+    }, [distance])
 
 
 

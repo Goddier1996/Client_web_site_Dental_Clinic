@@ -190,13 +190,13 @@
 
 
 .styleDistance span {
-    animation: blink 2.5s infinite;
+    animation: Distance 1.5s infinite;
     animation-fill-mode: both;
 }
 
-@keyframes blink {
+@keyframes Distance {
     0% {
-        opacity: 0.5
+        opacity: 0.6
     }
 
     50% {
@@ -204,7 +204,7 @@
     }
 
     100% {
-        opacity: 0.5
+        opacity: 0.6
     }
 }
 
