@@ -189,6 +189,25 @@
 }
 
 
+.qq span {
+    animation: blink 2.5s infinite;
+    animation-fill-mode: both;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0.5
+    }
+
+    50% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0.5
+    }
+}
+
 
 @media(max-width:991px) {
 

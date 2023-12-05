@@ -135,14 +135,14 @@
     font-size: 19px;
     width: 500px;
     color: white;
-    animation: blink 1.5s infinite;
+    animation: blink 2.5s infinite;
     animation-fill-mode: both;
     cursor: none;
 }
 
 @keyframes blink {
     0% {
-        opacity: 0
+        opacity: 0.5
     }
 
     50% {
@@ -150,7 +150,7 @@
     }
 
     100% {
-        opacity: 0
+        opacity: 0.5
     }
 }
 
