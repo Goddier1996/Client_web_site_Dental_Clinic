@@ -44,4 +44,4 @@ const CalcDistanceToClinic = () => {
     )
 }
 
-export default CalcDistanceToClinic
+export default CalcDistanceToClinic;
