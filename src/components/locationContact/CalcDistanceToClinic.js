@@ -9,6 +9,7 @@ const CalcDistanceToClinic = () => {
 
     let storedTheme = localStorage.getItem("theme");
 
+
     const end = {
         latitude: 32.31822,
         longitude: 34.93413
@@ -25,19 +26,25 @@ const CalcDistanceToClinic = () => {
     );
 
 
+
+
     return (
-        <div className='qq'>
+        <div className={distance ? 'styleDistance' : ""}>
             <p>
                 <span className={(storedTheme == "light") ? "boldFirstWordDark" : (storedTheme == "dark") ? "boldFirstWord" : ""}>
                     Distance to the clinic from your place : </span>
-                {distance == Math.floor(distance) || distance >= 1 ?
-                    <>{parseFloat(distance).toFixed(0)} Km</>
+
+                {!distance ?
+                    <><br /><b className='confirmLocation' style={{ color: "red" }}>Confirm your location sharing !</b></>
                     :
-                    distance < 1 ?
-                        <>{parseFloat(distance).toFixed(3)} Meters</>
+                    distance == Math.floor(distance) || distance >= 1 ?
+                        <>{parseFloat(distance).toFixed(0)} Km</>
                         :
-                        !distance ?
-                            <><br />Your location data was not received,<br />please share your location.</> : ""
+                        distance < 1 ?
+                            <>{parseFloat(distance).toFixed(3)} Meters</>
+                            :
+                            !distance ?
+                                <><br />Your location data was not received,<br />please share your location.</> : ""
                 }
             </p>
         </div>
