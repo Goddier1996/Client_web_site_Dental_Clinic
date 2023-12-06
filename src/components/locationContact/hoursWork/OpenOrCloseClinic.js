@@ -16,11 +16,16 @@ const OpenOrCloseClinic = () => {
         day = GetDayWeekFromArray(new Date);
 
         {
-            day == "Friday" || day == "Saturday" ?
+            day == "Saturday" ?
                 setOpenOrClose(false) :
-                hoursAndMinutes >= "10:00" && hoursAndMinutes < "19:00" ?
+
+                day == "Friday" && hoursAndMinutes >= "10:00" && hoursAndMinutes < "14:00" ?
                     setOpenOrClose(true) :
-                    setOpenOrClose(false)
+
+                    hoursAndMinutes >= "10:00" && hoursAndMinutes < "19:00" ?
+                        setOpenOrClose(true) :
+
+                        setOpenOrClose(false)
         }
 
     }, [openOrClose])
