@@ -6,10 +6,11 @@ import SendEmail from '../components/locationContact/SendEmail'
 import { motion as m } from "framer-motion/dist/framer-motion"
 import { container } from "../styleComponents/StyleAnimation"
 import ContactInfo from '../components/locationContact/ContactInfo';
-import ShowHoursWork from '../components/locationContact/ShowHoursWork';
+import ShowHoursWork from '../components/locationContact/hoursWork/ShowHoursWork';
 import ButtonSendEmail from '../components/locationContact/ButtonSendEmail';
-import CalcDistanceToClinic from '../components/locationContact/CalcDistanceToClinic';
-import ShowMap from '../components/locationContact/ShowMap';
+import CalcDistanceToClinic from '../components/locationContact/map/CalcDistanceToClinic';
+import ShowMap from '../components/locationContact/map/ShowMap';
+import OpenOrCloseClinic from '../components/locationContact/hoursWork/OpenOrCloseClinic';
 
 
 
@@ -69,6 +70,8 @@ function Location() {
 
                     <div className={(storedTheme == "light") ? "logDark" : (storedTheme == "dark") ? "log" : ""}>
                         <h3>Hours Work Clinic</h3>
+
+                        <OpenOrCloseClinic />
 
                         <ShowHoursWork />
 

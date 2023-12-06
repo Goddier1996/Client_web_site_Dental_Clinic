@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion as m } from "framer-motion/dist/framer-motion"
-import { item } from "../../styleComponents/StyleAnimation"
-import date from '../../Json_date/date.json'
+import { item } from "../../../styleComponents/StyleAnimation"
+import date from '../../../Json_date/date.json'
 
 
 const ShowHoursWork = () => {

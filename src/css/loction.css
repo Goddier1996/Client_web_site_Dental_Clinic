@@ -228,6 +228,21 @@
 }
 
 
+.openClinic {
+    color: green;
+    font-weight: 600;
+    transform: rotate(4deg);
+    margin-top: 5%;
+}
+
+.closeClinic {
+    color: red;
+    font-weight: 600;
+    transform: rotate(4deg);
+    margin-top: 5%;
+}
+
+
 @media(max-width:991px) {
 
     .bannerLoction {
