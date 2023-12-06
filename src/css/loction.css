@@ -189,25 +189,6 @@
 }
 
 
-.styleDistance span {
-    animation: Distance 1.5s infinite;
-    animation-fill-mode: both;
-}
-
-@keyframes Distance {
-    0% {
-        opacity: 0.6
-    }
-
-    50% {
-        opacity: 1
-    }
-
-    100% {
-        opacity: 0.6
-    }
-}
-
 .confirmLocation {
     animation: blink 1.5s infinite;
     animation-fill-mode: both;
@@ -233,6 +214,22 @@
     font-weight: 600;
     transform: rotate(4deg);
     margin-top: 5%;
+    animation: open 1.5s infinite;
+    animation-fill-mode: both;
+}
+
+@keyframes open {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
 }
 
 .closeClinic {
@@ -240,6 +237,23 @@
     font-weight: 600;
     transform: rotate(4deg);
     margin-top: 5%;
+    animation: close 1.5s infinite;
+    animation-fill-mode: both;
+}
+
+
+@keyframes close {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
 }
 
 
