@@ -110,7 +110,7 @@ function Appointment() {
 
                                                         setWriteNoQueuesToday(false),
                                                         <>
-                                                            {hourThisDay.Hour_day > hoursAndMinutes ?
+                                                            {hourThisDay.Hour_day > hoursAndMinutes && hourThisDay.IsActive == "1" ?
                                                                 <div key={hourThisDay._id}>
                                                                     <ShowHours hours={hourThisDay} ShowPopUpReCAPTCHA={() => showPopUpReCAPTCHA(hourThisDay.Hour_day, hourThisDay._id)} />
                                                                 </div>
@@ -129,9 +129,15 @@ function Appointment() {
                                     <Row xs={2} md={4} lg={4}>
                                         {Hours.map(hour => {
                                             return (
-                                                <div key={hour._id}>
-                                                    <ShowHours hours={hour} ShowPopUpReCAPTCHA={() => showPopUpReCAPTCHA(hour.Hour_day, hour._id)} />
-                                                </div>
+                                                <>
+                                                    {hour.IsActive == "1" ?
+                                                        <div key={hour._id}>
+                                                            <ShowHours hours={hour} ShowPopUpReCAPTCHA={() => showPopUpReCAPTCHA(hour.Hour_day, hour._id)} />
+                                                        </div>
+                                                        :
+                                                        setWriteNoQueuesToday(true)
+                                                    }
+                                                </>
                                             )
                                         }
                                         )}
