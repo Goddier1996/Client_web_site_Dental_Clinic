@@ -12,6 +12,7 @@ import ShowDays from './ShowDays';
 import ShowHours from './ShowHours';
 import NoQueusesToday from './NoQueusesToday';
 import LoadingDaysHour from '../loading/LoadingDaysHour';
+import ShowWhatDayToday from './ShowWhatDayToday';
 
 
 
@@ -80,12 +81,7 @@ function Appointment() {
 
             <div className='chioseDayAndDay'>
 
-                <img src='https://i.postimg.cc/zDW8DS7c/clock.png' />
-
-                <h6 style={(storedTheme === "light") ? { color: "white" } :
-                    (storedTheme === "dark") ? { color: "GrayText" } : ""}>
-                    Day {takeDayAndCodeDayInResultHour.Day}
-                </h6>
+                <ShowWhatDayToday takeDayAndCodeDayInResultHour={takeDayAndCodeDayInResultHour} />
 
                 <div id="results" className="search-results">
 
