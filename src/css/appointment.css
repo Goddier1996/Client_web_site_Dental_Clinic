@@ -129,6 +129,18 @@
 .writeNotHaveTodayTurn h6 {
     color: Gray Text;
     cursor: none;
+    margin-top: -3%;
+}
+
+.closeClinicToday {
+    margin-top: 7%;
+    margin-bottom: 6%;
+    cursor: none;
+}
+
+.closeClinicToday img {
+    width: 70px;
+    height: auto;
 }
 
 .saveUserTurn p {

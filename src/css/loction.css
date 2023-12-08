@@ -259,6 +259,7 @@
 
 .openOrCloseClinic img{
     width: 60px;
+    height: auto;
 }
 
 @media(max-width:991px) {
