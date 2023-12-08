@@ -22,7 +22,7 @@ const OpenOrCloseClinic = () => {
                 day == "Friday" && hoursAndMinutes >= "10:00" && hoursAndMinutes < "14:00" ?
                     setOpenOrClose(true) :
 
-                    hoursAndMinutes >= "10:00" && hoursAndMinutes < "19:00" ?
+                    day != "Friday" && hoursAndMinutes >= "10:00" && hoursAndMinutes < "19:00" ?
                         setOpenOrClose(true) :
 
                         setOpenOrClose(false)
@@ -35,8 +35,10 @@ const OpenOrCloseClinic = () => {
     return (
         <div className='openOrCloseClinic'>
             {openOrClose ?
-                <p className={openOrClose ? "openClinic" : ""}>Clinic Open Now</p> :
-                <p className={!openOrClose ? "closeClinic" : ""}>Clinic Close Now</p>
+                // <p className={openOrClose ? "openClinic" : ""}>Clinic Open Now</p>
+                <img src='https://i.postimg.cc/q7j5hYhc/open.png' /> :
+                // <p className={!openOrClose ? "closeClinic" : ""}>Clinic Close Now</p>
+                <img src='https://i.postimg.cc/KvPMx3HL/closed-sign.png' />
             }
         </div>
     )

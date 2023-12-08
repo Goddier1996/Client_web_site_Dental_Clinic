@@ -209,7 +209,7 @@
 }
 
 
-.openClinic {
+/* .openClinic {
     color: green;
     font-weight: 600;
     transform: rotate(4deg);
@@ -254,8 +254,12 @@
     100% {
         opacity: 0.5;
     }
-}
+} */
 
+
+.openOrCloseClinic img{
+    width: 60px;
+}
 
 @media(max-width:991px) {
 
