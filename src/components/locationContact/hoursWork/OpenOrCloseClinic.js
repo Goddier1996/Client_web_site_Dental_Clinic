@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { GetTime, GetDayWeekFromArray } from "../../addAppointment/AlertUserHaveTurnToday"
+import { GetDayWeekFromArray } from "../../addAppointment/AlertUserHaveTurnToday"
 
 
 const OpenOrCloseClinic = () => {
@@ -12,7 +12,7 @@ const OpenOrCloseClinic = () => {
 
     useEffect(() => {
 
-        hoursAndMinutes = GetTime(new Date);
+        hoursAndMinutes = new Date;
         day = GetDayWeekFromArray(new Date);
 
         {
