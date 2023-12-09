@@ -9,4 +9,4 @@ const LoadingReview = () => {
     )
 }
 
-export default LoadingReview
+export default LoadingReview;

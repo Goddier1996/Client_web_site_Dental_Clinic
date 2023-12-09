@@ -49,4 +49,4 @@ const ShowAllReview = ({ allReview }) => {
     )
 }
 
-export default ShowAllReview
+export default ShowAllReview;

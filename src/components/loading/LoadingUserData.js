@@ -9,4 +9,4 @@ const LoadingUserData = () => {
     )
 }
 
-export default LoadingUserData
+export default LoadingUserData;

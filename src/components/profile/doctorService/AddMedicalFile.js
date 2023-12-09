@@ -177,4 +177,4 @@ function AddMedicalFileUser(props) {
 }
 
 
-export default AddMedicalFileUser
+export default AddMedicalFileUser;

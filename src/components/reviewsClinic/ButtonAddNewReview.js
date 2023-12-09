@@ -17,4 +17,4 @@ const ButtonAddNewReview = ({ CheckUserConnected }) => {
     )
 }
 
-export default ButtonAddNewReview
+export default ButtonAddNewReview;

@@ -41,4 +41,4 @@ const ShowOurWorkClinic = ({ infoOurWork }) => {
     )
 }
 
-export default ShowOurWorkClinic
+export default ShowOurWorkClinic;

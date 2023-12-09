@@ -14,4 +14,4 @@ const RobotBox = ({ activeRobotBox }) => {
     )
 }
 
-export default RobotBox
+export default RobotBox;

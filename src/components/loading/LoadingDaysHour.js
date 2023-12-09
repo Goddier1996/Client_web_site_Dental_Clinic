@@ -9,4 +9,4 @@ const LoadingDaysHour = () => {
     )
 }
 
-export default LoadingDaysHour
+export default LoadingDaysHour;

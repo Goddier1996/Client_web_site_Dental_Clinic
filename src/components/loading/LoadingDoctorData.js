@@ -9,4 +9,4 @@ const LoadingDoctorData = () => {
     )
 }
 
-export default LoadingDoctorData
+export default LoadingDoctorData;

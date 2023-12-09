@@ -162,4 +162,4 @@ function SendEmail(props) {
 
 }
 
-export default SendEmail
+export default SendEmail;

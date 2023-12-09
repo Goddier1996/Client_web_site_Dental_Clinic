@@ -5,7 +5,6 @@ import UserRegister from '../../src/components/register/UserRegister';
 
 
 
-// here Register Page
 function Register() {
 
 

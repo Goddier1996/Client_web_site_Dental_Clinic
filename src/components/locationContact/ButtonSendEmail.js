@@ -20,4 +20,4 @@ const ButtonSendEmail = ({ popUpSendMessage }) => {
     )
 }
 
-export default ButtonSendEmail
+export default ButtonSendEmail;

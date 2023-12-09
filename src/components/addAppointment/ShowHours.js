@@ -19,4 +19,4 @@ const ShowHours = ({ hours, ShowPopUpReCAPTCHA }) => {
     )
 }
 
-export default ShowHours
+export default ShowHours;

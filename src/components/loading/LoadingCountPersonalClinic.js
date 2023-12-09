@@ -9,4 +9,4 @@ const LoadingCountPersonalClinic = () => {
     )
 }
 
-export default LoadingCountPersonalClinic
+export default LoadingCountPersonalClinic;

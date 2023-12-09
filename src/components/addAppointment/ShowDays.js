@@ -15,4 +15,4 @@ const ShowDays = ({ showDay, funcLoadHoursThisDay }) => {
     )
 }
 
-export default ShowDays
+export default ShowDays;

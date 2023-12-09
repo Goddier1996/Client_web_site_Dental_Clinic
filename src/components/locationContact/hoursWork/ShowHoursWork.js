@@ -18,4 +18,4 @@ const ShowHoursWork = () => {
     )
 }
 
-export default ShowHoursWork
+export default ShowHoursWork;
