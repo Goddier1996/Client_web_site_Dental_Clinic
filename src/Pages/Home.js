@@ -90,7 +90,6 @@ function Home() {
 
             </div >
 
-
             {/* show all Category from json file */}
             < Category />
 

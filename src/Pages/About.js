@@ -1,6 +1,6 @@
 import React from 'react'
 import '../css/About.css'
-import date1 from '../Json_date/date.json'
+import date from '../Json_date/date.json'
 import { LoadCountDoctors, LoadCountUsers, LoadCountReviews } from '../Api/LoadDataFromApi'
 import NotFoundPage from '../components/tools/NotFoundPage'
 import { useQueryOnlyLoadingData } from "../customHook/customQueryHook"
@@ -19,9 +19,8 @@ function About() {
 
     const getLengthDataOurWorkFromJsonFile = () => {
 
-        return date1.work.length;
+        return date.work.length;
     }
-
 
 
     // use custom hook , useQuery

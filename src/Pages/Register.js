@@ -34,7 +34,6 @@ function Register() {
             </section>
         </m.div>
     )
-
 }
 
 

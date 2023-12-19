@@ -5849,11 +5849,6 @@
   "resolved" "https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz"
   "version" "1.0.0-beta.2"
 
-"geolib@^3.3.4":
-  "integrity" "sha512-EicrlLLL3S42gE9/wde+11uiaYAaeSVDwCUIv2uMIoRBfNJCn8EsSI+6nS3r4TCKDO6+RQNM9ayLq2at+oZQWQ=="
-  "resolved" "https://registry.npmjs.org/geolib/-/geolib-3.3.4.tgz"
-  "version" "3.3.4"
-
 "get-caller-file@^1.0.1":
   "integrity" "sha512-3t6rVToeoZfYSGd8YoLFR2DJkiQrIiUrGcjvFX2mDw3bn6k2OtwHN0TNCLbBO+w8qTvimhDkv+LSscbJY1vE6w=="
   "resolved" "https://registry.npmjs.org/get-caller-file/-/get-caller-file-1.0.3.tgz"
@@ -7924,6 +7919,14 @@
     "parse-json" "^2.2.0"
     "pify" "^2.0.0"
     "strip-bom" "^3.0.0"
+
+"loadable-image@^3.0.6":
+  "integrity" "sha512-qZY4Wyuiw8KA5IaZ81Th5RzDTjFZHkKCb+JTL4BM6jQhxRLSY9Zlk0RB/leykg2ziiiUOuNV4BwxGbE6AryK3g=="
+  "resolved" "https://registry.npmjs.org/loadable-image/-/loadable-image-3.0.6.tgz"
+  "version" "3.0.6"
+  dependencies:
+    "react-intersection-observer" "^9.5.2"
+    "transitions-kit" "^1.2.2"
 
 "loader-fs-cache@^1.0.0":
   "integrity" "sha512-ldcgZpjNJj71n+2Mf6yetz+c9bM4xpKtNds4LbqXzU/PTdeAX0g3ytnU1AJMEcTk2Lex4Smpe3Q/eCTsvUBxbA=="
@@ -10295,6 +10298,11 @@
     "prop-types" "^15.5.0"
     "react-async-script" "^1.2.0"
 
+"react-intersection-observer@^9.5.2":
+  "integrity" "sha512-NJzagSdUPS5rPhaLsHXYeJbsvdpbJwL6yCHtMk91hc0ufQ2BnXis+0QQ9NBh6n9n+Q3OyjR6OQLShYbaNBkThQ=="
+  "resolved" "https://registry.npmjs.org/react-intersection-observer/-/react-intersection-observer-9.5.3.tgz"
+  "version" "9.5.3"
+
 "react-is@^16.13.1":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
@@ -12009,6 +12017,13 @@
   "version" "3.0.0"
   dependencies:
     "punycode" "^2.1.1"
+
+"transitions-kit@^1.2.2":
+  "integrity" "sha512-VtDbOQEAgYZ6Nqr056Foa99KBBawL+0kFyYwDss2oR5Kh9QyiB4+Hqe8zcspAXxSq1JYGBgjcjQ/DgmTeJ1qhw=="
+  "resolved" "https://registry.npmjs.org/transitions-kit/-/transitions-kit-1.2.2.tgz"
+  "version" "1.2.2"
+  dependencies:
+    "react-transition-group" "^4.4.5"
 
 "trim-right@^1.0.1":
   "integrity" "sha512-WZGXGstmCWgeevgTL54hrCuw1dyMQIzWy7ZfqRJfSmJZBwklI15egmQytFP6bPidmw3M8d5yEowl1niq4vmqZw=="

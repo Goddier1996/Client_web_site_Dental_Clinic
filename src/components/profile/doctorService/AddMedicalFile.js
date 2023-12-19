@@ -31,7 +31,6 @@ function AddMedicalFileUser(props) {
 
 
 
-
     const checkInput = () => {
 
         let check = checkIfUrlLinkImageFile(File_user)
@@ -58,7 +57,6 @@ function AddMedicalFileUser(props) {
             addMedicalFileUser();
         }
     }
-
 
 
 

@@ -44,7 +44,7 @@ const LoadingAllFuncShowHours = ({ showPopUpReCAPTCHA }) => {
                             <>
                                 {dayFromArray == takeDayAndCodeDayInResultHour.Day ?
                                     <>
-                                        {hoursAndMinutes > "19:00" ?
+                                        {hoursAndMinutes >= "19:00" ?
                                             <NoQueusesToday />
                                             :
                                             <>

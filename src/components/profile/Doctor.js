@@ -11,7 +11,6 @@ import WhoShouldPay from './doctorService/tabs/WhoShouldPay';
 
 
 //here component Doctor we to do what doctor can do = this component use in profile
-//take props doctor user code to show data doctor in profile doctor
 function Doctor({ code_doctor }) {
 
 
