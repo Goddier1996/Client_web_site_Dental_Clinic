@@ -3,20 +3,23 @@ import React from 'react'
 
 const ShowHours = ({ hours, ShowPopUpReCAPTCHA }) => {
 
-    const { Hour_day } = hours;
+    const { Hour_day, IsActive } = hours;
 
     let storedTheme = localStorage.getItem("theme");
 
 
     return (
-        <>
-            <p href='#'
+        <div className={IsActive == "1" ? "hourActive" : "hourNotActive"}>
+
+            <p
                 style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
                     (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
-                onClick={ShowPopUpReCAPTCHA}>{Hour_day}
+                onClick={IsActive == "1" ? ShowPopUpReCAPTCHA : ""}>{Hour_day}
             </p>
-        </>
+
+        </div>
     )
 }
+
 
 export default ShowHours;

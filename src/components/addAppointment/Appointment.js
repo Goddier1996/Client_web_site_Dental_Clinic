@@ -2,17 +2,14 @@ import React, { useState } from 'react'
 import { Row, Modal } from 'react-bootstrap';
 import '../../css/appointment.css'
 import Swal from 'sweetalert2'
-import { LoadDays, LoadHour } from '../../Api/LoadDataFromApi'
+import { LoadDays } from '../../Api/LoadDataFromApi'
 import { DeleteHour, UpdateDataUserAddTurn } from '../../Api/DeleteUpdateDataFromApi'
 import NotFoundPage from '../tools/NotFoundPage'
-import { useQueryOnlyLoadingData, useQueryDataLoadingRefetchAutoData } from "../../customHook/customQueryHook"
-import { GetTime, GetDayWeekFromArray } from './AlertUserHaveTurnToday'
+import { useQueryOnlyLoadingData } from "../../customHook/customQueryHook"
 import ModelPopUpSaveTurn from './ModelPopUpSaveTurn';
-import ShowDays from './ShowDays';
-import ShowHours from './ShowHours';
-import NoQueusesToday from './NoQueusesToday';
+import ShowDays from './days/ShowDays';
 import LoadingDaysHour from '../loading/LoadingDaysHour';
-import ShowWhatDayToday from './ShowWhatDayToday';
+import LoadingAllFuncShowHours from './hours/LoadingAllFuncShowHours';
 
 
 
@@ -28,32 +25,17 @@ function Appointment() {
     // check box if user not robot
     const [capVal, setCapVal] = useState(false);
 
-
     //show a pop up hour
     const [showResultsHours, setShowResultsHours] = useState(false);
-
-
-    const [writeNoQueuesToday, setWriteNoQueuesToday] = useState(false);
-
-
-    // check in ResultsHours function today , which hours work and free today
-    let takeDayAndCodeDayInResultHour;
-    let dayFromArray;
-    let hoursAndMinutes;
-
 
     // all data what we save in local storage and session Storage
     let storedTheme = localStorage.getItem("theme");
     let userData = JSON.parse(sessionStorage.getItem("user"));
 
 
-
     // use custom hook , useQuery + days,hours
     const { isLoading: LoadingDays, data: days, isError: ErrorDays } =
         useQueryOnlyLoadingData('allDays', LoadDays, null);
-
-    const { isLoading: LoadingHours, data: Hours, isError: ErrorHours } =
-        useQueryDataLoadingRefetchAutoData('HourDayId', null, LoadHour, takeDayAndCodeDayInResultHour);
 
 
 
@@ -69,86 +51,6 @@ function Appointment() {
 
 
 
-    //show (jsx) return we see in pup up hours - and click to hour we save what day we choose and hour to data base
-    const ResultsHours = () => (
-
-        takeDayAndCodeDayInResultHour = JSON.parse(sessionStorage.getItem("day")),
-        dayFromArray = GetDayWeekFromArray(new Date),
-        hoursAndMinutes = GetTime(new Date),
-
-        <>
-            <div className='borderPlace'></div>
-
-            <div className='chioseDayAndDay'>
-
-                <ShowWhatDayToday takeDayAndCodeDayInResultHour={takeDayAndCodeDayInResultHour} />
-
-                <div id="results" className="search-results">
-
-                    {/* show Loading */}
-                    {(LoadingHours) ?
-                        <LoadingDaysHour />
-                        :
-                        (ErrorHours) ?
-                            <NotFoundPage />
-                            :
-                            <>
-                                {dayFromArray == takeDayAndCodeDayInResultHour.Day ?
-                                    <>
-
-                                        {writeNoQueuesToday ?
-                                            <NoQueusesToday />
-                                            :
-                                            <Row xs={2} md={4} lg={4}>
-
-                                                {Hours.map(hourThisDay => {
-                                                    return (
-
-                                                        setWriteNoQueuesToday(false),
-                                                        <>
-                                                            {hourThisDay.Hour_day > hoursAndMinutes && hourThisDay.IsActive == "1" ?
-                                                                <div key={hourThisDay._id}>
-                                                                    <ShowHours hours={hourThisDay} ShowPopUpReCAPTCHA={() => showPopUpReCAPTCHA(hourThisDay.Hour_day, hourThisDay._id)} />
-                                                                </div>
-                                                                :
-                                                                setWriteNoQueuesToday(true)
-                                                            }
-                                                        </>
-                                                    )
-                                                }
-                                                )
-                                                }
-                                            </Row>
-                                        }
-                                    </>
-                                    :
-                                    <Row xs={2} md={4} lg={4}>
-                                        {Hours.map(hour => {
-                                            return (
-                                                <>
-                                                    {hour.IsActive == "1" ?
-                                                        <div key={hour._id}>
-                                                            <ShowHours hours={hour} ShowPopUpReCAPTCHA={() => showPopUpReCAPTCHA(hour.Hour_day, hour._id)} />
-                                                        </div>
-                                                        :
-                                                        setWriteNoQueuesToday(true)
-                                                    }
-                                                </>
-                                            )
-                                        }
-                                        )}
-                                    </Row>
-                                }
-                            </>
-                    }
-                </div>
-            </div>
-        </>
-    )
-
-
-
-
     const showPopUpReCAPTCHA = (Hour_day, Serial_code) => {
 
         handleShowPopUpRobotBox();
@@ -159,7 +61,7 @@ function Appointment() {
 
 
 
-    // save to user date , hour and day what he chiose
+    // save user hour and day what he choose
     const saveDateUser = async () => {
 
         if (capVal) {
@@ -209,12 +111,10 @@ function Appointment() {
                 (ErrorDays) ?
                     <NotFoundPage />
                     :
-
                     <div className={(storedTheme === "light") ? "showDayDark" : (storedTheme === "dark") ? "showDay" : ""}>
                         <Row xs={2} md={5} lg={4} className="g-4">
 
                             {days.map(day =>
-
                                 <div className='showDayItems' key={day._id}>
                                     <ShowDays showDay={day} funcLoadHoursThisDay={LoadHours} />
                                 </div>
@@ -222,27 +122,27 @@ function Appointment() {
                         </Row>
 
                         <Modal.Body>
-                            {showResultsHours ? <ResultsHours /> : null}
+                            {showResultsHours ?
+                                <LoadingAllFuncShowHours showPopUpReCAPTCHA={showPopUpReCAPTCHA} />
+                                :
+                                null
+                            }
                         </Modal.Body>
-
                     </div>
             }
 
-
             {/* show popUp check if user not robot and save Turn */}
             <Modal show={showPopUpRobotBox} style={{ background: "rgba(0, 0, 0, 0.75)" }}>
-
                 <ModelPopUpSaveTurn
                     capVal={capVal}
                     saveDateUser={saveDateUser}
                     closePopUpRobotBoxUserExit={closePopUpRobotBoxUserExit}
                     setCapVal={() => setCapVal(true)}
                 />
-
             </Modal>
         </>
     )
-
 }
+
 
 export default Appointment;

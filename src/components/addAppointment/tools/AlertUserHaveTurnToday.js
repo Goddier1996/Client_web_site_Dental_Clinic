@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2'
-import { ActiveHourInDataBase, UpdateDataUserRemoveTurn } from '../../Api/DeleteUpdateDataFromApi'
+import { ActiveHourInDataBase, UpdateDataUserRemoveTurn } from '../../../Api/DeleteUpdateDataFromApi'
 
 
 
@@ -7,7 +7,7 @@ export function GetTime(date) {
 
     let hours = date.getHours();
     hours = hours ? hours : 12; // the hour '0' should be '12'
-    hours = hours < 10 ? '0' + hours : hours;
+    // hours = hours < 10 ? '0' + hours : hours;
     // appending zero in the start if hours less than 10
     return hours + ':' + '00';
 }

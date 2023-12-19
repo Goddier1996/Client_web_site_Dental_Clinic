@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import { UpdateDataUser } from '../../../../Api/DeleteUpdateDataFromApi'
 import Swal from 'sweetalert2'
 import { useHistory } from 'react-router-dom';
-import { alertPopUpIfUserHaveTodayTurn } from '../../../addAppointment/AlertUserHaveTurnToday'
+import { alertPopUpIfUserHaveTodayTurn } from '../../../addAppointment/tools/AlertUserHaveTurnToday'
 
 
 

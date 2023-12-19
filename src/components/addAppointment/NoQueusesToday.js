@@ -12,7 +12,7 @@ const NoQueusesToday = () => {
                     style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
                         (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
                 >
-                    Working day is over Or the queue is over today
+                    Working day is over
                 </h6>
 
             </div>

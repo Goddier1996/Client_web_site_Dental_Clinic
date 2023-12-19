@@ -7,16 +7,7 @@
 }
 
 
-.search-results p {
-    cursor: pointer;
-    font-size: 18px;
-    color: Gray Text;
-}
 
-.search-results p:hover {
-    background: rgba(0, 128, 0, 0);
-    color: gray;
-}
 
 .chioseDayAndDay {
     text-align: center;
@@ -166,6 +157,29 @@
     }
 }
 
+
+.hourNotActive p {
+    cursor: no-drop;
+    text-decoration: red line-through;
+    font-size: 18px;
+    color: Gray Text;
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+}
+
+.hourActive p {
+    cursor: pointer;
+    font-size: 18px;
+    color: Gray Text;
+}
+
+.hourActive p:hover {
+    background: rgba(0, 128, 0, 0);
+    color: gray;
+}
 
 @media(max-width:991px) {
 
