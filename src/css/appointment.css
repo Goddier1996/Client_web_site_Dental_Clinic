@@ -6,9 +6,6 @@
     text-align: center;
 }
 
-
-
-
 .chioseDayAndDay {
     text-align: center;
 }
@@ -79,11 +76,10 @@
 .gifImageRobot {
     display: flex;
     justify-content: center;
-    margin-top: -5%;
 }
 
 .gifImageRobot img {
-    height: 270px;
+    height: 220px;
     margin-bottom: 3%;
 }
 
@@ -179,12 +175,4 @@
 .hourActive p:hover {
     background: rgba(0, 128, 0, 0);
     color: gray;
-}
-
-@media(max-width:991px) {
-
-    .gifImageRobot {
-        margin-top: 0%;
-    }
-
 }

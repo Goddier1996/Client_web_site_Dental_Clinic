@@ -1,5 +1,4 @@
 import React from 'react'
-import '../../../css/appointment.css'
 import { Row } from 'react-bootstrap';
 import NoQueusesToday from '../NoQueusesToday';
 import LoadingDaysHour from '../../loading/LoadingDaysHour';

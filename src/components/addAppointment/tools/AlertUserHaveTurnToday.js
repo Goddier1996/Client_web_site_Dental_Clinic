@@ -29,7 +29,6 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
     const hoursAndMinutes = GetTime(new Date);
     const dayFromArray = GetDayWeekFromArray(new Date);
 
-
     if (day == dayFromArray) {
 
         if (hour < hoursAndMinutes) {

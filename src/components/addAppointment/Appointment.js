@@ -98,6 +98,7 @@ function Appointment() {
 
         setShowPopUpRobotBox(false);
         setCapVal(false);
+        sessionStorage.removeItem("Hour");
     }
 
 
@@ -123,9 +124,7 @@ function Appointment() {
 
                         <Modal.Body>
                             {showResultsHours ?
-                                <LoadingAllFuncShowHours showPopUpReCAPTCHA={showPopUpReCAPTCHA} />
-                                :
-                                null
+                                <LoadingAllFuncShowHours showPopUpReCAPTCHA={showPopUpReCAPTCHA} /> : null
                             }
                         </Modal.Body>
                     </div>

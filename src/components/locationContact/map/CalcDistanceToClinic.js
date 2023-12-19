@@ -49,7 +49,9 @@ const CalcDistanceToClinic = () => {
                             <>{parseFloat(distance).toFixed(3)} Meters</>
                             :
                             !distance ?
-                                <><br />Your location data was not received,<br />please share your location.</> : ""
+                                <><br />Your location data was not received,<br />please share your location.</>
+                                :
+                                ""
                 }
             </p>
         </div>
