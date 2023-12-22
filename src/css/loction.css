@@ -1,27 +1,16 @@
+
 .bannerLoction {
     display: grid;
     grid-template-columns: 1.8fr 1fr;
-    margin-bottom: 4%;
 }
 
 .bannerLoction .boxLoction {
     position: relative;
 }
 
-.contect {
-    border: 5px solid #8ccdeb0f;
-}
 
 .contectDark {
     background: rgba(217, 174, 117, 0.046);
-}
-
-.bannerLoction .boxLoction:first-child,
-.bannerLoction .boxLoctionDark:first-child {
-    border: 5px solid #8ccdeb0f;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 
@@ -174,7 +163,7 @@
 
 .UserSendEmail Button,
 .buttonSendMessageOrClose Button {
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .titleSendEmail {
@@ -209,55 +198,7 @@
 }
 
 
-/* .openClinic {
-    color: green;
-    font-weight: 600;
-    transform: rotate(4deg);
-    margin-top: 5%;
-    animation: open 1.5s infinite;
-    animation-fill-mode: both;
-}
-
-@keyframes open {
-    0% {
-        opacity: 0.5;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0.5;
-    }
-}
-
-.closeClinic {
-    color: red;
-    font-weight: 600;
-    transform: rotate(4deg);
-    margin-top: 5%;
-    animation: close 1.5s infinite;
-    animation-fill-mode: both;
-}
-
-
-@keyframes close {
-    0% {
-        opacity: 0.5;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0.5;
-    }
-} */
-
-
-.openOrCloseClinic img{
+.openOrCloseClinic img {
     width: 60px;
     height: auto;
 }

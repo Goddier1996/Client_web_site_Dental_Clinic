@@ -1,0 +1,178 @@
+.search-results {
+    margin: 3%;
+    margin-bottom: -10%;
+    padding: 4%;
+    align-items: center;
+    text-align: center;
+}
+
+.chioseDayAndDay {
+    text-align: center;
+}
+
+.chioseDayAndDay h6 {
+    margin-top: 2%;
+}
+
+.chioseDayAndDay img {
+    height: 60px;
+    margin-top: -10%;
+    margin-bottom: -5%;
+}
+
+.showDayItems {
+    align-items: center;
+    text-align: center;
+}
+
+
+.showDay Button {
+    margin-top: 5%;
+    padding: 1%;
+    font-size: 18px;
+    color: Gray Text;
+    border: none;
+    border-radius: 25% 10%;
+}
+
+.showDay Button:hover {
+    background: none;
+    color: black;
+}
+
+
+.showDayDark Button {
+    margin-top: 5%;
+    padding: 2%;
+    font-size: 18px;
+    color: white;
+    border: none;
+    border-radius: 25% 10%;
+}
+
+
+.showDayDark Button:hover {
+    background: none;
+    color: gray;
+}
+
+.borderPlace {
+    border-bottom: 3px solid gray;
+    border-radius: 50%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+.loadingDaysHour {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadingDaysHour img {
+    height: 180px;
+}
+
+.gifImageRobot {
+    display: flex;
+    justify-content: center;
+}
+
+.gifImageRobot img {
+    height: 200px;
+    margin-bottom: 3%;
+}
+
+.gifImageUserSaveData {
+    display: flex;
+    justify-content: center;
+}
+
+.gifImageUserSaveData img {
+    height: 190px;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.showRobotBoxAppoinment {
+    display: flex;
+    flex-direction: column;
+}
+
+.appointmentRobotBoxButton {
+    margin-top: 0.5%;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.writeNotHaveTodayTurn,
+.saveUserTurn {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.writeNotHaveTodayTurn h6 {
+    color: Gray Text;
+    cursor: none;
+    margin-top: -3%;
+}
+
+.closeClinicToday {
+    margin-top: 7%;
+    margin-bottom: 6%;
+    cursor: none;
+}
+
+.closeClinicToday img {
+    width: 70px;
+    height: auto;
+}
+
+.saveUserTurn p {
+    font-size: 19px;
+    width: 500px;
+    color: white;
+    animation: blink 2.5s infinite;
+    animation-fill-mode: both;
+    cursor: none;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0.5
+    }
+
+    50% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0.5
+    }
+}
+
+
+.hourNotActive p {
+    cursor: no-drop;
+    text-decoration: red line-through;
+    font-size: 18px;
+    color: Gray Text;
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+}
+
+.hourActive p {
+    cursor: pointer;
+    font-size: 18px;
+    color: Gray Text;
+}
+
+.hourActive p:hover {
+    background: rgba(0, 128, 0, 0);
+    color: gray;
+}

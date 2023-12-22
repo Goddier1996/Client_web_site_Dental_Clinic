@@ -1,16 +1,14 @@
 import { useQuery } from 'react-query'
 
 
-
-export const useQueryDataLoadingRefetchAutoData = (typeData, pageNumber, LoadDataFromApi, id) => {
+// use in Review , when user add new review or like/dislike we see in live what add and what like user.
+export const useQueryDataLoadingRefetchAutoData = (typeData, pageNumber, LoadDataFromApi) => {
 
     return useQuery(
         [typeData, pageNumber], () => {
-            return LoadDataFromApi(id, pageNumber);
+            return LoadDataFromApi(pageNumber);
         },
         {
-            // use This useQuery in Appointment show hours , add option refresh because updated hours was active now!
-            // and use in Review , when user add new review or like/dislike we see in live what add and what like user.
             refetchOnWindowFocus: true,
             refetchInterval: 1000,
         }
@@ -19,10 +17,21 @@ export const useQueryDataLoadingRefetchAutoData = (typeData, pageNumber, LoadDat
 
 
 
-export const useQueryOnlyLoadingData = (typeData, LoadDataFromApi, id) => {
+export const useQueryLoadingAllData = (typeData, LoadDataFromApi) => {
 
     return useQuery(
         typeData, () => {
+            return LoadDataFromApi();
+        }
+    )
+}
+
+
+
+export const useQueryLoadingDataID = (typeData, LoadDataFromApi, id) => {
+
+    return useQuery(
+        [typeData, id], () => {
             return LoadDataFromApi(id);
         }
     )

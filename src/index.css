@@ -1,0 +1,22 @@
+.mainStyle{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* desgin scroll in web */
+html::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+html::-webkit-scrollbar {
+    width: 12px;
+    background-color: #ffffff;
+}
+
+
+html::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background-color: rgb(131, 131, 131);
+    border: 3px solid white;
+}

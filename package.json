@@ -21,6 +21,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.3",
     "bootstrap": "^4.6.0",
+    "bootstrap-icons": "^1.11.2",
     "cdbreact": "^1.5.2",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",

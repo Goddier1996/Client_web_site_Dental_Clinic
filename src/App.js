@@ -1,16 +1,16 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import React from 'react'
-import Register from './Pages/Register'
-import Home from './Pages/Home'
-import Menu from './components/menu'
-import Fotter from './components/fotter'
-import Location from './Pages/Location'
-import OurWork from './Pages/OurWork'
-import Service from './Pages/service'
-import profile from './Pages/profile'
-import About from './Pages/About'
-import DarkMode from "./components/tools/DarkMode"
-import NotFoundPage from "./components/tools/NotFoundPage";
+import Register from './Pages/Register.jsx'
+import Home from './Pages/Home.jsx'
+import Menu from './components/heater/Menu.jsx'
+import Footer from "./components/footer/Footer.jsx";
+import Location from './Pages/Location.jsx'
+import OurWork from './Pages/OurWork.jsx'
+import Service from './Pages/Service.jsx'
+import Profile from './Pages/Profile.jsx'
+import About from './Pages/About.jsx'
+import DarkMode from "./components/tools/darkMode/DarkMode.jsx"
+import NotFoundPage from "./components/tools/pageNotFound/NotFoundPage.jsx";
 
 
 
@@ -25,20 +25,22 @@ function App() {
 
       <Menu />
 
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/About" exact component={About} />
-        <Route path="/Register" exact component={Register} />
-        <Route path="/Location" exact component={Location} />
-        <Route path="/OurWork" exact component={OurWork} />
-        <Route path="/Service" exact component={Service} />
-        <Route path="/Profile/:id" exact component={profile} />
+      <main className="mainStyle">
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/About" exact component={About} />
+          <Route path="/Register" exact component={Register} />
+          <Route path="/Location" exact component={Location} />
+          <Route path="/OurWork" exact component={OurWork} />
+          <Route path="/Service" exact component={Service} />
+          <Route path="/Profile/:id" exact component={Profile} />
 
-        {/* active page not found */}
-        <Route path="*" exact component={NotFoundPage} />
-      </Switch>
+          {/* page not found */}
+          <Route path="*" exact component={NotFoundPage} />
+        </Switch>
+      </main>
 
-      <Fotter />
+      <Footer/>
 
     </BrowserRouter>
   );

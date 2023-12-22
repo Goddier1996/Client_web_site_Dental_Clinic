@@ -3086,6 +3086,11 @@
   "resolved" "https://registry.npmjs.org/bootstrap-css-only/-/bootstrap-css-only-4.4.1.tgz"
   "version" "4.4.1"
 
+"bootstrap-icons@^1.11.2":
+  "integrity" "sha512-TgdiPv+IM9tgDb+dsxrnGIyocsk85d2M7T0qIgkvPedZeoZfyeG/j+yiAE4uHCEayKef2RP05ahQ0/e9Sv75Wg=="
+  "resolved" "https://registry.npmjs.org/bootstrap-icons/-/bootstrap-icons-1.11.2.tgz"
+  "version" "1.11.2"
+
 "bootstrap@^4.6.0":
   "integrity" "sha512-Io55IuQY3kydzHtbGvQya3H+KorS/M9rSNyfCGCg9WZ4pyT/lCxIlpJgG1GXW/PswzC84Tr2fBYi+7+jFVQQBw=="
   "resolved" "https://registry.npmjs.org/bootstrap/-/bootstrap-4.6.0.tgz"
@@ -7920,14 +7925,6 @@
     "pify" "^2.0.0"
     "strip-bom" "^3.0.0"
 
-"loadable-image@^3.0.6":
-  "integrity" "sha512-qZY4Wyuiw8KA5IaZ81Th5RzDTjFZHkKCb+JTL4BM6jQhxRLSY9Zlk0RB/leykg2ziiiUOuNV4BwxGbE6AryK3g=="
-  "resolved" "https://registry.npmjs.org/loadable-image/-/loadable-image-3.0.6.tgz"
-  "version" "3.0.6"
-  dependencies:
-    "react-intersection-observer" "^9.5.2"
-    "transitions-kit" "^1.2.2"
-
 "loader-fs-cache@^1.0.0":
   "integrity" "sha512-ldcgZpjNJj71n+2Mf6yetz+c9bM4xpKtNds4LbqXzU/PTdeAX0g3ytnU1AJMEcTk2Lex4Smpe3Q/eCTsvUBxbA=="
   "resolved" "https://registry.npmjs.org/loader-fs-cache/-/loader-fs-cache-1.0.3.tgz"
@@ -10298,11 +10295,6 @@
     "prop-types" "^15.5.0"
     "react-async-script" "^1.2.0"
 
-"react-intersection-observer@^9.5.2":
-  "integrity" "sha512-NJzagSdUPS5rPhaLsHXYeJbsvdpbJwL6yCHtMk91hc0ufQ2BnXis+0QQ9NBh6n9n+Q3OyjR6OQLShYbaNBkThQ=="
-  "resolved" "https://registry.npmjs.org/react-intersection-observer/-/react-intersection-observer-9.5.3.tgz"
-  "version" "9.5.3"
-
 "react-is@^16.13.1":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
@@ -12017,13 +12009,6 @@
   "version" "3.0.0"
   dependencies:
     "punycode" "^2.1.1"
-
-"transitions-kit@^1.2.2":
-  "integrity" "sha512-VtDbOQEAgYZ6Nqr056Foa99KBBawL+0kFyYwDss2oR5Kh9QyiB4+Hqe8zcspAXxSq1JYGBgjcjQ/DgmTeJ1qhw=="
-  "resolved" "https://registry.npmjs.org/transitions-kit/-/transitions-kit-1.2.2.tgz"
-  "version" "1.2.2"
-  dependencies:
-    "react-transition-group" "^4.4.5"
 
 "trim-right@^1.0.1":
   "integrity" "sha512-WZGXGstmCWgeevgTL54hrCuw1dyMQIzWy7ZfqRJfSmJZBwklI15egmQytFP6bPidmw3M8d5yEowl1niq4vmqZw=="

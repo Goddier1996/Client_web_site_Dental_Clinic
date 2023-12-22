@@ -1,0 +1,38 @@
+import { Card } from 'react-bootstrap'
+import '../../css/home.css'
+import React from 'react'
+import date from '../../Json_date/date.json'
+
+
+//here component we take category from json file and show in Home Page
+function Category() {
+
+    return (
+        <>
+            <div className='categoryLook'>
+
+                {date.category1.map((record, i) =>
+
+                    <div key={i} className='choise'>
+
+                        {/* can click to image or text and move to page what user choose */}
+                        <Card style={{ border: "none", background: "none" }}>
+                            <a href={record.link}>
+                                <Card.Img variant="top" src={record.path} />
+                            </a>
+
+                            <div className='title'>
+                                <a style={{ textDecoration: "none" }}
+                                    href={record.link}><h1>{record.name}</h1>
+                                </a>
+                            </div>
+                        </Card>
+                    </div>
+                )}
+            </div>
+
+        </>
+    );
+}
+
+export default Category;

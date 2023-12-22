@@ -1,34 +1,17 @@
-/* placeholder text style */
-input[type="date"]::-webkit-datetime-edit-text,
-input[type="date"]::-webkit-datetime-edit-month-field,
-input[type="date"]::-webkit-datetime-edit-day-field,
-input[type="date"]::-webkit-datetime-edit-year-field {
-    color: #888;
-}
-
-/* regular text style */
-input[type="date"].date-input--has-value::-webkit-datetime-edit-text,
-input[type="date"].date-input--has-value::-webkit-datetime-edit-month-field,
-input[type="date"].date-input--has-value::-webkit-datetime-edit-day-field,
-input[type="date"].date-input--has-value::-webkit-datetime-edit-year-field {
-    color: #f8f9fa;
-}
 
 .titleBirthdayDate p {
     font-size: 14px;
 }
 
 
-
 .banner1 {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
-    margin-bottom: 10px;
 }
 
 .banner1 .box1 {
     position: relative;
-    height: 70.5vh;
+    height: 100vh;
 }
 
 .contect1 {
@@ -90,11 +73,28 @@ input[type="date"].date-input--has-value::-webkit-datetime-edit-year-field {
 }
 
 
+/* placeholder text style */
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+    color: #888;
+}
+
+/* regular text style */
+input[type="date"].date-input--has-value::-webkit-datetime-edit-text,
+input[type="date"].date-input--has-value::-webkit-datetime-edit-month-field,
+input[type="date"].date-input--has-value::-webkit-datetime-edit-day-field,
+input[type="date"].date-input--has-value::-webkit-datetime-edit-year-field {
+    color: #f8f9fa;
+}
+
+
 @media(max-width:991px) {
 
     .banner1 {
         grid-template-columns: 1fr;
-        margin-top: 15%;
+        /* margin-top: 0%; */
     }
 
     .ShowImageWhenRegister img {

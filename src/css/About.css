@@ -1,10 +1,12 @@
+
 .titleAbout,
 .titleInformation,
 .titleAboutDark,
 .titleInformationDark {
   text-align: center;
   align-items: center;
-  padding-bottom: -9%;
+  padding-bottom: 3%;
+  padding-top: 3%;
 }
 
 
@@ -60,7 +62,6 @@
   text-decoration: none;
   color: #ffffff;
   font-size: 15px;
-
 }
 
 
@@ -86,9 +87,8 @@
   flex-wrap: wrap;
   row-gap: 15px;
   column-gap: 15px;
-  padding-bottom: 6%;
+  margin-top: -2%;
 }
-
 
 
 .a-box {
@@ -171,23 +171,6 @@
 
 
 
-
-.loadingCountPersonalClinic {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.loadingCountPersonalClinic img {
-  height: 200px;
-  margin-bottom: 17%;
-  margin-top: 10%;
-}
-
-
-
-
 @media(max-width:991px) {
 
   .titleAbout,
@@ -198,18 +181,13 @@
   }
 
   .titleAbout h1,
-  .titleAboutDark h1{
+  .titleAboutDark h1 {
     font-size: 22px;
 
   }
 
-  .loadingCountPersonalClinic h1 {
-    font-size: 22px;
+  .InfoAboutClinic {
+    margin-bottom: 5%;
   }
 
-  .loadingCountPersonalClinic img {
-    height: 170px;
-    margin-bottom: 30%;
-    margin-top: 30%;
-  }
 }

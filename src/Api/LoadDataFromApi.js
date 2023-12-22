@@ -4,7 +4,7 @@ import axios from 'axios';
 
 // ALL REVIEWS THIS CLINIC
 
-export async function LoadReviews(page, pageNumber) {
+export async function LoadReviews(pageNumber) {
 
     // USE FETCH
     // let res = await fetch(API.REVIEWS.GET, { method: 'GET' });
@@ -12,7 +12,7 @@ export async function LoadReviews(page, pageNumber) {
     // return data;
 
     // USE AXIOS
-    const response = await axios.get(`${API.REVIEWS.GET}?p=${pageNumber}`, { timeout: 5000 });
+    const response = await axios.get(`${API.REVIEWS.GET}?p=${pageNumber}`);
     return response.data;
 }
 
@@ -31,7 +31,7 @@ export async function CheckIfUserAddLikeThisReview(id, publishByLike) {
 
 
 
-// ADOUT THIS CLINIC COUNT DETAILS
+// ABOUT THIS CLINIC COUNT DETAILS
 
 export async function LoadCountDoctors() {
 
@@ -41,7 +41,7 @@ export async function LoadCountDoctors() {
     // return data;
 
     // USE AXIOS
-    const response = await axios.get(`${API.USERS.GET}/countDoctors`, { timeout: 5000 });
+    const response = await axios.get(`${API.USERS.GET}/countDoctors`);
     return response.data;
 }
 
@@ -54,7 +54,7 @@ export async function LoadCountUsers() {
     // return data;
 
     // USE AXIOS
-    const response = await axios.get(`${API.USERS.GET}/countUsers`, { timeout: 5000 });
+    const response = await axios.get(`${API.USERS.GET}/countUsers`);
     return response.data;
 }
 
@@ -67,7 +67,7 @@ export async function LoadCountReviews() {
     // return data;
 
     // USE AXIOS
-    const response = await axios.get(`${API.REVIEWS.GET}/countReviews`, { timeout: 5000 });
+    const response = await axios.get(`${API.REVIEWS.GET}/countReviews`);
     return response.data;
 }
 
@@ -83,7 +83,7 @@ export async function LoadAllUsers() {
     // return data;
 
     // USE AXIOS
-    const response = await axios.get(API.USERS.GET, { timeout: 5000 });
+    const response = await axios.get(API.USERS.GET);
     return response.data;
 }
 
@@ -96,7 +96,7 @@ export async function LoadAllUsersBlocked() {
     // return data;
 
     // USE AXIOS
-    const response = await axios.get(`${API.USERS.GET}/BlockUsers`, { timeout: 5000 });
+    const response = await axios.get(`${API.USERS.GET}/BlockUsers`);
     return response.data;
 }
 
@@ -109,7 +109,7 @@ export async function LoadAllDoctors() {
     // return data;
 
     // USE AXIOS
-    const response = await axios.get(`${API.USERS.GET}/showDoctors`, { timeout: 5000 });
+    const response = await axios.get(`${API.USERS.GET}/showDoctors`);
     return response.data;
 }
 
@@ -122,7 +122,7 @@ export async function LoadAllReviews() {
     // return data;
 
     // USE AXIOS
-    const response = await axios.get(API.REVIEWS.GET, { timeout: 5000 });
+    const response = await axios.get(API.REVIEWS.GET);
     return response.data;
 }
 
@@ -139,7 +139,7 @@ export async function LoadMedicalFileUser(code) {
     // return data;
 
     // USE AXIOS
-    const response = await axios.get(`${API.MEDICAL_FILE.GET}/${code}`, { timeout: 5000 });
+    const response = await axios.get(`${API.MEDICAL_FILE.GET}/${code}`);
     return response.data;
 }
 
@@ -152,7 +152,7 @@ export async function showAllMyReview(code) {
     // return data;
 
     // USE AXIOS
-    const response = await axios.get(`${API.REVIEWS.GET}/${code}`, { timeout: 5000 });
+    const response = await axios.get(`${API.REVIEWS.GET}/${code}`);
     return response.data;
 }
 
@@ -165,7 +165,7 @@ export async function LoadMedicalFileUserIsNotActive(code) {
     // return data;
 
     // USE AXIOS
-    const response = await axios.get(`${API.MEDICAL_FILE.GET}/showHistoryFiles/${code}`, { timeout: 5000 });
+    const response = await axios.get(`${API.MEDICAL_FILE.GET}/showHistoryFiles/${code}`);
     return response.data;
 }
 
@@ -181,7 +181,7 @@ export async function LoadUsersActive_queues() {
     // return data;
 
     // USE AXIOS
-    const response = await axios.get(`${API.USERS.GET}/showTurnUsers`, { timeout: 5000 });
+    const response = await axios.get(`${API.USERS.GET}/showTurnUsers`);
     return response.data;
 }
 
@@ -194,7 +194,7 @@ export async function LoadMedicalFileAllUsersHowNeedPay() {
     // return data;
 
     // USE AXIOS
-    const response = await axios.get(`${API.MEDICAL_FILE.GET}/showHowNeedPay`, { timeout: 5000 });
+    const response = await axios.get(`${API.MEDICAL_FILE.GET}/showHowNeedPay`);
     return response.data;
 }
 
@@ -210,19 +210,18 @@ export async function LoadDays() {
     // return data;
 
     // USE AXIOS
-    const response = await axios.get(API.DAYS.GET, { timeout: 5000 });
+    const response = await axios.get(API.DAYS.GET);
     return response.data;
 }
 
 
-export async function LoadHour(Serial_code) {
+export async function LoadHour(id) {
 
     // USE FETCH
     // let res = await fetch(`${API.HOURS.GET}/${Serial_code}`, { method: 'GET' });
     // let data = await res.json();
 
-    Serial_code = JSON.parse(sessionStorage.getItem("day"));
     // USE AXIOS
-    let response = await axios.get(`${API.HOURS.GET}/${Serial_code.Serial_code}`, { timeout: 5000 });
+    let response = await axios.get(`${API.HOURS.GET}/${id}`);
     return response.data;
 }
