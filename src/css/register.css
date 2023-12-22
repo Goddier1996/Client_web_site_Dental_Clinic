@@ -94,7 +94,7 @@ input[type="date"].date-input--has-value::-webkit-datetime-edit-year-field {
 
     .banner1 {
         grid-template-columns: 1fr;
-        /* margin-top: 0%; */
+        margin-top: -10%;
     }
 
     .ShowImageWhenRegister img {
@@ -102,6 +102,6 @@ input[type="date"].date-input--has-value::-webkit-datetime-edit-year-field {
     }
 
     .banner1 .box1:last-child {
-        margin-top: 15%;
+        margin-top: -10%;
     }
 }
