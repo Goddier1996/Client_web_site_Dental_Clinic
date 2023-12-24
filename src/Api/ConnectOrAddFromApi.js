@@ -1,6 +1,8 @@
 import { API } from './API';
 import axios from 'axios';
+import Swal from "sweetalert2";
 
+let storedTheme = localStorage.getItem("theme");
 
 
 export async function connectUserLogin(user) {
@@ -33,98 +35,27 @@ export async function connectUserLogin(user) {
     const res = await axios.post(API.USERS.LOGIN, user, { headers: headers })
 
     sessionStorage.setItem("user", JSON.stringify(res.data));
-}
 
+    let userData = JSON.parse(sessionStorage.getItem("user"));
 
-
-export async function connectDemoUserShow() {
-
-    // USE FETCH
-    // try {
-
-    // let user =
-    // {
-    //     User_Login: 'User',
-    //     User_password: '123456'
-    // };
-
-    //     let res = await fetch(API.USERS.LOGIN, {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(user)
-    //     });
-
-    //     let data = await res.json();
-
-    //     sessionStorage.setItem("user", JSON.stringify(data));
-
-    // } catch (error) {
-    //     console.log(error);
-    // }
-
-
-    // USE AXIOS
-    let user =
-    {
-        User_Login: 'User',
-        User_password: '123456'
-    };
-
-    const headers = {
-        'Content-Type': 'application/json'
+    if (userData == null) {
+        Swal.fire({
+            icon: "warning",
+            text: "Sorry dont have This user in Data Base , Try Again",
+            toast: true,
+            position: "top-end",
+            confirmButtonColor: "green",
+            background: `${storedTheme === "light" ? "#373E44" : storedTheme === "dark" ? "" : ""}`,
+            color: `${storedTheme === "light"
+                ? "#ffffffab"
+                : storedTheme === "dark"
+                    ? ""
+                    : ""}`,
+            buttonColor: `${storedTheme === "light" ? "#E96E00" : storedTheme === "dark" ? "" : ""}`,
+        });
+        sessionStorage.clear();
+        return;
     }
-
-    const res = await axios.post(API.USERS.LOGIN, user, { headers: headers })
-
-    sessionStorage.setItem("user", JSON.stringify(res.data));
-}
-
-
-
-export async function connectDemoDoctorShow() {
-
-    // USE FETCH
-    // try {
-
-    //     let user =
-    //     {
-    //         User_Login: 'demoDoctor',
-    //         User_password: 'demodoctor'
-    //     };
-
-    //     let res = await fetch(API.USERS.LOGIN, {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(user)
-    //     });
-
-    //     let data = await res.json();
-
-    //     sessionStorage.setItem("user", JSON.stringify(data)); 
-
-    // } catch (error) {
-    //     console.log(error);
-    // }
-
-
-    // USE AXIOS
-    let user =
-    {
-        User_Login: 'demoDoctor',
-        User_password: 'demodoctor'
-    };
-
-    const headers = {
-        'Content-Type': 'application/json'
-    }
-
-    const res = await axios.post(API.USERS.LOGIN, user, { headers: headers })
-
-    sessionStorage.setItem("user", JSON.stringify(res.data));
 }
 
 

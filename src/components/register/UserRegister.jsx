@@ -4,52 +4,68 @@ import Button from "react-bootstrap/Button";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import RobotBox from "../ReCAPTCHA/RobotBox.jsx";
 import Spinner from "react-bootstrap/Spinner";
-import { checkValueInput } from "./function/RegisterUser.js";
+import { popErrorRegisterUser } from "./function/RegisterUser.js";
 import { useHistory } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { newUserRegister } from "../../customHook/customQueryHook.js";
 
 
 
 const UserRegister = () => {
 
 
-  // input date Birthday , and show default date when input your date
-  let d = new Date();
-  let DatePublished = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
-  const [Birthday, setBirthday] = useState(DatePublished);
-
-  // input value when register
-  const [User_Login, setLogin] = useState("");
-  const [FirstName, setFirstName] = useState("");
-  const [Email, setEmail] = useState("");
-  const [Password, setPassword] = useState("");
-  const [ConfirmPassword, setConfirmPassword] = useState("");
-
+  const history = useHistory();
+  let storedTheme = localStorage.getItem("theme");
 
   // check box if user not robot
   const [capVal, setCapVal] = useState(false);
 
-  const [loadingRegister, setLoadingRegister] = useState(false);
+  let d = new Date();
+  let DatePublished = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
 
-  const history = useHistory();
-  let storedTheme = localStorage.getItem("theme");
 
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      FirstName: "",
+      User_Login: "",
+      Birthday: DatePublished,
+      Email: "",
+      User_password: "",
+      UserType_code: "1",
+      ConfirmPassword: "",
+      Day_date: null,
+      Hour_day: null,
+      Serial_codeHour: null,
+      IsActive: "1",
+    },
+  });
+
+  // react query
+  const { mutate, isLoading: isRegister } = newUserRegister(history);
+
+
+
+  const onSubmitRegisterNewUser = (data) => {
+
+    // if password don't confirm show alert error
+    if (data.User_password !== data.ConfirmPassword) {
+      popErrorRegisterUser();
+    }
     
-  const checkInputValueRegister = async () => {
-    let userDataInput = {
-      User_Login: User_Login,
-      FirstName: FirstName,
-      Email: Email,
-      Password: Password,
-      ConfirmPassword: ConfirmPassword,
-    };
-
-    checkValueInput(userDataInput, () => setLoadingRegister(true), history);
+    // here register user , use query
+    else {
+      mutate(data);
+    }
   };
 
-    
+
+  const handleError = (errors) => {console.log(errors)};
+
+
   return (
     <>
       <Form
+        onSubmit={handleSubmit(onSubmitRegisterNewUser,handleError )}
         style={
           storedTheme === "light"
             ? { textAlign: "center", alignItems: "center", color: "white" }
@@ -73,8 +89,11 @@ const UserRegister = () => {
                   : ""
               }
               placeholder="Enter Login"
-              value={User_Login}
-              onChange={(event) => setLogin(event.target.value)}
+              name="User_Login"
+              type="text"
+              {...register("User_Login", {
+                required: true
+              })}
             />
           </Form.Group>
 
@@ -93,8 +112,9 @@ const UserRegister = () => {
               }
               type="text"
               placeholder="Enter First Name"
-              value={FirstName}
-              onChange={(event) => setFirstName(event.target.value)}
+              {...register("FirstName", {
+                required: true
+              })}
             />
           </Form.Group>
         </Row>
@@ -115,8 +135,10 @@ const UserRegister = () => {
               }
               type="email"
               placeholder="Enter Email"
-              value={Email}
-              onChange={(event) => setEmail(event.target.value)}
+              {...register("Email", {
+                required: true,
+                pattern:"/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+              })}
             />
           </Form.Group>
         </Row>
@@ -137,9 +159,23 @@ const UserRegister = () => {
               }
               type="password"
               placeholder="Enter Password"
-              value={Password}
-              onChange={(event) => setPassword(event.target.value)}
+              {...register("User_password", {
+                required: "please input",
+                minLength: {
+                  value: 6,
+                  required: true
+                },
+              })}
             />
+            <Form.Text
+              style={{
+                marginBottom: "10%",
+                marginTop: "-10%",
+                fontSize: "11px",
+              }}
+            >
+              (password must be more 6 characters long)
+            </Form.Text>
           </Form.Group>
 
           <Form.Group as={Col} md="6">
@@ -157,8 +193,13 @@ const UserRegister = () => {
               }
               type="password"
               placeholder="Enter Confirm Password"
-              value={ConfirmPassword}
-              onChange={(event) => setConfirmPassword(event.target.value)}
+              {...register("ConfirmPassword", {
+                required: "please input",
+                minLength: {
+                  value: 6,
+                  required: true
+                },
+              })}
             />
           </Form.Group>
         </Row>
@@ -182,8 +223,9 @@ const UserRegister = () => {
                   : ""
               }
               type="date"
-              value={Birthday}
-              onChange={(event) => setBirthday(event.target.value)}
+              {...register("Birthday", {
+                required: true
+              })}
             />
           </Form.Group>
         </Row>
@@ -191,12 +233,12 @@ const UserRegister = () => {
         {/* check box if user dont robot */}
         <RobotBox activeRobotBox={() => setCapVal(true)} />
 
-        {!loadingRegister ? (
+        {!isRegister ? (
           <Button
             style={!capVal ? { cursor: "not-allowed" } : {}}
             variant="success"
-            disabled={!capVal}
-            onClick={checkInputValueRegister}
+            disabled={!capVal || isRegister}
+            type="submit"
           >
             Register
           </Button>

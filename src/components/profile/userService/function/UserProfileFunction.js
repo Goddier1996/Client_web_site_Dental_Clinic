@@ -1,63 +1,45 @@
 import Swal from 'sweetalert2'
-import { DeletePayFile, UpdateDataUserRemoveTurn, ActiveHourInDataBase, UpdateDataUser, DeleteReview } from '../../../../Api/DeleteUpdateDataFromApi'
+import { UpdateDataUserRemoveTurn, ActiveHourInDataBase, UpdateDataUser } from '../../../../Api/DeleteUpdateDataFromApi'
 
 
 let storedTheme = localStorage.getItem("theme");
 
 // Pay Function
 
-export async function userPayTurn(dataUser) {
+export async function userPayTurnSuccessful() {
 
-    let PayDetails = JSON.parse(sessionStorage.getItem("PayDetails"));
-
-
-    if (dataUser.CardNumber != '' && dataUser.CardNumber.length === 16 &&
-        dataUser.Expiration != '' && dataUser.Expiration.length === 4 &&
-        dataUser.Cvv != '' && dataUser.Cvv.length === 3 &&
-        dataUser.CardholderName != '' && PayDetails.userName == dataUser.CardholderName) {
-
-        await DeletePayFile(PayDetails.Serial_code);
-
-        await Swal.fire({
-            title: 'the payment was successful 🙂',
-            icon: 'success',
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 2500,
-            toast: true,
-            background: `${(storedTheme === "light") ? "#373E44" :
-                (storedTheme === "dark") ? "" : ""}`,
-            color: `${(storedTheme === "light") ? "#ffffffab" :
-                (storedTheme === "dark") ? "" : ""}`,
-            buttonColor: `${(storedTheme === "light") ? "#E96E00" :
-                (storedTheme === "dark") ? "" : ""}`
-        })
-        sessionStorage.removeItem('PayDetails');
-        window.location.reload(false);
-    }
-
-    else {
-        Swal.fire({
-            title: `1) input please All place<br/>2) check if First Name Not suitable<br/>3) check if Date (length 6) or Cvv (length 3) or number Card (length 16) `,
-            icon: 'warning',
-            toast: true,
-            position: 'top-end',
-            confirmButtonColor: "green",
-            background: `${(storedTheme === "light") ? "#373E44" :
-                (storedTheme === "dark") ? "" : ""}`,
-            color: `${(storedTheme === "light") ? "#ffffffab" :
-                (storedTheme === "dark") ? "" : ""}`,
-            buttonColor: `${(storedTheme === "light") ? "#E96E00" :
-                (storedTheme === "dark") ? "" : ""}`
-        })
-    }
+    await Swal.fire({
+        title: 'the payment was successful 🙂',
+        icon: 'success',
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2500,
+        toast: true,
+        background: `${(storedTheme === "light") ? "#373E44" :
+            (storedTheme === "dark") ? "" : ""}`,
+        color: `${(storedTheme === "light") ? "#ffffffab" :
+            (storedTheme === "dark") ? "" : ""}`,
+        buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+            (storedTheme === "dark") ? "" : ""}`
+    })
 }
 
 
-export async function hideModelPayService() {
+export async function userPayTurnNotSuccessful() {
 
-    sessionStorage.removeItem("PayDetails");
-    window.location.reload(false);
+    Swal.fire({
+        title: `1) Cardholder's Name Not suitable<br/>2) CardNumber or Expiration, CVV not Number!`,
+        icon: 'warning',
+        toast: true,
+        position: 'top-end',
+        confirmButtonColor: "green",
+        background: `${(storedTheme === "light") ? "#373E44" :
+            (storedTheme === "dark") ? "" : ""}`,
+        color: `${(storedTheme === "light") ? "#ffffffab" :
+            (storedTheme === "dark") ? "" : ""}`,
+        buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+            (storedTheme === "dark") ? "" : ""}`
+    })
 }
 
 
@@ -176,9 +158,10 @@ export async function CheckInputValueUpdateDataUser(dataUser, loginCheck, userCo
 }
 
 
+
 // Review user
 
-export async function userDeleteReview(Id) {
+export async function popUpUserDeleteReviewId() {
 
     await Swal.fire({
         title: 'you delete this Review',
@@ -194,7 +177,4 @@ export async function userDeleteReview(Id) {
         buttonColor: `${(storedTheme === "light") ? "#E96E00" :
             (storedTheme === "dark") ? "" : ""}`
     })
-
-    await DeleteReview(Id);
-    window.location.reload(false);
 }

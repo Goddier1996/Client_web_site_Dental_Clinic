@@ -14,9 +14,9 @@ import { motion as m } from "framer-motion/dist/framer-motion";
 import LoadingUserData from "../loading/LoadingUserData.jsx";
 import UserQueues from "./userService/tabs/UserQueues.jsx";
 import HistoryMedicalFile from "./userService/tabs/HistoryMedicalFile.jsx";
-import MyComments from "./userService/tabs/MyComments.jsx";
+import MyComments from "./userService/tabs/showUserComments/MyComments.jsx";
 import PersonalData from "./userService/tabs/PersonalData.jsx";
-import MedicalFilesUser from "./userService/tabs/MedicalFilesUser.jsx";
+import MedicalFilesUser from "./userService/tabs/medicalFiles/MedicalFilesUser.jsx";
 
 
 
