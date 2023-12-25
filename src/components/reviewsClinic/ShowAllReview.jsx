@@ -8,7 +8,6 @@ const ShowAllReview = ({ allReview }) => {
 
     const { _id, FirstName, User_Login, DatePublished, textReviews, Count_likes } = allReview;
 
-
     return (
 
         <div className="testimonial-box-container">

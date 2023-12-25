@@ -15,7 +15,8 @@ const ShowOurWorkClinic = ({ infoOurWork }) => {
   return (
    
       <Col key={id}>
-        <Card
+      <Card
+        className="aaa"
           style={
             storedTheme === "light"
               ? {

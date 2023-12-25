@@ -29,6 +29,7 @@ export async function openSwalWhenLoginShowTypeUser(nameUser, UserType_code) {
         buttonColor: `${storedTheme === "light" ? "#E96E00" : storedTheme === "dark" ? "" : ""
             }`,
     });  
+
 }
 
 

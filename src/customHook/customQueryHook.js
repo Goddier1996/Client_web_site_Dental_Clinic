@@ -3,26 +3,41 @@ import { useMutation, useQuery, useQueryClient } from 'react-query'
 // API Function
 import { DeleteReview, DeletePayFile } from "../Api/DeleteUpdateDataFromApi"
 import { AddNewUserRegester, connectUserLogin } from '../Api/ConnectOrAddFromApi'
+import { LoadReviews } from "../Api/LoadDataFromApi";
 
 // COMPONENTS Function
 import { popUpUserDeleteReviewId, userPayTurnSuccessful } from "../components/profile/userService/function/UserProfileFunction";
 import { popUserRegister } from "../components/register/function/RegisterUser";
 import { openSwalWhenLoginShowTypeUser } from "../components/login/function/SignInUser"
+import { userAddReviewsLike } from "../components/reviewsClinic/function/AddReviewAndLike";
 
 
 
-// use in Review , when user add new review or like/dislike we see in live what add and what like user.
-export const useQueryDataLoadingRefetchAutoData = (typeData, pageNumber, LoadDataFromApi) => {
+
+export const useQueryLoadingAllReviewClinic = (typeData, pageNumber) => {
 
     return useQuery(
         [typeData, pageNumber], () => {
-            return LoadDataFromApi(pageNumber);
-        },
-        {
-            refetchOnWindowFocus: true,
-            refetchInterval: 1000,
+            return LoadReviews(pageNumber);
         }
     )
+}
+
+
+
+export const userLikeOrDesLikeReview = () => {
+
+    const queryClient = useQueryClient();
+
+    return useMutation({
+        mutationFn: userAddReviewsLike,
+        onSuccess: () => {
+            queryClient.invalidateQueries({
+                queryKey: ["reviews"]
+            })
+        },
+        onError: (err) => console.log(err.message),
+    })
 }
 
 
@@ -126,3 +141,28 @@ export const LoginUser = (hideSignIn) => {
         onError: (err) => console.log(err.message),
     })
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// // use in Review , when user add new review or like/dislike we see in live what add and what like user.
+// export const useQueryDataLoadingRefetchAutoData = (typeData, pageNumber, LoadDataFromApi) => {
+
+//     return useQuery(
+//         [typeData, pageNumber], () => {
+//             return LoadDataFromApi(pageNumber);
+//         },
+//         {
+//             refetchOnWindowFocus: true,
+//             refetchInterval: 1000,
+//         }
+//     )
+// }

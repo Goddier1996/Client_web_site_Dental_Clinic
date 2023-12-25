@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Row, Modal } from "react-bootstrap";
 import "../css/service.css";
-import { LoadReviews, LoadCountReviews } from "../Api/LoadDataFromApi";
+import { LoadCountReviews } from "../Api/LoadDataFromApi";
 import NotFoundPage from "../components/tools/pageNotFound/NotFoundPage.jsx";
 import {
-  useQueryDataLoadingRefetchAutoData,
   useQueryLoadingAllData,
+  useQueryLoadingAllReviewClinic
 } from "../customHook/customQueryHook";
 import { motion as m } from "framer-motion/dist/framer-motion";
 import Pagination from "@mui/material/Pagination";
@@ -21,6 +21,7 @@ import { checkUserConnectedForAddReview } from "../components/reviewsClinic/func
 function Service() {
 
 
+  // show popup add new review
   const [showAddReviews, setShowAddReviews] = useState(false);
   const handleCloseAddReviews = () => setShowAddReviews(false);
   const handleShowAddReviews = () => setShowAddReviews(true);
@@ -28,7 +29,7 @@ function Service() {
   let storedTheme = localStorage.getItem("theme");
 
   const [pageNumberNow, setPageNumberNow] = useState(1);
-  const [SizeAllPages, setSizeAllPages] = useState(5);
+  const [SizeAllPages, setSizeAllPages] = useState();
 
     
   // use custom hook , useQuery
@@ -36,7 +37,8 @@ function Service() {
     isLoading: LoadingReviews,
     data: showReviews,
     isError: ErrorReviews,
-  } = useQueryDataLoadingRefetchAutoData("reviews", pageNumberNow, LoadReviews);
+  } = useQueryLoadingAllReviewClinic("reviews", pageNumberNow);
+
 
   const { data: countReviews } = useQueryLoadingAllData(
     "CountReviews",
@@ -44,11 +46,6 @@ function Service() {
   );
 
     
-    
-  const CheckUserConnected = () => {
-    checkUserConnectedForAddReview(() => handleShowAddReviews());
-  };
-
     
   // set count page we need to show Reviews
   useEffect(() => {
@@ -86,7 +83,7 @@ function Service() {
           </div>
 
           {/* add new review */}
-          <ButtonAddNewReview CheckUserConnected={CheckUserConnected} />
+          <ButtonAddNewReview CheckUserConnected={()=>checkUserConnectedForAddReview(() => handleShowAddReviews())} />
 
           {/* here model pop up user add new review */}
           <Modal show={showAddReviews} onHide={handleCloseAddReviews}>
@@ -96,6 +93,8 @@ function Service() {
           <div className="space"></div>
           <br />
 
+              
+          {/* show all review this clinic */}
           <div className="modelsShowReview">
             <Row xs={1} md={2} lg={3} style={{ width: "100%" }}>
               {showReviews
@@ -106,6 +105,7 @@ function Service() {
             </Row>
           </div>
 
+              
           {/* Button's move next page or back */}
           <div className="nextOrPrev">
             <div className="prevNextButton">

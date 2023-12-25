@@ -4,10 +4,11 @@ import { CheckIfUserAddLikeThisReview } from '../../../Api/LoadDataFromApi'
 
 
 let storedTheme = localStorage.getItem("theme");
-let userData = JSON.parse(sessionStorage.getItem("user"));
 
 
 export async function userAddReview(textReviews, closePopUp, setTextReviews, setCapVal) {
+
+    let userData = JSON.parse(sessionStorage.getItem("user"));
 
     if (textReviews < 1) {
         Swal.fire({
@@ -74,7 +75,41 @@ export async function userAddReview(textReviews, closePopUp, setTextReviews, set
 }
 
 
+
+export function checkUserConnectedForAddReview(handleShowAddReviews) {
+
+    let userData = JSON.parse(sessionStorage.getItem("user"));
+
+    if (userData == null) {
+
+        Swal.fire({
+            icon: 'warning',
+            title: 'Login / Register',
+            html: 'You need to log in or register, you should add a comment',
+            toast: true,
+            position: 'top-end',
+            confirmButtonColor: "green",
+            background: `${(storedTheme === "light") ? "#373E44" :
+                (storedTheme === "dark") ? "" : ""}`,
+            color: `${(storedTheme === "light") ? "#ffffffab" :
+                (storedTheme === "dark") ? "" : ""}`,
+            buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                (storedTheme === "dark") ? "" : ""}`
+        })
+        return;
+    }
+
+
+    if (userData != null) {
+        handleShowAddReviews();
+    }
+}
+
+
+
 export async function userAddReviewsLike(dataLike) {
+
+    let userData = JSON.parse(sessionStorage.getItem("user"));
 
     if (userData != null) {
 
@@ -82,7 +117,7 @@ export async function userAddReviewsLike(dataLike) {
 
         let getResultIfUserHaveLikeInThisReview = JSON.parse(sessionStorage.getItem("likeReview"));
 
-        // if this review user have like remove like
+        // if this review user have like remove dis like
         if (getResultIfUserHaveLikeInThisReview == true) {
 
             await RemoveReviewLike(dataLike.Serial_code, userData._id);
@@ -92,7 +127,7 @@ export async function userAddReviewsLike(dataLike) {
                 position: "center",
                 background: "none",
                 showConfirmButton: false,
-                timer: 2200,
+                timer: 2000,
                 allowOutsideClick: false,
                 html: '<div class="loadingReview"> <img src="https://i.postimg.cc/qvz9yCqh/desLike.gif"> </div>'
             });
@@ -123,7 +158,7 @@ export async function userAddReviewsLike(dataLike) {
                 position: "center",
                 background: "none",
                 showConfirmButton: false,
-                timer: 2200,
+                timer: 2000,
                 allowOutsideClick: false,
                 html: '<div class="loadingReview"> <img src="https://i.postimg.cc/3w0nJXR1/likeGif.gif"> </div>'
             });
@@ -145,36 +180,5 @@ export async function userAddReviewsLike(dataLike) {
                 (storedTheme === "dark") ? "" : ""}`
         })
         return;
-    }
-}
-
-
-// this function use in service.jsx reviews page where show
-export function checkUserConnectedForAddReview(handleShowAddReviews) {
-
-    let userData = JSON.parse(sessionStorage.getItem("user"));
-
-    if (userData == null) {
-
-        Swal.fire({
-            icon: 'warning',
-            title: 'Login / Register',
-            html: 'You need to log in or register, you should add a comment',
-            toast: true,
-            position: 'top-end',
-            confirmButtonColor: "green",
-            background: `${(storedTheme === "light") ? "#373E44" :
-                (storedTheme === "dark") ? "" : ""}`,
-            color: `${(storedTheme === "light") ? "#ffffffab" :
-                (storedTheme === "dark") ? "" : ""}`,
-            buttonColor: `${(storedTheme === "light") ? "#E96E00" :
-                (storedTheme === "dark") ? "" : ""}`
-        })
-        return;
-    }
-
-
-    if (userData != null) {
-        handleShowAddReviews();
     }
 }
