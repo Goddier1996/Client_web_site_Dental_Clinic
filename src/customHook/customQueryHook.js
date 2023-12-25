@@ -87,7 +87,6 @@ export const userPayService = () => {
 
 
 
-
 export const newUserRegister = (history) => {
 
     const queryClient = useQueryClient();
@@ -104,7 +103,6 @@ export const newUserRegister = (history) => {
         onError: (err) => console.log(err.message),
     })
 }
-
 
 
 

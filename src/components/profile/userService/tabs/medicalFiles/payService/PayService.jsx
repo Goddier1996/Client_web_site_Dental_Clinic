@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import "./payService.css";
 import Button from "react-bootstrap/Button";
@@ -103,16 +103,6 @@ function PayService({ dataUserPay, closePopUp }) {
                   },
                 })}
               />
-              <Form.Text
-                style={{
-                  marginBottom: "1%",
-                  marginTop: "-1%",
-                  fontSize: "11px",
-                  textAlign: "center",
-                }}
-              >
-                Length card number need 16
-              </Form.Text>
 
               <Form.Label
                 htmlFor="cardPay number"
@@ -168,16 +158,6 @@ function PayService({ dataUserPay, closePopUp }) {
                     },
                   })}
                 />
-                <Form.Text
-                  style={{
-                    marginBottom: "1%",
-                    marginTop: "-1%",
-                    fontSize: "11px",
-                    textAlign: "center",
-                  }}
-                >
-                  Length CVV need 3
-                </Form.Text>
               </div>
             </div>
 

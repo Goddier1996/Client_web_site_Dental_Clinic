@@ -3,9 +3,8 @@ import { Nav, Navbar, Container, Button, Modal } from 'react-bootstrap'
 import React, { useState } from 'react'
 import './menu.css'
 import { useHistory, Link } from 'react-router-dom';
-import Swal from 'sweetalert2'
 import Sign_in from '../login/signIn/SignI_in'
-
+import {logOutUser,sendUserToProfile} from "./function/FunctionsMenu"
 
 
 function Menu() {
@@ -14,65 +13,12 @@ function Menu() {
     let storedTheme = localStorage.getItem("theme");
     let userData = JSON.parse(sessionStorage.getItem("user"));
 
-
-    const defaultDark = storedTheme === "dark" || (storedTheme === null);
-
-    if (defaultDark) {
-        localStorage.setItem("theme", "dark");
-        document.documentElement.setAttribute("data-theme", "dark");
-    }
-
     const history = useHistory()
 
     // pop up sign in
     const [showModelSignIn, setShowModelSignIn] = useState(false);
     const handleCloseModelSignIn = () => setShowModelSignIn(false);
     const handleShowModelSignIn = () => setShowModelSignIn(true);
-
-
-
-    const sendUserToProfile = () => {
-
-        history.push(`/Profile/${userData._id}`);
-    }
-
-
-
-    const LogOutUser = () => {
-
-        Swal.fire({
-            title: 'Are you sure you want to leave?',
-            icon: 'question',
-            toast: true,
-            position: 'top-end',
-            showDenyButton: true,
-            confirmButtonText: 'yes',
-            denyButtonText: `no`,
-            confirmButtonColor: "green",
-            background: `${(storedTheme === "light") ? "#373E44" :
-                (storedTheme === "dark") ? "" : ""}`,
-            color: `${(storedTheme === "light") ? "#ffffffab" :
-                (storedTheme === "dark") ? "" : ""}`,
-            buttonColor: `${(storedTheme === "light") ? "#E96E00" :
-                (storedTheme === "dark") ? "" : ""}`
-        }).then((result) => {
-
-            if (result.isConfirmed) {
-
-                sessionStorage.clear('user');
-                history.push("/");
-                window.location.reload(false);
-            }
-        })
-    }
-
-
-
-    const hideModelSignIn = () => {
-
-        setShowModelSignIn(false);
-    }
-
 
 
     return (
@@ -104,20 +50,18 @@ function Menu() {
                                     <div className='imgPrf'>
                                         <Button variant={(storedTheme == "light") ? "outline-light" :
                                             (storedTheme == "dark") ? "outline-secondary" : ""}
-                                            onClick={sendUserToProfile}>
+                                            onClick={()=>sendUserToProfile(userData._id,history)}>
                                             Hello {userData.FirstName} (Profile)
                                         </Button>
 
                                         <br />
 
                                         <Button variant="outline-danger"
-                                            onClick={LogOutUser}>
+                                            onClick={()=>logOutUser(history)}>
                                             Log out
                                         </Button>
                                     </div>
-
                                     :
-
                                     <>
                                         <Nav.Link onClick={handleShowModelSignIn}>Login</Nav.Link>
                                         <Nav.Link as={Link} to='/Register'>Register</Nav.Link>

@@ -23,6 +23,7 @@ const LoadingAllFuncShowHours = ({ showPopUpReCAPTCHA, dataIdDay }) => {
 
   const [idDayToday, setIdDayToday] = useState();
 
+  // use query hook
   const {
     isLoading: LoadingHours,
     data: Hours,
@@ -55,7 +56,7 @@ const LoadingAllFuncShowHours = ({ showPopUpReCAPTCHA, dataIdDay }) => {
             <>
               {dayFromArray == dataIdDay.dayToday ? (
                 <>
-                  {hoursAndMinutes >= "19:00" || dayFromArray=="Friday" && hoursAndMinutes >= "14:00" || dayFromArray=="Saturday" ? (
+                  {hoursAndMinutes >= "19:00" || dayFromArray=="Friday" && hoursAndMinutes >= "14:00" ? (
                     <NoQueusesToday />
                   ) : (
                     <>

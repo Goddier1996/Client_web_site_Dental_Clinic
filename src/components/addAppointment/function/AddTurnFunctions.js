@@ -16,9 +16,10 @@ export async function saveDateUserTurnDayAndHour(dataUser, capVal) {
             title: `Youre making an appointment`,
             text: `${dataUser.dayToday} ${dataUser.hourDayChoose}`,
             icon: 'success',
+            position: "top-end",
+            toast: true,
             showConfirmButton: false,
-            timer: 1500,
-            position: 'center',
+            timer: 1400,
             background: `${(storedTheme === "light") ? "#373E44" :
                 (storedTheme === "dark") ? "" : ""}`,
             color: `${(storedTheme === "light") ? "#ffffffab" :
