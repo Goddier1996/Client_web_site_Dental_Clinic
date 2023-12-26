@@ -1,6 +1,5 @@
 import React from 'react'
-import { Table } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
+import { Table , Button } from 'react-bootstrap';
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 
@@ -36,7 +35,7 @@ const HistoryMedicalFile = ({ medical_File_Is_Not_Active }) => {
 
                             <td style={{ textAlign: "center", fontSize: "14px" }}>
                                 <Button variant="secondary" href={File.File_user}>
-                                    <i class="bi bi-file-earmark-richtext"></i>
+                                    <i className="bi bi-file-earmark-richtext"></i>
                                 </Button>
                             </td>
                         </tr>
@@ -46,6 +45,7 @@ const HistoryMedicalFile = ({ medical_File_Is_Not_Active }) => {
         </>
     )
 }
+
 
 
 export default HistoryMedicalFile;

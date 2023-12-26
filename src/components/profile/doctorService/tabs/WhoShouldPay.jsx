@@ -1,7 +1,6 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button';
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { Table } from 'react-bootstrap';
+import { Table , Button } from 'react-bootstrap';
 
 
 
@@ -39,7 +38,7 @@ const WhoShouldPay = ({ medical_File_All_users }) => {
                             <td style={{ textAlign: "center", fontSize: "14px" }} >
                                 <Button variant="success"
                                     onClick={() => window.location = 'https://mail.google.com'}>
-                                    <i class="bi bi-send"></i>
+                                    <i className="bi bi-send"></i>
                                 </Button>
                             </td>
                         </tr>

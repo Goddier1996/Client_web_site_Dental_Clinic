@@ -2,14 +2,14 @@ import { useMutation, useQuery, useQueryClient } from 'react-query'
 
 // API Function
 import { DeleteReview, DeletePayFile } from "../Api/DeleteUpdateDataFromApi"
-import { AddNewUserRegester, connectUserLogin } from '../Api/ConnectOrAddFromApi'
+import { AddNewUserRegester, connectUserLogin, AddNewReviews } from '../Api/ConnectOrAddFromApi'
 import { LoadReviews } from "../Api/LoadDataFromApi";
 
 // COMPONENTS Function
 import { popUpUserDeleteReviewId, userPayTurnSuccessful } from "../components/profile/userService/function/UserProfileFunction";
 import { popUserRegister } from "../components/register/function/RegisterUser";
 import { openSwalWhenLoginShowTypeUser } from "../components/login/function/SignInUser"
-import { userAddReviewsLike } from "../components/reviewsClinic/function/AddReviewAndLike";
+import { userAddReviewsLike, userAddReviewSuccess } from "../components/reviewsClinic/function/AddReviewAndLike";
 
 
 
@@ -32,6 +32,26 @@ export const userLikeOrDesLikeReview = () => {
     return useMutation({
         mutationFn: userAddReviewsLike,
         onSuccess: () => {
+            queryClient.invalidateQueries({
+                queryKey: ["reviews"]
+            })
+        },
+        onError: (err) => console.log(err.message),
+    })
+}
+
+
+
+export const userAddNewReview = (closePopUp) => {
+
+    const queryClient = useQueryClient();
+
+    return useMutation({
+        mutationFn: AddNewReviews,
+        onSuccess: () => {
+            closePopUp()
+            userAddReviewSuccess()
+
             queryClient.invalidateQueries({
                 queryKey: ["reviews"]
             })
@@ -149,11 +169,7 @@ export const LoginUser = (hideSignIn) => {
 
 
 
-
-
-
-
-// // use in Review , when user add new review or like/dislike we see in live what add and what like user.
+// here option updated data every 1s , but network every time working !
 // export const useQueryDataLoadingRefetchAutoData = (typeData, pageNumber, LoadDataFromApi) => {
 
 //     return useQuery(

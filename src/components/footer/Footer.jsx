@@ -1,4 +1,3 @@
-import { MDBIcon } from 'mdb-react-ui-kit';
 import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './footer.css'
@@ -9,8 +8,6 @@ function Footer() {
     let storedTheme = localStorage.getItem("theme");
 
     return (
-
-        <>
             <footer  className='Fotr'>
 
                 <div className={(storedTheme === "light") ? "text-center text-white fotrIconFirst" : (storedTheme === "dark") ? "text-center text-white fotrIcon" : ""}>
@@ -23,7 +20,7 @@ function Footer() {
                                 href='https://www.facebook.com/profile.php?id=100007268836178'
                                 role='button'
                             >
-                                <MDBIcon fab icon='facebook-f' />
+                                <i className="bi bi-facebook"></i>
                             </a>
 
                             <a
@@ -32,7 +29,7 @@ function Footer() {
                                 href='https://www.instagram.com/artem_kot96'
                                 role='button'
                             >
-                                <MDBIcon fab icon='instagram' />
+                                <i className="bi bi-instagram"></i>
                             </a>
 
                             <a
@@ -41,7 +38,7 @@ function Footer() {
                                 href='https://www.linkedin.com/in/artem-kot96'
                                 role='button'
                             >
-                                <MDBIcon fab icon='linkedin' />
+                                <i className="bi bi-linkedin"></i>
                             </a>
 
                         </section>
@@ -53,9 +50,8 @@ function Footer() {
 
                 </div>
             </footer >
-        </>
     )
-
 }
+
 
 export default Footer;

@@ -1,78 +1,55 @@
 import Swal from 'sweetalert2'
-import { AddNewReviews, AddNewLikeReviews, RemoveReviewLike } from "../../../Api/ConnectOrAddFromApi";
+import { AddNewLikeReviews, RemoveReviewLike } from "../../../Api/ConnectOrAddFromApi";
 import { CheckIfUserAddLikeThisReview } from '../../../Api/LoadDataFromApi'
 
 
 let storedTheme = localStorage.getItem("theme");
 
 
-export async function userAddReview(textReviews, closePopUp, setTextReviews, setCapVal) {
+export async function userAddReviewSuccess() {
 
-    let userData = JSON.parse(sessionStorage.getItem("user"));
-
-    if (textReviews < 1) {
-        Swal.fire({
-            icon: "error",
-            title: "Oops...you don`t input Reviews!",
-            toast: true,
-            position: "top-end",
-            confirmButtonColor: "green",
-            background: `${storedTheme === "light" ? "#373E44" : storedTheme === "dark" ? "" : ""
-                }`,
-            color: `${storedTheme === "light"
-                ? "#ffffffab"
-                : storedTheme === "dark"
-                    ? ""
-                    : ""
-                }`,
-            buttonColor: `${storedTheme === "light" ? "#E96E00" : storedTheme === "dark" ? "" : ""
-                }`,
-        });
-        return;
-    }
-
-    else {
-        let Publish_by = userData._id;
-        let FirstName = userData.FirstName;
-        let User_Login = userData.User_Login;
-
-        let d = new Date();
-
-        let user = {
-            textReviews,
-            DatePublished: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
-            Publish_by,
-            FirstName,
-            User_Login,
-            IsActive: "1",
-            Count_likes: [],
-        };
-
-        await AddNewReviews(user);
-
-        await Swal.fire({
-            title: "Added a comment successfully",
-            icon: "success",
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 1500,
-            background: `${storedTheme === "light" ? "#373E44" : storedTheme === "dark" ? "" : ""
-                }`,
-            color: `${storedTheme === "light"
-                ? "#ffffffab"
-                : storedTheme === "dark"
-                    ? ""
-                    : ""
-                }`,
-            buttonColor: `${storedTheme === "light" ? "#E96E00" : storedTheme === "dark" ? "" : ""
-                }`,
-        });
-        closePopUp();
-        setTextReviews("");
-        setCapVal();
-    }
+    await Swal.fire({
+        title: "Added a comment successfully",
+        icon: "success",
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 1500,
+        background: `${storedTheme === "light" ? "#373E44" : storedTheme === "dark" ? "" : ""
+            }`,
+        color: `${storedTheme === "light"
+            ? "#ffffffab"
+            : storedTheme === "dark"
+                ? ""
+                : ""
+            }`,
+        buttonColor: `${storedTheme === "light" ? "#E96E00" : storedTheme === "dark" ? "" : ""
+            }`,
+    });
 }
+
+
+
+// export async function userAddReviewError() {
+
+//     Swal.fire({
+//         icon: "error",
+//         title: "Oops...Something happened, try refreshing the browser",
+//         toast: true,
+//         position: "top-end",
+//         confirmButtonColor: "green",
+//         background: `${storedTheme === "light" ? "#373E44" : storedTheme === "dark" ? "" : ""
+//             }`,
+//         color: `${storedTheme === "light"
+//             ? "#ffffffab"
+//             : storedTheme === "dark"
+//                 ? ""
+//                 : ""
+//             }`,
+//         buttonColor: `${storedTheme === "light" ? "#E96E00" : storedTheme === "dark" ? "" : ""
+//             }`,
+//     });
+// }
 
 
 

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Form } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import { Modal, Form , Button } from "react-bootstrap";
 import {
   closePopUpForgetPassword,
   checkValueInput,

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Modal, Table } from "react-bootstrap";
+import { Modal, Table , Button } from "react-bootstrap";
 import AddMedicalFileUser from "../sendMedicalFile/AddMedicalFile";
-import Button from "react-bootstrap/Button";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { updateDayHourClinic } from "../function/DoctorFunctionService";
 
@@ -92,7 +91,7 @@ const ActiveQueues = ({ usersActive_queues }) => {
                     )
                   }
                 >
-                  <i class="bi bi-file-earmark-richtext"></i>
+                  <i className="bi bi-file-earmark-richtext"></i>
                 </Button>
               </td>
             </tr>

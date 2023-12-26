@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Form, Col, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import { Form, Col, Row , Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { alertPopUpIfUserHaveTodayTurn } from "../../../addAppointment/function/AlertUserHaveTurnToday";
 import { CheckInputValueUpdateDataUser } from "../function/UserProfileFunction";
+
 
 
 const PersonalData = ({ data_user }) => {

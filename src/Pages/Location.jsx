@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import Card from "react-bootstrap/Card";
 import "../css/loction.css";
-import { Modal } from "react-bootstrap";
-import SendEmail from "../components/locationContact/SendEmail.jsx";
+import { Modal , Card } from "react-bootstrap";
+import SendEmail from "../components/locationContact/sendEmail/SendEmail.jsx";
 import { motion as m } from "framer-motion/dist/framer-motion";
 import { container } from "../styleComponents/StyleAnimation.js";
 import ContactInfo from "../components/locationContact/ContactInfo.jsx";
 import ShowHoursWork from "../components/locationContact/hoursWork/ShowHoursWork.jsx";
-import ButtonSendEmail from "../components/locationContact/ButtonSendEmail.jsx";
+import ButtonSendEmail from "../components/locationContact/sendEmail/ButtonSendEmail.jsx";
 import CalcDistanceToClinic from "../components/locationContact/map/CalcDistanceToClinic.jsx";
 import ShowMap from "../components/locationContact/map/ShowMap.jsx";
 import OpenOrCloseClinic from "../components/locationContact/hoursWork/OpenOrCloseClinic.jsx";

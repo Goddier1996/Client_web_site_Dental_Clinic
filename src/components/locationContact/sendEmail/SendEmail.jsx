@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import RobotBox from "../ReCAPTCHA/RobotBox";
+import { Form , Button } from "react-bootstrap";
+import RobotBox from "../../ReCAPTCHA/RobotBox";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { userSendMessage } from "./function/SendMailUser";
+import { userSendMessage } from "../function/SendMailUser";
 
 
 function SendEmail(props) {

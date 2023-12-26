@@ -1,5 +1,5 @@
 import React from 'react'
-import AddReviewLike from './AddReviewLike'
+import AddReviewLike from '../addLikeDesLike/AddReviewLike'
 import { OverlayTrigger, Tooltip } from 'react-bootstrap'
 
 
@@ -12,7 +12,7 @@ const ShowAllReview = ({ allReview }) => {
 
         <div className="testimonial-box-container">
 
-            <div key={_id} className="testimonial-box">
+            <div className="testimonial-box">
 
                 <div className="box-top">
 

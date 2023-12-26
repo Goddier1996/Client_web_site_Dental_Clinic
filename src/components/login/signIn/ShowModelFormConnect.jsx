@@ -1,11 +1,9 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import Spinner from "react-bootstrap/Spinner";
 import { AdminInfoVideo } from "../function/SignInUser";
 import { LoginUser } from "../../../customHook/customQueryHook";
 import { useForm } from "react-hook-form";
-import { Form } from "react-bootstrap";
+import { Form , Button , Spinner } from "react-bootstrap";
 
 
 

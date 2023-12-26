@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Modal, Form } from "react-bootstrap";
+import { Modal, Form , Button } from "react-bootstrap";
 import "./forgetPassword.css";
-import Button from "react-bootstrap/Button";
 import {
   closePopUpForgetPassword,
   searchEmailFromDataBase,

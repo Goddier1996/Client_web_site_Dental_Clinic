@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./sendMedicalFile.css";
-import { Form } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import { Form , Button } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { checkInputFileDoctor } from "../function/DoctorFunctionService";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import InfoCounts from "./InfoModelCount";
-import date from "../../../Json_date/date.json";
+import data from "../../../Json_date/date.json";
 import {
   LoadCountDoctors,
   LoadCountUsers,
@@ -16,7 +16,7 @@ const ShowCountInfoClinic = () => {
 
 
   const getLengthDataOurWorkFromJsonFile = () => {
-    return date.work.length;
+    return data.work.length;
   };
 
 

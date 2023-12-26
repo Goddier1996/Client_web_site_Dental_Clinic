@@ -1,9 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "./payService.css";
-import Button from "react-bootstrap/Button";
 import { userPayService } from "../../../../../../customHook/customQueryHook";
-import { Form } from "react-bootstrap";
+import { Form , Button } from "react-bootstrap";
 import { userPayTurnNotSuccessful } from "../../../function/UserProfileFunction";
 
 

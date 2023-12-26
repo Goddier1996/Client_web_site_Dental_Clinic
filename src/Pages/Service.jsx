@@ -5,14 +5,14 @@ import { LoadCountReviews } from "../Api/LoadDataFromApi";
 import NotFoundPage from "../components/tools/pageNotFound/NotFoundPage.jsx";
 import {
   useQueryLoadingAllData,
-  useQueryLoadingAllReviewClinic
+  useQueryLoadingAllReviewClinic,
 } from "../customHook/customQueryHook";
 import { motion as m } from "framer-motion/dist/framer-motion";
 import Pagination from "@mui/material/Pagination";
-import UserAddNewReview from "../components/reviewsClinic/UserAddNewReview.jsx";
-import ShowAllReview from "../components/reviewsClinic/ShowAllReview.jsx";
+import UserAddNewReview from "../components/reviewsClinic/addNewReview/UserAddNewReview.jsx";
+import ShowAllReview from "../components/reviewsClinic/showReview/ShowAllReview.jsx";
 import LoadingReview from "../components/loading/LoadingReview.jsx";
-import ButtonAddNewReview from "../components/reviewsClinic/ButtonAddNewReview.jsx";
+import ButtonAddNewReview from "../components/reviewsClinic/addNewReview/ButtonAddNewReview.jsx";
 import { checkUserConnectedForAddReview } from "../components/reviewsClinic/function/AddReviewAndLike.js";
 
 
@@ -31,7 +31,8 @@ function Service() {
   const [pageNumberNow, setPageNumberNow] = useState(1);
   const [SizeAllPages, setSizeAllPages] = useState();
 
-    
+
+
   // use custom hook , useQuery
   const {
     isLoading: LoadingReviews,
@@ -39,14 +40,13 @@ function Service() {
     isError: ErrorReviews,
   } = useQueryLoadingAllReviewClinic("reviews", pageNumberNow);
 
-
   const { data: countReviews } = useQueryLoadingAllData(
     "CountReviews",
     LoadCountReviews
   );
 
-    
-    
+
+
   // set count page we need to show Reviews
   useEffect(() => {
     let result = Math.round(countReviews / 4.2);
@@ -54,8 +54,8 @@ function Service() {
     setSizeAllPages(result - 1);
   });
 
-    
-    
+
+
   return (
     <>
       {/* show Loading */}
@@ -83,7 +83,11 @@ function Service() {
           </div>
 
           {/* add new review */}
-          <ButtonAddNewReview CheckUserConnected={()=>checkUserConnectedForAddReview(() => handleShowAddReviews())} />
+          <ButtonAddNewReview
+            CheckUserConnected={() =>
+              checkUserConnectedForAddReview(() => handleShowAddReviews())
+            }
+          />
 
           {/* here model pop up user add new review */}
           <Modal show={showAddReviews} onHide={handleCloseAddReviews}>
@@ -93,19 +97,19 @@ function Service() {
           <div className="space"></div>
           <br />
 
-              
           {/* show all review this clinic */}
           <div className="modelsShowReview">
             <Row xs={1} md={2} lg={3} style={{ width: "100%" }}>
               {showReviews
                 .sort((a, b) => b.Count_likes.length - a.Count_likes.length)
                 .map((record) => (
-                  <ShowAllReview allReview={record} />
+                  <div key={record._id}>
+                    <ShowAllReview allReview={record} />
+                  </div>
                 ))}
             </Row>
           </div>
 
-              
           {/* Button's move next page or back */}
           <div className="nextOrPrev">
             <div className="prevNextButton">
@@ -117,7 +121,7 @@ function Service() {
                     ? ""
                     : ""
                 }
-                count={SizeAllPages}
+                count={SizeAllPages || 0}
                 page={pageNumberNow}
                 onChange={(event, value) => {
                   setPageNumberNow(value);

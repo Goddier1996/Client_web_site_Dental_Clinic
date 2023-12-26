@@ -132,6 +132,8 @@
 .testimonial-box {
     height: 280px;
     border-radius: 5px;
+    border-top: 3px solid #8ccdeb48;
+    border-left: 3px solid #8ccdeb21;
     box-shadow:
         1.6px 1.6px 1.2px rgba(0, 0, 0, 0.015),
         3.4px 3.4px 2.7px rgba(0, 0, 0, 0.022),
@@ -465,6 +467,7 @@
     font-weight: 600;
     color: #00000094;
 }
+
 
 
 @media(max-width:991px) {

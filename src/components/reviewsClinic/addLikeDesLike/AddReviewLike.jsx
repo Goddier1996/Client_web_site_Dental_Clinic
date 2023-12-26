@@ -1,6 +1,6 @@
 import React from "react";
-import "../../css/service.css";
-import { userLikeOrDesLikeReview } from "../../customHook/customQueryHook";
+import "../../../css/service.css";
+import { userLikeOrDesLikeReview } from "../../../customHook/customQueryHook";
 import Spinner from "react-bootstrap/Spinner";
 
 

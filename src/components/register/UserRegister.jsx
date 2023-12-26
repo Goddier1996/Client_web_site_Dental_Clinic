@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { Form, Col, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import { Form, Col, Row , Button , Spinner } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import RobotBox from "../ReCAPTCHA/RobotBox.jsx";
-import Spinner from "react-bootstrap/Spinner";
 import { popErrorRegisterUser } from "./function/RegisterUser.js";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";

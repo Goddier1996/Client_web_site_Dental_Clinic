@@ -1,7 +1,7 @@
 import { Card } from 'react-bootstrap'
 import '../../css/home.css'
 import React from 'react'
-import date from '../../Json_date/date.json'
+import data from '../../Json_date/date.json'
 
 
 //here component we take category from json file and show in Home Page
@@ -11,7 +11,7 @@ function Category() {
         <>
             <div className='categoryLook'>
 
-                {date.category1.map((record, i) =>
+                {data.category1.map((record, i) =>
 
                     <div key={i} className='choise'>
 

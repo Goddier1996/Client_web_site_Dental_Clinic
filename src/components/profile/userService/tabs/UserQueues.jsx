@@ -1,7 +1,5 @@
 import React from "react";
-import CloseIcon from "@mui/icons-material/Close";
-import { Modal } from "react-bootstrap";
-import Button from "@mui/material/Button";
+import { Modal , Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { ActiveHourDontNeedTurn } from "../function/UserProfileFunction";
 
@@ -86,16 +84,10 @@ const UserQueues = ({ day, data_user }) => {
 
             <Modal.Footer className="ButtonQueues">
               <Button
-                style={{
-                  fontSize: "12px",
-                  color: "white",
-                  background: "green",
-                }}
-                variant="contained"
+                variant="danger"
                 onClick={() => ActiveHourIfUserDontNeedTurn()}
-                startIcon={<CloseIcon />}
               >
-                Delete Queues
+                Delete Queues <i className="bi bi-x-lg"></i>
               </Button>
             </Modal.Footer>
           </>

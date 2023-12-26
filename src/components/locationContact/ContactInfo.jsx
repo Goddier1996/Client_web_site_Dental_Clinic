@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion as m } from "framer-motion/dist/framer-motion"
 import { item } from "../../styleComponents/StyleAnimation"
-import date from '../../Json_date/date.json'
+import data from '../../Json_date/date.json'
 
 
 const ContactInfo = () => {
@@ -11,10 +11,10 @@ const ContactInfo = () => {
     return (
         <>
             <m.p variants={item}><span className={(storedTheme == "light") ? "boldFirstWordDark" : (storedTheme == "dark") ? "boldFirstWord" : ""}>
-                City :</span> {date.Map.country} , {date.Map.City}
+                City :</span> {data.Map.country} , {data.Map.City}
             </m.p>
             <m.p variants={item}><span className={(storedTheme == "light") ? "boldFirstWordDark" : (storedTheme == "dark") ? "boldFirstWord" : ""}>
-                Street :</span> {date.Map.addressCity} , {date.Map.adressNum}
+                Street :</span> {data.Map.addressCity} , {data.Map.adressNum}
             </m.p>
             <m.p variants={item}><span className={(storedTheme == "light") ? "boldFirstWordDark" : (storedTheme == "dark") ? "boldFirstWord" : ""}>
                 Email :</span> artium@gmail.com

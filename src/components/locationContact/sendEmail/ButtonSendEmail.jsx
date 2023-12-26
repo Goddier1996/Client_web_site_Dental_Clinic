@@ -10,7 +10,7 @@ const ButtonSendEmail = ({ popUpSendMessage }) => {
             <Button 
                 variant="primary"
                 onClick={popUpSendMessage}>
-                Click Send Message <i class="bi bi-send"></i>
+                Click Send Message <i className="bi bi-send"></i>
             </Button>
         </div>
     )

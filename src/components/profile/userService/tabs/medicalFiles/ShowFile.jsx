@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { Modal } from "react-bootstrap";
+import { Modal , Button } from "react-bootstrap";
 import PayService from "./payService/PayService";
 
 
@@ -33,7 +32,7 @@ const ShowFile = ({dataFile,countFiles}) => {
 
           <td style={{ textAlign: "center", fontSize: "14px" }}>
             <Button variant="secondary" href={dataFile.File_user}>
-              <i class="bi bi-file-earmark-richtext"></i>
+              <i className="bi bi-file-earmark-richtext"></i>
             </Button>
           </td>
 
@@ -44,7 +43,7 @@ const ShowFile = ({dataFile,countFiles}) => {
                 handleShowPayService()
               }
             >
-              <i class="bi bi-credit-card"></i>
+              <i className="bi bi-credit-card"></i>
             </Button>
           </td>
         </tr>
