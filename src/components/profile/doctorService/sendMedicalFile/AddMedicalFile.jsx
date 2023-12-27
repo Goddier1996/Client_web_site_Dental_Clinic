@@ -1,33 +1,59 @@
-import React, { useState } from "react";
+import React from "react";
 import "./sendMedicalFile.css";
-import { Form , Button } from "react-bootstrap";
+import { Form, Button, Spinner } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { checkInputFileDoctor } from "../function/DoctorFunctionService";
+import {
+  checkUrlLinkFIle,
+  checkInputFileDoctorShowErrorMessage,
+} from "../function/DoctorFunctionService";
+import { useForm } from "react-hook-form";
+import { doctorSendMedicalFile } from "../../../../customHook/customQueryHook";
 
 
 
-//here component Add Medical File User , doctor add a file to user,and user can see how much pay need and see what doctor write and document = this component use in profile doctor
-function AddMedicalFileUser(props) {
+function AddMedicalFileUser({ hideModelMedicalFile, showDataUser }) {
 
 
-  const [File_user, setFile_user] = useState("");
-  const [textDoctor, setTextDoctor] = useState("");
-  const [priceSevice, setPriceSevice] = useState("");
-
-  let date = JSON.parse(sessionStorage.getItem("userDateMedical"));
   let storedTheme = localStorage.getItem("theme");
 
+  // react query
+  const { mutate, isLoading: isSendFile } = doctorSendMedicalFile(
+    hideModelMedicalFile
+  );
+
+  const { register, handleSubmit } = useForm();
 
 
-  const checkInputAndSendFile = () => {
+  const onSubmitSendFile = (data) => {
 
-    let inputValue = {
-      File_user: File_user,
-      textDoctor: textDoctor,
-      priceSevice: priceSevice,
-    };
+    if (!checkUrlLinkFIle(data.File_user)) {
 
-    checkInputFileDoctor(inputValue);
+      checkInputFileDoctorShowErrorMessage();
+    }
+    else {
+
+      let d = new Date();
+
+      let dataUser = {
+        textDoctor: data.textDoctor,
+        priceSevice: data.priceSevice,
+        File_user: data.File_user,
+        name: showDataUser.FirstName,
+        Publish_by: showDataUser._id,
+        email: showDataUser.Email,
+        Date_published: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
+        IsActive: "1",
+        CodeHour: showDataUser.Serial_codeHour,
+      };
+
+      mutate(dataUser);
+    }
+  };
+
+
+
+  const onError = (errors) => {
+    console.log(errors);
   };
 
 
@@ -52,7 +78,7 @@ function AddMedicalFileUser(props) {
               : ""
           }
           variant="secondary"
-          onClick={props.hideModelMedicalFile}
+          onClick={() => hideModelMedicalFile()}
         >
           <i
             style={
@@ -77,11 +103,11 @@ function AddMedicalFileUser(props) {
               : ""
           }
         >
-          Medical File 📁 {date.FirstName}
+          Medical File 📁 {showDataUser.FirstName}
         </h1>
       </div>
 
-      <div
+      <Form
         className={
           storedTheme === "light"
             ? "inputMedicalDateDark"
@@ -89,15 +115,13 @@ function AddMedicalFileUser(props) {
             ? "inputMedicalDate"
             : ""
         }
+        onSubmit={handleSubmit(onSubmitSendFile, onError)}
       >
         <Form.Group className="mb-3">
           <Form.Control
             as="textarea"
             rows={3}
             placeholder="Patient review"
-            value={textDoctor}
-            onChange={(event) => setTextDoctor(event.target.value)}
-            autoFocus
             style={
               storedTheme === "light"
                 ? { color: "#ffffffab" }
@@ -105,15 +129,16 @@ function AddMedicalFileUser(props) {
                 ? { color: "gray" }
                 : ""
             }
+            {...register("textDoctor", {
+              required: true,
+            })}
           />
         </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Control
-            type="text"
+            type="number"
             placeholder="price Service"
-            value={priceSevice}
-            onChange={(event) => setPriceSevice(event.target.value)}
             style={
               storedTheme === "light"
                 ? { color: "#ffffffab" }
@@ -121,6 +146,10 @@ function AddMedicalFileUser(props) {
                 ? { color: "gray" }
                 : ""
             }
+            {...register("priceSevice", {
+              required: true,
+              valueAsNumber: true,
+            })}
           />
         </Form.Group>
 
@@ -128,8 +157,9 @@ function AddMedicalFileUser(props) {
           <Form.Control
             type="text"
             placeholder="add link file"
-            value={File_user}
-            onChange={(event) => setFile_user(event.target.value)}
+            {...register("File_user", {
+              required: true,
+            })}
             style={
               storedTheme === "light"
                 ? { color: "#ffffffab" }
@@ -141,11 +171,23 @@ function AddMedicalFileUser(props) {
         </Form.Group>
 
         <div className="styleButtonPosition">
-          <Button variant="success" onClick={checkInputAndSendFile}>
-            Send
-          </Button>
+          {!isSendFile ? (
+            <Button variant="success" disabled={isSendFile} type="submit">
+              Send
+            </Button>
+          ) : (
+            <Button variant="success">
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+            </Button>
+          )}
         </div>
-      </div>
+      </Form>
     </div>
   );
 }

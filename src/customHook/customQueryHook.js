@@ -10,7 +10,7 @@ import { popUpUserDeleteReviewId, userPayTurnSuccessful } from "../components/pr
 import { popUserRegister } from "../components/register/function/RegisterUser";
 import { openSwalWhenLoginShowTypeUser } from "../components/login/function/SignInUser"
 import { userAddReviewsLike, userAddReviewSuccess } from "../components/reviewsClinic/function/AddReviewAndLike";
-
+import { doctorAddMedicalFileToPayUser } from "../components/profile/doctorService/function/DoctorFunctionService"
 
 
 
@@ -164,6 +164,21 @@ export const LoginUser = (hideSignIn) => {
 
 
 
+export const doctorSendMedicalFile = (hideModelMedicalFile) => {
+
+    const queryClient = useQueryClient();
+
+    return useMutation({
+        mutationFn: doctorAddMedicalFileToPayUser,
+        onSuccess: () => {
+            hideModelMedicalFile()
+            queryClient.invalidateQueries({
+                queryKey: ["Active_queues"]
+            })
+        },
+        onError: (err) => console.log(err.message),
+    })
+}
 
 
 
