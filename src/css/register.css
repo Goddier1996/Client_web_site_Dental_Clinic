@@ -1,8 +1,6 @@
-
 .titleBirthdayDate p {
     font-size: 14px;
 }
-
 
 .banner1 {
     display: grid;
@@ -12,15 +10,6 @@
 .banner1 .box1 {
     position: relative;
     height: 100vh;
-}
-
-.contect1 {
-    border: 5px solid #8ccdeb0f;
-}
-
-.contect1Dark {
-    border: 5px solid #8ccdeb0f;
-    background: rgba(217, 174, 117, 0.046);
 }
 
 .banner1 .box1:last-child {
