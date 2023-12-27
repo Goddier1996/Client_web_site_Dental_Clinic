@@ -10,7 +10,6 @@ const HistoryMedicalFile = ({ medical_File_Is_Not_Active }) => {
     let HistoryPayFile = 1;
     let storedTheme = localStorage.getItem("theme");
 
-
     return (
         <>
             <Table striped bordered hover size="sm" variant={(storedTheme === "light") ? "dark" : (storedTheme === "dark") ? "" : ""}>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Col, Row , Button , Spinner } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import RobotBox from "../ReCAPTCHA/RobotBox.jsx";
-import { popErrorRegisterUser } from "./function/RegisterUser.js";
+import { popErrorRegisterUser,  checkInputValueEmail , popErrorEmailIncorrect } from "./function/RegisterUser.js";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { newUserRegister } from "../../customHook/customQueryHook.js";
@@ -49,8 +49,13 @@ const UserRegister = () => {
     if (data.User_password !== data.ConfirmPassword) {
       popErrorRegisterUser();
     }
+
+    // check email input
+    else if (!checkInputValueEmail(data.Email)) {
+      popErrorEmailIncorrect();
+    }
     
-    // here register user , use query
+    // here register user , use query hook
     else {
       mutate(data);
     }

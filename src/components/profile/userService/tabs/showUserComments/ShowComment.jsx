@@ -10,7 +10,6 @@ const ShowComment = ({ dataReview, countReview }) => {
   // react query
   const { isLoading: isDeleting, mutate } = deleteIdReviewUser();
 
-
   return (
     <>
       <tr>

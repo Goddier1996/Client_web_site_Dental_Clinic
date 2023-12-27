@@ -12,7 +12,7 @@ import ShowAllReviews from './adminService/tabs/ShowAllReviews.jsx';
 
 
 
-//here component Admin we to do what admin can do = this component use in profile
+// HERE DON"T USE REACT QUERY , ONLY STATE HOOK !
 function Admin() {
 
 
