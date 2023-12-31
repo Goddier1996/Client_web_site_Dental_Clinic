@@ -91,7 +91,8 @@ function Location() {
             <br />
             <Card.Img
               variant="top"
-              src="https://i.postimg.cc/508kqF22/1zx.png"
+              src="https://i.postimg.cc/wTLhkftp/88.webp"
+              alt="clock"
             />
             <br />
             <br />

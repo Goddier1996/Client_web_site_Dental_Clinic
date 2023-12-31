@@ -1,6 +1,6 @@
 .startImg {
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)), url("https://i.postimg.cc/KzGWXd0Z/5901203-2009.jpg"), fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)), url("https://i.postimg.cc/bYnk9CMR/33.webp"), fixed;
     background-repeat: no-repeat;
     object-fit: cover;
     height: 470px;
@@ -98,12 +98,20 @@
 
 
 
-.title h1 {
+.title a {
     font-size: 19px;
     font-weight: 600;
     color: #ffffff;
     letter-spacing: 1px;
     line-height: 10px;
+    text-decoration: none;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+}
+
+
+.title a:hover {
+    color: #ffffffa3;
 }
 
 

@@ -17,13 +17,14 @@ function Category() {
 
                         {/* can click to image or text and move to page what user choose */}
                         <Card style={{ border: "none", background: "none" }}>
-                            <a href={record.link}>
-                                <Card.Img variant="top" src={record.path} />
+                            <a href={record.link} aria-label={record.name}>
+                                <Card.Img variant="top" src={record.path} alt={record.name} />
                             </a>
 
                             <div className='title'>
                                 <a style={{ textDecoration: "none" }}
-                                    href={record.link}><h1>{record.name}</h1>
+                                    href={record.link} aria-label={record.name}>
+                                    {record.name}
                                 </a>
                             </div>
                         </Card>

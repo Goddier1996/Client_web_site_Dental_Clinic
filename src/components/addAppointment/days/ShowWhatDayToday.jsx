@@ -8,7 +8,7 @@ const ShowWhatDayToday = ({ takeDayAndCodeDayInResultHour }) => {
 
     return (
         <>
-            <img src='https://i.postimg.cc/zDW8DS7c/clock.png' />
+            <img src='https://i.postimg.cc/bv30tZZS/z2.webp' alt='clock' />
 
             <h6 style={(storedTheme === "light") ? { color: "white" } :
                 (storedTheme === "dark") ? { color: "GrayText" } : ""}>

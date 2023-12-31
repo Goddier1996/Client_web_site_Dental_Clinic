@@ -5,19 +5,19 @@
       "id": "1",
       "name": "Our Work",
       "link": "/OurWork",
-      "path": "https://i.postimg.cc/YCZNvW9h/Whats-App-Image-2023-01-29-at-21-22-12.jpg"
+      "path": "https://i.postimg.cc/YC9RpNnL/11.webp"
     },
     {
       "id": "2",
       "name": "Reviews of Our Service",
       "link": "/Service",
-      "path": "https://i.postimg.cc/5NCY0khW/Whats-App-Image-2023-01-29-at-21-45-35.jpg"
+      "path": "https://i.postimg.cc/Jh3GvvNN/22.webp"
     },
     {
       "id": "3",
       "name": "Contact",
       "link": "/Location",
-      "path": "https://i.postimg.cc/YCnnb0SH/contact.jpg"
+      "path": "https://i.postimg.cc/W1g3qCfB/33.webp"
     }
 
   ],
@@ -28,38 +28,38 @@
     {
       "id": "1",
       "title": "Teeth Cleaning",
-      "path": "https://i.postimg.cc/DyzShWZd/c2.jpg",
+      "path": "https://i.postimg.cc/g04GvWyT/44.webp",
       "text": "Professional teeth cleaning, plus teeth whitening."
     },
 
     {
       "id": "2",
       "title": "Treatment of Holes (teeth)",
-      "path": "https://i.postimg.cc/0QTr0Zx8/c10.jpg",
+      "path": "https://i.postimg.cc/434YCwBj/55.webp",
       "text": "A clinic that treats cavities that exist in the teeth and in addition those who have had orthodontic treatment with us have a free service."
     },
     {
       "id": "3",
       "title": "Dental Implants",
-      "path": "https://i.postimg.cc/nrNbNwrW/c3.jpg",
+      "path": "https://i.postimg.cc/CLydMwcG/66.webp",
       "text": "A dental implant is a prosthesis that interfaces with the bone of the jaw or skull to support a dental prosthesis such as a crown, bridge, denture, or facial prosthesis or to act as an orthodontic anchor."
     },
     {
       "id": "4",
       "title": "Dental Examination",
-      "path": "https://i.postimg.cc/m26tgb1x/c7.jpg",
+      "path": "https://i.postimg.cc/Wz0NqJ5M/77.webp",
       "text": "Most adults and children should get a dental exam every six months. If you have swollen, bleeding gums (known as gingivitis) or other gum disease, your dentist may want to see you more often. Some adults with gum disease may see a dentist three or four times a year. More frequent exams may help prevent a serious gum disease known as periodontitis. Periodontitis can lead to infection and tooth loss."
     },
     {
       "id": "5",
       "title": "To Straighten Teeth",
-      "path": "https://i.postimg.cc/4xStq6Q9/c1.jpg",
+      "path": "https://i.postimg.cc/bJt84tcK/88.webp",
       "text": "Orthodontic treatment is a way of straightening or moving teeth, to improve the appearance of the teeth and how they work. It can also help to look after the long-term health of your teeth, gums and jaw joints, by spreading the biting pressure over all your teeth."
     },
     {
       "id": "6",
       "title": "Dental care at Any Age",
-      "path": "https://i.postimg.cc/QC9vgkmJ/c8.png",
+      "path": "https://i.postimg.cc/3JB7MhVJ/99.webp",
       "text": "We take care of all our clients no matter the age of the client adult, children, teens, we will take care of them all."
     }
 
@@ -68,7 +68,6 @@
 
   "Map": {
     "id": "1",
-    "path": "https://i.postimg.cc/yNCCKzxS/1.jpg",
     "country": "israel",
     "City": "Kfar-Yona",
     "addressCity": "The Village Mall",

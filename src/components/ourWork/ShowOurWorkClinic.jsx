@@ -32,7 +32,7 @@ const ShowOurWorkClinic = ({ infoOurWork }) => {
             : ""
         }
       >
-        <Card.Img variant="top" src={path} />
+        <Card.Img variant="top" src={path} alt={title} />
 
         <Card.Body
           style={

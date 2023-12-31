@@ -35,9 +35,9 @@ const OpenOrCloseClinic = () => {
     return (
         <div className='openOrCloseClinic'>
             {openOrClose ?
-                <img src='https://i.postimg.cc/q7j5hYhc/open.png' />
+                <img src='https://i.postimg.cc/yYsNwvQB/openn.webp' alt='open' />
                 :
-                <img src='https://i.postimg.cc/KvPMx3HL/closed-sign.png' />
+                <img src='https://i.postimg.cc/FzZhrXWv/closee.webp' alt='close' />
             }
         </div>
     )

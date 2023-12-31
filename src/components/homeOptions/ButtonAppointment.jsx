@@ -17,7 +17,7 @@ const ButtonAppointment = ({ CheckUserConnectedFunc }) => {
                     (storedTheme === "dark") ? { color: "#ffffff" } : ""}
                 size="sm"
                 onClick={CheckUserConnectedFunc}>
-                Click me - Book an Appointment <img style={{ height: "30px" }} src='https://i.postimg.cc/MGZ8B27m/pngwing-com-2.png' />
+                Click me - Book an Appointment <img style={{ height: "30px" }} src='https://i.postimg.cc/66Fz9GsM/11.webp' alt='add new turn' />
             </Button>
         </div>
     )

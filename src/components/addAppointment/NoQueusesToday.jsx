@@ -19,7 +19,7 @@ const NoQueusesToday = () => {
             </div>
 
             <div className='closeClinicToday'>
-                <img src='https://i.postimg.cc/KvPMx3HL/closed-sign.png' />
+                <img src='https://i.postimg.cc/FzZhrXWv/closee.webp' alt='close clinic' />
             </div>
         </>
     )

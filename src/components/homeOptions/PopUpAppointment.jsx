@@ -47,7 +47,7 @@ const PopUpAppointment = ({ showModelAppointment, closePopUpAppointment }) => {
           </div>
 
           <div className="titleHeater">
-            <img src="https://i.postimg.cc/J0R7Js4X/day.png" />
+            <img src="https://i.postimg.cc/HxR0sFNr/22.webp" />
           </div>
 
           <Form>

@@ -82,7 +82,8 @@ function SendEmail(props) {
           Send Message{" "}
           <img
             style={{ height: "30px" }}
-            src="https://img.icons8.com/doodle/48/000000/gmail-new.png"
+            src="https://i.postimg.cc/fyxJYP8q/99.webp"
+            alt="email"
           />
         </h1>
       </div>

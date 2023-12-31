@@ -66,25 +66,25 @@ const ShowCountInfoClinic = () => {
                 <InfoCounts
                   type={"Doctor's"}
                   count={countDoctors}
-                  img={"https://i.postimg.cc/TP3RsfDx/12.png"}
+                  img={"https://i.postimg.cc/LsT2SpnV/11.webp"}
                   loading={LoadingDoctors}
                 />
                 <InfoCounts
                   type={"Types Of Dental Care Service"}
                   count={countServiceOurWork}
-                  img={"https://i.postimg.cc/R0hBRdkV/ourworkservice.png"}
+                  img={"https://i.postimg.cc/zXgNBWyv/22.webp"}
                   loading={LoadingServiceOurWork}
                 />
                 <InfoCounts
                   type={"Our Customer's"}
                   count={countUsers}
-                  img={"https://i.postimg.cc/nVBt0CP7/users.png"}
+                  img={"https://i.postimg.cc/j2npD0dm/33.webp"}
                   loading={LoadingUsers}
                 />
                 <InfoCounts
                   type={"Customer Review's"}
                   count={countReviews}
-                  img={"https://i.postimg.cc/rm47nPQc/reviewuser.png"}
+                  img={"https://i.postimg.cc/MpwGJt9q/44.webp"}
                   loading={LoadingReviews}
                 />
               
