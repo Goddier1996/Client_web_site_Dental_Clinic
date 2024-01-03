@@ -10,6 +10,7 @@ import {logOutUser,sendUserToProfile} from "./function/FunctionsMenu"
 function Menu() {
 
 
+    localStorage.setItem("theme", "dark");
 
     let storedTheme = localStorage.getItem("theme");
     let userData = JSON.parse(sessionStorage.getItem("user"));
