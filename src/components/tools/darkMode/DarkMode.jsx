@@ -6,11 +6,6 @@ import React from 'react'
 function DarkMode() {
 
 
-  // localStorage.setItem("theme", "dark");
-  if (!localStorage) {
-    localStorage.setItem("theme", "dark");
-  }
-
   const setDark = () => {
     localStorage.setItem("theme", "dark");
     document.documentElement.setAttribute("data-theme", "dark");

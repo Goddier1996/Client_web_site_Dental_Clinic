@@ -10,12 +10,12 @@ import {logOutUser,sendUserToProfile} from "./function/FunctionsMenu"
 function Menu() {
 
 
-    // localStorage.setItem("theme", "dark");
-
     let storedTheme = localStorage.getItem("theme");
     let userData = JSON.parse(sessionStorage.getItem("user"));
 
-        
+
+    const history = useHistory()
+
     const defaultDark = storedTheme === "dark" || (storedTheme === null);
 
     if (defaultDark) {
@@ -23,12 +23,11 @@ function Menu() {
         document.documentElement.setAttribute("data-theme", "dark");
     }
 
-    const history = useHistory()
-
     // pop up sign in
     const [showModelSignIn, setShowModelSignIn] = useState(false);
     const handleCloseModelSignIn = () => setShowModelSignIn(false);
     const handleShowModelSignIn = () => setShowModelSignIn(true);
+
 
 
     return (
