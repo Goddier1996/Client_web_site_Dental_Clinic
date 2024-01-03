@@ -4,8 +4,7 @@ import React, { useEffect, useState } from 'react'
 import './menu.css'
 import { useHistory, Link } from 'react-router-dom';
 import Sign_in from '../login/signIn/SignI_in'
-import { logOutUser, sendUserToProfile } from "./function/FunctionsMenu"
-import {defaultDark,setDark} from "../tools/darkMode/DarkModeFunc"
+import {logOutUser,sendUserToProfile} from "./function/FunctionsMenu"
 
 
 function Menu() {
@@ -14,7 +13,11 @@ function Menu() {
     let storedTheme = localStorage.getItem("theme");
     let userData = JSON.parse(sessionStorage.getItem("user"));
 
+
     const history = useHistory()
+
+    // const defaultDark = storedTheme === "dark" || (storedTheme === null);
+
 
     // pop up sign in
     const [showModelSignIn, setShowModelSignIn] = useState(false);
@@ -22,12 +25,13 @@ function Menu() {
     const handleShowModelSignIn = () => setShowModelSignIn(true);
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        if (defaultDark) {
-            setDark();
-        }
-    },[defaultDark])
+    //     if (defaultDark) {
+    //         localStorage.setItem("theme", "dark");
+    //         document.documentElement.setAttribute("data-theme", "dark");
+    //     }
+    // })
 
     
     return (

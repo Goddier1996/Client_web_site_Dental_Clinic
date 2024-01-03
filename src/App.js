@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import React from 'react'
+import React, { useEffect } from 'react'
 import Register from './Pages/Register.jsx'
 import Home from './Pages/Home.jsx'
 import Menu from './components/heater/Menu.jsx'
@@ -11,10 +11,22 @@ import Profile from './Pages/Profile.jsx'
 import About from './Pages/About.jsx'
 import DarkMode from "./components/tools/darkMode/DarkMode.jsx"
 import NotFoundPage from "./components/tools/pageNotFound/NotFoundPage.jsx";
+import {defaultDark,setDark} from "../src/components/tools/darkMode/DarkModeFunc.js"
 
 
 function App() {
 
+  let storedTheme = localStorage.getItem("theme");
+
+
+  const defaultDark = storedTheme === "dark" || storedTheme === null;
+
+
+  if (defaultDark) {
+    setDark();
+}
+
+  
   return (
 
     <BrowserRouter>
