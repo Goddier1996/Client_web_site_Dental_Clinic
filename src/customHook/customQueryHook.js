@@ -14,11 +14,11 @@ import { doctorAddMedicalFileToPayUser } from "../components/profile/doctorServi
 
 
 
-export const useQueryLoadingAllReviewClinic = (typeData, pageNumber) => {
+export const useQueryLoadingAllReviewClinic = (typeData, pageNumber, order) => {
 
     return useQuery(
-        [typeData, pageNumber], () => {
-            return LoadReviews(pageNumber);
+        [typeData, pageNumber, order], () => {
+            return LoadReviews(pageNumber, order);
         }
     )
 }

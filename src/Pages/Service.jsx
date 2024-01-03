@@ -14,6 +14,7 @@ import ShowAllReview from "../components/reviewsClinic/showReview/ShowAllReview.
 import LoadingReview from "../components/loading/LoadingReview.jsx";
 import ButtonAddNewReview from "../components/reviewsClinic/addNewReview/ButtonAddNewReview.jsx";
 import { checkUserConnectedForAddReview } from "../components/reviewsClinic/function/AddReviewAndLike.js";
+import SelectOptionSortReview from "../components/reviewsClinic/showReview/selectOptionToSortReview/SelectOptionSortReview.jsx";
 
 
 
@@ -26,11 +27,14 @@ function Service() {
   const handleCloseAddReviews = () => setShowAddReviews(false);
   const handleShowAddReviews = () => setShowAddReviews(true);
 
+
   let storedTheme = localStorage.getItem("theme");
 
   const [pageNumberNow, setPageNumberNow] = useState(1);
   const [SizeAllPages, setSizeAllPages] = useState();
 
+  
+  const [sortReview, setSortReview] = useState("Select");
 
 
   // use custom hook , useQuery
@@ -38,7 +42,8 @@ function Service() {
     isLoading: LoadingReviews,
     data: showReviews,
     isError: ErrorReviews,
-  } = useQueryLoadingAllReviewClinic("reviews", pageNumberNow);
+  } = useQueryLoadingAllReviewClinic("reviews", pageNumberNow, sortReview);
+
 
   const { data: countReviews } = useQueryLoadingAllData(
     "CountReviews",
@@ -46,9 +51,15 @@ function Service() {
   );
 
 
+  const onSelectionOptionsChange = (e) => {
+    setSortReview(e.target.value);
+  };
+
+
 
   // set count page we need to show Reviews
   useEffect(() => {
+
     let result = Math.round(countReviews / 4.2);
 
     setSizeAllPages(result - 1);
@@ -82,6 +93,7 @@ function Service() {
             <h1>Reviews of our clinic :</h1>
           </div>
 
+              
           {/* add new review */}
           <ButtonAddNewReview
             CheckUserConnected={() =>
@@ -97,11 +109,19 @@ function Service() {
           <div className="space"></div>
           <br />
 
+
+          {/* here select option sort Review this clinic */}
+          <SelectOptionSortReview
+            onSelectionChange={onSelectionOptionsChange}
+            sortReview={sortReview}
+          />
+
+              
           {/* show all review this clinic */}
           <div className="modelsShowReview">
             <Row xs={1} md={2} lg={3} style={{ width: "100%" }}>
               {showReviews
-                .sort((a, b) => b.Count_likes.length - a.Count_likes.length)
+                // .sort((a, b) => b.Count_likes.length - a.Count_likes.length)
                 .map((record) => (
                   <div key={record._id}>
                     <ShowAllReview allReview={record} />
@@ -110,6 +130,7 @@ function Service() {
             </Row>
           </div>
 
+              
           {/* Button's move next page or back */}
           <div className="nextOrPrev">
             <div className="prevNextButton">
