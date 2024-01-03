@@ -15,7 +15,7 @@ const SelectOptionSortReview = ({ onSelectionChange, sortReview }) => {
           : ""
       }
     >
-      <select onChange={onSelectionChange} value={sortReview}>
+      {/* <select onChange={onSelectionChange} value={sortReview}>
         <option hidden value="Select">
           Select Option's Sort Review's
         </option>
@@ -31,7 +31,7 @@ const SelectOptionSortReview = ({ onSelectionChange, sortReview }) => {
         <option hidden={sortReview === "Low like"} value="Low like">
           Low to Top Like's
         </option>
-      </select>
+      </select> */}
     </div>
   );
 };

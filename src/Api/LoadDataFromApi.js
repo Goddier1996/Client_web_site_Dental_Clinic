@@ -14,16 +14,18 @@ export async function LoadReviews(pageNumber, sortReview) {
     // USE AXIOS
     const response = await axios.get(`${API.REVIEWS.GET}?p=${pageNumber}`);
 
-    switch (sortReview) {
-        case 'Default':
-            return response.data;
-        case 'High Like':
-            return response.data.sort((a, b) => (b.Count_likes.length - a.Count_likes.length));
-        case 'Low like':
-            return response.data.sort((a, b) => (a.Count_likes.length - b.Count_likes.length));
-        default:
-            return response.data;
-    }
+    // switch (sortReview) {
+    //     case 'Default':
+    //         return response.data;
+    //     case 'High Like':
+    //         return response.data.sort((a, b) => (b.Count_likes.length - a.Count_likes.length));
+    //     case 'Low like':
+    //         return response.data.sort((a, b) => (a.Count_likes.length - b.Count_likes.length));
+    //     default:
+    //         return response.data;
+    // }
+
+    return response.data;
 }
 
 

@@ -111,10 +111,10 @@ function Service() {
 
 
           {/* here select option sort Review this clinic */}
-          <SelectOptionSortReview
+          {/* <SelectOptionSortReview
             onSelectionChange={onSelectionOptionsChange}
             sortReview={sortReview}
-          />
+          /> */}
 
               
           {/* show all review this clinic */}
