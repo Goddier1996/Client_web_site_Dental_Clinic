@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import { Nav, Navbar, Container, Button, Modal } from 'react-bootstrap'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './menu.css'
 import { useHistory, Link } from 'react-router-dom';
 import Sign_in from '../login/signIn/SignI_in'
@@ -18,10 +18,6 @@ function Menu() {
 
     const defaultDark = storedTheme === "dark" || (storedTheme === null);
 
-    if (defaultDark) {
-        localStorage.setItem("theme", "dark");
-        document.documentElement.setAttribute("data-theme", "dark");
-    }
 
     // pop up sign in
     const [showModelSignIn, setShowModelSignIn] = useState(false);
@@ -29,7 +25,15 @@ function Menu() {
     const handleShowModelSignIn = () => setShowModelSignIn(true);
 
 
+    useEffect(() => {
 
+        if (defaultDark) {
+            localStorage.setItem("theme", "dark");
+            document.documentElement.setAttribute("data-theme", "dark");
+        }
+    })
+
+    
     return (
         <>
             <div className={(storedTheme == "light") ? "menuDark" : (storedTheme == "dark") ? "menu" : ""}>
