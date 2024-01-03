@@ -478,6 +478,7 @@
 .selectOptionsStyleDark select {
     width: 280px;
     text-align: center;
+    align-items: center;
     border-top: none;
     border-left: none;
     border-right: none;
@@ -492,12 +493,14 @@
     transition-duration: 0.4s;
     -webkit-transition-duration: 0.4s;
     cursor: pointer;
+    padding: 0.5%;
 }
 
 
 .selectOptionsStyle select {
     width: 280px;
     text-align: center;
+    align-items: center;
     border-top: none;
     border-left: none;
     border-right: none;
@@ -512,6 +515,7 @@
     transition-duration: 0.4s;
     -webkit-transition-duration: 0.4s;
     cursor: pointer;
+    padding: 0.5%;
 }
 
 
@@ -552,6 +556,17 @@
 
     .modelsShowReview {
         max-width: 468px;
+    }
+
+
+    .selectOptionsStyle select,
+    .selectOptionsStyleDark select {
+        font-size: 13px;
+    }
+
+    .selectOptionsStyle option,
+    .selectOptionsStyleDark option {
+        font-size: 13px;
     }
 }
 
