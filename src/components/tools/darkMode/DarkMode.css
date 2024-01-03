@@ -1,14 +1,11 @@
-/* 1 */
 :root {
     --background-color: #1c1b1bec;
 }
 
-/* 2 */
 [data-theme="dark"] {
     --background-color: #eee;
 }
 
-/* 3 */
 body {
     background-color: var(--background-color);
     color: var(--font-color);
@@ -18,7 +15,6 @@ a {
     color: var(--link-color);
 }
 
-/* Custom Dark Mode Toggle Element */
 .toggle-theme-wrapper {
     display: flex;
     flex-direction: row;
@@ -78,12 +74,10 @@ input:checked+.slider {
     border-radius: 50%;
 }
 
-
-
 @media(max-width:991px) {
     .toggle-theme-wrapper {
         display: flex;
         justify-content: center;
-        padding-right:0;
+        padding-right: 0;
     }
 }

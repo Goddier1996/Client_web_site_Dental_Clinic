@@ -13,18 +13,8 @@ export const setLight = () => {
 };
 
 
-// export const prefersDark =
-//     window.matchMedia &&
-//     window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-
 export const defaultDark =
-    storedTheme === "dark" || storedTheme === null ;
-
-
-// if (defaultDark) {
-//     setDark();
-// }
+    storedTheme === "dark" || storedTheme === null;
 
 
 export const toggleTheme = (e) => {
