@@ -473,6 +473,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 2%;
+    margin-top: 2%;
 }
 
 .selectOptionsStyleDark select {
@@ -489,11 +490,11 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
     color: #ffffffab;
-    font-size: 15px;
     transition-duration: 0.4s;
     -webkit-transition-duration: 0.4s;
     cursor: pointer;
     padding: 0.5%;
+    font-size: 15px;
 }
 
 .selectOptionsStyle select {
@@ -510,11 +511,11 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
     color: #00000094;
-    font-size: 15px;
     transition-duration: 0.4s;
     -webkit-transition-duration: 0.4s;
     cursor: pointer;
     padding: 0.5%;
+    font-size: 15px;
 }
 
 
@@ -537,7 +538,6 @@
 .selectOptionsStyleDark option {
     background: #8ccdeb48;
     color: #000000;
-    font-size: 15px;
 }
 
 
@@ -557,6 +557,11 @@
         max-width: 468px;
     }
 
+    .selectOptionsStyle,
+    .selectOptionsStyleDark {
+        margin-bottom: 6%;
+        margin-top: 6%;
+    }
 
     .selectOptionsStyle select,
     .selectOptionsStyleDark select {

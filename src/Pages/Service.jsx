@@ -8,7 +8,7 @@ import {
   useQueryLoadingAllReviewClinic,
 } from "../customHook/customQueryHook";
 import { motion as m } from "framer-motion/dist/framer-motion";
-import Pagination from "@mui/material/Pagination";
+import { Pagination } from "@mui/material";
 import UserAddNewReview from "../components/reviewsClinic/addNewReview/UserAddNewReview.jsx";
 import ShowAllReview from "../components/reviewsClinic/showReview/ShowAllReview.jsx";
 import LoadingReview from "../components/loading/LoadingReview.jsx";
@@ -33,7 +33,6 @@ function Service() {
   const [pageNumberNow, setPageNumberNow] = useState(1);
   const [SizeAllPages, setSizeAllPages] = useState();
 
-  
   const [sortReview, setSortReview] = useState("Select");
 
 
@@ -107,8 +106,6 @@ function Service() {
           </Modal>
 
           <div className="space"></div>
-          <br />
-
 
           {/* here select option sort Review this clinic */}
           <SelectOptionSortReview

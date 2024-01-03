@@ -1,4 +1,6 @@
 import React from "react";
+import { Form } from "react-bootstrap";
+
 
 
 const SelectOptionSortReview = ({ onSelectionChange, sortReview }) => {
@@ -15,12 +17,19 @@ const SelectOptionSortReview = ({ onSelectionChange, sortReview }) => {
           : ""
       }
     >
-      <select onChange={onSelectionChange} value={sortReview}>
+      <Form.Select
+        aria-label="Default select example"
+        onChange={onSelectionChange}
+        value={sortReview}
+      >
         <option hidden value="Select">
           Select Option's Sort Review's
         </option>
 
-        <option hidden={sortReview === "Default"} value="Default">
+        <option
+          hidden={sortReview === "Default" || sortReview == "Select"}
+          value="Default"
+        >
           Default show all Review's
         </option>
 
@@ -31,7 +40,7 @@ const SelectOptionSortReview = ({ onSelectionChange, sortReview }) => {
         <option hidden={sortReview === "Low like"} value="Low like">
           Low to Top Like's
         </option>
-      </select>
+      </Form.Select>
     </div>
   );
 };
