@@ -9,16 +9,18 @@ import {logOutUser,sendUserToProfile} from "./function/FunctionsMenu"
 
 function Menu() {
 
-    
+
+
+    let storedTheme = localStorage.getItem("theme");
+    let userData = JSON.parse(sessionStorage.getItem("user"));
+
+        
     const defaultDark = storedTheme === "dark" || (storedTheme === null);
 
     if (defaultDark) {
         localStorage.setItem("theme", "dark");
         document.documentElement.setAttribute("data-theme", "dark");
     }
-
-    let storedTheme = localStorage.getItem("theme");
-    let userData = JSON.parse(sessionStorage.getItem("user"));
 
     const history = useHistory()
 
