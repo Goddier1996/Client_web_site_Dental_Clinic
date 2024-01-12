@@ -122,6 +122,8 @@ function Appointment() {
       <Modal
         show={showPopUpRobotBox}
         style={{ background: "rgba(0, 0, 0, 0.75)" }}
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
       >
         <ModelPopUpSaveTurn
           capVal={capVal}

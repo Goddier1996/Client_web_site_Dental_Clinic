@@ -53,9 +53,12 @@ function Location() {
           <Modal
             show={showSendMessage}
             onHide={() => setShowSendMessage(false)}
+            // aria-labelledby="contained-modal-title-vcenter"
+            // centered
           >
             <SendEmail hideModelSendMessage={() => setShowSendMessage(false)} />
           </Modal>
+
 
           {/* here show distance go to clinic from user location */}
           <CalcDistanceToClinic />

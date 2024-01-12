@@ -10,7 +10,6 @@ const MedicalFilesUser = ({ medical_File }) => {
     let CountReview = 1;
     let storedTheme = localStorage.getItem("theme");
 
-
     return (
         <>
             <Table striped bordered hover size="sm" variant={(storedTheme === "light") ? "dark" : (storedTheme === "dark") ? "" : ""}>
@@ -26,11 +25,8 @@ const MedicalFilesUser = ({ medical_File }) => {
                 </thead>
 
                 {medical_File.map(File =>
-
-                    <tbody key={File._id}>
-                       
+                    <tbody key={File._id}>   
                         <ShowFile dataFile={File} countFiles={CountReview++} />
-
                     </tbody>
                 )}
             </Table>

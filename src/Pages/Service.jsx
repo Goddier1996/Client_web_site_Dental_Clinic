@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Row, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import "../css/service.css";
 import { LoadCountReviews } from "../Api/LoadDataFromApi";
 import NotFoundPage from "../components/tools/pageNotFound/NotFoundPage.jsx";
@@ -68,7 +68,6 @@ function Service() {
 
   return (
     <>
-      {/* show Loading */}
       {LoadingReviews ? (
         <LoadingReview />
       ) : ErrorReviews ? (
@@ -112,22 +111,11 @@ function Service() {
             onSelectionChange={onSelectionOptionsChange}
             sortReview={sortReview}
           />
-
+   
               
           {/* show all review this clinic */}
-          <div className="modelsShowReview">
-            <Row xs={1} md={2} lg={3} style={{ width: "100%" }}>
-              {showReviews
-                // .sort((a, b) => b.Count_likes.length - a.Count_likes.length)
-                .map((record) => (
-                  <div key={record._id}>
-                    <ShowAllReview allReview={record} />
-                  </div>
-                ))}
-            </Row>
-          </div>
+          <ShowAllReview allReview={showReviews} />
 
-              
           {/* Button's move next page or back */}
           <div className="nextOrPrev">
             <div className="prevNextButton">

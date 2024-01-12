@@ -17,7 +17,6 @@ function Sign_in({ hideSignIn }) {
 
 
   return (
-    <>
       <div className="modelLogin">
         <div
           className={
@@ -64,7 +63,6 @@ function Sign_in({ hideSignIn }) {
           </Modal.Body>
         </Modal>
       </div>
-    </>
   );
 }
 

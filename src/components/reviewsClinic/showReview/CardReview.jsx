@@ -1,0 +1,48 @@
+import React from "react";
+import AddReviewLike from "../addLikeDesLike/AddReviewLike";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
+
+
+const CardReview = ({ allReview }) => {
+
+  return (
+    <div className="testimonial-box-container">
+      <div className="testimonial-box">
+        <div className="box-top">
+          <div className="profileReviews">
+            <div className="nameInfo-userInfo">
+              <span>Name : {allReview.FirstName}</span>
+
+              <span>Login : @{allReview.User_Login}</span>
+            </div>
+          </div>
+
+          <div className="reviews">
+            <p>{allReview.DatePublished}</p>
+          </div>
+        </div>
+
+        <div className="client-comment">
+          <p>{allReview.textReviews}</p>
+        </div>
+
+              
+        {/* add Like Review */}
+        <div className="clickLike">
+          <OverlayTrigger
+            overlay={<Tooltip id="tooltip-disabled">Like ❤️</Tooltip>}
+          >
+            <AddReviewLike
+              FirstName={allReview.FirstName}
+              id={allReview._id}
+              CountLikes={allReview.Count_likes}
+            />
+          </OverlayTrigger>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+export default CardReview;

@@ -1,51 +1,24 @@
-import React from 'react'
-import AddReviewLike from '../addLikeDesLike/AddReviewLike'
-import { OverlayTrigger, Tooltip } from 'react-bootstrap'
+import React from "react";
+import CardReview from "./CardReview";
+import { Row } from "react-bootstrap";
 
 
 const ShowAllReview = ({ allReview }) => {
 
-
-    const { _id, FirstName, User_Login, DatePublished, textReviews, Count_likes } = allReview;
-
-    return (
-
-        <div className="testimonial-box-container">
-
-            <div className="testimonial-box">
-
-                <div className="box-top">
-
-                    <div className="profileReviews">
-
-                        <div className="nameInfo-userInfo">
-                            <span>Name : {FirstName}</span>
-
-                            <span>Login : @{User_Login}</span>
-                        </div>
-                    </div>
-
-                    <div className="reviews">
-                        <p>{DatePublished}</p>
-                    </div>
-                </div>
-
-                <div className="client-comment">
-                    <p>{textReviews}</p>
-                </div>
-
-
-                {/* add Like Review */}
-                <div className='clickLike'>
-                    <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Like ❤️</Tooltip>}>
-
-                        <AddReviewLike FirstName={FirstName} id={_id} CountLikes={Count_likes} />
-
-                    </OverlayTrigger>
-                </div>
+  return (
+    <div className="modelsShowReview">
+      <Row xs={1} md={2} lg={3} style={{ width: "100%" }}>
+        {allReview
+          // .sort((a, b) => b.Count_likes.length - a.Count_likes.length)
+          .map((record) => (
+            <div key={record._id}>
+              <CardReview allReview={record} />
             </div>
-        </div>
-    )
-}
+          ))}
+      </Row>
+    </div>
+  );
+};
+
 
 export default ShowAllReview;

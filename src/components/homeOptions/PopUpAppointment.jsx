@@ -11,7 +11,11 @@ const PopUpAppointment = ({ showModelAppointment, closePopUpAppointment }) => {
 
   return (
     <div className="bookClick">
-      <Modal show={showModelAppointment}>
+      <Modal
+        show={showModelAppointment}
+        // aria-labelledby="contained-modal-title-vcenter"
+        // centered
+      >
         <div
           className={
             storedTheme === "light"

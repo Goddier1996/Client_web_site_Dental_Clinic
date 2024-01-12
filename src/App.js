@@ -34,7 +34,7 @@ function App() {
 
       <Menu />
 
-      <main className="mainStyle">
+      <main>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/About" exact component={About} />
