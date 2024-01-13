@@ -37,6 +37,7 @@ function Location() {
           }
         >
           <h3>Contact</h3>
+          {/* contact component */}
           <ContactInfo />
 
           {/* Button send mail */}
@@ -50,6 +51,7 @@ function Location() {
           {/* here show distance go to clinic from user location */}
           <CalcDistanceToClinic />
 
+          {/* show map component */}
           <ShowMap />
         </div>
 
@@ -73,8 +75,10 @@ function Location() {
           >
             <h3>Hours Work Clinic</h3>
 
+            {/* show component open or close clinic */}
             <OpenOrCloseClinic />
 
+            {/* show hours clinic */}
             <ShowHoursWork />
 
             <div style={{ marginTop: "80px", marginBottom: "80px" }}>

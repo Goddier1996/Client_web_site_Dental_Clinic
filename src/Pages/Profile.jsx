@@ -29,7 +29,7 @@ function Profile() {
             {
                 userData.UserType_code == 1 ?
                     <User data_user={obj} /> :
-
+                    
                     userData.UserType_code == 2 ?
                         <Doctor code_doctor={obj} /> :
 

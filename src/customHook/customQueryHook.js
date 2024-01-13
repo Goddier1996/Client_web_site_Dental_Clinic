@@ -24,7 +24,6 @@ export const useQueryLoadingAllReviewClinic = (typeData, pageNumber, order) => {
 }
 
 
-
 export const userLikeOrDesLikeReview = () => {
 
     const queryClient = useQueryClient();
@@ -39,7 +38,6 @@ export const userLikeOrDesLikeReview = () => {
         onError: (err) => console.log(err.message),
     })
 }
-
 
 
 export const userAddNewReview = (closePopUp) => {
@@ -61,7 +59,6 @@ export const userAddNewReview = (closePopUp) => {
 }
 
 
-
 export const useQueryLoadingAllData = (typeData, LoadDataFromApi) => {
 
     return useQuery(
@@ -72,7 +69,6 @@ export const useQueryLoadingAllData = (typeData, LoadDataFromApi) => {
 }
 
 
-
 export const useQueryLoadingDataID = (typeData, LoadDataFromApi, id) => {
 
     return useQuery(
@@ -81,7 +77,6 @@ export const useQueryLoadingDataID = (typeData, LoadDataFromApi, id) => {
         }
     )
 }
-
 
 
 export const deleteIdReviewUser = () => {
@@ -102,7 +97,6 @@ export const deleteIdReviewUser = () => {
 }
 
 
-
 export const userPayService = () => {
 
     const queryClient = useQueryClient();
@@ -121,7 +115,6 @@ export const userPayService = () => {
 }
 
 
-
 export const newUserRegister = (history) => {
 
     const queryClient = useQueryClient();
@@ -138,7 +131,6 @@ export const newUserRegister = (history) => {
         onError: (err) => console.log(err.message),
     })
 }
-
 
 
 export const LoginUser = (hideSignIn) => {
@@ -161,7 +153,6 @@ export const LoginUser = (hideSignIn) => {
         onError: (err) => console.log(err.message),
     })
 }
-
 
 
 export const doctorSendMedicalFile = (hideModelMedicalFile) => {

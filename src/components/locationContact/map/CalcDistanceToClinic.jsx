@@ -26,7 +26,6 @@ const CalcDistanceToClinic = () => {
                 console.log("Position could not be determined.")
             }
         );
-
     }, [distance])
 
 

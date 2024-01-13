@@ -53,10 +53,8 @@ function Service() {
   };
 
 
-
   // set count page we need to show Reviews
   useEffect(() => {
-
     let result = Math.round(countReviews / 4.2);
     setSizeAllPages(result - 1);
   });

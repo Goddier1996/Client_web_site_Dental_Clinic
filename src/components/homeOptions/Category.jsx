@@ -14,13 +14,11 @@ function Category() {
                 {data.category1.map((record, i) =>
 
                     <div key={i} className='choise'>
-
                         {/* can click to image or text and move to page what user choose */}
                         <Card style={{ border: "none", background: "none" }}>
                             <a href={record.link} aria-label={record.name}>
                                 <Card.Img variant="top" src={record.path} alt={record.name} />
                             </a>
-
                             <div className='title'>
                                 <a style={{ textDecoration: "none" }}
                                     href={record.link} aria-label={record.name}>

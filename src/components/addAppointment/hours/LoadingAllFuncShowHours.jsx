@@ -32,7 +32,6 @@ const LoadingAllFuncShowHours = ({ showPopUpReCAPTCHA, dataIdDay }) => {
 
     
   useEffect(() => {
-    
       setIdDayToday(dataIdDay.idDay);
   }, [dataIdDay.dayToday, dataIdDay.idDay]);
 

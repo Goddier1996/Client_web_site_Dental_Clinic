@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Modal, Form } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import Appointment from "../addAppointment/Appointment.jsx";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -52,9 +52,8 @@ const PopUpAppointment = ({ showModelAppointment, closePopUpAppointment }) => {
             <img src="https://i.postimg.cc/HxR0sFNr/22.webp" />
           </div>
 
-          <Form>
-            <Appointment />
-          </Form>
+           {/* show all days and hours to add turn user */}
+           <Appointment />
         </div>
       </Modal>
     </div>

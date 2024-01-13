@@ -51,7 +51,6 @@ function Appointment() {
   const [dataIdHour, setDataIdHour] = useState({});
 
   const showPopUpReCAPTCHA = (Hour_day, Serial_code) => {
-    
     handleShow();
     setDataIdHour({ hourDayChoose: Hour_day, idHour: Serial_code });
   };
@@ -59,7 +58,6 @@ function Appointment() {
     
   // save user hour and day what he choose
   const saveDateUser = async () => {
-    
     let userDataTurn = {
       _id: userData._id,
       dayToday: dataIdDay.dayToday,

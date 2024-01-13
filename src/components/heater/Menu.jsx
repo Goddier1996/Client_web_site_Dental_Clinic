@@ -115,10 +115,12 @@ function Menu() {
                 )}
               </Navbar.Collapse>
 
+              
               {/* model popup show Sign in */}
               <Modal show={show}>
                 <Sign_in hideSignIn={handleClose} />
               </Modal>
+              
             </Navbar.Collapse>
           </Container>
         </Navbar>

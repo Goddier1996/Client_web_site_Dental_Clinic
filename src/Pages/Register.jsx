@@ -21,7 +21,6 @@ function Register() {
                         <UserRegister />
                     </div>
                 </div>
-
                 <div className="box1 image1"></div>
             </section>
         </m.div>

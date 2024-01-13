@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-  
 // here open pop up models , why there are many useState , we have in one component one more models and we create this useState.
 export const ShowModelPopUp = () => {
 

@@ -47,7 +47,6 @@ function Footer() {
                     <div className={(storedTheme === "light") ? "text-center p-3 endDark" : (storedTheme === "dark") ? "text-center p-3 end" : ""} >
                         <p>© Create and Style Artem Kot</p>
                     </div>
-
                 </div>
             </footer >
     )
