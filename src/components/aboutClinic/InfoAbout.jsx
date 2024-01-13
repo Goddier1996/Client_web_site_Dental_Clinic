@@ -8,7 +8,6 @@ const InfoAbout = () => {
 
   let storedTheme = localStorage.getItem("theme");
 
-  
   return (
       <m.div
         variants={container}

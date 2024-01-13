@@ -20,10 +20,6 @@ const ModelPopUpSaveTurn = ({
     
     setUserSaveTurn(true);
     saveDateUser();
-
-    // setTimeout(() => {
-    //   saveDateUser();
-    // }, 1200);
   };
 
     

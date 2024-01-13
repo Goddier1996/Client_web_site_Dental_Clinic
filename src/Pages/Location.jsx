@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "../css/loction.css";
-import { Modal , Card } from "react-bootstrap";
+import { Modal, Card } from "react-bootstrap";
 import SendEmail from "../components/locationContact/sendEmail/SendEmail.jsx";
 import { motion as m } from "framer-motion/dist/framer-motion";
 import { container } from "../styleComponents/StyleAnimation.js";
@@ -10,6 +10,7 @@ import ButtonSendEmail from "../components/locationContact/sendEmail/ButtonSendE
 import CalcDistanceToClinic from "../components/locationContact/map/CalcDistanceToClinic.jsx";
 import ShowMap from "../components/locationContact/map/ShowMap.jsx";
 import OpenOrCloseClinic from "../components/locationContact/hoursWork/OpenOrCloseClinic.jsx";
+import { ShowModelPopUp } from "../customHook/showPopUp.js";
 
 
 
@@ -19,16 +20,10 @@ function Location() {
 
   let storedTheme = localStorage.getItem("theme");
 
-    
-  // show popup send message
-  const [showSendMessage, setShowSendMessage] = useState(false);
+  // show popup send message custom Hook
+  const { show, handleClose, handleShow } = ShowModelPopUp();
 
-  const popUpSendMessage = () => {
-    setShowSendMessage(true);
-  };
 
-    
-    
   return (
     <m.div variants={container} initial="hidden" animate="show">
       <section className="bannerLoction">
@@ -44,21 +39,13 @@ function Location() {
           <h3>Contact</h3>
           <ContactInfo />
 
-          <br />
-
           {/* Button send mail */}
-          <ButtonSendEmail popUpSendMessage={popUpSendMessage} />
+          <ButtonSendEmail popUpSendMessage={handleShow} />
 
           {/* pop up show email input value and send */}
-          <Modal
-            show={showSendMessage}
-            onHide={() => setShowSendMessage(false)}
-            // aria-labelledby="contained-modal-title-vcenter"
-            // centered
-          >
-            <SendEmail hideModelSendMessage={() => setShowSendMessage(false)} />
+          <Modal show={show} onHide={() => handleClose()}>
+            <SendEmail hideModelSendMessage={() => handleClose()} />
           </Modal>
-
 
           {/* here show distance go to clinic from user location */}
           <CalcDistanceToClinic />
@@ -90,15 +77,13 @@ function Location() {
 
             <ShowHoursWork />
 
-            <br />
-            <br />
-            <Card.Img
-              variant="top"
-              src="https://i.postimg.cc/wTLhkftp/88.webp"
-              alt="clock"
-            />
-            <br />
-            <br />
+            <div style={{ marginTop: "80px", marginBottom: "80px" }}>
+              <Card.Img
+                variant="top"
+                src="https://i.postimg.cc/wTLhkftp/88.webp"
+                alt="clock"
+              />
+            </div>
           </div>
         </div>
       </section>

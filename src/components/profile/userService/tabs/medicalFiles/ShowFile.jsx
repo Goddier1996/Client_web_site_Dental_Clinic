@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Modal , Button } from "react-bootstrap";
 import PayService from "./payService/PayService";
+import { ShowModelPopUp } from "../../../../../customHook/showPopUp";
 
 
 
 const ShowFile = ({dataFile,countFiles}) => {
 
 
-  // popup pay service
-  const [showPayService, setShowPayService] = useState(false);
-  const handleShowPayService = () => setShowPayService(true);
+  // show popup pay service custom Hook
+  const { show, handleClose, handleShow } = ShowModelPopUp();
 
-    
+  
   return (
     <>
       <>
@@ -40,7 +40,7 @@ const ShowFile = ({dataFile,countFiles}) => {
             <Button
               variant="success"
               onClick={() =>
-                handleShowPayService()
+                handleShow()
               }
             >
               <i className="bi bi-credit-card"></i>
@@ -49,8 +49,8 @@ const ShowFile = ({dataFile,countFiles}) => {
         </tr>
       </>
 
-      <Modal show={showPayService}>
-            <PayService dataUserPay={dataFile} closePopUp={() => setShowPayService(false)} />
+      <Modal show={show}>
+            <PayService dataUserPay={dataFile} closePopUp={() => handleClose()} />
       </Modal>
     </>
   );

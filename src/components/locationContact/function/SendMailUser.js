@@ -9,10 +9,7 @@ export async function userSendMessage(userDataInput, setCapVal) {
 
     let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-
     if (userDataInput.reply_to == '' || userDataInput.message == '' || mailformat.test(userDataInput.reply_to) == false) {
-
-
         Swal.fire({
             position: 'top',
             confirmButtonColor: 'green',

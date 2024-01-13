@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Modal, Form } from "react-bootstrap";
 import "../login.css";
 import ForgetPassword from "../userForgetPassword/ForgetPassword";
 import ShowModelFormConnect from "./ShowModelFormConnect";
+import { ShowModelPopUp } from "../../../customHook/showPopUp";
 
 
 
@@ -11,9 +12,8 @@ function Sign_in({ hideSignIn }) {
 
   let storedTheme = localStorage.getItem("theme");
 
-  // show pop up
-  const [showForgetPassword, setShowForgetPassword] = useState(false);
-  const handleShowForgetPassword = () => setShowForgetPassword(true);
+  // show popup Forget Password custom Hook
+  const { show, handleShow } = ShowModelPopUp();
 
 
   return (
@@ -38,16 +38,15 @@ function Sign_in({ hideSignIn }) {
 
           {/* show form sign in and connect demo & forget password */}
           <ShowModelFormConnect
-            activeForgetPassword={handleShowForgetPassword}
+            activeForgetPassword={handleShow}
             hideSignIn={hideSignIn}
           />
-
         </div>
 
         
         {/* show pop up forget password */}
         <Modal
-          show={showForgetPassword}
+          show={show}
           style={{ background: "rgba(0, 0, 0, 0.80)" }}
         >
           <Modal.Header className="titleHeater">

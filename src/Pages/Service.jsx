@@ -15,6 +15,7 @@ import LoadingReview from "../components/loading/LoadingReview.jsx";
 import ButtonAddNewReview from "../components/reviewsClinic/addNewReview/ButtonAddNewReview.jsx";
 import { checkUserConnectedForAddReview } from "../components/reviewsClinic/function/AddReviewAndLike.js";
 import SelectOptionSortReview from "../components/reviewsClinic/showReview/selectOptionToSortReview/SelectOptionSortReview.jsx";
+import { ShowModelPopUp } from "../customHook/showPopUp.js";
 
 
 
@@ -22,11 +23,8 @@ import SelectOptionSortReview from "../components/reviewsClinic/showReview/selec
 function Service() {
 
 
-  // show popup add new review
-  const [showAddReviews, setShowAddReviews] = useState(false);
-  const handleCloseAddReviews = () => setShowAddReviews(false);
-  const handleShowAddReviews = () => setShowAddReviews(true);
-
+  // show popup add new review custom Hook
+  const { show, handleClose, handleShow } = ShowModelPopUp();
 
   let storedTheme = localStorage.getItem("theme");
 
@@ -60,7 +58,6 @@ function Service() {
   useEffect(() => {
 
     let result = Math.round(countReviews / 4.2);
-
     setSizeAllPages(result - 1);
   });
 
@@ -95,13 +92,13 @@ function Service() {
           {/* add new review */}
           <ButtonAddNewReview
             CheckUserConnected={() =>
-              checkUserConnectedForAddReview(() => handleShowAddReviews())
+              checkUserConnectedForAddReview(() => handleShow())
             }
           />
 
           {/* here model pop up user add new review */}
-          <Modal show={showAddReviews} onHide={handleCloseAddReviews}>
-            <UserAddNewReview closePopUp={handleCloseAddReviews} />
+          <Modal show={show} onHide={handleClose}>
+            <UserAddNewReview closePopUp={handleClose} />
           </Modal>
 
           <div className="space"></div>

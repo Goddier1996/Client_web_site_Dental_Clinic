@@ -7,7 +7,6 @@ const ButtonAppointment = ({ CheckUserConnectedFunc }) => {
 
     let storedTheme = localStorage.getItem("theme");
 
-
     return (
         <div className="d-grid gap-2 click">
             <Button

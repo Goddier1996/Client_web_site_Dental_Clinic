@@ -15,7 +15,6 @@ const NoQueusesToday = () => {
                 >
                     Working day is over
                 </h6>
-
             </div>
 
             <div className='closeClinicToday'>

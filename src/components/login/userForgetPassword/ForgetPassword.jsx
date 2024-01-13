@@ -6,6 +6,7 @@ import {
   searchEmailFromDataBase,
 } from "../function/UserForgetPassword";
 import InputNewData from "./InputNewData";
+import { ShowModelPopUp } from "../../../customHook/showPopUp";
 
 
 
@@ -13,18 +14,17 @@ import InputNewData from "./InputNewData";
 function ForgetPassword() {
 
 
-  const [showNewNewPassword, setShowNewPassword] = useState(false);
-  const handleShowNewPassword = () => setShowNewPassword(true);
+   // show popup New Password custom Hook
+  const { show, handleShow } = ShowModelPopUp();
 
   const [Email, setEmail] = useState("");
 
-    
+  
   const checkEmailInput = () => {
-    searchEmailFromDataBase(Email, handleShowNewPassword);
+    searchEmailFromDataBase(Email, handleShow);
   };
 
     
-
   return (
     <>
       <div className="enterEmail">
@@ -53,12 +53,10 @@ function ForgetPassword() {
       {/* here show popup, input new value */}
       <div className="inputChangePasswort">
         <Modal
-          show={showNewNewPassword}
+          show={show}
           style={{ background: "rgba(0, 0, 0, 0.9)" }}
-        >
-            
-          <InputNewData />
-          
+        > 
+          <InputNewData />  
         </Modal>
       </div>
     </>

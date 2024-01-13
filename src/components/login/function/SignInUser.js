@@ -33,7 +33,6 @@ export async function openSwalWhenLoginShowTypeUser(nameUser, UserType_code) {
 }
 
 
-
 export function AdminInfoVideo() {
 
     Swal.fire({

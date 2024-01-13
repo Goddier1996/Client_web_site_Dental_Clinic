@@ -20,7 +20,6 @@ function SendEmail(props) {
   const [capVal, setCapVal] = useState(false);
 
     
-    
   const handleChange = (e) => {
     setToSend({ ...toSend, [e.target.name]: e.target.value });
   };
@@ -28,7 +27,6 @@ function SendEmail(props) {
     
   //send meesage to admin Gmail use EmailJS ,and check value
   const sendMessage = () => {
-    
     userSendMessage(toSend, () => setCapVal(false));
   };
 

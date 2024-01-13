@@ -4,13 +4,10 @@ import { Button } from 'react-bootstrap';
 
 const ShowDays = ({ showDay, funcLoadHoursThisDay }) => {
 
-    const { Serial_code, Day_date } = showDay;
-
     return (
-
         <Button size="sm" variant="outline-secondary"
-            onClick={() => funcLoadHoursThisDay(Serial_code, Day_date)}>
-            {Day_date}
+            onClick={() => funcLoadHoursThisDay(showDay.Serial_code, showDay.Day_date)}>
+            {showDay.Day_date}
         </Button>
     )
 }

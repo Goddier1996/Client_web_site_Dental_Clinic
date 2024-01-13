@@ -13,8 +13,6 @@ const PopUpAppointment = ({ showModelAppointment, closePopUpAppointment }) => {
     <div className="bookClick">
       <Modal
         show={showModelAppointment}
-        // aria-labelledby="contained-modal-title-vcenter"
-        // centered
       >
         <div
           className={

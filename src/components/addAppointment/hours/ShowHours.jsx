@@ -4,20 +4,16 @@ import '../appointment.css'
 
 const ShowHours = ({ hours, ShowPopUpReCAPTCHA }) => {
 
-    const { Hour_day, IsActive } = hours;
 
     let storedTheme = localStorage.getItem("theme");
 
-
     return (
-        <div className={IsActive == "1" ? "hourActive" : "hourNotActive"}>
-
+        <div className={hours.IsActive == "1" ? "hourActive" : "hourNotActive"}>
             <p
                 style={(storedTheme === "light") ? { textDdecoration: "none", color: "white" } :
                     (storedTheme === "dark") ? { textDdecoration: "none" } : ""}
-                onClick={IsActive == "1" ? ShowPopUpReCAPTCHA : ""}>{Hour_day}
+                onClick={hours.IsActive == "1" ? ShowPopUpReCAPTCHA : ""}>{hours.Hour_day}
             </p>
-
         </div>
     )
 }

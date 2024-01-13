@@ -1,10 +1,11 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { Nav, Navbar, Container, Button, Modal } from "react-bootstrap";
-import React, { useState } from "react";
+import React from "react";
 import "./menu.css";
 import { useHistory, Link } from "react-router-dom";
 import Sign_in from "../login/signIn/SignI_in";
 import { logOutUser, sendUserToProfile } from "./function/FunctionsMenu";
+import { ShowModelPopUp } from "../../customHook/showPopUp";
 
 
 function Menu() {
@@ -15,13 +16,10 @@ function Menu() {
 
   const history = useHistory();
 
-  // pop up sign in
-  const [showModelSignIn, setShowModelSignIn] = useState(false);
-  const handleCloseModelSignIn = () => setShowModelSignIn(false);
-  const handleShowModelSignIn = () => setShowModelSignIn(true);
+  // show popup sign in custom Hook
+  const { show, handleClose, handleShow } = ShowModelPopUp();
 
-    
-    
+ 
   return (
     <>
       <div
@@ -109,7 +107,7 @@ function Menu() {
                   </div>
                 ) : (
                   <>
-                    <Nav.Link onClick={handleShowModelSignIn}>Login</Nav.Link>
+                    <Nav.Link onClick={handleShow}>Login</Nav.Link>
                     <Nav.Link as={Link} to="/Register">
                       Register
                     </Nav.Link>
@@ -118,8 +116,8 @@ function Menu() {
               </Navbar.Collapse>
 
               {/* model popup show Sign in */}
-              <Modal show={showModelSignIn}>
-                <Sign_in hideSignIn={handleCloseModelSignIn} />
+              <Modal show={show}>
+                <Sign_in hideSignIn={handleClose} />
               </Modal>
             </Navbar.Collapse>
           </Container>

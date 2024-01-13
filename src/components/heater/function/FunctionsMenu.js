@@ -4,7 +4,6 @@ import Swal from 'sweetalert2'
 let storedTheme = localStorage.getItem("theme");
 
 
-
 export async function sendUserToProfile(idUser, history) {
 
     history.push(`/Profile/${idUser}`);
@@ -13,7 +12,6 @@ export async function sendUserToProfile(idUser, history) {
 
 
 export async function logOutUser(history) {
-
 
     Swal.fire({
         title: 'Are you sure you want to leave?',

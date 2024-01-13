@@ -4,14 +4,14 @@ import AddMedicalFileUser from "../sendMedicalFile/AddMedicalFile";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { showPopUpTodayDoctorCantSendFile,returnBoolResultIfDayTurnToday } from "../function/DoctorFunctionService";
 import AllUsersNeedSendFile from "../sendMedicalFile/AllUsersNeedSendFile";
+import { ShowModelPopUp } from "../../../../customHook/showPopUp";
 
 
 const ActiveQueues = ({ usersActive_queues }) => {
 
 
-  // show popUp send file
-  const [show, setShow] = useState(false);
-  const handleShow = () => setShow(true);
+  // show popup send file custom Hook
+  const { show, handleClose, handleShow } = ShowModelPopUp();
 
   const [saveDataUserSendFile, setSaveDataUserSendFile] = useState({});
 
@@ -22,15 +22,12 @@ const ActiveQueues = ({ usersActive_queues }) => {
   // here check function , check if day this today don't show popUp send file, if no show popUp and save dataUser
   const checkFuncIfDoctorCanSendToday = (dataShowAllUsers) => {
     
-
     if (!returnBoolResultIfDayTurnToday(dataShowAllUsers)) {
-
       showPopUpTodayDoctorCantSendFile(dataShowAllUsers)
     }
 
     else {
       setSaveDataUserSendFile(dataShowAllUsers);
-
       // show popup send file
       handleShow();
     }
@@ -67,7 +64,7 @@ const ActiveQueues = ({ usersActive_queues }) => {
 
       {/* here show model input value to send file */}
       <Modal show={show}>
-        <AddMedicalFileUser hideModelMedicalFile={()=>setShow()} showDataUser={saveDataUserSendFile } />
+        <AddMedicalFileUser hideModelMedicalFile={()=>handleClose()} showDataUser={saveDataUserSendFile } />
       </Modal>
     </>
   );

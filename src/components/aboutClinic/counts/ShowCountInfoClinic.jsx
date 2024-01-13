@@ -19,7 +19,6 @@ const ShowCountInfoClinic = () => {
     return data.work.length;
   };
 
-
   // use custom hook , useQuery Loading Data
   const {
     isLoading: LoadingReviews,
@@ -62,7 +61,6 @@ const ShowCountInfoClinic = () => {
           transition={{ duration: 0.75, ease: "easeOut" }}
         >
           <div className="cardsInfoAbout">
-
                 <InfoCounts
                   type={"Doctor's"}
                   count={countDoctors}
@@ -87,7 +85,6 @@ const ShowCountInfoClinic = () => {
                   img={"https://i.postimg.cc/MpwGJt9q/44.webp"}
                   loading={LoadingReviews}
                 />
-              
           </div>
         </m.div>
       )}

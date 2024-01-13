@@ -9,21 +9,21 @@ import ShowDays from "./days/ShowDays.jsx";
 import LoadingDaysHour from "../loading/LoadingDaysHour.jsx";
 import LoadingAllFuncShowHours from "./hours/LoadingAllFuncShowHours.jsx";
 import { saveDateUserTurnDayAndHour } from "./function/AddTurnFunctions.js";
+import { ShowModelPopUp } from "../../customHook/showPopUp.js";
 
 
 //here component we show days+hours (if you click to button in Home Page Book an appointment)
 function Appointment() {
 
 
-  // show pop up
-  const [showPopUpRobotBox, setShowPopUpRobotBox] = useState(false);
-  const handleShowPopUpRobotBox = () => setShowPopUpRobotBox(true);
+  // show popup RobotBox custom Hook
+  const { show, handleClose, handleShow } = ShowModelPopUp();
+  // show popup show hour custom Hook
+  const { showOneMoreModel, handleShowOneMoreModel } = ShowModelPopUp();
+
 
   // check box if user not robot
   const [capVal, setCapVal] = useState(false);
-
-  //show a pop up hour
-  const [showResultsHours, setShowResultsHours] = useState(false);
 
   // all data what we save in local storage and session Storage
   let storedTheme = localStorage.getItem("theme");
@@ -38,25 +38,21 @@ function Appointment() {
   } = useQueryLoadingAllData("allDays", LoadDays);
 
     
-    
   const [dataIdDay, setDataIdDay] = useState({});
 
   //here you show Hours from day what we choose , from data base
   const LoadHours = async (Serial_code, Day_date) => {
     
     setDataIdDay({ dayToday: Day_date, idDay: Serial_code });
-
-    setShowResultsHours(true);
+    handleShowOneMoreModel();
   };
 
-    
     
   const [dataIdHour, setDataIdHour] = useState({});
 
   const showPopUpReCAPTCHA = (Hour_day, Serial_code) => {
     
-    handleShowPopUpRobotBox();
-
+    handleShow();
     setDataIdHour({ hourDayChoose: Hour_day, idHour: Serial_code });
   };
 
@@ -76,15 +72,13 @@ function Appointment() {
 
     
   const closePopUpRobotBoxUserExit = () => {
-    setShowPopUpRobotBox(false);
+    handleClose();
     setCapVal(false);
   };
 
-    
-    
+     
   return (
     <>
-      {/* show Loading */}
       {LoadingDays ? (
         <LoadingDaysHour />
       ) : ErrorDays ? (
@@ -108,7 +102,7 @@ function Appointment() {
           </Row>
 
           <Modal.Body>
-            {showResultsHours ? (
+            {showOneMoreModel ? (
               <LoadingAllFuncShowHours
                 showPopUpReCAPTCHA={showPopUpReCAPTCHA}
                 dataIdDay={dataIdDay}
@@ -120,7 +114,7 @@ function Appointment() {
 
       {/* show popUp check if user not robot and save Turn */}
       <Modal
-        show={showPopUpRobotBox}
+        show={show}
         style={{ background: "rgba(0, 0, 0, 0.75)" }}
         aria-labelledby="contained-modal-title-vcenter"
         centered

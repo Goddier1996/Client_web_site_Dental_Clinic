@@ -4,15 +4,11 @@ import { motion as m } from "framer-motion/dist/framer-motion"
 import UserRegister from '../components/register/UserRegister.jsx';
 
 
-
 function Register() {
-
 
     let storedTheme = localStorage.getItem("theme");
 
-
     return (
-
         <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -20,13 +16,9 @@ function Register() {
             transition={{ duration: 0.75, ease: "easeOut" }}
         >
             <section className="banner1">
-
                 <div className={(storedTheme == "light") ? "box1 contect1Dark" : (storedTheme == "dark") ? "box1 contect1" : ""}>
-
                     <div className={(storedTheme == "light") ? "log1Dark" : (storedTheme == "dark") ? "log1" : ""}>
-
                         <UserRegister />
-
                     </div>
                 </div>
 
