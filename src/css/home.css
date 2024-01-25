@@ -141,13 +141,6 @@
 }
 
 
-.titleHeater img {
-    height: 90px;
-    margin-top: -13%;
-    margin-bottom: -5%;
-}
-
-
 @media(max-width:991px) {
 
     .startImg {

@@ -6,6 +6,8 @@ import { useHistory, Link } from "react-router-dom";
 import Sign_in from "../login/signIn/SignI_in";
 import { logOutUser, sendUserToProfile } from "./function/FunctionsMenu";
 import { ShowModelPopUp } from "../../customHook/showPopUp";
+import  LazyLoadImg  from "../tools/lazyLoad/LazyLoadImg";
+
 
 
 function Menu() {
@@ -19,7 +21,7 @@ function Menu() {
   // show popup sign in custom Hook
   const { show, handleClose, handleShow } = ShowModelPopUp();
 
- 
+
   return (
     <>
       <div
@@ -35,7 +37,13 @@ function Menu() {
           <Container>
             <Link to="/">
               <Navbar.Brand>
-                <img src="https://i.postimg.cc/QxRznyxx/44.webp" alt="icon" />
+                <LazyLoadImg
+                  type=""
+                  img="https://i.postimg.cc/QxRznyxx/44.webp"
+                  width=""
+                  height="65"
+                  alt="logo"
+                />
               </Navbar.Brand>
             </Link>
 
@@ -115,12 +123,10 @@ function Menu() {
                 )}
               </Navbar.Collapse>
 
-              
               {/* model popup show Sign in */}
               <Modal show={show}>
                 <Sign_in hideSignIn={handleClose} />
               </Modal>
-              
             </Navbar.Collapse>
           </Container>
         </Navbar>

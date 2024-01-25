@@ -1,5 +1,7 @@
 import React from "react";
 import Spinner from "react-bootstrap/Spinner";
+import  LazyLoadImg  from "../../tools/lazyLoad/LazyLoadImg";
+
 
 
 const InfoModelCount = ({ type, count, img, loading }) => {
@@ -12,7 +14,7 @@ const InfoModelCount = ({ type, count, img, loading }) => {
       <div className="img">
         <div className="img-inner">
           <div className="inner-skew">
-            <img src={img} alt="icon" />
+            <LazyLoadImg img={img} width="" height="140" alt="icon" />
           </div>
         </div>
       </div>
@@ -29,12 +31,13 @@ const InfoModelCount = ({ type, count, img, loading }) => {
         <h3>{type} :</h3>
         {loading ? (
           <Spinner
-          as="span"
-          animation="border"
-          size="sm"
-          role="status"
-          aria-hidden="true"
-          variant="success" />
+            as="span"
+            animation="border"
+            size="sm"
+            role="status"
+            aria-hidden="true"
+            variant="success"
+          />
         ) : (
           <p>{count}</p>
         )}

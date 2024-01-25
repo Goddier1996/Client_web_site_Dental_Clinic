@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Form , Button } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import RobotBox from "../../ReCAPTCHA/RobotBox";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { userSendMessage } from "../function/SendMailUser";
+import  LazyLoadImg  from "../../tools/lazyLoad/LazyLoadImg";
 
 
 function SendEmail(props) {
@@ -15,23 +16,19 @@ function SendEmail(props) {
     message: "",
   });
 
-    
   // check box if user not robot
   const [capVal, setCapVal] = useState(false);
 
-    
   const handleChange = (e) => {
     setToSend({ ...toSend, [e.target.name]: e.target.value });
   };
 
-    
   //send meesage to admin Gmail use EmailJS ,and check value
   const sendMessage = () => {
     userSendMessage(toSend, () => setCapVal(false));
   };
 
-    
-    
+
   return (
     <div
       className={
@@ -78,9 +75,11 @@ function SendEmail(props) {
           }
         >
           Send Message{" "}
-          <img
-            style={{ height: "30px" }}
-            src="https://i.postimg.cc/fyxJYP8q/99.webp"
+          <LazyLoadImg
+            type=""
+            img="https://i.postimg.cc/fyxJYP8q/99.webp"
+            width="30"
+            height=""
             alt="email"
           />
         </h1>

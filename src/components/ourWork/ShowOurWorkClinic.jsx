@@ -1,19 +1,16 @@
 import React, { useState } from "react";
 import { Card, Col } from "react-bootstrap";
-
+import LazyLoadImg from "../tools/lazyLoad/LazyLoadImg";
 
 const ShowOurWorkClinic = ({ infoOurWork }) => {
-
   const { path, title, text } = infoOurWork;
 
   let storedTheme = localStorage.getItem("theme");
   const [showMore, setShowMore] = useState(false);
 
-
   return (
     <Col>
       <Card
-        className="aaa"
         style={
           storedTheme === "light"
             ? {
@@ -32,7 +29,7 @@ const ShowOurWorkClinic = ({ infoOurWork }) => {
             : ""
         }
       >
-        <Card.Img variant="top" src={path} alt={title} />
+        <LazyLoadImg type="" img={path} width="" height="200" alt={title} />
 
         <Card.Body
           style={
@@ -64,6 +61,5 @@ const ShowOurWorkClinic = ({ infoOurWork }) => {
     </Col>
   );
 };
-
 
 export default ShowOurWorkClinic;

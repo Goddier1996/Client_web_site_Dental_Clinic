@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/loction.css";
-import { Modal, Card } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import SendEmail from "../components/locationContact/sendEmail/SendEmail.jsx";
 import { motion as m } from "framer-motion/dist/framer-motion";
 import { container } from "../styleComponents/StyleAnimation.js";
@@ -11,6 +11,7 @@ import CalcDistanceToClinic from "../components/locationContact/map/CalcDistance
 import ShowMap from "../components/locationContact/map/ShowMap.jsx";
 import OpenOrCloseClinic from "../components/locationContact/hoursWork/OpenOrCloseClinic.jsx";
 import { ShowModelPopUp } from "../customHook/showPopUp.js";
+import  LazyLoadImg  from "../components/tools/lazyLoad/LazyLoadImg.jsx";
 
 
 
@@ -82,9 +83,11 @@ function Location() {
             <ShowHoursWork />
 
             <div style={{ marginTop: "80px", marginBottom: "80px" }}>
-              <Card.Img
-                variant="top"
-                src="https://i.postimg.cc/wTLhkftp/88.webp"
+              <LazyLoadImg
+                type=""
+                img="https://i.postimg.cc/wTLhkftp/88.webp"
+                width="140"
+                height=""
                 alt="clock"
               />
             </div>

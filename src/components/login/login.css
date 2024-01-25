@@ -4,13 +4,20 @@
     justify-content: center;
 }
 
+.imgLogin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2%;
+    padding-bottom: 5%;
+}
 
-.modelLogin img {
+.imgLogin img {
     background-size: cover;
     background-repeat: no-repeat;
     object-fit: cover;
-    width: auto;
-    height: 150px;
+    height: 140px;
+    width: 300px;
     border-radius: 30px;
 }
 

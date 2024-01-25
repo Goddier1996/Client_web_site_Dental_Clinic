@@ -2,6 +2,8 @@ import React from "react";
 import { Button, Modal } from "react-bootstrap";
 import Appointment from "../addAppointment/Appointment.jsx";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import  LazyLoadImg  from "../tools/lazyLoad/LazyLoadImg.jsx";
+
 
 
 const PopUpAppointment = ({ showModelAppointment, closePopUpAppointment }) => {
@@ -11,9 +13,7 @@ const PopUpAppointment = ({ showModelAppointment, closePopUpAppointment }) => {
 
   return (
     <div className="bookClick">
-      <Modal
-        show={showModelAppointment}
-      >
+      <Modal show={showModelAppointment}>
         <div
           className={
             storedTheme === "light"
@@ -48,12 +48,18 @@ const PopUpAppointment = ({ showModelAppointment, closePopUpAppointment }) => {
             </Button>
           </div>
 
-          <div className="titleHeater">
-            <img src="https://i.postimg.cc/HxR0sFNr/22.webp" />
+          <div className="titleHeater" style={{ marginTop: "-10%",marginBottom:"-2%" }}>
+            <LazyLoadImg
+              type=""
+              img="https://i.postimg.cc/HxR0sFNr/22.webp"
+              width=""
+              height="90"
+              alt="day"
+            />
           </div>
 
-           {/* show all days and hours to add turn user */}
-           <Appointment />
+          {/* show all days and hours to add turn user */}
+          <Appointment />
         </div>
       </Modal>
     </div>
