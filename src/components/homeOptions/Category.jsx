@@ -2,7 +2,6 @@ import { Card } from "react-bootstrap";
 import "../../css/home.css";
 import React from "react";
 import data from "../../Json_date/date.json";
-import  LazyLoadImg  from "../tools/lazyLoad/LazyLoadImg";
 
 
 
@@ -18,11 +17,8 @@ function Category() {
             {/* can click to image or text and move to page what user choose */}
             <Card style={{ border: "none", background: "none" }}>
               <a href={record.link} aria-label={record.name}>
-                <LazyLoadImg
-                  type="category"
-                  img={record.path}
-                  width="500"
-                  height="190"
+                <img
+                  src={record.path}
                   alt={record.name}
                 />
               </a>
