@@ -18,7 +18,7 @@ const MoveContactPageProblem = () => {
   return (
     <>
       <p>
-        you have problem change password ?<br />
+        You have problem ?<br />
         Click move to page contact (Send Mail)
         <br />
         <span style={{ fontSize: "25px" }}>👇</span>
