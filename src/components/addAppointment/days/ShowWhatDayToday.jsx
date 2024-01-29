@@ -1,6 +1,4 @@
 import React from "react";
-// import  LazyLoadImg  from "../../tools/lazyLoad/LazyLoadImg";
-
 
 
 const ShowWhatDayToday = ({ takeDayAndCodeDayInResultHour }) => {
@@ -8,16 +6,8 @@ const ShowWhatDayToday = ({ takeDayAndCodeDayInResultHour }) => {
 
   let storedTheme = localStorage.getItem("theme");
 
-    
   return (
     <>
-      {/* <LazyLoadImg
-        type=""
-        img="https://i.postimg.cc/bv30tZZS/z2.webp"
-        width=""
-        height=""
-        alt="clock"
-      /> */}
       <h6
         style={
           storedTheme === "light"
