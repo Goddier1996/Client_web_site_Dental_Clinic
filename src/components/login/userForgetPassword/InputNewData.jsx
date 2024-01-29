@@ -32,7 +32,7 @@ const InputNewData = ({ showModelChangePassword }) => {
           <Modal.Title>
             <LazyLoadImg
               type=""
-              img="https://i.postimg.cc/8C4TDm96/Pngtree-password-security-for-online-transaction-5345398-copy.png"
+              img="https://i.postimg.cc/CKBhZGb2/3.webp"
               width=""
               height=""
               alt="new password"

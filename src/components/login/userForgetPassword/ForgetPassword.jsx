@@ -8,6 +8,7 @@ import {
 import InputNewData from "./InputNewData";
 import { ShowModelPopUp } from "../../../customHook/showPopUp";
 import LazyLoadImg from "../../tools/lazyLoad/LazyLoadImg";
+import MoveContactPageProblem from "./MoveContactPageProblem";
 
 
 
@@ -20,6 +21,7 @@ function ForgetPassword({ showModelForgetPassword }) {
   const [Email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
+
   const checkEmailInput = () => {
     setLoading(true);
     searchEmailFromDataBase(Email, handleShow, setLoading);
@@ -31,13 +33,13 @@ function ForgetPassword({ showModelForgetPassword }) {
     <>
       <Modal
         show={showModelForgetPassword}
-        style={{ background: "rgba(0, 0, 0, 0.80)" }}
+        style={{ background: "rgba(0, 0, 0, 0.90)" }}
       >
         <Modal.Header className="titleHeaterForgetPassword">
           <Modal.Title>
             <LazyLoadImg
               type=""
-              img="https://i.postimg.cc/HxHNBGLG/forgot-password.png"
+              img="https://i.postimg.cc/prtLMmh6/2.webp"
               width=""
               height=""
               alt="user forget password"
@@ -86,8 +88,14 @@ function ForgetPassword({ showModelForgetPassword }) {
             </div>
           </Form>
         </Modal.Body>
+
+        {/* here show if user have problem change password */}
+        <Modal.Footer className="contactProblemForgetPassword">
+          <MoveContactPageProblem/>
+        </Modal.Footer>
       </Modal>
 
+      
       {/* here show popup, input new value */}
       <InputNewData showModelChangePassword={show} />
     </>
