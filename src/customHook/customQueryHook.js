@@ -122,8 +122,13 @@ export const newUserRegister = (history) => {
     return useMutation({
         mutationFn: AddNewUserRegester,
         onSuccess: () => {
-            popUserRegister(history);
+            let userDataLogin = JSON.parse(sessionStorage.getItem("userFindLogin"));
+            let userDataEmail = JSON.parse(sessionStorage.getItem("userFindEmail"));
 
+            if (userDataLogin == null && userDataEmail == null) {
+                sessionStorage.clear();
+                popUserRegister(history);
+            }
             queryClient.invalidateQueries({
                 queryKey: ["user_register"]
             })
