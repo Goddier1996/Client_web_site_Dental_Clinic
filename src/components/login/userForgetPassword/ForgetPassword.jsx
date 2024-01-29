@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Form , Button } from "react-bootstrap";
+import { Modal, Form, Button, Spinner } from "react-bootstrap";
 import "./forgetPassword.css";
 import {
   closePopUpForgetPassword,
@@ -7,58 +7,89 @@ import {
 } from "../function/UserForgetPassword";
 import InputNewData from "./InputNewData";
 import { ShowModelPopUp } from "../../../customHook/showPopUp";
+import LazyLoadImg from "../../tools/lazyLoad/LazyLoadImg";
 
 
 
-//here component forget Password use in sign In component
-function ForgetPassword() {
+function ForgetPassword({ showModelForgetPassword }) {
 
 
-   // show popup New Password custom Hook
+  // show popup New Password custom Hook
   const { show, handleShow } = ShowModelPopUp();
 
   const [Email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  
   const checkEmailInput = () => {
-    searchEmailFromDataBase(Email, handleShow);
+    setLoading(true);
+    searchEmailFromDataBase(Email, handleShow, setLoading);
   };
 
-    
+
+
   return (
     <>
-      <div className="enterEmail">
-        <Form.Group className="mb-3">
-          <Form.Control
-            type="email"
-            placeholder="enter your Email"
-            value={Email}
-            onChange={(event) => setEmail(event.target.value)}
-            autoFocus
-          />
+      <Modal
+        show={showModelForgetPassword}
+        style={{ background: "rgba(0, 0, 0, 0.80)" }}
+      >
+        <Modal.Header className="titleHeaterForgetPassword">
+          <Modal.Title>
+            <LazyLoadImg
+              type=""
+              img="https://i.postimg.cc/HxHNBGLG/forgot-password.png"
+              width=""
+              height=""
+              alt="user forget password"
+            />
+            <h1>You forget a Password ? Let's create new</h1>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <div className="enterEmail">
+              <Form.Group className="mb-3">
+                <Form.Control
+                  type="email"
+                  placeholder="Enter your Email"
+                  value={Email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  autoFocus
+                />
 
-          <div className="startChangePassword">
-            <Button variant="success" onClick={checkEmailInput}>
-              Ok
-            </Button>
+                <div className="startChangePassword">
+                  {!loading ? (
+                    <Button
+                      variant="success"
+                      disabled={loading}
+                      onClick={checkEmailInput}
+                    >
+                      Ok
+                    </Button>
+                  ) : (
+                    <Button variant="success">
+                      <Spinner
+                        as="span"
+                        animation="border"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                      />
+                    </Button>
+                  )}
 
-            <Button variant="danger" onClick={closePopUpForgetPassword}>
-              Close
-            </Button>
-          </div>
-        </Form.Group>
-      </div>
+                  <Button variant="danger" onClick={closePopUpForgetPassword}>
+                    Close
+                  </Button>
+                </div>
+              </Form.Group>
+            </div>
+          </Form>
+        </Modal.Body>
+      </Modal>
 
-          
       {/* here show popup, input new value */}
-      <div className="inputChangePasswort">
-        <Modal
-          show={show}
-          style={{ background: "rgba(0, 0, 0, 0.9)" }}
-        > 
-          <InputNewData />  
-        </Modal>
-      </div>
+      <InputNewData showModelChangePassword={show} />
     </>
   );
 }

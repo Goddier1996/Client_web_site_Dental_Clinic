@@ -66,7 +66,6 @@ export async function ActiveHourDontNeedTurn(codeHour, history, codeUser) {
     }).then((result) => {
 
         if (result.isConfirmed) {
-
             ActiveHourInDataBase(codeHour);
             saveDateUserCancelTheTurn(codeUser, history);
         }

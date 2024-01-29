@@ -186,6 +186,28 @@ a.isDisabled {
     animation: color-changeInfoAdminDark 2s infinite;
 }
 
+.titleHeaterForgetPassword,
+.titleHeaterNewPassword {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.titleHeaterForgetPassword h1 {
+    margin-top: 5%;
+}
+
+.titleHeaterForgetPassword img {
+    height: 50px;
+}
+
+
+.titleHeaterNewPassword img {
+    height: 180px;
+
+}
+
 
 @keyframes color-changeInfoAdminDark {
     0% {

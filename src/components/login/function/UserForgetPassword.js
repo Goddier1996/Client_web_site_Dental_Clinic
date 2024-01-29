@@ -7,7 +7,7 @@ let storedTheme = localStorage.getItem("theme");
 
 
 // here search email user if in database move to input new data, if no show error alert!
-export async function searchEmailFromDataBase(Email, handleShowNewPassword) {
+export async function searchEmailFromDataBase(Email, handleShowNewPassword, setLoading) {
 
     if (Email < 1) {
         Swal.fire({
@@ -23,10 +23,10 @@ export async function searchEmailFromDataBase(Email, handleShowNewPassword) {
             buttonColor: `${(storedTheme === "light") ? "#E96E00" :
                 (storedTheme === "dark") ? "" : ""}`
         })
+        setLoading(false);
     }
     else {
         try {
-
             let user =
             {
                 Email: Email
@@ -42,25 +42,45 @@ export async function searchEmailFromDataBase(Email, handleShowNewPassword) {
 
             let data = await res.json();
 
-            Swal.fire({
-                title: `${data.FirstName} We found you. Let's change a new password :)`,
-                icon: 'info',
-                toast: true,
-                position: 'top-end',
-                confirmButtonColor: "green",
-                background: `${(storedTheme === "light") ? "#373E44" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                color: `${(storedTheme === "light") ? "#ffffffab" :
-                    (storedTheme === "dark") ? "" : ""}`,
-                buttonColor: `${(storedTheme === "light") ? "#E96E00" :
-                    (storedTheme === "dark") ? "" : ""}`
-            }).then((result) => {
-                if (result.isConfirmed) {
+            if (data) {
+                Swal.fire({
+                    title: `${data.FirstName} We found you. Let's change a new password`,
+                    icon: 'info',
+                    toast: true,
+                    position: 'top-end',
+                    confirmButtonColor: "green",
+                    background: `${(storedTheme === "light") ? "#373E44" :
+                        (storedTheme === "dark") ? "" : ""}`,
+                    color: `${(storedTheme === "light") ? "#ffffffab" :
+                        (storedTheme === "dark") ? "" : ""}`,
+                    buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                        (storedTheme === "dark") ? "" : ""}`
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        setLoading(false);
+                        sessionStorage.setItem("userForgetPassword", JSON.stringify(data));
+                        handleShowNewPassword() // show pop up change password
+                    }
+                })
+            }
 
-                    sessionStorage.setItem("userForgetPassword", JSON.stringify(data));
-                    handleShowNewPassword() // show pop up change password
-                }
-            })
+            else {
+                Swal.fire({
+                    text: `Don't Have This Email in Database try again`,
+                    icon: 'warning',
+                    toast: true,
+                    position: 'top-end',
+                    confirmButtonColor: "green",
+                    background: `${(storedTheme === "light") ? "#373E44" :
+                        (storedTheme === "dark") ? "" : ""}`,
+                    color: `${(storedTheme === "light") ? "#ffffffab" :
+                        (storedTheme === "dark") ? "" : ""}`,
+                    buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                        (storedTheme === "dark") ? "" : ""}`
+                })
+                setLoading(false);
+            }
+
 
         } catch (error) {
             console.log(error);
@@ -69,10 +89,9 @@ export async function searchEmailFromDataBase(Email, handleShowNewPassword) {
 }
 
 
-export function checkValueInput(User_password, Confirm_password) {
+export function checkValueInput(User_password, Confirm_password, setLoading) {
 
     if (User_password == '' || Confirm_password == '') {
-
         Swal.fire({
             text: 'Please Input your new Password!',
             icon: 'error',
@@ -86,15 +105,13 @@ export function checkValueInput(User_password, Confirm_password) {
             buttonColor: `${(storedTheme === "light") ? "#E96E00" :
                 (storedTheme === "dark") ? "" : ""}`
         })
-        return;
+        setLoading(false);
     }
 
-
-    if (User_password === Confirm_password) {
-
+    else if (User_password === Confirm_password) {
         ForgetPassword(User_password, Confirm_password);
+        setLoading(false);
     }
-
 
     else {
         Swal.fire({
@@ -110,6 +127,7 @@ export function checkValueInput(User_password, Confirm_password) {
             buttonColor: `${(storedTheme === "light") ? "#E96E00" :
                 (storedTheme === "dark") ? "" : ""}`
         })
+        setLoading(false);
     }
 }
 
@@ -164,7 +182,6 @@ export function closePopUpForgetPassword() {
     }).then((result) => {
 
         if (result.isConfirmed) {
-
             sessionStorage.clear('userForgetPassword');
             window.location.reload(false);
         }
