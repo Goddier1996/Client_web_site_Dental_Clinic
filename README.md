@@ -56,7 +56,9 @@ Other : Netlify , Railway
 
 
 ## forget Password :
-![7](https://user-images.githubusercontent.com/59862302/212555025-d3bb9890-487c-4ebc-aa1a-143d1a798334.jpg)
+<img width="946" alt="Screenshot 2024-01-29 203526" src="https://github.com/Goddier1996/Client_web_site_Dental_Clinic/assets/59862302/5f9b5732-99e7-4c98-81cd-3e7569e5b7fe">
+<img width="957" alt="Screenshot 2024-01-29 203554" src="https://github.com/Goddier1996/Client_web_site_Dental_Clinic/assets/59862302/ad391db5-c2fe-4106-b2d0-a3559705e171">
+
 
 
 ## Register Page :
