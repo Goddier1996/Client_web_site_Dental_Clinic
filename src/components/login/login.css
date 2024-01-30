@@ -22,9 +22,6 @@
 }
 
 .form-box {
-    width: 350px;
-    height: auto;
-    margin: 0 auto;
     background-color: #faf9f8;
     padding: 10px;
     border-radius: 30px;
@@ -33,8 +30,6 @@
 }
 
 .form-boxDark {
-    width: 350px;
-    height: auto;
     background: #424242;
     padding: 10px;
     border-radius: 30px;
@@ -193,9 +188,6 @@ a.isDisabled {
     background: rgba(60, 60, 60, 0.7);
     backdrop-filter: blur(20px);
     border-radius: 30px;
-    width: 350px;
-    height: auto;
-    margin: 0 auto;
 }
 
 .stylePasswordModelCreateNew {
@@ -203,9 +195,6 @@ a.isDisabled {
     background: rgba(60, 60, 60, 0.1);
     backdrop-filter: blur(6px);
     border-radius: 30px;
-    width: 350px;
-    height: auto;
-    margin: 0 auto;
 }
 
 .titleHeaterForgetPassword,
