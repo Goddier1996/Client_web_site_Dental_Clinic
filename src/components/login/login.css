@@ -186,6 +186,21 @@ a.isDisabled {
     animation: color-changeInfoAdminDark 2s infinite;
 }
 
+
+.stylePasswordModel {
+    padding: 22px;
+    background: rgba(60, 60, 60, 0.7);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+}
+
+.stylePasswordModelCreateNew {
+    padding: 37px;
+    background: rgba(60, 60, 60, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 30px;
+}
+
 .titleHeaterForgetPassword,
 .titleHeaterNewPassword,
 .contactProblemForgetPassword {
@@ -201,7 +216,7 @@ a.isDisabled {
 }
 
 .titleHeaterForgetPassword img {
-    height: 50px;
+    height: 40px;
 }
 
 .titleHeaterNewPassword img {
@@ -210,12 +225,13 @@ a.isDisabled {
 
 
 .contactProblemForgetPassword p {
-    font-size: 14px;
-    color: white;
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+    margin-top: -2%;
 }
 
 .contactProblemForgetPassword img {
-    height: 100px;
+    height: 80px;
     transition-duration: 0.4s;
     -webkit-transition-duration: 0.4s;
     cursor: pointer;
@@ -223,6 +239,10 @@ a.isDisabled {
 
 .contactProblemForgetPassword img:hover {
     filter: drop-shadow(0px 10px 10px #82b5bd7d);
+}
+
+.form-control::-webkit-input-placeholder {
+    color: gray;
 }
 
 

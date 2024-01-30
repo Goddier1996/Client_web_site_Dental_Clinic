@@ -1,5 +1,4 @@
 .search-results {
-    /* margin: 3%; */
     margin-bottom: -12%;
     padding: 4%;
     align-items: center;
@@ -10,13 +9,9 @@
     text-align: center;
 }
 
-/* .chioseDayAndDay h6 {
-    margin-top: -12%;
-} */
 
 .chioseDayAndDay img {
     height: 60px;
-    /* margin-top: -40%; */
 }
 
 .showDayItems {
@@ -79,7 +74,6 @@
 
 .gifImageRobot img {
     height: 200px;
-    /* margin-bottom: -13%; */
     margin-top: -7%;
 }
 
@@ -90,8 +84,6 @@
 
 .gifImageUserSaveData img {
     height: 190px;
-    /* margin-top: 10%;
-    margin-bottom: 5%; */
     margin-top: -7%;
 }
 
@@ -117,11 +109,9 @@
 .writeNotHaveTodayTurn h6 {
     color: Gray Text;
     cursor: none;
-    /* margin-top: -3%; */
 }
 
 .closeClinicToday {
-    /* margin-top: 7%; */
     margin-bottom: 6%;
     cursor: none;
 }

@@ -22,14 +22,9 @@
 
 
 .content {
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
     position: absolute;
     top: 30%;
     left: 16px;
-    /* width: 100%; */
     line-height: 60px;
     font-size: 50px;
     color: #ffffff;
@@ -82,9 +77,6 @@
 
 .title {
     position: absolute;
-    /* bottom: 0px;
-    left: 0px; */
-    /* transform: translate(-50%, -50%); */
     bottom: 0px;
     right: 0px;
     left: 0px;

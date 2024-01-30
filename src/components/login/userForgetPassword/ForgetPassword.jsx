@@ -21,7 +21,6 @@ function ForgetPassword({ showModelForgetPassword }) {
   const [Email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
-
   const checkEmailInput = () => {
     setLoading(true);
     searchEmailFromDataBase(Email, handleShow, setLoading);
@@ -31,71 +30,70 @@ function ForgetPassword({ showModelForgetPassword }) {
 
   return (
     <>
-      <Modal
-        show={showModelForgetPassword}
-        style={{ background: "rgba(0, 0, 0, 0.90)" }}
-      >
-        <Modal.Header className="titleHeaterForgetPassword">
-          <Modal.Title>
-            <LazyLoadImg
-              type=""
-              img="https://i.postimg.cc/prtLMmh6/2.webp"
-              width=""
-              height=""
-              alt="user forget password"
-            />
-            <h1>You forget a Password ? Let's create new</h1>
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <div className="enterEmail">
-              <Form.Group className="mb-3">
-                <Form.Control
-                  type="email"
-                  placeholder="Enter your Email"
-                  value={Email}
-                  onChange={(event) => setEmail(event.target.value)}
-                  autoFocus
-                />
+      <Modal show={showModelForgetPassword}>
+        <div className="stylePasswordModel">
+          <div className="titleHeaterForgetPassword">
+            <Modal.Title>
+              <LazyLoadImg
+                type=""
+                img="https://i.postimg.cc/prtLMmh6/2.webp"
+                width=""
+                height=""
+                alt="user forget password"
+              />
+              <h1 style={{ fontSize: "18px" }}>You forget a password ?</h1>
+            </Modal.Title>
+          </div>
+          <Modal.Body>
+            <Form>
+              <div className="enterEmail">
+                <Form.Group className="mb-3">
+                  <Form.Control
+                    type="email"
+                    placeholder="Please input your Email"
+                    value={Email}
+                    onChange={(event) => setEmail(event.target.value)}
+                  />
 
-                <div className="startChangePassword">
-                  {!loading ? (
-                    <Button
-                      variant="success"
-                      disabled={loading}
-                      onClick={checkEmailInput}
-                    >
-                      Ok
+                  <div className="startChangePassword">
+                    {!loading ? (
+                      <Button
+                        variant="success"
+                        disabled={loading}
+                        onClick={checkEmailInput}
+                      >
+                        Let's start change
+                      </Button>
+                    ) : (
+                      <Button variant="success">
+                        <Spinner
+                          as="span"
+                          animation="border"
+                          size="sm"
+                          role="status"
+                          aria-hidden="true"
+                        />
+                      </Button>
+                    )}
+
+                    <Button variant="danger" onClick={closePopUpForgetPassword}>
+                      Exit
                     </Button>
-                  ) : (
-                    <Button variant="success">
-                      <Spinner
-                        as="span"
-                        animation="border"
-                        size="sm"
-                        role="status"
-                        aria-hidden="true"
-                      />
-                    </Button>
-                  )}
+                  </div>
+                </Form.Group>
+              </div>
+            </Form>
+          </Modal.Body>
 
-                  <Button variant="danger" onClick={closePopUpForgetPassword}>
-                    Close
-                  </Button>
-                </div>
-              </Form.Group>
-            </div>
-          </Form>
-        </Modal.Body>
+          
+          {/* here show if user have problem change password */}
+          <div className="contactProblemForgetPassword">
+            <MoveContactPageProblem />
+          </div>
 
-        {/* here show if user have problem change password */}
-        <Modal.Footer className="contactProblemForgetPassword">
-          <MoveContactPageProblem/>
-        </Modal.Footer>
+        </div>
       </Modal>
 
-      
       {/* here show popup, input new value */}
       <InputNewData showModelChangePassword={show} />
     </>

@@ -15,19 +15,16 @@ const InputNewData = ({ showModelChangePassword }) => {
   const [Confirm_password, setConfirm_password] = useState("");
   const [loading, setLoading] = useState(false);
 
-
   const checkPasswordInput = () => {
     setLoading(true);
     checkValueInput(User_password, Confirm_password, setLoading);
   };
 
 
+
   return (
-    <div className="inputChangePasswort">
-      <Modal
-        show={showModelChangePassword}
-        style={{ background: "rgba(0, 0, 0, 0.9)" }}
-      >
+    <Modal show={showModelChangePassword}>
+      <div className="stylePasswordModelCreateNew">
         <Modal.Header className="titleHeaterNewPassword">
           <Modal.Title>
             <LazyLoadImg
@@ -43,7 +40,7 @@ const InputNewData = ({ showModelChangePassword }) => {
         <Form.Group className="mb-3">
           <Form.Control
             type="password"
-            placeholder="Enter new password"
+            placeholder="Please Input new password"
             value={User_password}
             onChange={(event) => setUser_password(event.target.value)}
             autoFocus
@@ -84,8 +81,8 @@ const InputNewData = ({ showModelChangePassword }) => {
             Close
           </Button>
         </div>
-      </Modal>
-    </div>
+      </div>
+    </Modal>
   );
 };
 

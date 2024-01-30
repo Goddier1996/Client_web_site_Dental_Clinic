@@ -24,7 +24,7 @@ const MoveContactPageProblem = () => {
         <span style={{ fontSize: "25px" }}>👇</span>
       </p>
 
-      <div onClick={() => moveToContactPage()}>
+      <span onClick={() => moveToContactPage()}>
         <LazyLoadImg
           type=""
           img="https://i.postimg.cc/3J5v3RQ7/1.webp"
@@ -32,7 +32,7 @@ const MoveContactPageProblem = () => {
           height=""
           alt="contact"
         />
-      </div>
+      </span>
     </>
   );
 };
