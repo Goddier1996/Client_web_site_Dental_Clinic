@@ -24,6 +24,7 @@
 .form-box {
     width: 350px;
     height: auto;
+    margin: 0 auto;
     background-color: #faf9f8;
     padding: 10px;
     border-radius: 30px;
