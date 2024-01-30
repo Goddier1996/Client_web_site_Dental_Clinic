@@ -188,17 +188,23 @@ a.isDisabled {
 
 
 .stylePasswordModel {
-    padding: 22px;
+    padding: 25px;
     background: rgba(60, 60, 60, 0.7);
     backdrop-filter: blur(20px);
     border-radius: 30px;
+    width: 350px;
+    height: auto;
+    margin: 0 auto;
 }
 
 .stylePasswordModelCreateNew {
     padding: 37px;
     background: rgba(60, 60, 60, 0.1);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(6px);
     border-radius: 30px;
+    width: 350px;
+    height: auto;
+    margin: 0 auto;
 }
 
 .titleHeaterForgetPassword,

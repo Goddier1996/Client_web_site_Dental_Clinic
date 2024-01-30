@@ -19,7 +19,7 @@ const MoveContactPageProblem = () => {
     <>
       <p>
         You have problem ?<br />
-        Click move to page contact (Send Mail)
+        Click move to contact page (Send Mail)
         <br />
         <span style={{ fontSize: "25px" }}>👇</span>
       </p>

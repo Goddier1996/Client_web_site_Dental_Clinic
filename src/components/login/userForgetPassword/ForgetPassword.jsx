@@ -50,7 +50,7 @@ function ForgetPassword({ showModelForgetPassword }) {
                 <Form.Group className="mb-3">
                   <Form.Control
                     type="email"
-                    placeholder="Please input your Email"
+                    placeholder="Input your Email"
                     value={Email}
                     onChange={(event) => setEmail(event.target.value)}
                   />

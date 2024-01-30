@@ -40,7 +40,7 @@ const InputNewData = ({ showModelChangePassword }) => {
         <Form.Group className="mb-3">
           <Form.Control
             type="password"
-            placeholder="Please Input new password"
+            placeholder="new password"
             value={User_password}
             onChange={(event) => setUser_password(event.target.value)}
             autoFocus
