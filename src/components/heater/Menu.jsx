@@ -7,6 +7,7 @@ import Sign_in from "../login/signIn/SignI_in";
 import { logOutUser, sendUserToProfile } from "./function/FunctionsMenu";
 import { ShowModelPopUp } from "../../customHook/showPopUp";
 import  LazyLoadImg  from "../tools/lazyLoad/LazyLoadImg";
+import DarkMode from "../tools/darkMode/DarkMode"
 
 
 
@@ -23,7 +24,6 @@ function Menu() {
 
 
   return (
-    <>
       <div
         className={
           storedTheme == "light"
@@ -105,7 +105,6 @@ function Menu() {
                     </Button>
 
                     <br />
-
                     <Button
                       variant="outline-danger"
                       onClick={() => logOutUser(history)}
@@ -123,15 +122,18 @@ function Menu() {
                 )}
               </Navbar.Collapse>
 
+              {/* active dark mode in heater */}
+              <DarkMode/>
+
               {/* model popup show Sign in */}
               <Modal show={show}>
                 <Sign_in hideSignIn={handleClose} />
-              </Modal>
+            </Modal>
+            
             </Navbar.Collapse>
           </Container>
         </Navbar>
       </div>
-    </>
   );
 }
 

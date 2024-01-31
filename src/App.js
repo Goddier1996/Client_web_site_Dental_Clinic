@@ -9,7 +9,6 @@ import OurWork from './Pages/OurWork.jsx'
 import Service from './Pages/Service.jsx'
 import Profile from './Pages/Profile.jsx'
 import About from './Pages/About.jsx'
-import DarkMode from "./components/tools/darkMode/DarkMode.jsx"
 import NotFoundPage from "./components/tools/pageNotFound/NotFoundPage.jsx";
 import { setDark } from "../src/components/tools/darkMode/DarkModeFunc.js"
 
@@ -26,11 +25,7 @@ function App() {
 
 
   return (
-
     <BrowserRouter>
-
-      {/*Dark mode or light */}
-      <DarkMode />
 
       <Menu />
 

@@ -9,10 +9,12 @@
 
 .menuDark {
     background: #202020;
+    padding: 10px;
 }
 
 .menu {
     background: whitesmoke;
+    padding: 10px;
 }
 
 .menu .link a {
