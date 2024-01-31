@@ -67,6 +67,7 @@
     border-radius: 30px;
     transition-duration: 0.4s;
     -webkit-transition-duration: 0.4s;
+    transform: filter 300ms;
 }
 
 .choise img:hover {
@@ -74,6 +75,11 @@
     border-top-left-radius: 100px;
     border-top-right-radius: 100px;
 }
+
+.categoryLook:has(.choise img:hover) .choise img:not(:hover) {
+    filter: grayscale(30%) brightness(70%);
+}
+
 
 .title {
     position: absolute;
