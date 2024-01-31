@@ -35,9 +35,7 @@ function ourWork() {
       <div className="OurWorkLook">
         <Row xs={1} md={2} lg={3} style={{ width: "100%" }}>
           {data.work.map((record) => (
-            <div>
               <ShowOurWorkClinic key={record.id} infoOurWork={record} />
-            </div>
           ))}
         </Row>
       </div>
