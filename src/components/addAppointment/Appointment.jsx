@@ -4,7 +4,7 @@ import "./appointment.css";
 import { LoadDays } from "../../Api/LoadDataFromApi";
 import NotFoundPage from "../tools/pageNotFound/NotFoundPage.jsx";
 import { useQueryLoadingAllData } from "../../customHook/customQueryHook";
-import ModelPopUpSaveTurn from "./ModelPopUpSaveTurn.jsx";
+import ModelPopUpSaveTurn from "./saveTurnShowPopUp/ModelPopUpSaveTurn.jsx";
 import ShowDays from "./days/ShowDays.jsx";
 import LoadingDaysHour from "../loading/LoadingDaysHour.jsx";
 import LoadingAllFuncShowHours from "./hours/LoadingAllFuncShowHours.jsx";
@@ -115,15 +115,15 @@ function Appointment() {
       {/* show popUp check if user not robot and save Turn */}
       <Modal
         show={show}
-        style={{ background: "rgba(0, 0, 0, 0.75)" }}
         aria-labelledby="contained-modal-title-vcenter"
-        centered
       >
         <ModelPopUpSaveTurn
           capVal={capVal}
           saveDateUser={saveDateUser}
           closePopUpRobotBoxUserExit={closePopUpRobotBoxUserExit}
           setCapVal={() => setCapVal(true)}
+          showDataHour={dataIdHour.hourDayChoose}
+          showDataDay={dataIdDay.dayToday}
         />
       </Modal>
     </>

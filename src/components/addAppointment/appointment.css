@@ -131,14 +131,34 @@
     height: 150px;
 }
 
+
+.showInfoUserQueue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin-top: -60px;
+}
+
+.showInfoUserQueue i {
+    color: white;
+    font-size: 20px;
+}
+
+.showInfoUserQueue p {
+    color: white;
+    margin-bottom: 35px;
+}
+
 .gifImageRobot {
     display: flex;
     justify-content: center;
 }
 
 .gifImageRobot img {
-    height: 200px;
-    margin-top: -7%;
+    height: 150px;
+    /* margin-top: -7%; */
 }
 
 .gifImageUserSaveData {
@@ -147,13 +167,17 @@
 }
 
 .gifImageUserSaveData img {
-    height: 190px;
-    margin-top: -7%;
+    height: 160px;
+    /* margin-top: -7%; */
 }
 
 .showRobotBoxAppoinment {
     display: flex;
     flex-direction: column;
+    padding: 17px;
+    background: rgba(60, 60, 60, 0.7);
+    backdrop-filter: blur(3px);
+    border-radius: 30px;
 }
 
 .appointmentRobotBoxButton {
@@ -186,7 +210,8 @@
 }
 
 .saveUserTurn p {
-    font-size: 19px;
+    margin-top: 5%;
+    font-size: 17px;
     width: 500px;
     color: white;
     animation: blink 2.5s infinite;

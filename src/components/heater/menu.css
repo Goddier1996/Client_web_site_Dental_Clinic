@@ -75,7 +75,6 @@
 
 
 @media(max-width:640px) {
-
     .nav-links:before {
         width: 10%;
     }

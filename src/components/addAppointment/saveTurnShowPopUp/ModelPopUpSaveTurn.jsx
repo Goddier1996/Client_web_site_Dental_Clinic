@@ -1,9 +1,10 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import RobotBox from "../ReCAPTCHA/RobotBox.jsx";
+import RobotBox from "../../ReCAPTCHA/RobotBox.jsx";
 import { useState } from "react";
-import "./appointment.css";
-import  LazyLoadImg  from "../tools/lazyLoad/LazyLoadImg.jsx";
+import "../appointment.css";
+import LazyLoadImg from "../../tools/lazyLoad/LazyLoadImg.jsx";
+import ShowDayAndHourSelectUser from "./ShowDayAndHourSelectUser.jsx";
 
 
 
@@ -12,11 +13,12 @@ const ModelPopUpSaveTurn = ({
   saveDateUser,
   closePopUpRobotBoxUserExit,
   setCapVal,
+  showDataHour,
+  showDataDay,
 }) => {
 
 
   const [userSaveTurn, setUserSaveTurn] = useState(false);
-
 
   const saveDayAndHour = () => {
     setUserSaveTurn(true);
@@ -24,7 +26,7 @@ const ModelPopUpSaveTurn = ({
   };
 
 
-  return(
+  return (
     <div className="showRobotBoxAppoinment">
       <div className={!userSaveTurn ? "gifImageRobot" : "gifImageUserSaveData"}>
         {!userSaveTurn ? (
@@ -40,9 +42,17 @@ const ModelPopUpSaveTurn = ({
             type=""
             img="https://i.postimg.cc/TwLD8KBC/saveTurn.gif"
             width=""
-            height="190"
+            height=""
             alt="use save Appointment"
           />
+        )}
+      </div>
+
+      <div>
+        {!userSaveTurn ? (
+          <ShowDayAndHourSelectUser day={showDataDay} hour={showDataHour} />
+        ) : (
+          ""
         )}
       </div>
 
