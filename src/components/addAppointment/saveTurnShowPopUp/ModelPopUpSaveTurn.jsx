@@ -28,7 +28,7 @@ const ModelPopUpSaveTurn = ({
 
 
   return (
-    <Modal show={show}>
+    <Modal aria-labelledby="contained-modal-title-vcenter" show={show}>
       <div className="showRobotBoxAppoinment">
         <div
           className={!userSaveTurn ? "gifImageRobot" : "gifImageUserSaveData"}
@@ -57,6 +57,7 @@ const ModelPopUpSaveTurn = ({
           <ShowDayAndHourSelectUser day={showDataDay} hour={showDataHour} />
         ) : null}
 
+        
         {/* check box if user don't robot */}
         <div>
           {!userSaveTurn ? <RobotBox activeRobotBox={setCapVal} /> : ""}
