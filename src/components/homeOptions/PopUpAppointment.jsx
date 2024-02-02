@@ -12,7 +12,6 @@ const PopUpAppointment = ({ showModelAppointment, closePopUpAppointment }) => {
   let storedTheme = localStorage.getItem("theme");
 
   return (
-    <div className="bookClick">
       <Modal show={showModelAppointment}>
         <div
           className={
@@ -62,7 +61,6 @@ const PopUpAppointment = ({ showModelAppointment, closePopUpAppointment }) => {
           <Appointment />
         </div>
       </Modal>
-    </div>
   );
 };
 
