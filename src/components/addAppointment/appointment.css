@@ -136,7 +136,7 @@
     background: rgba(60, 60, 60, 0.7);
     backdrop-filter: blur(3px);
     border-radius: 29px;
-    padding: 17px;
+    padding: 11px;
 }
 
 .showInfoUserQueue {
@@ -149,13 +149,19 @@
 
 .showInfoUserQueue i {
     color: white;
-    font-size: 20px;
-    margin-top: -55px;
+    margin-top: -5px;
 }
 
+
+.showInfoUserQueue h6 {
+    color: white;
+    margin-top: -55px;
+    font-size: 15px;
+}
 .showInfoUserQueue p {
     color: white;
     margin-bottom: 35px;
+    font-size: 14px;
 }
 
 .gifImageRobot {
