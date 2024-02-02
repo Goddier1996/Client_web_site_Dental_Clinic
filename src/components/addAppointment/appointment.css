@@ -136,6 +136,7 @@
     background: rgba(60, 60, 60, 0.7);
     backdrop-filter: blur(3px);
     border-radius: 29px;
+    padding: 15px;
 }
 
 .showInfoUserQueue {
@@ -180,7 +181,6 @@
 .appointmentRobotBoxButton {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 6.2%;
 }
 
 
