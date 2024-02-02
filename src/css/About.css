@@ -55,6 +55,8 @@
   color: #00000094;
   font-weight: bold;
   text-decoration: none;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
 }
 
 .titleAboutDark a {
@@ -62,7 +64,15 @@
   text-decoration: none;
   color: #ffffff;
   font-size: 15px;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
 }
+
+.titleAbout a:hover,
+.titleAboutDark a:hover {
+    color: rgba(128, 128, 128, 0.799);
+}
+
 
 
 .titleInformation h1 {

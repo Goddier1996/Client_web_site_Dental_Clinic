@@ -17,6 +17,9 @@
 .showDayItems {
     align-items: center;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
 }
 
 
@@ -27,27 +30,88 @@
     color: Gray Text;
     border: none;
     border-radius: 25% 10%;
+    display: flex;
+    justify-content: center;
 }
 
 .showDay Button:hover {
     background: none;
-    color: black;
+}
+
+.showDay Button:active {
+    background: none;
 }
 
 
 .showDayDark Button {
     margin-top: 5%;
-    padding: 2%;
+    padding: 1%;
     font-size: 18px;
     color: white;
     border: none;
     border-radius: 25% 10%;
+    display: flex;
+    justify-content: center;
 }
 
+.showDay Button:focus,
+.showDayDark Button:focus {
+    outline: none;
+    box-shadow: none;
+}
 
 .showDayDark Button:hover {
     background: none;
-    color: gray;
+    color: white;
+}
+
+
+.hourNotActive p {
+    cursor: no-drop;
+    text-decoration: red line-through;
+    font-size: 18px;
+    color: Gray Text;
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+}
+
+.hourActive p {
+    cursor: pointer;
+    font-size: 18px;
+    color: Gray Text;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+}
+
+.hourActive p:hover {
+    background: rgba(0, 128, 0, 0);
+}
+
+
+.showDay Button:before,
+.showDayDark Button:before,
+.hourActive p:before {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 2px;
+    bottom: 0;
+    background-color: #2e9def;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.4s ease-in-out 0s;
+}
+
+.showDay Button:hover:before,
+.showDayDark Button:hover:before,
+.hourActive p:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
 }
 
 .borderPlace {
@@ -142,28 +206,4 @@
     100% {
         opacity: 0.5
     }
-}
-
-
-.hourNotActive p {
-    cursor: no-drop;
-    text-decoration: red line-through;
-    font-size: 18px;
-    color: Gray Text;
-    -webkit-transform: rotate(-5deg);
-    -moz-transform: rotate(-5deg);
-    -ms-transform: rotate(-5deg);
-    -o-transform: rotate(-5deg);
-    transform: rotate(-5deg);
-}
-
-.hourActive p {
-    cursor: pointer;
-    font-size: 18px;
-    color: Gray Text;
-}
-
-.hourActive p:hover {
-    background: rgba(0, 128, 0, 0);
-    color: gray;
 }

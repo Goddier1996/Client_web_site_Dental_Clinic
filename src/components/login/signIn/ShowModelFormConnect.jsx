@@ -129,7 +129,7 @@ const ShowModelFormConnect = ({ activeForgetPassword, hideSignIn }) => {
             className={loadingLogin ? "isDisabled" : ""}
             onClick={!loadingLogin ? activeForgetPassword : null}
           >
-            Forgot your password
+            Forgot your password ?
           </p>
         </div>
 

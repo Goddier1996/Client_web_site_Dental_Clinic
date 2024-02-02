@@ -6,8 +6,8 @@ import { useHistory, Link } from "react-router-dom";
 import Sign_in from "../login/signIn/SignI_in";
 import { logOutUser, sendUserToProfile } from "./function/FunctionsMenu";
 import { ShowModelPopUp } from "../../customHook/showPopUp";
-import  LazyLoadImg  from "../tools/lazyLoad/LazyLoadImg";
-import DarkMode from "../tools/darkMode/DarkMode"
+import LazyLoadImg from "../tools/lazyLoad/LazyLoadImg";
+import DarkMode from "../tools/darkMode/DarkMode";
 
 
 
@@ -23,117 +23,126 @@ function Menu() {
   const { show, handleClose, handleShow } = ShowModelPopUp();
 
 
+
   return (
-      <div
-        className={
-          storedTheme == "light"
-            ? "menuDark"
-            : storedTheme == "dark"
-            ? "menu"
-            : ""
-        }
-      >
-        <Navbar collapseOnSelect expand="sm">
-          <Container>
-            <Link to="/">
-              <Navbar.Brand>
-                <LazyLoadImg
-                  type=""
-                  img="https://i.postimg.cc/QxRznyxx/44.webp"
-                  width=""
-                  height="65"
-                  alt="logo"
-                />
-              </Navbar.Brand>
-            </Link>
+    <div
+      className={
+        storedTheme == "light"
+          ? "menuDark"
+          : storedTheme == "dark"
+          ? "menu"
+          : ""
+      }
+    >
+      <Navbar collapseOnSelect expand="sm">
+        <Container>
+          <Link to="/">
+            <Navbar.Brand>
+              <LazyLoadImg
+                type=""
+                img="https://i.postimg.cc/QxRznyxx/44.webp"
+                width=""
+                height="65"
+                alt="logo"
+              />
+            </Navbar.Brand>
+          </Link>
 
-            <Navbar.Toggle
-              aria-controls="responsive-navbar-nav"
-              style={
-                storedTheme == "light"
-                  ? { border: "1px solid gray", background: "#424242" }
-                  : storedTheme == "dark"
-                  ? {}
-                  : ""
-              }
-            />
+          {/* show navbar button responsive screen */}
+          <Navbar.Toggle
+            aria-controls="responsive-navbar-nav"
+            style={
+              storedTheme == "light"
+                ? { border: "1px solid gray", background: "#424242" }
+                : storedTheme == "dark"
+                ? {}
+                : ""
+            }
+          />
 
-            <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="me-auto">
-                <Nav.Link
-                  style={
-                    storedTheme == "light"
-                      ? { color: "white", fontWeight: "600" }
-                      : storedTheme == "dark"
-                      ? { color: "#00000094", fontWeight: "600" }
-                      : ""
-                  }
-                  as={Link}
-                  to="/"
-                >
-                  Home
-                </Nav.Link>
-                <Nav.Link
-                  style={
-                    storedTheme == "light"
-                      ? { color: "white" }
-                      : storedTheme == "dark"
-                      ? { color: "#00000094" }
-                      : ""
-                  }
-                  as={Link}
-                  to="/About"
-                >
-                  About
-                </Nav.Link>
-              </Nav>
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link
+                className="nav-links"
+                style={
+                  storedTheme == "light"
+                    ? { color: "white", fontWeight: "600" }
+                    : storedTheme == "dark"
+                    ? { color: "#00000094", fontWeight: "600" }
+                    : ""
+                }
+                as={Link}
+                to="/"
+              >
+                Home
+              </Nav.Link>
 
-              <Navbar.Collapse className="justify-content-end link">
-                {userData != null ? (
-                  <div className="imgPrf">
-                    <Button
-                      variant={
-                        storedTheme == "light"
-                          ? "outline-light"
-                          : storedTheme == "dark"
-                          ? "outline-secondary"
-                          : ""
-                      }
-                      onClick={() => sendUserToProfile(userData._id, history)}
-                    >
-                      Hello {userData.FirstName} (Profile)
-                    </Button>
+              <Nav.Link
+                className="nav-links"
+                style={
+                  storedTheme == "light"
+                    ? { color: "white" }
+                    : storedTheme == "dark"
+                    ? { color: "#00000094" }
+                    : ""
+                }
+                as={Link}
+                to="/About"
+              >
+                About
+              </Nav.Link>
+            </Nav>
 
-                    <br />
-                    <Button
-                      variant="outline-danger"
-                      onClick={() => logOutUser(history)}
-                    >
-                      Log out
-                    </Button>
-                  </div>
-                ) : (
-                  <>
-                    <Nav.Link onClick={handleShow}>Login</Nav.Link>
-                    <Nav.Link as={Link} to="/Register">
-                      Register
-                    </Nav.Link>
-                  </>
-                )}
-              </Navbar.Collapse>
+            <Navbar.Collapse className="justify-content-end link">
+              {userData != null ? (
+                // show option profile user and log out
+                <div className="imgPrf">
+                  <Button
+                    style={
+                      storedTheme == "light"
+                        ? { color: "white" }
+                        : storedTheme == "dark"
+                        ? { color: "#00000094" }
+                        : ""
+                    }
+                    variant="outline"
+                    onClick={() => sendUserToProfile(userData._id, history)}
+                  >
+                    Hello {userData.FirstName} (Profile)
+                  </Button>
 
-              {/* active dark mode in heater */}
-              <DarkMode/>
+                  <Button
+                    variant="outline"
+                    style={{ color: "red" }}
+                    onClick={() => logOutUser(history)}
+                  >
+                    Log out
+                  </Button>
+                </div>
+              ) : (
+                <>
+                  <Nav.Link className="nav-links" onClick={handleShow}>
+                    Login
+                  </Nav.Link>
 
-              {/* model popup show Sign in */}
-              <Modal show={show}>
-                <Sign_in hideSignIn={handleClose} />
-            </Modal>
-            
+                  <Nav.Link className="nav-links" as={Link} to="/Register">
+                    Register
+                  </Nav.Link>
+                </>
+              )}
             </Navbar.Collapse>
-          </Container>
-        </Navbar>
-      </div>
+
+            {/* active dark mode in heater */}
+            <DarkMode />
+
+            {/* model popup show Sign in */}
+            <Modal show={show}>
+              <Sign_in hideSignIn={handleClose} />
+            </Modal>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
   );
 }
 

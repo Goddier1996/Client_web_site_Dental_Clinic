@@ -1,3 +1,10 @@
+.nav-links {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+
 .link a {
     color: white;
     text-decoration: none;
@@ -27,13 +34,49 @@
 }
 
 .imgPrf {
+    display: flex;
+    justify-content: center;
     align-items: center;
     text-align: center;
+    flex-direction: column;
 }
 
 .imgPrf button {
-    width: auto;
-    height: 30px;
     font-size: 14px;
-    border: none;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.imgPrf Button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+.nav-links:before,
+.imgPrf button:before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    bottom: 0;
+    background-color: #2e9def;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.4s ease-in-out 0s;
+}
+
+.nav-links:hover:before,
+.imgPrf button:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+
+@media(max-width:640px) {
+
+    .nav-links:before {
+        width: 10%;
+    }
 }
