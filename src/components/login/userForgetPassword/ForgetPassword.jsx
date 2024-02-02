@@ -65,7 +65,7 @@ function ForgetPassword({ showModelForgetPassword }) {
                         Let's start change
                       </Button>
                     ) : (
-                      <Button variant="success">
+                      <Button disabled={loading} variant="success">
                         <Spinner
                           as="span"
                           animation="border"
