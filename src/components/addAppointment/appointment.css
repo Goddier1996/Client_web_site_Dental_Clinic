@@ -179,7 +179,7 @@
 
 .appointmentRobotBoxButton {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     margin-bottom: 6.2%;
 }
 
