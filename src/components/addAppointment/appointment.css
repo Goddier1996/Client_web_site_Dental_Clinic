@@ -136,7 +136,8 @@
     background: rgba(60, 60, 60, 0.7);
     backdrop-filter: blur(3px);
     border-radius: 29px;
-    padding: 15px;
+    margin: -10px;
+    padding: 25px;
 }
 
 .showInfoUserQueue {
@@ -151,7 +152,6 @@
     color: white;
     font-size: 20px;
     margin-top: -55px;
-
 }
 
 .showInfoUserQueue p {
@@ -160,8 +160,9 @@
 }
 
 .gifImageRobot {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
+    text-align: center;
 }
 
 .gifImageRobot img {
@@ -180,7 +181,7 @@
 
 .appointmentRobotBoxButton {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 
@@ -227,5 +228,17 @@
 
     100% {
         opacity: 0.5
+    }
+}
+
+
+@media (max-width: 640px) {
+
+    .showRobotBoxAppoinment {
+        background: rgba(60, 60, 60, 0.7);
+        backdrop-filter: blur(3px);
+        border-radius: 29px;
+        margin: 0;
+        padding: 50px;
     }
 }

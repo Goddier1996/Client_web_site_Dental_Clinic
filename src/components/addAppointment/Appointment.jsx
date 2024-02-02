@@ -113,8 +113,8 @@ function Appointment() {
 
       
       {/* show popUp check if user not robot and save Turn */}
-      <Modal show={show}>
         <ModelPopUpSaveTurn
+          show={show}
           capVal={capVal}
           saveDateUser={saveDateUser}
           closePopUpRobotBoxUserExit={closePopUpRobotBoxUserExit}
@@ -122,8 +122,6 @@ function Appointment() {
           showDataHour={dataIdHour.hourDayChoose}
           showDataDay={dataIdDay.dayToday}
         />
-      </Modal>
-
     </>
   );
 }
