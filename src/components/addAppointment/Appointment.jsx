@@ -113,10 +113,7 @@ function Appointment() {
 
       
       {/* show popUp check if user not robot and save Turn */}
-      <Modal
-        show={show}
-        aria-labelledby="contained-modal-title-vcenter"
-      >
+      <Modal show={show}>
         <ModelPopUpSaveTurn
           capVal={capVal}
           saveDateUser={saveDateUser}
@@ -126,6 +123,7 @@ function Appointment() {
           showDataDay={dataIdDay.dayToday}
         />
       </Modal>
+
     </>
   );
 }

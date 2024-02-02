@@ -158,7 +158,6 @@
 
 .gifImageRobot img {
     height: 150px;
-    /* margin-top: -7%; */
 }
 
 .gifImageUserSaveData {
@@ -168,16 +167,16 @@
 
 .gifImageUserSaveData img {
     height: 160px;
-    /* margin-top: -7%; */
 }
 
 .showRobotBoxAppoinment {
     display: flex;
     flex-direction: column;
-    padding: 17px;
     background: rgba(60, 60, 60, 0.7);
     backdrop-filter: blur(3px);
-    border-radius: 30px;
+    width: auto;
+    border-radius: 29px;
+    padding: 3.8%;
 }
 
 .appointmentRobotBoxButton {
