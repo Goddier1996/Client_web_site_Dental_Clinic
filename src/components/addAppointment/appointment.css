@@ -131,6 +131,12 @@
     height: 150px;
 }
 
+.showRobotBoxAppoinment {
+    background: rgba(60, 60, 60, 0.7);
+    backdrop-filter: blur(3px);
+    border-radius: 29px;
+    padding: 16px;
+}
 
 .showInfoUserQueue {
     display: flex;
@@ -138,12 +144,13 @@
     align-items: center;
     text-align: center;
     flex-direction: column;
-    margin-top: -60px;
 }
 
 .showInfoUserQueue i {
     color: white;
     font-size: 20px;
+    margin-top: -55px;
+
 }
 
 .showInfoUserQueue p {
@@ -169,20 +176,10 @@
     height: 160px;
 }
 
-.showRobotBoxAppoinment {
-    display: flex;
-    flex-direction: column;
-    background: rgba(60, 60, 60, 0.7);
-    backdrop-filter: blur(3px);
-    width: auto;
-    border-radius: 29px;
-    padding: 3.8%;
-}
 
 .appointmentRobotBoxButton {
-    margin-top: 0.5%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 
