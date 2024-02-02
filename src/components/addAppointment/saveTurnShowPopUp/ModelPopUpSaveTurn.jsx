@@ -48,13 +48,12 @@ const ModelPopUpSaveTurn = ({
         )}
       </div>
 
-      <div>
+      {/* here show info about turn user select */}
         {!userSaveTurn ? (
           <ShowDayAndHourSelectUser day={showDataDay} hour={showDataHour} />
         ) : (
-          ""
+          null
         )}
-      </div>
 
       {/* check box if user don't robot */}
       <div>{!userSaveTurn ? <RobotBox activeRobotBox={setCapVal} /> : ""}</div>
