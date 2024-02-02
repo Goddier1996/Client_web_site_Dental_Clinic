@@ -116,7 +116,6 @@
 .showModelAddAppointmentUser {
     background: rgba(255, 255, 255, 0.875);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    width: auto;
     border-radius: 29px;
     padding: 5%;
 }
@@ -124,7 +123,6 @@
 .showModelAddAppointmentUserDark {
     background: #202020e6;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    width: auto;
     border-radius: 29px;
     padding: 5%;
     border: 2px solid rgba(255, 255, 255, 0.526);
