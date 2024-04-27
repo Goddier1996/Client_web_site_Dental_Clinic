@@ -172,7 +172,7 @@ const ShowModelFormConnect = ({ activeForgetPassword, hideSignIn }) => {
           </p>
         </div>
 
-        <div
+        {/* <div
           className={
             storedTheme == "light"
               ? "infoVideoAAdminDark"
@@ -182,7 +182,7 @@ const ShowModelFormConnect = ({ activeForgetPassword, hideSignIn }) => {
           }
         >
           <a onClick={AdminInfoVideo}>Click See What Admin can to do !</a>
-        </div>
+        </div> */}
       </Form>
     </div>
   );
