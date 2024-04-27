@@ -11,6 +11,7 @@ import Profile from './Pages/Profile.jsx'
 import About from './Pages/About.jsx'
 import NotFoundPage from "./components/tools/pageNotFound/NotFoundPage.jsx";
 import { setDark } from "../src/components/tools/darkMode/DarkModeFunc.js"
+import ChatBotInfo from "./components/tools/chatBot/ChatBotInfo.jsx";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
     <BrowserRouter>
 
       <Menu />
+      <ChatBotInfo/>
 
       <main>
         <Switch>

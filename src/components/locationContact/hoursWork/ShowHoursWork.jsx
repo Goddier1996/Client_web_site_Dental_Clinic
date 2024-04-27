@@ -9,7 +9,6 @@ const ShowHoursWork = () => {
     return (
         <>
             {data.hours_work.map((record) => (
-
                 <m.div variants={item} key={record.id}>
                     <p>{record.day} : {record.time}</p>
                 </m.div>
