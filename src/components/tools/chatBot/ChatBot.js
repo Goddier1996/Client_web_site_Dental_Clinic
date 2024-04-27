@@ -26,11 +26,15 @@ export const steps = [
         id: "4",
         user: true,
         validator: (value) => {
+            let specialChars = /[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~ ]/;
             if (!value) {
                 return "Please input your name";
             }
+            if (specialChars.test(value)) {
+                return "Your value with special characters!";
+            }
             if (!isNaN(value)) {
-                return "Value should be a string";
+                return "Value should be a string, Not number!";
             }
             return true;
         },
@@ -52,7 +56,7 @@ export const steps = [
             { value: 1, label: "Hours work clinic", trigger: "8" },
             { value: 2, label: "Contact", trigger: "9" },
             { value: 3, label: "Have problem", trigger: "10" },
-            { value: 4, label: "Who created the site?", trigger: "11" },
+            { value: 4, label: "Who created this website", trigger: "11" },
             {
                 value: 5,
                 label: "Refresh Chat",
@@ -116,7 +120,7 @@ export const steps = [
             { value: 1, label: "Hours work clinic", trigger: "8" },
             { value: 2, label: "Contact", trigger: "9" },
             { value: 3, label: "Have problem", trigger: "10" },
-            { value: 4, label: "Who created the site?", trigger: "11" },
+            { value: 4, label: "Who created this website", trigger: "11" },
             {
                 value: 5,
                 label: "Refresh Chat",

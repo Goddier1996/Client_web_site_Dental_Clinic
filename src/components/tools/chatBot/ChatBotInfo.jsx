@@ -5,7 +5,7 @@ import { steps } from "./ChatBot";
 
 
 const theme = {
-  background: "rgba(60, 60, 60, 0.8)",
+  background: "rgba(55, 55, 55, 0.90)",
   headerBgColor: "#2e9def",
   headerFontColor: "#fff",
   headerFontSize: "16px",

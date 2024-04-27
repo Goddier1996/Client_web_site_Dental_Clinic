@@ -21,6 +21,7 @@
 .showContactInfo a:hover {
     font-weight: bold;
     color: orange;
+    background: rgba(255, 255, 255, 0.522);
 }
 
 .selectGender {
