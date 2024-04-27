@@ -34,8 +34,7 @@ Other : Netlify , Railway
 
 
 ## Video :
-https://github.com/Goddier1996/Client_web_site_Dental_Clinic/assets/59862302/a17b02f9-fc66-4953-94d4-8f4ea6dc7916
-
+https://github.com/Goddier1996/Client_web_site_Dental_Clinic/assets/59862302/7cb40d8e-016f-4b44-9253-75748ead032e
 
 
  
