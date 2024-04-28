@@ -14,7 +14,7 @@ export const steps = [
     },
     {
         id: "2",
-        message: "My name is Artem, i'm robot i working here.",
+        message: "My name is Artem, i working here.",
         trigger: "3",
     },
     {
