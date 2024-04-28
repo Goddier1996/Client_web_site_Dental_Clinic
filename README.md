@@ -8,6 +8,8 @@ and leave an opinion on the service.
 Users can control their queue and pay for the service on a user's profile page.
    
 On this site you can change the color of the background night or day.
+
+The user has the option to talk to a chatbot if they need help.
     
 Users can look at what service the clinic offers, as well as the location of the clinic and working hours, and look About Clinic.
    
@@ -32,8 +34,7 @@ Other : Netlify , Railway
 
 
 ## Video :
-https://github.com/Goddier1996/Client_web_site_Dental_Clinic/assets/59862302/a17b02f9-fc66-4953-94d4-8f4ea6dc7916
-
+https://github.com/Goddier1996/Client_web_site_Dental_Clinic/assets/59862302/7cb40d8e-016f-4b44-9253-75748ead032e
 
 
  
@@ -44,6 +45,10 @@ https://github.com/Goddier1996/Client_web_site_Dental_Clinic/assets/59862302/a17
 ## Home Page :
 ![1](https://github.com/Goddier1996/Client_web_site_Dental_Clinic/assets/59862302/cedadfb6-b235-4b6b-b586-393930594a6f)
 ![11](https://github.com/Goddier1996/Client_web_site_Dental_Clinic/assets/59862302/9d7dde58-9769-4a73-8405-f3b3d98f15e6)
+
+## Chatbot :
+![Screenshot 2024-04-27 173613](https://github.com/Goddier1996/Client_web_site_Dental_Clinic/assets/59862302/41734d48-d7cd-4455-b234-843e0b701fb7)
+![Screenshot 2024-04-27 173633](https://github.com/Goddier1996/Client_web_site_Dental_Clinic/assets/59862302/845d9ace-e669-4d9a-a979-98685c98afca)
 
 
 ## here we To make an appointment :
