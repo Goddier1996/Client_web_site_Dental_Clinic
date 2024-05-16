@@ -11,9 +11,7 @@ import DarkMode from "../tools/darkMode/DarkMode";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 
-
 function Menu() {
-
 
   let storedTheme = localStorage.getItem("theme");
   let userData = JSON.parse(sessionStorage.getItem("user"));
@@ -96,31 +94,29 @@ function Menu() {
               </Nav.Link>
             </Nav>
 
+            
             <Navbar.Collapse className="justify-content-end link">
               {userData != null ? (
                 // show option profile user and log out
                 <div className="userOptions">
-                  <div
+                  <Nav.Link
                     className={
                       location.pathname === `/Profile/${userData._id}`
                         ? "selected"
-                        : "imgPrf"
+                        : "nav-links"
                     }
+                    style={
+                      storedTheme == "light"
+                        ? { color: "white", fontSize: "14px" }
+                        : storedTheme == "dark"
+                        ? { color: "#00000094", fontSize: "14px" }
+                        : ""
+                    }
+                    variant="outline"
+                    onClick={() => sendUserToProfile(userData._id, history)}
                   >
-                    <Button
-                      style={
-                        storedTheme == "light"
-                          ? { color: "white", fontSize: "14px" }
-                          : storedTheme == "dark"
-                          ? { color: "#00000094", fontSize: "14px" }
-                          : ""
-                      }
-                      variant="outline"
-                      onClick={() => sendUserToProfile(userData._id, history)}
-                    >
-                      Hello {userData.FirstName} (Profile)
-                    </Button>
-                  </div>
+                    Hello {userData.FirstName} (Profile)
+                  </Nav.Link>
 
                   <div className="imgPrf">
                     <Button
@@ -156,12 +152,10 @@ function Menu() {
             {/* active dark mode in heater */}
             <DarkMode />
 
-            
             {/* model popup show Sign in */}
             <Modal show={show}>
               <Sign_in hideSignIn={handleClose} />
             </Modal>
-
           </Navbar.Collapse>
         </Container>
       </Navbar>
