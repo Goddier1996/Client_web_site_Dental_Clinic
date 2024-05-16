@@ -8,6 +8,7 @@ import { logOutUser, sendUserToProfile } from "./function/FunctionsMenu";
 import { ShowModelPopUp } from "../../customHook/showPopUp";
 import LazyLoadImg from "../tools/lazyLoad/LazyLoadImg";
 import DarkMode from "../tools/darkMode/DarkMode";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 
 
@@ -18,10 +19,10 @@ function Menu() {
   let userData = JSON.parse(sessionStorage.getItem("user"));
 
   const history = useHistory();
+  const location = useLocation();
 
   // show popup sign in custom Hook
   const { show, handleClose, handleShow } = ShowModelPopUp();
-
 
 
   return (
@@ -63,12 +64,12 @@ function Menu() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link
-                className="nav-links"
+                className={location.pathname === "/" ? "selected" : "nav-links"}
                 style={
                   storedTheme == "light"
-                    ? { color: "white", fontWeight: "600" }
+                    ? { color: "white" }
                     : storedTheme == "dark"
-                    ? { color: "#00000094", fontWeight: "600" }
+                    ? { color: "#00000094" }
                     : ""
                 }
                 as={Link}
@@ -78,7 +79,9 @@ function Menu() {
               </Nav.Link>
 
               <Nav.Link
-                className="nav-links"
+                className={
+                  location.pathname === "/About" ? "selected" : "nav-links"
+                }
                 style={
                   storedTheme == "light"
                     ? { color: "white" }
@@ -96,28 +99,38 @@ function Menu() {
             <Navbar.Collapse className="justify-content-end link">
               {userData != null ? (
                 // show option profile user and log out
-                <div className="imgPrf">
-                  <Button
-                    style={
-                      storedTheme == "light"
-                        ? { color: "white" }
-                        : storedTheme == "dark"
-                        ? { color: "#00000094" }
-                        : ""
+                <div className="userOptions">
+                  <div
+                    className={
+                      location.pathname === `/Profile/${userData._id}`
+                        ? "selected"
+                        : "imgPrf"
                     }
-                    variant="outline"
-                    onClick={() => sendUserToProfile(userData._id, history)}
                   >
-                    Hello {userData.FirstName} (Profile)
-                  </Button>
+                    <Button
+                      style={
+                        storedTheme == "light"
+                          ? { color: "white", fontSize: "14px" }
+                          : storedTheme == "dark"
+                          ? { color: "#00000094", fontSize: "14px" }
+                          : ""
+                      }
+                      variant="outline"
+                      onClick={() => sendUserToProfile(userData._id, history)}
+                    >
+                      Hello {userData.FirstName} (Profile)
+                    </Button>
+                  </div>
 
-                  <Button
-                    variant="outline"
-                    style={{ color: "red" }}
-                    onClick={() => logOutUser(history)}
-                  >
-                    Log out
-                  </Button>
+                  <div className="imgPrf">
+                    <Button
+                      variant="outline"
+                      style={{ color: "red" }}
+                      onClick={() => logOutUser(history)}
+                    >
+                      Log out
+                    </Button>
+                  </div>
                 </div>
               ) : (
                 <>
@@ -125,7 +138,15 @@ function Menu() {
                     Login
                   </Nav.Link>
 
-                  <Nav.Link className="nav-links" as={Link} to="/Register">
+                  <Nav.Link
+                    className={
+                      location.pathname === "/Register"
+                        ? "selected"
+                        : "nav-links"
+                    }
+                    as={Link}
+                    to="/Register"
+                  >
                     Register
                   </Nav.Link>
                 </>
@@ -135,10 +156,12 @@ function Menu() {
             {/* active dark mode in heater */}
             <DarkMode />
 
+            
             {/* model popup show Sign in */}
             <Modal show={show}>
               <Sign_in hideSignIn={handleClose} />
             </Modal>
+
           </Navbar.Collapse>
         </Container>
       </Navbar>

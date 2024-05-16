@@ -33,7 +33,7 @@
     height: 65px;
 }
 
-.imgPrf {
+.userOptions {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,6 +65,30 @@
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.4s ease-in-out 0s;
+}
+
+.selected {
+    width: auto;
+    bottom: 0;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: not-allowed;
+    font-weight: 600;
+}
+
+.selected:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 50%;
+    border-bottom: 2px solid #2e9def;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-links:hover:before,
