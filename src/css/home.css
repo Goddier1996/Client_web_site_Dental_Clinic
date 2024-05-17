@@ -170,7 +170,6 @@
         width: 280px;
     }
 
-
     .title h1 {
         font-size: 15px;
         font-weight: 600;
@@ -179,8 +178,8 @@
 
     .Click_appointment .click button {
         margin-top: 4%;
-        border-top-left-radius: 30%;
-        border-bottom-right-radius: 30%;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
     .categoryLook {

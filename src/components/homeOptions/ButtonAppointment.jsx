@@ -34,8 +34,8 @@ const ButtonAppointment = ({ CheckUserConnectedFunc }) => {
           type=""
           img={require(`../../images/dayImages/${day}.webp`)}
           width=""
-          height="32"
-          alt="add new turn"
+          height="35"
+          alt={`Day-${day}`}
         />
       </Button>
     </div>
