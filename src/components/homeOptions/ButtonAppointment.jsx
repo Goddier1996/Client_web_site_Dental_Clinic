@@ -1,13 +1,13 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import  LazyLoadImg  from "../tools/lazyLoad/LazyLoadImg";
-
+import LazyLoadImg from "../tools/lazyLoad/LazyLoadImg";
+import { GetDayWeekFromArray } from "../addAppointment/function/AlertUserHaveTurnToday";
 
 
 const ButtonAppointment = ({ CheckUserConnectedFunc }) => {
 
-
   let storedTheme = localStorage.getItem("theme");
+  let day = GetDayWeekFromArray(new Date());
 
   return (
     <div className="d-grid gap-2 click">
@@ -29,12 +29,12 @@ const ButtonAppointment = ({ CheckUserConnectedFunc }) => {
         size="sm"
         onClick={CheckUserConnectedFunc}
       >
-        Click me - Book an Appointment
+        Click me - Book an Appointment{" "}
         <LazyLoadImg
           type=""
-          img="https://i.postimg.cc/66Fz9GsM/11.webp"
+          img={require(`../../images/dayImages/${day}.webp`)}
           width=""
-          height="30"
+          height="32"
           alt="add new turn"
         />
       </Button>
