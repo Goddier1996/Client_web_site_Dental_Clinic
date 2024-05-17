@@ -1,15 +1,18 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import ShowComment from "./ShowComment";
+import { compareDates } from "../../../doctorService/function/DoctorFunctionService";
 
 
 const MyComments = ({ myReview }) => {
 
-
   let storedTheme = localStorage.getItem("theme");
   let MyReviews = 1;
 
-    
+  // Sorting the data by date before rendering
+  const sortedData = [...myReview].sort(compareDates);
+
+
   return (
     <>
       <Table
@@ -30,11 +33,9 @@ const MyComments = ({ myReview }) => {
           </tr>
         </thead>
 
-        {myReview.map((Review) => (
+        {sortedData.map((Review) => (
           <tbody key={Review._id}>
-
             <ShowComment dataReview={Review} countReview={MyReviews++} />
-
           </tbody>
         ))}
       </Table>

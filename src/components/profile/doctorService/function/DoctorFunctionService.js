@@ -9,6 +9,14 @@ import {
 let storedTheme = localStorage.getItem("theme");
 
 
+// Function to compare dates
+export function compareDates(a, b) {
+
+    const dateA = new Date(a.Date_published || a.DatePublished);
+    const dateB = new Date(b.Date_published || b.DatePublished);
+    return dateB - dateA;
+}
+
 
 export function returnBoolResultIfDayTurnToday(data) {
 
