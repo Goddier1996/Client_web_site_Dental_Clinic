@@ -19,6 +19,7 @@ export const defaultDark =
 
 export const toggleTheme = (e) => {
 
+    // why i use window.location.reload, to refresh all style colors text and more
     window.location.reload(false);
 
     if (e.target.checked) {
