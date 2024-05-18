@@ -38,7 +38,7 @@
 .Click_appointment .click button {
     margin-top: 1.5%;
     width: 100%;
-    font-size: 17px;
+    font-size: 18px;
     border: none;
     font-weight: 500;
     border-top-left-radius: 50%;
@@ -180,6 +180,7 @@
         margin-top: 4%;
         border-top-left-radius: 0;
         border-bottom-right-radius: 0;
+        font-size: 16px;
     }
 
     .categoryLook {
