@@ -8,25 +8,29 @@
 }
 
 
+.showMap {
+    display: flex;
+    justify-content: center;
+}
+
+
 .contectDark {
     position: relative;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://i.postimg.cc/dDMCscmL/tooth-brushes-tooth-paste.webp"), fixed;
     background-repeat: no-repeat;
     object-fit: cover;
-    border-radius: 15%;
-    border-left: 5px solid rgba(255, 0, 0, 0);
-    /* clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%); */
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
 }
 
 
 .contect {
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("https://i.postimg.cc/dDMCscmL/tooth-brushes-tooth-paste.webp"), fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url("https://i.postimg.cc/dDMCscmL/tooth-brushes-tooth-paste.webp"), fixed;
     background-repeat: no-repeat;
     object-fit: cover;
-    border-radius: 15%;
-    border-left: 5px solid rgba(255, 0, 0, 0);
-    /* clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%); */
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
 }
 
 .blurAllInfoHours {
@@ -107,13 +111,13 @@
 
 .log p {
     font-family: 'Raleway', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     color: #000000a1;
 }
 
 .logDark p {
     font-family: 'Raleway', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     color: #ffffffab;
 }
 
@@ -264,9 +268,18 @@
         font-size: 22px;
     }
 
+    .logDark p,
+    .log p {
+        font-size: 14px;
+    }
+
     .contect,
     .contectDark {
         clip-path: none;
         border-left: none;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        border-bottom-left-radius: 0px;
+        margin-top: 3%;
     }
 }
