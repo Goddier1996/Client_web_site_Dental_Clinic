@@ -11,7 +11,6 @@ import CalcDistanceToClinic from "../components/locationContact/map/CalcDistance
 import ShowMap from "../components/locationContact/map/ShowMap.jsx";
 import OpenOrCloseClinic from "../components/locationContact/hoursWork/OpenOrCloseClinic.jsx";
 import { ShowModelPopUp } from "../customHook/showPopUp.js";
-import  LazyLoadImg  from "../components/tools/lazyLoad/LazyLoadImg.jsx";
 
 
 
@@ -68,9 +67,9 @@ function Location() {
           <div
             className={
               storedTheme == "light"
-                ? "logDark"
+                ? "logDark blurAllInfoHours"
                 : storedTheme == "dark"
-                ? "log"
+                ? "log blurAllInfoHours"
                 : ""
             }
           >
@@ -81,16 +80,7 @@ function Location() {
 
             {/* show hours clinic */}
             <ShowHoursWork />
-
-            <div style={{ marginTop: "80px", marginBottom: "80px" }}>
-              <LazyLoadImg
-                type=""
-                img="https://i.postimg.cc/wTLhkftp/88.webp"
-                width="140"
-                height=""
-                alt="clock"
-              />
-            </div>
+            <br />
           </div>
         </div>
       </section>

@@ -9,14 +9,30 @@
 
 
 .contectDark {
-    background: rgba(217, 174, 117, 0.046);
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://i.postimg.cc/dDMCscmL/tooth-brushes-tooth-paste.webp"), fixed;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    border-radius: 15%;
+    border-left: 5px solid rgba(255, 0, 0, 0);
+    /* clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%); */
 }
 
 
-.boxLoctionDark {
-    background: rgba(217, 174, 117, 0.046);
+.contect {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("https://i.postimg.cc/dDMCscmL/tooth-brushes-tooth-paste.webp"), fixed;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    border-radius: 15%;
+    border-left: 5px solid rgba(255, 0, 0, 0);
+    /* clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%); */
 }
 
+.blurAllInfoHours {
+    backdrop-filter: blur(15px) saturate(100%);
+    border-radius: 15%;
+}
 
 .boxLoction h3 {
     text-align: center;
@@ -70,6 +86,12 @@
 }
 
 
+.log,
+.logDark {
+    padding: 5%;
+}
+
+
 
 .log h3 {
     font-family: 'Raleway', sans-serif;
@@ -86,6 +108,7 @@
 .log p {
     font-family: 'Raleway', sans-serif;
     font-size: 14px;
+    color: #000000a1;
 }
 
 .logDark p {
@@ -199,6 +222,28 @@
 .openOrCloseClinic img {
     width: 60px;
     height: auto;
+    -webkit-animation: animationOpenClose 2s linear infinite;
+    -moz-animation: animationOpenClose 2s linear infinite;
+    animation: animationOpenClose 2s linear infinite;
+}
+
+@-moz-keyframes animationOpenClose {
+    50% {
+        -moz-transform: rotate(15deg);
+    }
+}
+
+@-webkit-keyframes animationOpenClose {
+    50% {
+        -webkit-transform: rotate(15deg);
+    }
+}
+
+@keyframes animationOpenClose {
+    50% {
+        -webkit-transform: rotate(15deg);
+        transform: rotate(15deg);
+    }
 }
 
 
@@ -217,5 +262,11 @@
     .log h3 {
         margin-top: 35%;
         font-size: 22px;
+    }
+
+    .contect,
+    .contectDark {
+        clip-path: none;
+        border-left: none;
     }
 }
