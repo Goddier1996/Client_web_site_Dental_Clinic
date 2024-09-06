@@ -34,16 +34,69 @@
     text-transform: uppercase;
 }
 
+.click {
+    display: flex;
+    justify-content: center;
+}
 
 .Click_appointment .click button {
     margin-top: 1.5%;
-    width: 100%;
+    width: 83%;
     font-size: 18px;
     border: none;
     font-weight: 500;
-    border-top-left-radius: 50%;
-    border-bottom-right-radius: 50%;
     align-items: center;
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    border-radius: 10rem;
+    color: #fff;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    -webkit-animation: animationAddNewTurnUser 3s linear infinite;
+    -moz-animation: animationAddNewTurnUser 3s linear infinite;
+    animation: animationAddNewTurnUser 3s linear infinite;
+}
+
+
+.Click_appointment .click button:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10rem;
+    z-index: -2;
+}
+
+.Click_appointment .click button:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #008fb3;
+    transition: all 0.3s;
+    border-radius: 10rem;
+    z-index: -1;
+}
+
+.Click_appointment .click button:hover {
+    color: #fff;
+}
+
+.Click_appointment .click button:hover:before {
+    width: 100%;
+}
+
+
+@keyframes animationAddNewTurnUser {
+    50% {
+        border-radius: 50%;
+    }
 }
 
 
@@ -178,9 +231,8 @@
 
     .Click_appointment .click button {
         margin-top: 4%;
-        border-top-left-radius: 0;
-        border-bottom-right-radius: 0;
         font-size: 16px;
+        padding: 0.25rem 5rem;
     }
 
     .categoryLook {

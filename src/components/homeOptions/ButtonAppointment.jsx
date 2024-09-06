@@ -29,7 +29,7 @@ const ButtonAppointment = ({ CheckUserConnectedFunc }) => {
         size="sm"
         onClick={CheckUserConnectedFunc}
       >
-        Click me - Book an Appointment{" "}
+        Click Here - Book An Appointment{" "}
         <LazyLoadImg
           type=""
           img={require(`../../images/dayImages/${day}.webp`)}
