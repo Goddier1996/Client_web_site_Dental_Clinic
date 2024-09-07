@@ -147,7 +147,7 @@
         100px 100px 80px rgba(0, 0, 0, 0.07);
     padding: 15px;
     margin: 8px;
-    background-image: url("https://i.postimg.cc/V6KtdpHq/77.webp");
+    background: #fefaf4;
     object-fit: cover;
     background-size: cover;
     background-repeat: no-repeat;
@@ -170,6 +170,11 @@
     object-position: center;
 }
 
+.client-comment,
+.clientDark-comment {
+    border-bottom: 2px solid #e1f0f7;
+}
+
 .profileReviews {
     display: flex;
     align-items: center;
@@ -182,11 +187,8 @@
 }
 
 
-
 .nameInfo-userInfo span,
-.client-comment h6,
-.nameInfoDark-userInfo span,
-.clientDark-comment h6 {
+.nameInfoDark-userInfo span {
     font-family: 'Raleway', sans-serif;
     color: #00000099;
     font-size: 12px;
@@ -198,7 +200,6 @@
 }
 
 
-
 .reviews,
 .reviewsDark {
     font-family: 'Raleway', sans-serif;
@@ -207,14 +208,13 @@
 }
 
 
-
 .box-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    border-bottom: 2px solid #e1f0f7;
 }
-
 
 
 .client-comment p,
@@ -322,13 +322,10 @@
 }
 
 
-
-
 .clickLike {
     display: flex;
     justify-content: end;
 }
-
 
 .like__btn {
     background: #0080ff;
@@ -341,9 +338,6 @@
     cursor: pointer;
     height: 25px;
 }
-
-
-
 
 
 .button-55 {

@@ -30,29 +30,6 @@ export async function userAddReviewSuccess() {
 
 
 
-// export async function userAddReviewError() {
-
-//     Swal.fire({
-//         icon: "error",
-//         title: "Oops...Something happened, try refreshing the browser",
-//         toast: true,
-//         position: "top-end",
-//         confirmButtonColor: "green",
-//         background: `${storedTheme === "light" ? "#373E44" : storedTheme === "dark" ? "" : ""
-//             }`,
-//         color: `${storedTheme === "light"
-//             ? "#ffffffab"
-//             : storedTheme === "dark"
-//                 ? ""
-//                 : ""
-//             }`,
-//         buttonColor: `${storedTheme === "light" ? "#E96E00" : storedTheme === "dark" ? "" : ""
-//             }`,
-//     });
-// }
-
-
-
 export function checkUserConnectedForAddReview(handleShowAddReviews) {
 
     let userData = JSON.parse(sessionStorage.getItem("user"));
@@ -100,14 +77,14 @@ export async function userAddReviewsLike(dataLike) {
             await RemoveReviewLike(dataLike.Serial_code, userData._id);
             sessionStorage.removeItem("likeReview");
 
-            Swal.fire({
-                position: "center",
-                background: "none",
-                showConfirmButton: false,
-                timer: 2000,
-                allowOutsideClick: false,
-                html: '<div class="loadingReview"> <img src="https://i.postimg.cc/qvz9yCqh/desLike.gif"> </div>'
-            });
+            // Swal.fire({
+            //     position: "center",
+            //     background: "none",
+            //     showConfirmButton: false,
+            //     timer: 2000,
+            //     allowOutsideClick: false,
+            //     html: '<div class="loadingReview"> <img src="https://i.postimg.cc/qvz9yCqh/desLike.gif"> </div>'
+            // });
         }
 
         // else user don't have like in this review add Like
@@ -131,14 +108,14 @@ export async function userAddReviewsLike(dataLike) {
             await AddNewLikeReviews(user, dataLike.Serial_code);
             sessionStorage.removeItem("likeReview");
 
-            Swal.fire({
-                position: "center",
-                background: "none",
-                showConfirmButton: false,
-                timer: 2000,
-                allowOutsideClick: false,
-                html: '<div class="loadingReview"> <img src="https://i.postimg.cc/3w0nJXR1/likeGif.gif"> </div>'
-            });
+            // Swal.fire({
+            //     position: "center",
+            //     background: "none",
+            //     showConfirmButton: false,
+            //     timer: 2000,
+            //     allowOutsideClick: false,
+            //     html: '<div class="loadingReview"> <img src="https://i.postimg.cc/3w0nJXR1/likeGif.gif"> </div>'
+            // });
         }
     }
 
