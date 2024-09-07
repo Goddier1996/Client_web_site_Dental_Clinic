@@ -5,14 +5,22 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 const CardReview = ({ allReview }) => {
 
+  let storedTheme = localStorage.getItem("theme");
+
   return (
     <div className="testimonial-box-container">
-      <div className="testimonial-box">
+      <div
+        className={
+          storedTheme === "light"
+            ? "testimonial-box"
+            : storedTheme === "dark"
+            ? "testimonialDark-boxDark"
+            : ""
+        }>
         <div className="box-top">
           <div className="profileReviews">
             <div className="nameInfo-userInfo">
               <span>Name : {allReview.FirstName}</span>
-
               <span>Login : @{allReview.User_Login}</span>
             </div>
           </div>
