@@ -1,7 +1,5 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import LazyLoadImg from "../../tools/lazyLoad/LazyLoadImg";
-
 
 
 const MoveContactPageProblem = () => {
@@ -19,20 +17,14 @@ const MoveContactPageProblem = () => {
     <>
       <p>
         You have problem ?<br />
-        Click move to contact page (Send Mail)
+        Click move to contact page
         <br />
         <span style={{ fontSize: "25px" }}>👇</span>
       </p>
 
-      <span onClick={() => moveToContactPage()}>
-        <LazyLoadImg
-          type=""
-          img="https://i.postimg.cc/3J5v3RQ7/1.webp"
-          width=""
-          height=""
-          alt="contact"
-        />
-      </span>
+      <p className="sendMailHaveProblem" style={{ fontSize: "15px" }} onClick={() => moveToContactPage()}>
+        Send Mail
+      </p>
     </>
   );
 };
