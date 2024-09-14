@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { Nav, Navbar, Container, Button, Modal } from "react-bootstrap";
-import React from "react";
+import React, { useState } from "react";
 import "./menu.css";
 import { useHistory, Link } from "react-router-dom";
 import Sign_in from "../login/signIn/SignI_in";
@@ -13,6 +13,7 @@ import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 function Menu() {
 
+
   let storedTheme = localStorage.getItem("theme");
   let userData = JSON.parse(sessionStorage.getItem("user"));
 
@@ -21,6 +22,19 @@ function Menu() {
 
   // show popup sign in custom Hook
   const { show, handleClose, handleShow } = ShowModelPopUp();
+
+  const [clickToLogin, setClickToLogin] = useState(false);
+
+  const openLoginPopUpSelectLine = () => {
+    setClickToLogin(true);
+    handleShow();
+  };
+
+  const closeLoginPopUpSelectLine = () => {
+    setClickToLogin(false);
+    handleClose();
+  };
+
 
 
   return (
@@ -94,7 +108,6 @@ function Menu() {
               </Nav.Link>
             </Nav>
 
-            
             <Navbar.Collapse className="justify-content-end link">
               {userData != null ? (
                 // show option profile user and log out
@@ -130,7 +143,12 @@ function Menu() {
                 </div>
               ) : (
                 <>
-                  <Nav.Link className="nav-links" onClick={handleShow}>
+                  <Nav.Link
+                    className={
+                      clickToLogin ? "selectedLoginOption" : "nav-links"
+                    }
+                    onClick={openLoginPopUpSelectLine}
+                  >
                     Login
                   </Nav.Link>
 
@@ -154,7 +172,7 @@ function Menu() {
 
             {/* model popup show Sign in */}
             <Modal show={show}>
-              <Sign_in hideSignIn={handleClose} />
+              <Sign_in hideSignIn={closeLoginPopUpSelectLine} />
             </Modal>
           </Navbar.Collapse>
         </Container>

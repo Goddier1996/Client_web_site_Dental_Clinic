@@ -91,6 +91,42 @@
     align-items: center;
 }
 
+.selectedLoginOption {
+    width: auto;
+    bottom: 0;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: not-allowed;
+    font-weight: 600;
+}
+
+.selectedLoginOption:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 50%;
+    border-bottom: 2px solid #008fb3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-animation: animationOpenLoginPopup 2s linear infinite;
+    -moz-animation: animationOpenLoginPopup 2s linear infinite;
+    animation: animationOpenLoginPopup 2s linear infinite;
+}
+
+
+@keyframes animationOpenLoginPopup {
+    50% {
+        border-bottom: 2px solid #e2a900;
+        width: 30%;
+    }
+}
+
+
 .nav-links:hover:before,
 .imgPrf button:hover:before {
     visibility: visible;
