@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 import { ActiveHourDontNeedTurn } from "../../function/UserProfileFunction";
 
 
-
 const MessageUserHaveTurn = ({ dataUser }) => {
 
 
@@ -13,12 +12,11 @@ const MessageUserHaveTurn = ({ dataUser }) => {
 
   let history = useHistory();
 
-    
   const ActiveHourIfUserDontNeedTurn = () => {
     ActiveHourDontNeedTurn(dataUser.codeHour, history, dataUser.code);
   };
 
-    
+
   return (
     <Modal.Dialog
       className={
@@ -40,18 +38,20 @@ const MessageUserHaveTurn = ({ dataUser }) => {
           }
         >
           <h6>Your Queues :</h6>
-          <br />
           Day : {userData.Day_date}
           <br />
           Hour : {userData.Hour_day}
           <br />
           <br />
+          <h5 style={{ fontSize: "14px", color: "#44A6DD" }}>
+            You Saved This Turn at: {userData.DateWhenAddUserTurn}
+          </h5>
           <h6
             style={
               storedTheme === "light"
-                ? { fontSize: "13px", color: "white" }
+                ? { fontSize: "12px", color: "white" }
                 : storedTheme === "dark"
-                ? { fontSize: "13px", color: "black" }
+                ? { fontSize: "12px", color: "black" }
                 : ""
             }
           >
