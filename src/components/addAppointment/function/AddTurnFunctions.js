@@ -1,5 +1,7 @@
-import Swal from 'sweetalert2'
-import { DeleteHour, UpdateDataUserAddTurn } from '../../../Api/DeleteUpdateDataFromApi'
+import Swal from 'sweetalert2';
+import { DeleteHour, UpdateDataUserAddTurn } from '../../../Api/DeleteUpdateDataFromApi';
+import { GetDateWhenUserSaveTurn } from '../function/AlertUserHaveTurnToday';
+
 
 
 let storedTheme = localStorage.getItem("theme");
@@ -9,7 +11,10 @@ export async function saveDateUserTurnDayAndHour(dataUser, capVal) {
 
     if (capVal) {
 
-        await UpdateDataUserAddTurn(dataUser._id, dataUser.dayToday, dataUser.hourDayChoose, dataUser.idHour);
+        // save info date today when user save new turn
+        let DateWhenAddUserTurn = await GetDateWhenUserSaveTurn();
+
+        await UpdateDataUserAddTurn(dataUser._id, dataUser.dayToday, dataUser.hourDayChoose, dataUser.idHour, DateWhenAddUserTurn);
         await DeleteHour(dataUser.idHour);
 
         await Swal.fire({

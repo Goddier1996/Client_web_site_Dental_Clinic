@@ -20,6 +20,21 @@ export function GetDayWeekFromArray(date) {
 }
 
 
+export function GetDateWhenUserSaveTurn() {
+
+    const today = new Date();
+
+    const formattedDate = today.toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
+
+    return formattedDate;
+}
+
+
 export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, codeHour, code) {
 
 

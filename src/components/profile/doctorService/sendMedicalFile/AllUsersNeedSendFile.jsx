@@ -8,6 +8,7 @@ const AllUsersNeedSendFile = ({
   updateDayHour,
 }) => {
 
+
   return (
     <>
       <tr>
@@ -23,6 +24,9 @@ const AllUsersNeedSendFile = ({
         </td>
         <td style={{ textAlign: "center", fontSize: "14px" }}>
           {dataShowAllUsers.Hour_day}
+        </td>
+        <td style={{ textAlign: "center", fontSize: "14px" }}>
+          {dataShowAllUsers.DateWhenAddUserTurn}
         </td>
         <td style={{ textAlign: "center", fontSize: "14px" }}>
           <Button
