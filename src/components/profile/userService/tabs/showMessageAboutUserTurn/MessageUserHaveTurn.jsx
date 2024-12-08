@@ -4,8 +4,8 @@ import { useHistory } from "react-router-dom";
 import { ActiveHourDontNeedTurn } from "../../function/UserProfileFunction";
 
 
-const MessageUserHaveTurn = ({ dataUser }) => {
 
+const MessageUserHaveTurn = ({ dataUser }) => {
 
   let storedTheme = localStorage.getItem("theme");
   let userData = JSON.parse(sessionStorage.getItem("user"));
@@ -37,11 +37,23 @@ const MessageUserHaveTurn = ({ dataUser }) => {
               : ""
           }
         >
-          <h6>Your Queues :</h6>
-          Day : {userData.Day_date}
-          <br />
-          Hour : {userData.Hour_day}
-          <br />
+          <h5
+            style={
+              storedTheme === "light"
+                ? { fontSize: "18px", color: "#ffffffab" }
+                : storedTheme === "dark"
+                ? { fontSize: "18px", color: "rgba(0, 0, 0, 0.58)" }
+                : ""
+            }
+          >
+            It's Your Turn {userData.FirstName}:
+          </h5>
+          <h5 style={{ fontSize: "16px", color: "green" }}>
+            {userData.DateUserTurn}
+            <br />
+            Time: {userData.Hour_day}
+          </h5>
+
           <br />
           <h5 style={{ fontSize: "14px", color: "#44A6DD" }}>
             You Saved This Turn at: {userData.DateWhenAddUserTurn}
