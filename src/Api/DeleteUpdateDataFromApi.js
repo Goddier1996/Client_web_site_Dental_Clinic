@@ -84,8 +84,10 @@ export async function UpdateDataUserRemoveTurn(codeUser) {
     let user = {
         Day_date: null,
         Hour_day: null,
-        Serial_codeHour: null
-    }
+        Serial_codeHour: null,
+        DateWhenAddUserTurn: null,
+        DateUserTurn: null
+    };
 
     const headers = {
         'Content-Type': 'application/json'
