@@ -51,12 +51,12 @@ const ActiveQueues = ({ usersActive_queues }) => {
           <thead>
             <tr>
               <th style={{ width: "1%", textAlign: "center" }}>#</th>
-              <th style={{ width: "8%", textAlign: "center" }}>Name client</th>
+              <th style={{ width: "7%", textAlign: "center" }}>Name client</th>
               <th style={{ width: "10%", textAlign: "center" }}>Email</th>
-              <th style={{ width: "5%", textAlign: "center" }}>Day</th>
+              <th style={{ width: "10%", textAlign: "center" }}>Date Turn</th>
               <th style={{ width: "2%", textAlign: "center" }}>Hour</th>
               <th style={{ width: "15%", textAlign: "center" }}>Show When User Save Turn</th>
-              <th style={{ width: "5%", textAlign: "center" }}>Medical FIle</th>
+              <th style={{ width: "2%", textAlign: "center" }}>Medical FIle</th>
             </tr>
           </thead>
 

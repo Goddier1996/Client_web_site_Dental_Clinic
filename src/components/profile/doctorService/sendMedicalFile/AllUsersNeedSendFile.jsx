@@ -20,7 +20,7 @@ const AllUsersNeedSendFile = ({
           {dataShowAllUsers.Email}
         </td>
         <td style={{ textAlign: "center", fontSize: "14px" }}>
-          {dataShowAllUsers.Day_date}
+          {dataShowAllUsers.DateUserTurn}
         </td>
         <td style={{ textAlign: "center", fontSize: "14px" }}>
           {dataShowAllUsers.Hour_day}
