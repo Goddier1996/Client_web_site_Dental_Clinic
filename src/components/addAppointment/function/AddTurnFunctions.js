@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 import { DeleteHour, UpdateDataUserAddTurn } from '../../../Api/DeleteUpdateDataFromApi';
-import { GetDateWhenUserSaveTurn } from '../function/AlertUserHaveTurnToday';
+import { GetDateWhenUserSaveTurn, IncrementDateLooUserTurn } from '../function/AlertUserHaveTurnToday';
 
 
 
@@ -14,7 +14,10 @@ export async function saveDateUserTurnDayAndHour(dataUser, capVal) {
         // save info date today when user save new turn
         let DateWhenAddUserTurn = await GetDateWhenUserSaveTurn();
 
-        await UpdateDataUserAddTurn(dataUser._id, dataUser.dayToday, dataUser.hourDayChoose, dataUser.idHour, DateWhenAddUserTurn);
+        // here we save date turn,for example user save turn to monday (and we save a date Mon Dec 09 2024)
+        let IncrementDayDateTurnUser = await IncrementDateLooUserTurn(new Date(), dataUser.idDay).toDateString();
+
+        await UpdateDataUserAddTurn(dataUser._id, dataUser.dayToday, dataUser.hourDayChoose, dataUser.idHour, DateWhenAddUserTurn, IncrementDayDateTurnUser);
         await DeleteHour(dataUser.idHour);
 
         await Swal.fire({

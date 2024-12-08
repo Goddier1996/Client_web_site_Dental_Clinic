@@ -35,6 +35,17 @@ export function GetDateWhenUserSaveTurn() {
 }
 
 
+export function IncrementDateLooUserTurn(date = new Date(), idDay) {
+
+    let idDayFromDataBase = idDay - 1;
+
+    date.setDate(date.getDate() + idDayFromDataBase);
+    if (date.getDate() == 1) date.setMonth(date.getMonth());
+
+    return date;
+}
+
+
 export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, codeHour, code) {
 
 

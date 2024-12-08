@@ -96,7 +96,7 @@ export async function UpdateDataUserRemoveTurn(codeUser) {
 
 
 
-export async function UpdateDataUserAddTurn(id, dayLocal, hourLocal, serial_code, DateWhenAddUserTurn) {
+export async function UpdateDataUserAddTurn(id, dayLocal, hourLocal, serial_code, DateWhenAddUserTurn, DateUserTurn) {
 
     // USE FETCH
     // try {
@@ -132,8 +132,9 @@ export async function UpdateDataUserAddTurn(id, dayLocal, hourLocal, serial_code
         Day_date: dayLocal,
         Hour_day: hourLocal,
         Serial_codeHour: serial_code,
-        DateWhenAddUserTurn: DateWhenAddUserTurn
-    }
+        DateWhenAddUserTurn: DateWhenAddUserTurn,
+        DateUserTurn: DateUserTurn
+    };
 
     // const headers = {
     //     'Content-Type': 'application/json'

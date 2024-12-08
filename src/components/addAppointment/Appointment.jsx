@@ -62,6 +62,7 @@ function Appointment() {
     let userDataTurn = {
       _id: userData._id,
       dayToday: dataIdDay.dayToday,
+      idDay: dataIdDay.idDay,
       hourDayChoose: dataIdHour.hourDayChoose,
       idHour: dataIdHour.idHour,
     };
