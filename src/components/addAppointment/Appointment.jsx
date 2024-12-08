@@ -10,7 +10,7 @@ import LoadingDaysHour from "../loading/LoadingDaysHour.jsx";
 import LoadingAllFuncShowHours from "./hours/LoadingAllFuncShowHours.jsx";
 import { saveDateUserTurnDayAndHour } from "./function/AddTurnFunctions.js";
 import { ShowModelPopUp } from "../../customHook/showPopUp.js";
-
+import ShowStartAndEndDateWorkTurn from "./ShowStartAndEndDateWorkTurn.jsx";
 
 
 //here component we show days+hours (if you click to button in Home Page Book an appointment)
@@ -22,7 +22,6 @@ function Appointment() {
   // show popup show hour custom Hook
   const { showOneMoreModel, handleShowOneMoreModel } = ShowModelPopUp();
 
-
   // check box if user not robot
   const [capVal, setCapVal] = useState(false);
 
@@ -30,7 +29,6 @@ function Appointment() {
   let storedTheme = localStorage.getItem("theme");
   let userData = JSON.parse(sessionStorage.getItem("user"));
 
-    
   // use custom hook , useQuery + days,hours
   const {
     isLoading: LoadingDays,
@@ -38,17 +36,14 @@ function Appointment() {
     isError: ErrorDays,
   } = useQueryLoadingAllData("allDays", LoadDays);
 
-    
   const [dataIdDay, setDataIdDay] = useState({});
 
   //here you show Hours from day what we choose , from data base
   const LoadHours = async (Serial_code, Day_date) => {
-    
     setDataIdDay({ dayToday: Day_date, idDay: Serial_code });
     handleShowOneMoreModel();
   };
 
-    
   const [dataIdHour, setDataIdHour] = useState({});
 
   const showPopUpReCAPTCHA = (Hour_day, Serial_code) => {
@@ -56,7 +51,6 @@ function Appointment() {
     setDataIdHour({ hourDayChoose: Hour_day, idHour: Serial_code });
   };
 
-    
   // save user hour and day what he choose
   const saveDateUser = async () => {
     let userDataTurn = {
@@ -70,13 +64,12 @@ function Appointment() {
     saveDateUserTurnDayAndHour(userDataTurn, capVal);
   };
 
-    
   const closePopUpRobotBoxUserExit = () => {
     handleClose();
     setCapVal(false);
   };
 
-     
+
   return (
     <>
       {LoadingDays ? (
@@ -93,6 +86,10 @@ function Appointment() {
               : ""
           }
         >
+          
+          {/* show first and end date working this week (Component) */}
+          <ShowStartAndEndDateWorkTurn/>
+          
           <Row xs={2} md={5} lg={4} className="g-4">
             {days.map((day) => (
               <div className="showDayItems" key={day._id}>
@@ -112,17 +109,16 @@ function Appointment() {
         </div>
       )}
 
-      
       {/* show popUp check if user not robot and save Turn */}
       <ModelPopUpSaveTurn
-          show={show}
-          capVal={capVal}
-          saveDateUser={saveDateUser}
-          closePopUpRobotBoxUserExit={closePopUpRobotBoxUserExit}
-          setCapVal={() => setCapVal(true)}
-          showDataHour={dataIdHour.hourDayChoose}
-          showDataDay={dataIdDay.dayToday}
-        />
+        show={show}
+        capVal={capVal}
+        saveDateUser={saveDateUser}
+        closePopUpRobotBoxUserExit={closePopUpRobotBoxUserExit}
+        setCapVal={() => setCapVal(true)}
+        showDataHour={dataIdHour.hourDayChoose}
+        showDataDay={dataIdDay.dayToday}
+      />
     </>
   );
 }

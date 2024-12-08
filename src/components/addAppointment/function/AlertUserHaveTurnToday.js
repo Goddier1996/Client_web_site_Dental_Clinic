@@ -35,6 +35,21 @@ export function GetDateWhenUserSaveTurn() {
 }
 
 
+export function ShowStartAndEndDateWork() {
+
+    let curr = new Date(); // get current date
+    let first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
+    let last = first + 5; // last day is the first day + 5
+
+    // show sun to fri date !
+
+    let firstday = new Date(curr.setDate(first)).toDateString();
+    let lastday = new Date(curr.setDate(last)).toDateString();
+
+    return firstday + " - " + lastday;
+}
+
+
 export function IncrementDateLooUserTurn(date = new Date(), idDay) {
 
     let idDayFromDataBase = idDay - 1;

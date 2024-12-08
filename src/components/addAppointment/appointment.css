@@ -160,6 +160,7 @@
     margin-top: -55px;
     font-size: 15px;
 }
+
 .showInfoUserQueue p {
     color: white;
     margin-bottom: 35px;
@@ -236,4 +237,34 @@
     100% {
         opacity: 0.5
     }
+}
+
+
+
+.showFirstEndDate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.58);
+}
+
+.showFirstEndDateDark {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffffab;
+}
+
+.showFirstEndDate p {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.infoAppointments {
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
 }
