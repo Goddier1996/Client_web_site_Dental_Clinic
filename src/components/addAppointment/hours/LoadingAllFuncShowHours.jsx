@@ -8,6 +8,7 @@ import ShowHours from "./ShowHours.jsx";
 import {
   GetTime,
   GetDayWeekFromArray,
+  IncrementDateLooUserTurn,
 } from "../function/AlertUserHaveTurnToday.js";
 import ShowWhatDayToday from "../days/ShowWhatDayToday.jsx";
 import { useQueryLoadingDataID } from "../../../customHook/customQueryHook.js";
@@ -35,15 +36,16 @@ const LoadingAllFuncShowHours = ({ showPopUpReCAPTCHA, dataIdDay }) => {
       setIdDayToday(dataIdDay.idDay);
   }, [dataIdDay.dayToday, dataIdDay.idDay]);
 
-    
-    
+
     return(
     <>
       <div className="borderPlace"></div>
 
       <div className="chioseDayAndDay">
-        <ShowWhatDayToday takeDayAndCodeDayInResultHour={dataIdDay.dayToday} />
-
+        
+       {/* show text what day user choose and show date */}
+        <ShowWhatDayToday takeDayAndCodeDayInResultHour={dataIdDay.idDay} />
+          
         <div id="results" className="search-results">
           {/* show Loading */}
           {LoadingHours ? (
