@@ -1,7 +1,6 @@
 import React from "react";
 import { IncrementDateLooUserTurn } from "../function/AlertUserHaveTurnToday";
 
-
 const ShowWhatDayToday = ({ takeDayAndCodeDayInResultHour }) => {
 
 
@@ -9,7 +8,7 @@ const ShowWhatDayToday = ({ takeDayAndCodeDayInResultHour }) => {
 
   let IncrementDayDateTurnUser = IncrementDateLooUserTurn(
     new Date(),
-    takeDayAndCodeDayInResultHour - 1
+    takeDayAndCodeDayInResultHour
   ).toDateString();
 
 
