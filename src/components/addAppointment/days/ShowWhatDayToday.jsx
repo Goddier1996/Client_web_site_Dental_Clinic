@@ -1,16 +1,14 @@
 import React from "react";
 import { IncrementDateLooUserTurn } from "../function/AlertUserHaveTurnToday";
 
-const ShowWhatDayToday = ({ takeDayAndCodeDayInResultHour }) => {
 
+const ShowWhatDayToday = ({ takeDayAndCodeDayInResultHour }) => {
 
   let storedTheme = localStorage.getItem("theme");
 
   let IncrementDayDateTurnUser = IncrementDateLooUserTurn(
-    new Date(),
     takeDayAndCodeDayInResultHour
-  ).toDateString();
-
+  );
 
   return (
     <>
