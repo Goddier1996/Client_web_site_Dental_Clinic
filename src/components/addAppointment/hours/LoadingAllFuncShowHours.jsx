@@ -44,7 +44,7 @@ const LoadingAllFuncShowHours = ({ showPopUpReCAPTCHA, dataIdDay }) => {
       <div className="chioseDayAndDay">
         
        {/* show text what day user choose and show date */}
-        <ShowWhatDayToday takeDayAndCodeDayInResultHour={dataIdDay.idDay} />
+        {/* <ShowWhatDayToday takeDayAndCodeDayInResultHour={dataIdDay.idDay} /> */}
           
         <div id="results" className="search-results">
           {/* show Loading */}
