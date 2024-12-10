@@ -50,7 +50,9 @@ const MessageUserHaveTurn = ({ dataUser }) => {
           </h5>
           <h5 style={{ fontSize: "16px", color: "green" }}>
             {userData.DateUserTurn}
-            <br />
+            <br /><br />
+            Day: {userData.Day_date}
+            <br/>
             Time: {userData.Hour_day}
           </h5>
 
