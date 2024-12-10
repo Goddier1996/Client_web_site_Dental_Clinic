@@ -22,6 +22,25 @@
     position: relative;
 }
 
+.showDayItemsNotActive span {
+    cursor: no-drop;
+    text-decoration: red line-through;
+    color: Gray Text;
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+}
+
+.showDayItemsActive span {
+    cursor: pointer;
+    color: Gray Text;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
 
 .showDay Button {
     margin-top: 5%;
@@ -85,7 +104,6 @@
     display: flex;
     justify-content: center;
     position: relative;
-
 }
 
 .hourActive p:hover {

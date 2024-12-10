@@ -44,6 +44,20 @@ export async function DeleteHour(Id) {
 }
 
 
+export async function DeleteDay(Id) {
+
+    // USE FETCH
+    // await fetch(`${API.HOURS.GET}/NotActive/${Id}`,
+    //     { method: 'PATCH' }
+    // );
+
+
+    // USE AXIOS
+    await axios.patch(`${API.DAYS.GET}/NotActive/${Id}`);
+}
+
+
+
 
 export async function UpdateDataUser(id, user) {
 

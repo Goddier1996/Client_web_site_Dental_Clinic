@@ -1,5 +1,6 @@
 import { API } from './API';
 import axios from 'axios';
+import { DeleteDay } from './DeleteUpdateDataFromApi';
 
 
 // ALL REVIEWS THIS CLINIC
@@ -223,6 +224,25 @@ export async function LoadDays() {
 
     // USE AXIOS
     const response = await axios.get(API.DAYS.GET);
+
+
+    let date = new Date();
+    let Day = date.getDay();
+    let weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    let x = weekday[Day];
+    let y = weekday.indexOf(x)
+    let p = y + 1;
+
+    for (let i = 0; i < response.data.length; i++) {
+
+        if (response.data[i].Serial_code < p) {
+            // alert(response.data[i].Serial_code)
+            // to do not active(2) day 
+            await DeleteDay(response.data[i]._id);
+        }
+    }
+
     return response.data;
 }
 
