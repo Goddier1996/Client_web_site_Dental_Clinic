@@ -15,7 +15,7 @@ export async function saveDateUserTurnDayAndHour(dataUser, capVal) {
         let DateWhenAddUserTurn = await GetDateWhenUserSaveTurn();
 
         // here we save date turn,for example user save turn to monday (and we save a date Mon Dec 09 2024)
-        let IncrementDayDateTurnUser = await IncrementDateLooUserTurn(new Date(), dataUser.idDay).toDateString();
+        let IncrementDayDateTurnUser = await IncrementDateLooUserTurn(dataUser.idDay);
 
         await UpdateDataUserAddTurn(dataUser._id, dataUser.dayToday, dataUser.hourDayChoose, dataUser.idHour, DateWhenAddUserTurn, IncrementDayDateTurnUser);
         await DeleteHour(dataUser.idHour);

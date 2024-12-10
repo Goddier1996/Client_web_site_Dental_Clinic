@@ -50,14 +50,16 @@ export function ShowStartAndEndDateWork() {
 }
 
 
-export function IncrementDateLooUserTurn(date = new Date(), idDay) {
+export function IncrementDateLooUserTurn(idDay) {
 
     let idDayFromDataBase = idDay - 1;
 
-    date.setDate(date.getDate() + idDayFromDataBase);
-    if (date.getDate() == 1) date.setMonth(date.getMonth());
+    let curr = new Date(); // get current date
+    let first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
+    let showMonthNow = new Date().getMonth() + 1;
+    let showYearNow = new Date().getFullYear()
 
-    return date;
+    return idDayFromDataBase + first + " - " + showMonthNow + " - " + showYearNow;
 }
 
 
