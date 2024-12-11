@@ -35,7 +35,7 @@ function App() {
     
     // And end week need to active all days !!!
     // here create function
-  }, [])
+  });
 
 
   return (
