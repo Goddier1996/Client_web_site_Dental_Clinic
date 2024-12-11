@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import React from 'react'
+import React, { useEffect } from 'react'
 import Register from './Pages/Register.jsx'
 import Home from './Pages/Home.jsx'
 import Menu from './components/heater/Menu.jsx'
@@ -12,6 +12,7 @@ import About from './Pages/About.jsx'
 import NotFoundPage from "./components/tools/pageNotFound/NotFoundPage.jsx";
 import { setDark } from "../src/components/tools/darkMode/DarkModeFunc.js"
 import ChatBotInfo from "./components/tools/chatBot/ChatBotInfo.jsx";
+import { NotActiveDays } from "./Api/LoadDataFromApi.js";
 
 
 function App() {
@@ -25,11 +26,23 @@ function App() {
   }
 
 
+  useEffect(() => {
+
+    // when open website, to do not active the previous days 
+    // For example today Monday, now we not active day sunday!
+    NotActiveDays();
+
+    
+    // And end week need to active all days !!!
+    // here create function
+  }, [])
+
+
   return (
     <BrowserRouter>
 
       <Menu />
-      <ChatBotInfo/>
+      <ChatBotInfo />
 
       <main>
         <Switch>

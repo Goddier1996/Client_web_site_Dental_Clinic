@@ -225,7 +225,14 @@ export async function LoadDays() {
     // USE AXIOS
     const response = await axios.get(API.DAYS.GET);
 
+    return response.data;
+}
 
+
+
+export async function NotActiveDays() {
+
+    let response = await LoadDays();
     let date = new Date();
     let Day = date.getDay();
     let weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -234,16 +241,15 @@ export async function LoadDays() {
     let y = weekday.indexOf(x)
     let p = y + 1;
 
-    for (let i = 0; i < response.data.length; i++) {
+    for (let i = 0; i < response.length; i++) {
 
-        if (response.data[i].Serial_code < p) {
+        if (response[i].Serial_code < p) {
             // alert(response.data[i].Serial_code)
             // to do not active(2) day 
-            await DeleteDay(response.data[i]._id);
+            await DeleteDay(response[i]._id);
         }
     }
 
-    return response.data;
 }
 
 
