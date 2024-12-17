@@ -7,26 +7,6 @@ let storedTheme = localStorage.getItem("theme");
 
 export async function connectUserLogin(user) {
 
-    // USE FETCH
-    // try {
-
-    //     let res = await fetch(API.USERS.LOGIN, {
-    //         method: 'POST',
-    // headers: {
-    //     "Content-Type": "application/json"
-    // },
-    //         body: JSON.stringify(user)
-    //     });
-
-    //     let data = await res.json();
-
-    //     sessionStorage.setItem("user", JSON.stringify(data));
-
-    // } catch (error) {
-    //     console.log(error);
-    // }
-
-
     // USE AXIOS
     const headers = {
         'Content-Type': 'application/json'
@@ -62,22 +42,6 @@ export async function connectUserLogin(user) {
 
 export async function DoctorAddMedicalFileUser(file) {
 
-    // USE FETCH
-    // try {
-    //     await fetch(API.MEDICAL_FILE.ADD, {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(file)
-    //     });
-
-
-    // } catch (error) {
-    //     console.log(error);
-    // }
-
-
     // USE AXIOS
     const headers = {
         'Content-Type': 'application/json'
@@ -90,22 +54,6 @@ export async function DoctorAddMedicalFileUser(file) {
 
 export async function AddNewReviews(review) {
 
-    // USE FETCH
-    // try {
-
-    //     await fetch(API.REVIEWS.ADD, {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(review)
-    //     });
-
-    // } catch (error) {
-    //     console.log(error);
-    // }
-
-
     // USE AXIOS
     const headers = {
         'Content-Type': 'application/json'
@@ -117,22 +65,6 @@ export async function AddNewReviews(review) {
 
 
 export async function AddNewLikeReviews(like, Serial_code) {
-
-    // USE FETCH
-
-    // try {
-    //     await fetch(`${API.REVIEWS.GET}/${Serial_code}`, {
-    //         method: 'PATCH',
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(like)
-    //     });
-
-    // } catch (error) {
-    //     console.log(error)
-    // }
-
 
     // USE AXIOS
     const headers = {
@@ -156,22 +88,6 @@ export async function RemoveReviewLike(id, PublishBy) {
 
 
 export async function AddNewUserRegester(newUser) {
-
-    // USE FETCH
-    // try {
-    //     await fetch(API.USERS.ADD, {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(user)
-    //     });
-
-
-    // } catch (error) {
-    //     console.log(error);
-    // }
-
 
     // USE AXIOS
     const headers = {
