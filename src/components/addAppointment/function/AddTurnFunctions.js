@@ -17,17 +17,26 @@ export async function saveDateUserTurnDayAndHour(dataUser, capVal) {
         // here we save date turn,for example user save turn to monday (and we save a date Mon Dec 09 2024)
         let IncrementDayDateTurnUser = await IncrementDateLooUserTurn(dataUser.idDay);
 
-        await UpdateDataUserAddTurn(dataUser._id, dataUser.dayToday, dataUser.hourDayChoose, dataUser.idHour, DateWhenAddUserTurn, IncrementDayDateTurnUser);
+        await UpdateDataUserAddTurn(
+            dataUser._id,
+            dataUser.dayToday,
+            dataUser.hourDayChoose,
+            dataUser.idHour,
+            DateWhenAddUserTurn,
+            IncrementDayDateTurnUser,
+            dataUser.Email
+        );
+
         await DeleteHour(dataUser.idHour);
 
         await Swal.fire({
             title: `Youre making an appointment`,
-            text: `${dataUser.dayToday} ${dataUser.hourDayChoose}`,
+            text: `${dataUser.dayToday} ${dataUser.hourDayChoose}, We send to your mail info about your appointment.`,
             icon: 'success',
             position: "top-end",
             toast: true,
             showConfirmButton: false,
-            timer: 1400,
+            timer: 2000,
             background: `${(storedTheme === "light") ? "#373E44" :
                 (storedTheme === "dark") ? "" : ""}`,
             color: `${(storedTheme === "light") ? "#ffffffab" :

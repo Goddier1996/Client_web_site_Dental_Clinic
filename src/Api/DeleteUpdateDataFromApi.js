@@ -75,7 +75,7 @@ export async function UpdateDataUserRemoveTurn(codeUser) {
 
 
 
-export async function UpdateDataUserAddTurn(id, dayLocal, hourLocal, serial_code, DateWhenAddUserTurn, DateUserTurn) {
+export async function UpdateDataUserAddTurn(id, dayLocal, hourLocal, serial_code, DateWhenAddUserTurn, DateUserTurn, Email) {
 
     // USE AXIOS
     let user = {
@@ -83,10 +83,12 @@ export async function UpdateDataUserAddTurn(id, dayLocal, hourLocal, serial_code
         Hour_day: hourLocal,
         Serial_codeHour: serial_code,
         DateWhenAddUserTurn: DateWhenAddUserTurn,
-        DateUserTurn: DateUserTurn
+        DateUserTurn: DateUserTurn,
+        sendEmailHaveTurn: "yes",
+        Email: Email
     };
 
-    await axios.patch(`${API.USERS.GET}/${id}`, user);
+    await axios.patch(`${API.USERS.GET}/addTurnUser/${id}`, user);
 }
 
 

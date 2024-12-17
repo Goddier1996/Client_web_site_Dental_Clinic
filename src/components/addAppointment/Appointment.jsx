@@ -59,6 +59,7 @@ function Appointment() {
       idDay: dataIdDay.idDay,
       hourDayChoose: dataIdHour.hourDayChoose,
       idHour: dataIdHour.idHour,
+      Email: userData.Email
     };
 
     saveDateUserTurnDayAndHour(userDataTurn, capVal);
