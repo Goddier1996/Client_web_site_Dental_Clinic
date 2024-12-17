@@ -26,6 +26,7 @@ const ActiveQueues = ({ usersActive_queues }) => {
 
   // here check function , check if day this today don't show popUp send file, if no show popUp and save dataUser
   const checkFuncIfDoctorCanSendToday = (dataShowAllUsers) => {
+    
     if (!returnBoolResultIfDayTurnToday(dataShowAllUsers)) {
       showPopUpTodayDoctorCantSendFile(dataShowAllUsers);
     } else {

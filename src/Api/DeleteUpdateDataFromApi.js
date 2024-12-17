@@ -62,7 +62,8 @@ export async function UpdateDataUserRemoveTurn(codeUser) {
         Hour_day: null,
         Serial_codeHour: null,
         DateWhenAddUserTurn: null,
-        DateUserTurn: null
+        DateUserTurn: null,
+        sendEmailHaveTurn: null
     };
 
     const headers = {
@@ -84,10 +85,6 @@ export async function UpdateDataUserAddTurn(id, dayLocal, hourLocal, serial_code
         DateWhenAddUserTurn: DateWhenAddUserTurn,
         DateUserTurn: DateUserTurn
     };
-
-    // const headers = {
-    //     'Content-Type': 'application/json'
-    // }
 
     await axios.patch(`${API.USERS.GET}/${id}`, user);
 }

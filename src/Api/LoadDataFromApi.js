@@ -1,5 +1,6 @@
 import { API } from './API';
 import axios from 'axios';
+import { send } from "emailjs-com";
 import { ActiveDay, DeleteDay } from './DeleteUpdateDataFromApi';
 import { GetTime } from '../components/addAppointment/function/AlertUserHaveTurnToday';
 
@@ -75,6 +76,7 @@ export async function LoadAllUsers() {
     const response = await axios.get(API.USERS.GET);
     return response.data;
 }
+
 
 
 export async function LoadAllUsersBlocked() {

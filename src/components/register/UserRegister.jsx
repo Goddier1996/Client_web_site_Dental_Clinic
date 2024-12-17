@@ -36,7 +36,8 @@ const UserRegister = () => {
       Serial_codeHour: null,
       IsActive: "1",
       DateWhenAddUserTurn: null,
-      DateUserTurn: null
+      DateUserTurn: null,
+      sendEmailHaveTurn: null
     }
   });
 

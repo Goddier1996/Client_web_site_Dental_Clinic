@@ -30,11 +30,8 @@ function App() {
 
     // when open website, to do not active the previous days 
     // For example today Monday, now we not active day sunday!
+    // and the end week we active all days, for users can save new turn
     NotActiveDays();
-
-    
-    // And end week need to active all days !!!
-    // here create function
   });
 
 
