@@ -1,6 +1,7 @@
 import { API } from './API';
 import axios from 'axios';
-import { DeleteDay } from './DeleteUpdateDataFromApi';
+import { ActiveDay, DeleteDay } from './DeleteUpdateDataFromApi';
+import { GetTime } from '../components/addAppointment/function/AlertUserHaveTurnToday';
 
 
 // ALL REVIEWS THIS CLINIC
@@ -237,19 +238,31 @@ export async function NotActiveDays() {
     let Day = date.getDay();
     let weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-    let x = weekday[Day];
-    let y = weekday.indexOf(x)
-    let p = y + 1;
+    let getDayToday = weekday[Day];
+    let getIndexDayToday = weekday.indexOf(getDayToday)
+    let indexDayToday = getIndexDayToday + 1;
 
-    for (let i = 0; i < response.length; i++) {
+    let hoursAndMinutes = GetTime(new Date());
 
-        if (response[i].Serial_code < p) {
-            // alert(response.data[i].Serial_code)
-            // to do not active(2) day 
-            await DeleteDay(response[i]._id);
+    // if day today Saturday and time 23:00 (this end week),
+    // active all days to new week(for users can save new turn)
+    if (getDayToday == "Saturday" && hoursAndMinutes == "23:00") {
+
+        for (let i = 0; i < response.length; i++) {
+            await ActiveDay(response[i]._id);
         }
+        return;
     }
 
+    else {
+        for (let i = 0; i < response.length; i++) {
+            // if Serial_code day from database small indexDayToday not active(2) day
+            if (response[i].Serial_code < indexDayToday) {
+                await DeleteDay(response[i]._id);
+            }
+        }
+        return;
+    }
 }
 
 
