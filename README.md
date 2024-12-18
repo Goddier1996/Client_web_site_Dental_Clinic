@@ -56,6 +56,8 @@ https://github.com/Goddier1996/Client_web_site_Dental_Clinic/assets/59862302/d92
 ![11](https://github.com/user-attachments/assets/9f9b5ac3-8b2c-4553-96ef-ac72290dc248)
 <img width="922" alt="Screenshot 2024-02-02 165324" src="https://github.com/Goddier1996/Client_web_site_Dental_Clinic/assets/59862302/26c985b4-cdc5-4e3c-ac7e-f3857abf077c">
 ![111](https://github.com/user-attachments/assets/899c1123-cf75-407d-ad90-2c0f77d5f12c)
+![Screenshot 2024-12-18 123816](https://github.com/user-attachments/assets/ce9a692d-30ee-4059-9193-62cca240fb16)
+
 
 
 
