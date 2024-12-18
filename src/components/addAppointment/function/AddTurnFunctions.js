@@ -30,13 +30,24 @@ export async function saveDateUserTurnDayAndHour(dataUser, capVal) {
         await DeleteHour(dataUser.idHour);
 
         await Swal.fire({
-            title: `Youre making an appointment`,
-            text: `${dataUser.dayToday} ${dataUser.hourDayChoose}, We send to your mail info about your appointment.`,
+            title: `⬇️ Your appointment at ⬇️`,
+            html: `<p>
+            <b>Date: </b>${IncrementDayDateTurnUser}<br/>
+            <b>Day: </b>${dataUser.dayToday}<br/>
+            <b>Hour: </b>${dataUser.hourDayChoose}<br/>
+            <br/>
+            💡Check your <b>Mail</b> we send info about your appointment.
+            </p>`,
             icon: 'success',
             position: "top-end",
             toast: true,
             showConfirmButton: false,
-            timer: 2000,
+            timer: 3500,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+            },
             background: `${(storedTheme === "light") ? "#373E44" :
                 (storedTheme === "dark") ? "" : ""}`,
             color: `${(storedTheme === "light") ? "#ffffffab" :
