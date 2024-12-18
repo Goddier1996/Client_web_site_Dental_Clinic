@@ -1,7 +1,7 @@
 import { API } from './API';
 import axios from 'axios';
 import { send } from "emailjs-com";
-import { ActiveDay, DeleteDay } from './DeleteUpdateDataFromApi';
+import { ActiveDay, ActiveHourInDataBase, DeleteDay, UpdateDataUserRemoveTurn } from './DeleteUpdateDataFromApi';
 import { GetTime } from '../components/addAppointment/function/AlertUserHaveTurnToday';
 
 
@@ -75,6 +75,36 @@ export async function LoadAllUsers() {
     // USE AXIOS
     const response = await axios.get(API.USERS.GET);
     return response.data;
+}
+
+
+
+// Here we remove Yesterday appointment user, active hour and delete data appointment in user 
+export async function DeleteYesterdaysTurnAutoInUser() {
+
+    let date = new Date();
+
+    // get Yesterday
+    let Day = date.getDay() - 1;
+    let weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let getDayToday = weekday[Day];
+
+    let response = await LoadAllUsers();
+
+    for (let i = 0; i < response.length; i++) {
+
+        // if Yesterday some day,user save Yesterday day
+        // and Not go to this appointment Yesterday, we active this Hour. 
+        // and remove all info about appointment in user data
+        if (response[i].Day_date === getDayToday) {
+
+            // active Hour
+            await ActiveHourInDataBase(response[i].Serial_codeHour);
+
+            // remove data appointment user
+            await UpdateDataUserRemoveTurn(response[i]._id);
+        }
+    }
 }
 
 

@@ -12,7 +12,7 @@ import About from './Pages/About.jsx'
 import NotFoundPage from "./components/tools/pageNotFound/NotFoundPage.jsx";
 import { setDark } from "../src/components/tools/darkMode/DarkModeFunc.js"
 import ChatBotInfo from "./components/tools/chatBot/ChatBotInfo.jsx";
-import { NotActiveDays } from "./Api/LoadDataFromApi.js";
+import { DeleteYesterdaysTurnAutoInUser, NotActiveDays } from "./Api/LoadDataFromApi.js";
 
 
 function App() {
@@ -32,6 +32,11 @@ function App() {
     // For example today Monday, now we not active day sunday!
     // and the end week we active all days, for users can save new turn
     NotActiveDays();
+
+    // here delete all appointment was Yesterday,
+    // because user NOT go to this appointment Yesterday,
+    // active Hour and delete all info about appointment at user.
+    DeleteYesterdaysTurnAutoInUser();
   });
 
 
