@@ -70,8 +70,8 @@ export async function popErrorEmailIncorrect() {
 export async function checkIfMailValid(mutate, data) {
 
     const headers = {
-        'x-api-key': process.env.REACT_APP_SEBOUNCER
-    }
+        'x-api-key': process.env.REACT_APP_SEBOUNCER || ""
+    };
 
     // send Email input user when register to check if it's valid, in service usebouncer
     axios.get(`https://api.usebouncer.com/v1.1/email/verify?email=${data.Email}`, { headers: headers })
