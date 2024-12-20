@@ -1,4 +1,6 @@
+import axios from 'axios';
 import Swal from 'sweetalert2'
+import React from 'react'
 
 
 let storedTheme = localStorage.getItem("theme");
@@ -54,6 +56,52 @@ export async function popErrorEmailIncorrect() {
         toast: true,
         confirmButtonColor: "green",
         html: `The email you entered is incorrect`,
+        position: 'top-end',
+        background: `${(storedTheme === "light") ? "#373E44" :
+            (storedTheme === "dark") ? "" : ""}`,
+        color: `${(storedTheme === "light") ? "#ffffffab" :
+            (storedTheme === "dark") ? "" : ""}`,
+        buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+            (storedTheme === "dark") ? "" : ""}`
+    })
+}
+
+
+export async function checkIfMailValid(mutate, data) {
+
+    const headers = {
+        'x-api-key': process.env.REACT_APP_SEBOUNCER
+    }
+
+    // send Email input user when register to check if it's valid, in service usebouncer
+    axios.get(`https://api.usebouncer.com/v1.1/email/verify?email=${data.Email}`, { headers: headers })
+        .then(post => {
+            if (fixWordWhenCheckEmail(Object.values(post.data.status)) === 'deliverable') {
+                mutate(data);
+            } else {
+                popErrorMailNotValid();
+            }
+        })
+        .catch(err => console.error(err)
+        )
+}
+
+
+export function fixWordWhenCheckEmail(word) {
+
+    let result = String(word).split(',').join('');
+    return result;
+}
+
+
+export async function popErrorMailNotValid() {
+
+    Swal.fire({
+        icon: 'warning',
+        title: 'Email Not Valid',
+        toast: true,
+        confirmButtonColor: "green",
+        html: `Please enter a valid email`,
         position: 'top-end',
         background: `${(storedTheme === "light") ? "#373E44" :
             (storedTheme === "dark") ? "" : ""}`,

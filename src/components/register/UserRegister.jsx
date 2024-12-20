@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Col, Row , Button , Spinner } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import RobotBox from "../ReCAPTCHA/RobotBox.jsx";
-import { popErrorRegisterUser,  checkInputValueEmail , popErrorEmailIncorrect } from "./function/RegisterUser.js";
+import { popErrorRegisterUser,  checkInputValueEmail , popErrorEmailIncorrect, checkIfMailValid } from "./function/RegisterUser.js";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { newUserRegister } from "../../customHook/customQueryHook.js";
@@ -17,6 +17,7 @@ const UserRegister = () => {
 
   // check box if user not robot
   const [capVal, setCapVal] = useState(false);
+
 
   let d = new Date();
   let DatePublished = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
@@ -46,7 +47,7 @@ const UserRegister = () => {
 
 
 
-  const onSubmitRegisterNewUser = (data) => {
+  const onSubmitRegisterNewUser = async (data) => {
 
     // if password don't confirm show alert error
     if (data.User_password !== data.ConfirmPassword) {
@@ -59,8 +60,9 @@ const UserRegister = () => {
     }
     
     // here register user , use query hook
+    // and check if email is valid
     else {
-      mutate(data);
+      await checkIfMailValid(mutate, data);
     }
   };
 
@@ -146,6 +148,19 @@ const UserRegister = () => {
                 pattern:"/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
               })}
             />
+          
+              
+              <Form.Text
+              style={{
+                marginBottom: "10%",
+                marginTop: "-10%",
+                fontSize: "11px",
+              }}
+            >
+              (Please enter a valid email)
+            </Form.Text>
+          
+            
           </Form.Group>
         </Row>
 

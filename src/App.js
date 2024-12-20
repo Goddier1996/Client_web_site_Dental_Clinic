@@ -37,7 +37,7 @@ function App() {
     // because user NOT go to this appointment Yesterday,
     // active Hour and delete all info about appointment at user.
     DeleteYesterdaysTurnAutoInUser();
-  });
+  }, []);
 
 
   return (

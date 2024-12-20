@@ -1,6 +1,6 @@
 import { API } from './API';
 import axios from 'axios';
-import { send } from "emailjs-com";
+// import { send } from "emailjs-com";
 import { ActiveDay, ActiveHourInDataBase, DeleteDay, UpdateDataUserRemoveTurn } from './DeleteUpdateDataFromApi';
 import { GetTime } from '../components/addAppointment/function/AlertUserHaveTurnToday';
 
