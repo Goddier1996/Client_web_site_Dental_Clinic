@@ -26,7 +26,6 @@
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
     "emailjs-com": "^3.2.0",
-    "env-cmd": "^10.1.0",
     "framer-motion": "^8.5.4",
     "haversine": "^1.1.1",
     "react": "^18.1.0",
