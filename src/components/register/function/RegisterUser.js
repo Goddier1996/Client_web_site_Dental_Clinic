@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Swal from 'sweetalert2'
 import React from 'react'
 
@@ -86,12 +85,18 @@ export async function checkIfMailValid(mutate, data) {
     //     .catch(err => console.error(err)
     //     )
 
-    const options = {
-        method: 'GET',
-        headers: {'x-api-key': 'C93kNSEqJqQlw8LU4RPmXiKNunzSYVoQe2Kj1mg1'}
-      };
+    // const options = {
+    //     method: 'GET',
+    //     headers: {'x-api-key': 'C93kNSEqJqQlw8LU4RPmXiKNunzSYVoQe2Kj1mg1'}
+    //   };
       
-    fetch(`https://api.usebouncer.com/v1.1/email/verify?email=${data.Email}`, options)
+    fetch(`https://api.usebouncer.com/v1.1/email/verify?email=${data.Email}`,
+        {
+            method : "GET",
+            mode: 'cors',
+            headers: {'x-api-key': 'C93kNSEqJqQlw8LU4RPmXiKNunzSYVoQe2Kj1mg1'}
+        }
+      )
         .then(response => response.json())
         //   .then(response => alert(response.status)
         .then(response => {
