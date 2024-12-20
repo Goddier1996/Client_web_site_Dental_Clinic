@@ -5,7 +5,7 @@ import videoBg from "../../../images/video11.mp4";
 let storedTheme = localStorage.getItem("theme");
 
 
-export async function openSwalWhenLoginShowTypeUser(nameUser, UserType_code) {
+export async function openSwalWhenLoginShowTypeUser(nameUser, UserType_code, locationPathname, history) {
 
     await Swal.fire({
         title: `Hello ${nameUser}`,
@@ -28,8 +28,12 @@ export async function openSwalWhenLoginShowTypeUser(nameUser, UserType_code) {
             }`,
         buttonColor: `${storedTheme === "light" ? "#E96E00" : storedTheme === "dark" ? "" : ""
             }`,
-    });  
-
+    })
+        .then(() => {
+            if (locationPathname === "/Register") {
+                history.push("/");
+            }
+        });
 }
 
 

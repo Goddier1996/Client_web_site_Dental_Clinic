@@ -105,11 +105,11 @@ export async function checkIfMailValid(mutate, data) {
 }
 
 
-export function fixWordWhenCheckEmail(word) {
+// export function fixWordWhenCheckEmail(word) {
 
-    let result = String(word).split(',').join('');
-    return result;
-}
+//     let result = String(word).split(',').join('');
+//     return result;
+// }
 
 
 export async function popErrorMailNotValid() {

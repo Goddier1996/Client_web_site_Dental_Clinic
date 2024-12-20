@@ -1,9 +1,9 @@
 import React from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { AdminInfoVideo } from "../function/SignInUser";
 import { LoginUser } from "../../../customHook/customQueryHook";
 import { useForm } from "react-hook-form";
 import { Form , Button , Spinner } from "react-bootstrap";
+import { useHistory, useLocation } from 'react-router-dom';
 
 
 
@@ -12,8 +12,14 @@ const ShowModelFormConnect = ({ activeForgetPassword, hideSignIn }) => {
 
   let storedTheme = localStorage.getItem("theme");
 
+  // use react router here because we need to know the location
+  // if the user Login and stay in the register page we need to redirect him to the home page!
+  let location = useLocation();
+  const history = useHistory();
+
+
   // react query
-  const { mutate, isLoading: loadingLogin } = LoginUser(hideSignIn);
+  const { mutate, isLoading: loadingLogin } = LoginUser(hideSignIn, location.pathname, history);
 
   const { register, handleSubmit } = useForm();
 
@@ -171,18 +177,6 @@ const ShowModelFormConnect = ({ activeForgetPassword, hideSignIn }) => {
             </a>
           </p>
         </div>
-
-        {/* <div
-          className={
-            storedTheme == "light"
-              ? "infoVideoAAdminDark"
-              : storedTheme == "dark"
-              ? "infoVideoAAdmin"
-              : ""
-          }
-        >
-          <a onClick={AdminInfoVideo}>Click See What Admin can to do !</a>
-        </div> */}
       </Form>
     </div>
   );

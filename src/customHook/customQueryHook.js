@@ -138,7 +138,7 @@ export const newUserRegister = (history) => {
 }
 
 
-export const LoginUser = (hideSignIn) => {
+export const LoginUser = (hideSignIn, locationPathname, history) => {
 
     const queryClient = useQueryClient();
 
@@ -149,7 +149,7 @@ export const LoginUser = (hideSignIn) => {
 
             // close pop login if user connect to clinic
             hideSignIn();
-            openSwalWhenLoginShowTypeUser(userData.FirstName, userData.UserType_code);
+            openSwalWhenLoginShowTypeUser(userData.FirstName, userData.UserType_code, locationPathname, history);
 
             queryClient.invalidateQueries({
                 queryKey: ["login_user"]
