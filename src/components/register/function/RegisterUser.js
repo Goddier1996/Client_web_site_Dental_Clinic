@@ -95,6 +95,7 @@ export async function checkIfMailValid(mutate, data) {
             method : "GET",
             withCredentials: true,    
             crossorigin: true,    
+            mode: 'no-cors',
             headers: { 'x-api-key': 'C93kNSEqJqQlw8LU4RPmXiKNunzSYVoQe2Kj1mg1' }
         }
       )
