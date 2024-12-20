@@ -91,7 +91,7 @@ export async function checkIfMailValid(mutate, data) {
 
     // EMAIL VALIDATION ABSTRACT API
     // send Email input user when register to check if it's valid
-    axios.get(`https://emailvalidation.abstractapi.com/v1/?api_key=${process.env.REACT_APP_SEBOUNCER}&email=${data.Email}`)
+    axios.get(`https://emailvalidation.abstractapi.com/v1/?api_key=${process.env.REACT_APP_EMAILVALIDATION || ""}&email=${data.Email}`)
         .then(response => {
             if (response.data.is_smtp_valid.text === 'TRUE') {
                 mutate(data);
