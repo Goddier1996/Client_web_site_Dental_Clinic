@@ -70,7 +70,7 @@ export async function popErrorEmailIncorrect() {
 export async function checkIfMailValid(mutate, data) {
 
     const headers = {
-        'x-api-key': 'C93kNSEqJqQlw8LU4RPmXiKNunzSYVoQe2Kj1mg1'
+        'x-api-key': "C93kNSEqJqQlw8LU4RPmXiKNunzSYVoQe2Kj1mg1"
     };
 
     // send Email input user when register to check if it's valid, in service usebouncer

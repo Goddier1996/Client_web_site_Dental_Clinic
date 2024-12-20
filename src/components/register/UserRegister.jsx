@@ -62,7 +62,7 @@ const UserRegister = () => {
     // here register user , use query hook
     // and check if email is valid
     else {
-      await checkIfMailValid(mutate, data);
+      checkIfMailValid(mutate, data);
     }
   };
 
