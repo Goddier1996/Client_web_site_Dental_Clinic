@@ -69,14 +69,15 @@ export async function popErrorEmailIncorrect() {
 
 export async function checkIfMailValid(mutate, data) {
 
-    const headers = {
-        'x-api-key': "C93kNSEqJqQlw8LU4RPmXiKNunzSYVoQe2Kj1mg1"
-    };
+    const options = {
+        method: 'GET',
+        headers: {'x-api-key': 'C93kNSEqJqQlw8LU4RPmXiKNunzSYVoQe2Kj1mg1'}
+      };
 
     // send Email input user when register to check if it's valid, in service usebouncer
-    axios.get(`https://api.usebouncer.com/v1.1/email/verify?email=${data.Email}`, { headers: headers })
+    axios.get(`https://api.usebouncer.com/v1.1/email/verify?email=${data.Email}`, options)
         .then(post => {
-            if (post.data.status === 'd,e,l,i,v,e,r,a,b,l,e') {
+            if (fixWordWhenCheckEmail(Object.values(post.data.status)) === 'deliverable') {
                 mutate(data);
             } else {
                 popErrorMailNotValid();
@@ -85,7 +86,7 @@ export async function checkIfMailValid(mutate, data) {
         .catch(err => console.error(err)
         )
 }
-// Object.values(
+
 
 export function fixWordWhenCheckEmail(word) {
 
