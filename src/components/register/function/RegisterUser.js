@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2'
 import React from 'react'
+import axios from 'axios';
 
 
 let storedTheme = localStorage.getItem("theme");
@@ -76,11 +77,11 @@ export async function checkIfMailValid(mutate, data) {
     // // send Email input user when register to check if it's valid, in service usebouncer
     // axios.get(`https://api.usebouncer.com/v1.1/email/verify?email=${data.Email}`, options)
     //     .then(post => {
-            // if (fixWordWhenCheckEmail(Object.values(post.data.status)) === 'deliverable') {
-            //     mutate(data);
-            // } else {
-            //     popErrorMailNotValid();
-            // }
+    // if (fixWordWhenCheckEmail(Object.values(post.data.status)) === 'deliverable') {
+    //     mutate(data);
+    // } else {
+    //     popErrorMailNotValid();
+    // }
     //     })
     //     .catch(err => console.error(err)
     //     )
@@ -89,27 +90,39 @@ export async function checkIfMailValid(mutate, data) {
     //     method: 'GET',
     //     headers: {'x-api-key': 'C93kNSEqJqQlw8LU4RPmXiKNunzSYVoQe2Kj1mg1'}
     //   };
-      
-    fetch(`https://api.usebouncer.com/v1.1/email/verify?email=${data.Email}`,
-        {
-            method: 'GET',
-            mode: 'cors',
-            headers: {
-              'Content-Type': 'application/json',
-              'x-api-key': 'C93kNSEqJqQlw8LU4RPmXiKNunzSYVoQe2Kj1mg1'
-            }
-          }
-      )
-        .then(response => response.json())
-        //   .then(response => alert(response.status)
+
+    // fetch(`https://api.usebouncer.com/v1.1/email/verify?email=${data.Email}`,
+    //     {
+    //         method: 'GET',
+    //         mode: 'cors',
+    //         headers: {
+    //           'Content-Type': 'application/json',
+    //           'x-api-key': 'C93kNSEqJqQlw8LU4RPmXiKNunzSYVoQe2Kj1mg1'
+    //         }
+    //       }
+    //   )
+    //     .then(response => response.json())
+    //     //   .then(response => alert(response.status)
+        // .then(response => {
+        //     if (response.status === 'deliverable') {
+        //         mutate(data);
+        //     } else {
+        //         popErrorMailNotValid();
+        //     }
+    //     })
+    //     .catch(err => console.error(err));
+
+    axios.get(`https://emailvalidation.abstractapi.com/v1/?api_key=241570e916b04b7a97cb848575b73466&email=${data.Email}`)
         .then(response => {
-            if (response.status === 'deliverable') {
+            if (response.data.is_smtp_valid.text === 'TRUE') {
                 mutate(data);
             } else {
                 popErrorMailNotValid();
             }
         })
-        .catch(err => console.error(err));
+        .catch(error => {
+            console.log(error);
+        });
 }
 
 
