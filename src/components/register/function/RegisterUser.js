@@ -93,8 +93,9 @@ export async function checkIfMailValid(mutate, data) {
     fetch(`https://api.usebouncer.com/v1.1/email/verify?email=${data.Email}`,
         {
             method : "GET",
-            mode: 'cors',
-            headers: {'x-api-key': 'C93kNSEqJqQlw8LU4RPmXiKNunzSYVoQe2Kj1mg1'}
+            withCredentials: true,    
+            crossorigin: true,    
+            headers: { 'x-api-key': 'C93kNSEqJqQlw8LU4RPmXiKNunzSYVoQe2Kj1mg1' }
         }
       )
         .then(response => response.json())
