@@ -69,22 +69,39 @@ export async function popErrorEmailIncorrect() {
 
 export async function checkIfMailValid(mutate, data) {
 
+    // const options = {
+    //     method: 'GET',
+    //     headers: {'x-api-key': 'C93kNSEqJqQlw8LU4RPmXiKNunzSYVoQe2Kj1mg1'}
+    //   };
+
+    // // send Email input user when register to check if it's valid, in service usebouncer
+    // axios.get(`https://api.usebouncer.com/v1.1/email/verify?email=${data.Email}`, options)
+    //     .then(post => {
+            // if (fixWordWhenCheckEmail(Object.values(post.data.status)) === 'deliverable') {
+            //     mutate(data);
+            // } else {
+            //     popErrorMailNotValid();
+            // }
+    //     })
+    //     .catch(err => console.error(err)
+    //     )
+
     const options = {
         method: 'GET',
         headers: {'x-api-key': 'C93kNSEqJqQlw8LU4RPmXiKNunzSYVoQe2Kj1mg1'}
       };
-
-    // send Email input user when register to check if it's valid, in service usebouncer
-    axios.get(`https://api.usebouncer.com/v1.1/email/verify?email=${data.Email}`, options)
-        .then(post => {
-            if (fixWordWhenCheckEmail(Object.values(post.data.status)) === 'deliverable') {
+      
+    fetch(`https://api.usebouncer.com/v1.1/email/verify?email=${data.Email}`, options)
+        .then(response => response.json())
+        //   .then(response => alert(response.status)
+        .then(response => {
+            if (response.status === 'deliverable') {
                 mutate(data);
             } else {
                 popErrorMailNotValid();
             }
         })
-        .catch(err => console.error(err)
-        )
+        .catch(err => console.error(err));
 }
 
 
