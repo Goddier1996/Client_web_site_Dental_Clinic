@@ -76,7 +76,7 @@ export async function checkIfMailValid(mutate, data) {
     // send Email input user when register to check if it's valid, in service usebouncer
     axios.get(`https://api.usebouncer.com/v1.1/email/verify?email=${data.Email}`, { headers: headers })
         .then(post => {
-            if (fixWordWhenCheckEmail(Object.values(post.data.status)) === 'deliverable') {
+            if (post.data.status === 'd,e,l,i,v,e,r,a,b,l,e') {
                 mutate(data);
             } else {
                 popErrorMailNotValid();
@@ -85,7 +85,7 @@ export async function checkIfMailValid(mutate, data) {
         .catch(err => console.error(err)
         )
 }
-
+// Object.values(
 
 export function fixWordWhenCheckEmail(word) {
 
