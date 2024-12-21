@@ -286,3 +286,15 @@
     display: flex;
     justify-content: center;
 }
+
+
+.infoAppointmentsEndDays {
+    font-size: 14px;
+    text-align: center;
+    font-weight: 450;
+}
+
+.infoAppointmentsEndDays b {
+    border-bottom: 2px solid #2e9eef;
+    border-radius: 15%;
+}

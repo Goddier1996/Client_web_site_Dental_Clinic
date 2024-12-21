@@ -1,6 +1,6 @@
 import React from "react";
-import { ShowStartAndEndDateWork } from "./function/AlertUserHaveTurnToday";
-import "./appointment.css";
+import { ShowStartAndEndDateWork } from "../function/AlertUserHaveTurnToday";
+import "../appointment.css";
 
 
 const ShowStartAndEndDateWorkTurn = () => {

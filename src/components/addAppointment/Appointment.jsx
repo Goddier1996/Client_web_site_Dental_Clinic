@@ -10,7 +10,13 @@ import LoadingDaysHour from "../loading/LoadingDaysHour.jsx";
 import LoadingAllFuncShowHours from "./hours/LoadingAllFuncShowHours.jsx";
 import { saveDateUserTurnDayAndHour } from "./function/AddTurnFunctions.js";
 import { ShowModelPopUp } from "../../customHook/showPopUp.js";
-import ShowStartAndEndDateWorkTurn from "./ShowStartAndEndDateWorkTurn.jsx";
+import ShowStartAndEndDateWorkTurn from "./showInfoDateWhenTurnOpen/ShowStartAndEndDateWorkTurn.jsx";
+import EndDaysWorkingThisWeekMessage from "./showInfoDateWhenTurnOpen/EndDaysWorkingThisWeekMessage.jsx";
+import {
+  GetDayWeekFromArray,
+  GetTime,
+} from "./function/AlertUserHaveTurnToday.js";
+
 
 
 //here component we show days+hours (if you click to button in Home Page Book an appointment)
@@ -19,6 +25,7 @@ function Appointment() {
 
   // show popup RobotBox custom Hook
   const { show, handleClose, handleShow } = ShowModelPopUp();
+
   // show popup show hour custom Hook
   const { showOneMoreModel, handleShowOneMoreModel } = ShowModelPopUp();
 
@@ -29,12 +36,14 @@ function Appointment() {
   let storedTheme = localStorage.getItem("theme");
   let userData = JSON.parse(sessionStorage.getItem("user"));
 
+
   // use custom hook , useQuery + days,hours
   const {
     isLoading: LoadingDays,
     data: days,
     isError: ErrorDays,
   } = useQueryLoadingAllData("allDays", LoadDays);
+
 
   const [dataIdDay, setDataIdDay] = useState({});
 
@@ -44,12 +53,14 @@ function Appointment() {
     handleShowOneMoreModel();
   };
 
+
   const [dataIdHour, setDataIdHour] = useState({});
 
   const showPopUpReCAPTCHA = (Hour_day, Serial_code) => {
     handleShow();
     setDataIdHour({ hourDayChoose: Hour_day, idHour: Serial_code });
   };
+
 
   // save user hour and day what he choose
   const saveDateUser = async () => {
@@ -59,11 +70,12 @@ function Appointment() {
       idDay: dataIdDay.idDay,
       hourDayChoose: dataIdHour.hourDayChoose,
       idHour: dataIdHour.idHour,
-      Email: userData.Email
+      Email: userData.Email,
     };
 
     saveDateUserTurnDayAndHour(userDataTurn, capVal);
   };
+
 
   const closePopUpRobotBoxUserExit = () => {
     handleClose();
@@ -87,10 +99,9 @@ function Appointment() {
               : ""
           }
         >
-          
           {/* show first and end date working this week (Component) */}
-          <ShowStartAndEndDateWorkTurn/>
-          
+          <ShowStartAndEndDateWorkTurn />
+
           <Row xs={2} md={5} lg={4} className="g-4">
             {days.map((day) => (
               <div className="showDayItems" key={day._id}>
@@ -107,6 +118,16 @@ function Appointment() {
               />
             ) : null}
           </Modal.Body>
+
+              
+          {/* here active component show message when days active again after end week!
+              and show message to user when this happen */}
+          {GetDayWeekFromArray(new Date()) == "Friday" ||
+          (GetDayWeekFromArray(new Date()) == "Saturday" &&
+            GetTime(new Date()) >= "15:00" &&
+            GetTime(new Date()) < "23:00") ? (
+            <EndDaysWorkingThisWeekMessage />
+          ) : null}
         </div>
       )}
 
@@ -123,6 +144,5 @@ function Appointment() {
     </>
   );
 }
-
 
 export default Appointment;
