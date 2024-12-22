@@ -1,22 +1,24 @@
 import React from "react";
 import { Table } from "react-bootstrap";
-import ShowFile from "./ShowFile";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { compareDates } from "../../../doctorService/function/DoctorFunctionService";
-import ShowMessageToUser from "../../../tools/ShowMessageToUserAndDoctor";
+import ShowMessageToUserAndDoctor from "../../../tools/ShowMessageToUserAndDoctor";
+import ShowHistoryFIles from "./ShowHistoryFIles";
 
 
-const MedicalFilesUser = ({ medical_File }) => {
+const HistoryMedicalFile = ({ medical_File_Is_Not_Active }) => {
 
 
-  let CountReview = 1;
+  let HistoryPayFile = 1;
   let storedTheme = localStorage.getItem("theme");
 
   // Sorting the data by date before rendering
-  const sortedData = [...medical_File].sort(compareDates);
+  const sortedData = [...medical_File_Is_Not_Active].sort(compareDates);
+
 
   return (
     <>
-      {medical_File.length ? (
+      {medical_File_Is_Not_Active.length ? (
         <Table
           striped
           bordered
@@ -37,18 +39,17 @@ const MedicalFilesUser = ({ medical_File }) => {
                 Price Service
               </th>
               <th style={{ width: "3%", textAlign: "center" }}>File</th>
-              <th style={{ width: "3%", textAlign: "center" }}>Pay</th>
             </tr>
           </thead>
 
           {sortedData.map((File) => (
             <tbody key={File._id}>
-              <ShowFile dataFile={File} countFiles={CountReview++} />
+              <ShowHistoryFIles File={File} countReview={HistoryPayFile++} />
             </tbody>
           ))}
         </Table>
       ) : (
-        <ShowMessageToUser
+        <ShowMessageToUserAndDoctor
           forHowSeeThisMessage={"Message for User"}
           whichMessageShow={"Hi User you don't have medical files."}
         />
@@ -58,4 +59,4 @@ const MedicalFilesUser = ({ medical_File }) => {
 };
 
 
-export default MedicalFilesUser;
+export default HistoryMedicalFile;

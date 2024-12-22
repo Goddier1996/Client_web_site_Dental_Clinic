@@ -10,7 +10,7 @@ import { useQueryLoadingAllData } from "../../customHook/customQueryHook.js";
 import { motion as m } from "framer-motion/dist/framer-motion";
 import LoadingDoctorData from "../loading/LoadingDoctorData.jsx";
 import ActiveQueues from "./doctorService/tabs/ActiveQueues.jsx";
-import WhoShouldPay from "./doctorService/tabs/WhoShouldPay.jsx";
+import WhoShouldPay from "./doctorService/tabs/showWhoShouldPay/WhoShouldPay.jsx";
 
 
 

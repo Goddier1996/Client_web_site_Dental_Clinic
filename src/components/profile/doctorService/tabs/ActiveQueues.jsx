@@ -8,12 +8,10 @@ import {
 } from "../function/DoctorFunctionService";
 import AllUsersNeedSendFile from "../sendMedicalFile/AllUsersNeedSendFile";
 import { ShowModelPopUp } from "../../../../customHook/showPopUp";
-import MessageNotHaveTurn from "./showMessage/MessageNotHaveTurn";
-
+import ShowMessageToUserAndDoctor from "../../tools/ShowMessageToUserAndDoctor";
 
 
 const ActiveQueues = ({ usersActive_queues }) => {
-
 
   // show popup send file custom Hook
   const { show, handleClose, handleShow } = ShowModelPopUp();
@@ -26,7 +24,7 @@ const ActiveQueues = ({ usersActive_queues }) => {
 
   // here check function , check if day this today don't show popUp send file, if no show popUp and save dataUser
   const checkFuncIfDoctorCanSendToday = (dataShowAllUsers) => {
-    
+
     if (!returnBoolResultIfDayTurnToday(dataShowAllUsers)) {
       showPopUpTodayDoctorCantSendFile(dataShowAllUsers);
     } else {
@@ -36,7 +34,7 @@ const ActiveQueues = ({ usersActive_queues }) => {
     }
   };
 
-
+  
   return (
     <>
       {usersActive_queues.length ? (
@@ -56,7 +54,9 @@ const ActiveQueues = ({ usersActive_queues }) => {
               <th style={{ width: "10%", textAlign: "center" }}>Email</th>
               <th style={{ width: "10%", textAlign: "center" }}>Date Turn</th>
               <th style={{ width: "2%", textAlign: "center" }}>Hour</th>
-              <th style={{ width: "15%", textAlign: "center" }}>Show When User Save Turn</th>
+              <th style={{ width: "15%", textAlign: "center" }}>
+                Show When User Save Turn
+              </th>
               <th style={{ width: "2%", textAlign: "center" }}>Medical FIle</th>
             </tr>
           </thead>
@@ -72,7 +72,10 @@ const ActiveQueues = ({ usersActive_queues }) => {
           ))}
         </Table>
       ) : (
-        <MessageNotHaveTurn />
+        <ShowMessageToUserAndDoctor
+          forHowSeeThisMessage={"Message for Doctor"}
+          whichMessageShow={"Hi Doctor you don't have active queues."}
+        />
       )}
 
       

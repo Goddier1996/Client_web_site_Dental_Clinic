@@ -12,8 +12,8 @@ import {
 import NotFoundPage from "../tools/pageNotFound/NotFoundPage.jsx";
 import { motion as m } from "framer-motion/dist/framer-motion";
 import LoadingUserData from "../loading/LoadingUserData.jsx";
-import UserQueues from "./userService/tabs/UserQueues.jsx";
-import HistoryMedicalFile from "./userService/tabs/HistoryMedicalFile.jsx";
+import UserQueues from "./userService/tabs/showMessageAboutUserTurn/UserQueues.jsx";
+import HistoryMedicalFile from "./userService/tabs/showHistoryMedicalFile/HistoryMedicalFile.jsx";
 import MyComments from "./userService/tabs/showUserComments/MyComments.jsx";
 import PersonalData from "./userService/tabs/PersonalData.jsx";
 import MedicalFilesUser from "./userService/tabs/medicalFiles/MedicalFilesUser.jsx";

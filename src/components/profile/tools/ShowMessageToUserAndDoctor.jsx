@@ -1,9 +1,12 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
-import LazyLoadImg from "../../../../tools/lazyLoad/LazyLoadImg";
+import LazyLoadImg from "../../../components/tools/lazyLoad/LazyLoadImg";
 
+const ShowMessageToUserAndDoctor = ({
 
-const MessageNotHaveTurnUser = () => {
+  whichMessageShow,
+  forHowSeeThisMessage,
+}) => {
 
   let storedTheme = localStorage.getItem("theme");
 
@@ -34,14 +37,10 @@ const MessageNotHaveTurnUser = () => {
             height="90"
             alt="message"
           />
+
           <p style={{ marginTop: "0%" }}>
-            You Don't Have Queues ! <br />
-            Go to the home page, and order by clicking the queue button. <br />
-            Or <br />
-            Click{" "}
-            <a style={{ textDecoration: "none", fontWeight: "bold" }} href="/">
-              Home Page
-            </a>
+            <b>{forHowSeeThisMessage}</b> <br />
+            {whichMessageShow}
           </p>
         </div>
       </Modal.Body>
@@ -50,4 +49,4 @@ const MessageNotHaveTurnUser = () => {
 };
 
 
-export default MessageNotHaveTurnUser;
+export default ShowMessageToUserAndDoctor;

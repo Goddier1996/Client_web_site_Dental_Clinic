@@ -1,6 +1,6 @@
 import React from "react";
-import MessageNotHaveTurnUser from "./showMessageAboutUserTurn/MessageNotHaveTurnUser";
-import MessageUserHaveTurn from "./showMessageAboutUserTurn/MessageUserHaveTurn";
+import MessageNotHaveTurnUser from "./MessageNotHaveTurnUser";
+import MessageUserHaveTurn from "./MessageUserHaveTurn";
 
 
 const UserQueues = ({ day, data_user }) => {
