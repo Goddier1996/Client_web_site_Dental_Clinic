@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import {sendEmailToUserPayDebt} from "../../function/DoctorFunctionService.js";
 
 
 const ShowUsersWhoNeedPay = ({ user, ClientHowNeedPay }) => {
@@ -19,9 +20,9 @@ const ShowUsersWhoNeedPay = ({ user, ClientHowNeedPay }) => {
           {user.priceSevice} $
         </td>
         <td style={{ textAlign: "center", fontSize: "14px" }}>
-          <Button
+           <Button
             variant="success"
-            onClick={() => (window.location = "https://mail.google.com")}
+            onClick={() => sendEmailToUserPayDebt(user)}
           >
             <i className="bi bi-send"></i>
           </Button>

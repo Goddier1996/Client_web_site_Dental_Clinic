@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2'
-import { DoctorAddMedicalFileUser } from "../../../../Api/ConnectOrAddFromApi";
+import { DoctorAddMedicalFileUser, sendGmailUserNeedPayToClinic } from "../../../../Api/ConnectOrAddFromApi";
 import {
     UpdateDataUserRemoveTurn,
     ActiveHourInDataBase,
@@ -109,4 +109,26 @@ export async function doctorAddMedicalFileToPayUser(dataUser) {
             }`,
         timer: 1100,
     });
+}
+
+
+// Function to send email to user to pay debt
+export async function sendEmailToUserPayDebt(debt) {
+
+    await Swal.fire({
+        icon: "success",
+        text: "Email reminder to pay debt, successfully sent",
+        toast: true,
+        position: "top-end",
+        confirmButtonColor: "green",
+        background: `${storedTheme === "light" ? "#373E44" : storedTheme === "dark" ? "" : ""}`,
+        color: `${storedTheme === "light"
+            ? "#ffffffab"
+            : storedTheme === "dark"
+                ? ""
+                : ""}`,
+        buttonColor: `${storedTheme === "light" ? "#E96E00" : storedTheme === "dark" ? "" : ""}`,
+    });
+
+    await sendGmailUserNeedPayToClinic(debt);
 }

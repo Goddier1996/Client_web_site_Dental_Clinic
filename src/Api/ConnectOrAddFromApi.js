@@ -148,3 +148,10 @@ export async function AddNewUserRegester(newUser) {
         await axios.post(API.USERS.ADD, newUser, { headers: headers })
     }
 }
+
+
+
+export async function sendGmailUserNeedPayToClinic(user) {
+
+    await axios.post(`${API.MEDICAL_FILE.GET}/showHowNeedPaySendMail/${user._id}`, user);
+}
