@@ -2,10 +2,12 @@ import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { ActiveHourDontNeedTurn } from "../../function/UserProfileFunction";
+import LazyLoadImg from "../../../../tools/lazyLoad/LazyLoadImg";
 
 
 
 const MessageUserHaveTurn = ({ dataUser }) => {
+
 
   let storedTheme = localStorage.getItem("theme");
   let userData = JSON.parse(sessionStorage.getItem("user"));
@@ -31,12 +33,19 @@ const MessageUserHaveTurn = ({ dataUser }) => {
         <div
           style={
             storedTheme === "light"
-              ? { marginTop: "-20%", color: "white" }
+              ? { marginTop: "-25%", color: "white" }
               : storedTheme === "dark"
-              ? { marginTop: "-20%" }
+              ? { marginTop: "-25%" }
               : ""
           }
         >
+          <LazyLoadImg
+            type=""
+            img="https://i.postimg.cc/qMTjH8f1/doctor1.webp"
+            width=""
+            height="90"
+            alt="Doctor"
+          />
           <h5
             style={
               storedTheme === "light"
@@ -50,9 +59,10 @@ const MessageUserHaveTurn = ({ dataUser }) => {
           </h5>
           <h5 style={{ fontSize: "16px", color: "green" }}>
             {userData.DateUserTurn}
-            <br /><br />
+            <br />
+            <br />
             Day: {userData.Day_date}
-            <br/>
+            <br />
             Time: {userData.Hour_day}
           </h5>
 
