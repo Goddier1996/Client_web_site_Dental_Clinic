@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Form, Col, Row , Button } from "react-bootstrap";
+import { Form, Col, Row, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { alertPopUpIfUserHaveTodayTurn } from "../../../addAppointment/function/AlertUserHaveTurnToday";
 import { CheckInputValueUpdateDataUser } from "../function/UserProfileFunction";
-
+import LazyLoadImg from "../../../tools/lazyLoad/LazyLoadImg";
 
 
 const PersonalData = ({ data_user }) => {
@@ -19,10 +19,9 @@ const PersonalData = ({ data_user }) => {
   const [Password, setPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
 
-    
-    
+
+
   const CheckValueAndUpdateDataUser = async () => {
-    
     let dataUser = {
       User_Login: Login,
       FirstName: FirstName,
@@ -36,6 +35,7 @@ const PersonalData = ({ data_user }) => {
       UserType_code: "1",
     };
 
+
     CheckInputValueUpdateDataUser(
       dataUser,
       data_user.login,
@@ -44,9 +44,8 @@ const PersonalData = ({ data_user }) => {
     );
   };
 
-    
+
   const alertTodayTurnUser = async () => {
-    
     await alertPopUpIfUserHaveTodayTurn(
       data_user.day,
       storedTheme,
@@ -56,9 +55,8 @@ const PersonalData = ({ data_user }) => {
     );
   };
 
-    
+
   useEffect(() => {
-    
     alertTodayTurnUser();
 
     //show use date- when i update user date i show all value in input and choise what i need update
@@ -70,10 +68,20 @@ const PersonalData = ({ data_user }) => {
     setConfirmPassword(data_user.confirm_password);
   }, []);
 
-    
-    
+
+  
   return (
     <>
+      <div className="updatedDataUser">
+        <LazyLoadImg
+          type=""
+          img="https://i.postimg.cc/QtwhP3jw/personal-data.png"
+          width=""
+          height="95"
+          alt="Updated Data User"
+        />
+      </div>
+
       <Form>
         <Row>
           <Form.Group as={Col} md="4" className="personalDataPlaceFree">
@@ -241,6 +249,5 @@ const PersonalData = ({ data_user }) => {
     </>
   );
 };
-
 
 export default PersonalData;

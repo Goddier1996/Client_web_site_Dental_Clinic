@@ -1,5 +1,3 @@
-
-
 .modal-content {
     background: none;
     border: none;
@@ -358,4 +356,10 @@
     .AllReviews table td:last-child {
         border-bottom: 0;
     }
+}
+
+
+.updatedDataUser {
+    display: flex;
+    justify-content: center;
 }
