@@ -1,10 +1,8 @@
 import axios from 'axios';
 import Swal from 'sweetalert2'
-import React from 'react'
 
 
 let storedTheme = localStorage.getItem("theme");
-
 
 
 export async function popErrorRegisterUser() {
@@ -67,49 +65,27 @@ export async function popErrorEmailIncorrect() {
 }
 
 
-export async function checkIfMailValid(mutate, data) {
+export async function checkIfMailValid(mutate, data, setLoadingCheckMailValid) {
 
-    // USEBOUNCER API
 
-    // const options = {
-    //     method: 'GET',
-    //     headers: {'x-api-key': ''}
-    //   };
-
-    // // send Email input user when register to check if it's valid, in service usebouncer
-    // axios.get(`https://api.usebouncer.com/v1.1/email/verify?email=${data.Email}`, options)
-    //     .then(post => {
-    // if (fixWordWhenCheckEmail(Object.values(post.data.status)) === 'deliverable') {
-    //     mutate(data);
-    // } else {
-    //     popErrorMailNotValid();
-    // }
-    //     })
-    //     .catch(err => console.error(err)
-    //     )
-
+    setLoadingCheckMailValid(true);
 
     // EMAIL VALIDATION ABSTRACT API
     // send Email input user when register to check if it's valid
     axios.get(`https://emailvalidation.abstractapi.com/v1/?api_key=${process.env.REACT_APP_EMAILVALIDATION || ""}&email=${data.Email}`)
         .then(response => {
             if (response.data.is_smtp_valid.text === 'TRUE') {
+                setLoadingCheckMailValid(false);
                 mutate(data);
             } else {
                 popErrorMailNotValid();
+                setLoadingCheckMailValid(false);
             }
         })
         .catch(error => {
             console.log(error);
         });
 }
-
-
-// export function fixWordWhenCheckEmail(word) {
-
-//     let result = String(word).split(',').join('');
-//     return result;
-// }
 
 
 export async function popErrorMailNotValid() {

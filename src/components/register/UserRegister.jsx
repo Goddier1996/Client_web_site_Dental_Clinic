@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import { Form, Col, Row , Button , Spinner } from "react-bootstrap";
+import { Form, Col, Row, Button, Spinner } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import RobotBox from "../ReCAPTCHA/RobotBox.jsx";
-import { popErrorRegisterUser,  checkInputValueEmail , popErrorEmailIncorrect, checkIfMailValid } from "./function/RegisterUser.js";
+import {
+  popErrorRegisterUser,
+  checkInputValueEmail,
+  popErrorEmailIncorrect,
+  checkIfMailValid,
+} from "./function/RegisterUser.js";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { newUserRegister } from "../../customHook/customQueryHook.js";
@@ -17,6 +22,8 @@ const UserRegister = () => {
 
   // check box if user not robot
   const [capVal, setCapVal] = useState(false);
+
+  const [loadingCheckMailValid, setLoadingCheckMailValid] = useState(false);
 
 
   let d = new Date();
@@ -38,17 +45,15 @@ const UserRegister = () => {
       IsActive: "1",
       DateWhenAddUserTurn: null,
       DateUserTurn: null,
-      sendEmailHaveTurn: null
-    }
+      sendEmailHaveTurn: null,
+    },
   });
 
   // react query
   const { mutate, isLoading: isRegister } = newUserRegister(history);
 
 
-
   const onSubmitRegisterNewUser = async (data) => {
-
     // if password don't confirm show alert error
     if (data.User_password !== data.ConfirmPassword) {
       popErrorRegisterUser();
@@ -58,22 +63,24 @@ const UserRegister = () => {
     else if (!checkInputValueEmail(data.Email)) {
       popErrorEmailIncorrect();
     }
-    
+
     // here register user , use query hook
     // and check if email is valid
     else {
-      checkIfMailValid(mutate, data);
+      checkIfMailValid(mutate, data, setLoadingCheckMailValid);
     }
   };
 
 
-  const handleError = (errors) => {console.log(errors)};
+  const handleError = (errors) => {
+    console.log(errors);
+  };
 
 
   return (
     <>
       <Form
-        onSubmit={handleSubmit(onSubmitRegisterNewUser,handleError )}
+        onSubmit={handleSubmit(onSubmitRegisterNewUser, handleError)}
         style={
           storedTheme === "light"
             ? { textAlign: "center", alignItems: "center", color: "white" }
@@ -100,7 +107,7 @@ const UserRegister = () => {
               name="User_Login"
               type="text"
               {...register("User_Login", {
-                required: true
+                required: true,
               })}
             />
           </Form.Group>
@@ -121,7 +128,7 @@ const UserRegister = () => {
               type="text"
               placeholder="Enter First Name"
               {...register("FirstName", {
-                required: true
+                required: true,
               })}
             />
           </Form.Group>
@@ -145,12 +152,11 @@ const UserRegister = () => {
               placeholder="Enter Email"
               {...register("Email", {
                 required: true,
-                pattern:"/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+                pattern:
+                  "/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/",
               })}
             />
-          
-              
-              <Form.Text
+            <Form.Text
               style={{
                 marginBottom: "10%",
                 marginTop: "-10%",
@@ -159,8 +165,6 @@ const UserRegister = () => {
             >
               (Please enter a valid email)
             </Form.Text>
-          
-            
           </Form.Group>
         </Row>
 
@@ -184,7 +188,7 @@ const UserRegister = () => {
                 required: "please input",
                 minLength: {
                   value: 6,
-                  required: true
+                  required: true,
                 },
               })}
             />
@@ -218,7 +222,7 @@ const UserRegister = () => {
                 required: "please input",
                 minLength: {
                   value: 6,
-                  required: true
+                  required: true,
                 },
               })}
             />
@@ -245,7 +249,7 @@ const UserRegister = () => {
               }
               type="date"
               {...register("Birthday", {
-                required: true
+                required: true,
               })}
             />
           </Form.Group>
@@ -254,11 +258,11 @@ const UserRegister = () => {
         {/* check box if user dont robot */}
         <RobotBox activeRobotBox={() => setCapVal(true)} />
 
-        {!isRegister ? (
+        {!isRegister && !loadingCheckMailValid ? (
           <Button
             style={!capVal ? { cursor: "not-allowed" } : {}}
             variant="success"
-            disabled={!capVal || isRegister}
+            disabled={!capVal || isRegister || loadingCheckMailValid}
             type="submit"
           >
             Register
