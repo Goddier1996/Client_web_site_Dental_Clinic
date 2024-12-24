@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2'
-import { DoctorAddMedicalFileUser, sendGmailUserNeedPayToClinic } from "../../../../Api/ConnectOrAddFromApi";
+import { DoctorAddMedicalFileUser } from "../../../../Api/ConnectOrAddFromApi";
 import {
     UpdateDataUserRemoveTurn,
     ActiveHourInDataBase,
@@ -113,9 +113,9 @@ export async function doctorAddMedicalFileToPayUser(dataUser) {
 
 
 // Function to send email to user to pay debt
-export async function sendEmailToUserPayDebt(debt) {
+export function sendEmailToUserPayDebt() {
 
-    await Swal.fire({
+    Swal.fire({
         icon: "success",
         text: "Email reminder to pay debt, successfully sent",
         toast: true,
@@ -129,6 +129,4 @@ export async function sendEmailToUserPayDebt(debt) {
                 : ""}`,
         buttonColor: `${storedTheme === "light" ? "#E96E00" : storedTheme === "dark" ? "" : ""}`,
     });
-
-    await sendGmailUserNeedPayToClinic(debt);
 }

@@ -2,7 +2,7 @@ import { useMutation, useQuery, useQueryClient } from 'react-query'
 
 // API Function
 import { DeleteReview, DeletePayFile } from "../Api/DeleteUpdateDataFromApi"
-import { AddNewUserRegester, connectUserLogin, AddNewReviews } from '../Api/ConnectOrAddFromApi'
+import { AddNewUserRegester, connectUserLogin, AddNewReviews, sendGmailUserNeedPayToClinic } from '../Api/ConnectOrAddFromApi'
 import { LoadReviews } from "../Api/LoadDataFromApi";
 
 // COMPONENTS Function
@@ -10,7 +10,7 @@ import { popUpUserDeleteReviewId, userPayTurnSuccessful } from "../components/pr
 import { popUserRegister } from "../components/register/function/RegisterUser";
 import { openSwalWhenLoginShowTypeUser } from "../components/login/function/SignInUser"
 import { userAddReviewsLike, userAddReviewSuccess } from "../components/reviewsClinic/function/AddReviewAndLike";
-import { doctorAddMedicalFileToPayUser } from "../components/profile/doctorService/function/DoctorFunctionService"
+import { doctorAddMedicalFileToPayUser, sendEmailToUserPayDebt } from "../components/profile/doctorService/function/DoctorFunctionService"
 
 
 
@@ -176,6 +176,22 @@ export const doctorSendMedicalFile = (hideModelMedicalFile) => {
     })
 }
 
+
+
+export const doctorSendMailToUser = () => {
+
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: sendGmailUserNeedPayToClinic,
+        onSuccess: () => {
+            sendEmailToUserPayDebt();
+            queryClient.invalidateQueries({
+                queryKey: ["Send_mail"]
+            })
+        },
+        onError: (err) => console.log(err.message),
+    })
+}
 
 
 
