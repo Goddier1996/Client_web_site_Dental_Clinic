@@ -155,3 +155,9 @@ export async function sendGmailUserNeedPayToClinic(user) {
 
     await axios.post(`${API.MEDICAL_FILE.GET}/showHowNeedPaySendMail/${user._id}`, user);
 }
+
+
+export async function sendMailAboutCloseUserTurn(user) {
+
+    await axios.post(`${API.USERS.GET}/sendMailAboutCloseYourTurn/${user._id}`, user);
+}

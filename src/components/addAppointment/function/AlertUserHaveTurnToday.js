@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2'
 import { ActiveHourInDataBase, UpdateDataUserRemoveTurn } from '../../../Api/DeleteUpdateDataFromApi'
+import { sendMailAboutCloseUserTurn } from '../../../Api/ConnectOrAddFromApi';
 
 
 export function GetTime(date) {
@@ -71,7 +72,7 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
 
     if (day == dayFromArray) {
 
-        if (hour < hoursAndMinutes) {
+        if (hour <= hoursAndMinutes) {
 
             Swal.fire({
                 html: `<div class="alertUserHaveTodayTurn">
@@ -99,6 +100,7 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
 
                     await ActiveHourInDataBase(codeHour);
                     await UpdateDataUserRemoveTurn(code);
+                    await sendMailAboutCloseUserTurn(userData);
 
                     const obj = {
                         _id: userData._id,
