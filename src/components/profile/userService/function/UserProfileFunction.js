@@ -202,6 +202,7 @@ export async function deleteUserAccount(userCode) {
         })
         return;
     }
+
     else {
         await DeleteAllUserReview(userCode.code);
         await DeleteAllMedicalFileUser(userCode.code);
@@ -209,7 +210,10 @@ export async function deleteUserAccount(userCode) {
         if (userCode.day != null && userCode.hour != null && userCode.codeHour != null) {
             await ActiveHourInDataBase(userCode.codeHour);
         }
-        await DeleteUser(userCode.code);
+        await DeleteUser(userCode.code)
+            .then(() => {
+                sessionStorage.clear('user');
+            })
     }
 }
 
@@ -231,7 +235,6 @@ export async function popUpUserDeleteAccount(history) {
         buttonColor: `${(storedTheme === "light") ? "#E96E00" :
             (storedTheme === "dark") ? "" : ""}`
     }).then(() => {
-        sessionStorage.clear('user');
         history.push("/");
         window.location.reload(false);
     })

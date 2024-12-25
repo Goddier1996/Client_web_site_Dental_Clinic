@@ -202,7 +202,10 @@ export const deleteAccountUser = (history) => {
     return useMutation({
         mutationFn: deleteUserAccount,
         onSuccess: () => {
-            popUpUserDeleteAccount(history);
+
+            if (JSON.parse(sessionStorage.getItem("user") == null)) {
+                popUpUserDeleteAccount(history);
+            }
             queryClient.invalidateQueries({
                 queryKey: ["delete_account"]
             })
