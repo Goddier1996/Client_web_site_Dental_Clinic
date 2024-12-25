@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Form, Col, Row, Button } from "react-bootstrap";
+import { Form, Col, Row, Button, Spinner } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { alertPopUpIfUserHaveTodayTurn } from "../../../addAppointment/function/AlertUserHaveTurnToday";
-import { CheckInputValueUpdateDataUser } from "../function/UserProfileFunction";
+import {
+  CheckInputValueUpdateDataUser,
+} from "../function/UserProfileFunction";
 import LazyLoadImg from "../../../tools/lazyLoad/LazyLoadImg";
+import { deleteAccountUser } from "../../../../customHook/customQueryHook";
+
 
 
 const PersonalData = ({ data_user }) => {
@@ -19,6 +23,9 @@ const PersonalData = ({ data_user }) => {
   const [Password, setPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
 
+
+  // react query
+  const { mutate, isLoading: isDeleteAccount } = deleteAccountUser(history);
 
 
   const CheckValueAndUpdateDataUser = async () => {
@@ -59,7 +66,7 @@ const PersonalData = ({ data_user }) => {
   useEffect(() => {
     alertTodayTurnUser();
 
-    //show use date- when i update user date i show all value in input and choise what i need update
+    //show use date- when i update user date i show all value in input and choose what i need update
     setFirstName(data_user.name);
     setLogin(data_user.login);
     setEmail(data_user.email);
@@ -241,9 +248,33 @@ const PersonalData = ({ data_user }) => {
         </Row>
 
         <div className="enterUpdate">
-          <Button variant="success" onClick={CheckValueAndUpdateDataUser}>
-            Update
-          </Button>
+          {!isDeleteAccount ? (
+            <>
+              <Button variant="success" onClick={CheckValueAndUpdateDataUser}>
+                Update
+              </Button>
+
+              <Button
+                style={isDeleteAccount ? { cursor: "not-allowed" } : {}}
+                variant="danger"
+                disabled={isDeleteAccount}
+                type="submit"
+                onClick={() => mutate(data_user)}
+              >
+                Delete Account
+              </Button>
+            </>
+          ) : (
+            <Button variant="success">
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+            </Button>
+          )}
         </div>
       </Form>
     </>

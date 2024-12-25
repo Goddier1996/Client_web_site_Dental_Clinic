@@ -150,7 +150,7 @@
 
 .enterUpdate {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     padding-top: 3%;
 }
 
@@ -355,6 +355,14 @@
     .AllDoctors table td:last-child,
     .AllReviews table td:last-child {
         border-bottom: 0;
+    }
+
+    .enterUpdate {
+        flex-direction: column;
+    }
+
+    .enterUpdate button {
+        margin: 3%;
     }
 }
 

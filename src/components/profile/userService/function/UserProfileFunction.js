@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2'
-import { UpdateDataUserRemoveTurn, ActiveHourInDataBase, UpdateDataUser } from '../../../../Api/DeleteUpdateDataFromApi'
+import { UpdateDataUserRemoveTurn, ActiveHourInDataBase, UpdateDataUser, DeleteAllUserReview, DeleteUser, DeleteAllMedicalFileUser } from '../../../../Api/DeleteUpdateDataFromApi'
 
 
 let storedTheme = localStorage.getItem("theme");
@@ -175,5 +175,64 @@ export async function popUpUserDeleteReviewId() {
             (storedTheme === "dark") ? "" : ""}`,
         buttonColor: `${(storedTheme === "light") ? "#E96E00" :
             (storedTheme === "dark") ? "" : ""}`
+    })
+}
+
+
+
+export async function deleteUserAccount(userCode) {
+
+
+    // demo user cant update data
+    if (userCode.login == "User") {
+
+        Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            html: 'Demo User Can t Delete Account !',
+            toast: true,
+            position: 'center',
+            confirmButtonColor: "green",
+            background: `${(storedTheme === "light") ? "#373E44" :
+                (storedTheme === "dark") ? "" : ""}`,
+            color: `${(storedTheme === "light") ? "#ffffffab" :
+                (storedTheme === "dark") ? "" : ""}`,
+            buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+                (storedTheme === "dark") ? "" : ""}`
+        })
+        return;
+    }
+    else {
+        await DeleteAllUserReview(userCode.code);
+        await DeleteAllMedicalFileUser(userCode.code);
+
+        if (userCode.day != null && userCode.hour != null && userCode.codeHour != null) {
+            await ActiveHourInDataBase(userCode.codeHour);
+        }
+        await DeleteUser(userCode.code);
+    }
+}
+
+
+
+export async function popUpUserDeleteAccount(history) {
+
+    await Swal.fire({
+        title: 'You Success Delete Your Account',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 1500,
+        toast: true,
+        position: 'center',
+        background: `${(storedTheme === "light") ? "#373E44" :
+            (storedTheme === "dark") ? "" : ""}`,
+        color: `${(storedTheme === "light") ? "#ffffffab" :
+            (storedTheme === "dark") ? "" : ""}`,
+        buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+            (storedTheme === "dark") ? "" : ""}`
+    }).then(() => {
+        sessionStorage.clear('user');
+        history.push("/");
+        window.location.reload(false);
     })
 }

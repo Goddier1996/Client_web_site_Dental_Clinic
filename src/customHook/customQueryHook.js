@@ -6,7 +6,7 @@ import { AddNewUserRegester, connectUserLogin, AddNewReviews, sendGmailUserNeedP
 import { LoadReviews } from "../Api/LoadDataFromApi";
 
 // COMPONENTS Function
-import { popUpUserDeleteReviewId, userPayTurnSuccessful } from "../components/profile/userService/function/UserProfileFunction";
+import { deleteUserAccount, popUpUserDeleteAccount, popUpUserDeleteReviewId, userPayTurnSuccessful } from "../components/profile/userService/function/UserProfileFunction";
 import { popUserRegister } from "../components/register/function/RegisterUser";
 import { openSwalWhenLoginShowTypeUser } from "../components/login/function/SignInUser"
 import { userAddReviewsLike, userAddReviewSuccess } from "../components/reviewsClinic/function/AddReviewAndLike";
@@ -187,6 +187,24 @@ export const doctorSendMailToUser = () => {
             sendEmailToUserPayDebt();
             queryClient.invalidateQueries({
                 queryKey: ["Send_mail"]
+            })
+        },
+        onError: (err) => console.log(err.message),
+    })
+}
+
+
+
+export const deleteAccountUser = (history) => {
+
+    const queryClient = useQueryClient();
+
+    return useMutation({
+        mutationFn: deleteUserAccount,
+        onSuccess: () => {
+            popUpUserDeleteAccount(history);
+            queryClient.invalidateQueries({
+                queryKey: ["delete_account"]
             })
         },
         onError: (err) => console.log(err.message),

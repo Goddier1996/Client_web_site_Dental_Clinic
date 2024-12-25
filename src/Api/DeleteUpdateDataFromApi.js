@@ -18,6 +18,14 @@ export async function DeleteReview(Id) {
 }
 
 
+export async function DeleteAllUserReview(Id) {
+
+    // USE AXIOS
+    await axios.delete(`${API.REVIEWS.GET}/deleteAllReviewUser/${Id}`);
+}
+
+
+
 
 export async function DeleteHour(Id) {
 
@@ -113,6 +121,14 @@ export async function DeletePayFile(Id) {
 
     // USE AXIOS
     await axios.patch(`${API.MEDICAL_FILE.GET}/delete/${Id}`);
+}
+
+
+
+export async function DeleteAllMedicalFileUser(Id) {
+
+    // USE AXIOS
+    await axios.delete(`${API.MEDICAL_FILE.GET}/deleteAllMedicalFileUser/${Id}`);
 }
 
 
