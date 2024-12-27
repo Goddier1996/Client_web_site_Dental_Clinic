@@ -108,6 +108,9 @@ https://github.com/user-attachments/assets/8212f8da-a841-4c48-8e94-c2276962225d
 
 ## Updated Data User :
 ![00000](https://user-images.githubusercontent.com/59862302/212555657-91615e3f-6b67-4ee6-abab-0cb11b22ab10.jpg)
+![Screenshot 2024-12-27 154430](https://github.com/user-attachments/assets/780faacf-6324-432b-815b-834345446af3)
+![delete account](https://github.com/user-attachments/assets/f87dd56c-da53-4b2a-b2e7-fe96e764b353)
+
 
 
 ## Profile Page Doctor :
@@ -119,6 +122,8 @@ https://github.com/user-attachments/assets/8212f8da-a841-4c48-8e94-c2276962225d
 
 ## show users how need pay :
 ![q2](https://user-images.githubusercontent.com/59862302/212555983-d1e12177-d9ca-4cbe-b059-d83fd2805f10.jpg)
+![Screenshot 2024-12-27 154635](https://github.com/user-attachments/assets/32046cf2-e365-46d1-9bfd-cc1650535f55)
+
 
 
 ## Profile Page Admin :
