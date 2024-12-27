@@ -157,7 +157,15 @@ export async function sendGmailUserNeedPayToClinic(user) {
 }
 
 
+
 export async function sendMailAboutCloseUserTurn(user) {
 
     await axios.post(`${API.USERS.GET}/sendMailAboutCloseYourTurn/${user._id}`, user);
+}
+
+
+
+export async function sendGmailDeleteAccountMessage(user) {
+
+    await axios.post(`${API.USERS.GET}/sendGmailDeleteAccountMessage/${user.code}`, user);
 }

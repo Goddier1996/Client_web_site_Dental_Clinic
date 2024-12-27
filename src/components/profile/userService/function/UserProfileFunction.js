@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2'
 import { UpdateDataUserRemoveTurn, ActiveHourInDataBase, UpdateDataUser, DeleteAllUserReview, DeleteUser, DeleteAllMedicalFileUser } from '../../../../Api/DeleteUpdateDataFromApi'
+import { sendGmailDeleteAccountMessage } from '../../../../Api/ConnectOrAddFromApi';
 
 
 let storedTheme = localStorage.getItem("theme");
@@ -211,6 +212,9 @@ export async function deleteUserAccount(userCode) {
             await ActiveHourInDataBase(userCode.codeHour);
         }
         await DeleteUser(userCode.code)
+            .then(() => {
+                sendGmailDeleteAccountMessage(userCode);
+            })
             .then(() => {
                 sessionStorage.clear('user');
             })
