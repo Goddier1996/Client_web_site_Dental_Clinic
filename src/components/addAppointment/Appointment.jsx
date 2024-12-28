@@ -44,15 +44,14 @@ function Appointment() {
     isError: ErrorDays,
   } = useQueryLoadingAllData("allDays", LoadDays);
 
-
   const [dataIdDay, setDataIdDay] = useState({});
+
 
   //here you show Hours from day what we choose , from data base
   const LoadHours = async (Serial_code, Day_date) => {
     setDataIdDay({ dayToday: Day_date, idDay: Serial_code });
     handleShowOneMoreModel();
   };
-
 
   const [dataIdHour, setDataIdHour] = useState({});
 
@@ -82,7 +81,7 @@ function Appointment() {
     setCapVal(false);
   };
 
-
+  
   return (
     <>
       {LoadingDays ? (
@@ -119,12 +118,11 @@ function Appointment() {
             ) : null}
           </Modal.Body>
 
-              
           {/* here active component show message when days active again after end week!
               and show message to user when this happen */}
-          {GetDayWeekFromArray(new Date()) == "Friday" ||
+          {(GetDayWeekFromArray(new Date()) == "Friday" &&
+            GetTime(new Date()) >= "15:00") ||
           (GetDayWeekFromArray(new Date()) == "Saturday" &&
-            GetTime(new Date()) >= "15:00" &&
             GetTime(new Date()) < "23:00") ? (
             <EndDaysWorkingThisWeekMessage />
           ) : null}
