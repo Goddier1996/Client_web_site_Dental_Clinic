@@ -44,7 +44,7 @@ const HistoryMedicalFile = ({ medical_File_Is_Not_Active }) => {
 
           {sortedData.map((File) => (
             <tbody key={File._id}>
-              <ShowHistoryFIles File={File} countReview={HistoryPayFile++} />
+              <ShowHistoryFIles File={File} countFiles={HistoryPayFile++} />
             </tbody>
           ))}
         </Table>

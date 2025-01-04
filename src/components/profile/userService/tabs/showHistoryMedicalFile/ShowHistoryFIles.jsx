@@ -2,12 +2,12 @@ import React from "react";
 import { Button } from "react-bootstrap";
 
 
-const ShowHistoryFIles = ({ File, HistoryPayFile }) => {
+const ShowHistoryFIles = ({ File, countFiles }) => {
   return (
     <>
       <tr>
         <td style={{ textAlign: "center", fontSize: "14px" }}>
-          {HistoryPayFile++}
+          {countFiles++}
         </td>
         <td style={{ textAlign: "center", fontSize: "12px" }}>
           {File.Date_published}
