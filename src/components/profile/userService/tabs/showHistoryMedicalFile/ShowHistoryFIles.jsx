@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import { showHistoryFile } from "../../function/UserProfileFunction";
 
 
 const ShowHistoryFIles = ({ File, countFiles }) => {
@@ -20,7 +21,7 @@ const ShowHistoryFIles = ({ File, countFiles }) => {
         </td>
 
         <td style={{ textAlign: "center", fontSize: "14px" }}>
-          <Button variant="secondary" href={File.File_user}>
+          <Button variant="secondary" onClick={()=>showHistoryFile(File.File_user)}>
             <i className="bi bi-file-earmark-richtext"></i>
           </Button>
         </td>

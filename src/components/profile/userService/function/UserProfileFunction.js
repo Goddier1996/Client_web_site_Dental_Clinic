@@ -6,7 +6,6 @@ import { sendGmailDeleteAccountMessage } from '../../../../Api/ConnectOrAddFromA
 let storedTheme = localStorage.getItem("theme");
 
 // Pay Function
-
 export async function userPayTurnSuccessful() {
 
     await Swal.fire({
@@ -241,5 +240,24 @@ export async function popUpUserDeleteAccount(history) {
     }).then(() => {
         history.push("/");
         window.location.reload(false);
+    })
+}
+
+
+
+export async function showHistoryFile(file) {
+
+    await Swal.fire({
+        title: 'Your dental photo',
+        html: `<div class="showFIle"><img src=${file} alt="File dental photo"></div>`,
+        position: 'center',
+        showConfirmButton: true,
+        confirmButtonColor: "green",
+        background: `${(storedTheme === "light") ? "#373E44" :
+            (storedTheme === "dark") ? "" : ""}`,
+        color: `${(storedTheme === "light") ? "#ffffffab" :
+            (storedTheme === "dark") ? "" : ""}`,
+        buttonColor: `${(storedTheme === "light") ? "#E96E00" :
+            (storedTheme === "dark") ? "" : ""}`
     })
 }

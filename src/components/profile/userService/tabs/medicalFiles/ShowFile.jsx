@@ -1,18 +1,17 @@
 import React from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { Modal , Button } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import PayService from "./payService/PayService";
 import { ShowModelPopUp } from "../../../../../customHook/showPopUp";
+import { showHistoryFile } from "../../function/UserProfileFunction";
 
 
-
-const ShowFile = ({dataFile,countFiles}) => {
+const ShowFile = ({ dataFile, countFiles }) => {
 
 
   // show popup pay service custom Hook
   const { show, handleClose, handleShow } = ShowModelPopUp();
 
-  
   return (
     <>
       <>
@@ -31,18 +30,16 @@ const ShowFile = ({dataFile,countFiles}) => {
           </td>
 
           <td style={{ textAlign: "center", fontSize: "14px" }}>
-            <Button variant="secondary" href={dataFile.File_user}>
+            <Button
+              variant="secondary"
+              onClick={() => showHistoryFile(dataFile.File_user)}
+            >
               <i className="bi bi-file-earmark-richtext"></i>
             </Button>
           </td>
 
           <td style={{ textAlign: "center", fontSize: "14px" }}>
-            <Button
-              variant="success"
-              onClick={() =>
-                handleShow()
-              }
-            >
+            <Button variant="success" onClick={() => handleShow()}>
               <i className="bi bi-credit-card"></i>
             </Button>
           </td>
@@ -50,7 +47,7 @@ const ShowFile = ({dataFile,countFiles}) => {
       </>
 
       <Modal show={show}>
-            <PayService dataUserPay={dataFile} closePopUp={() => handleClose()} />
+        <PayService dataUserPay={dataFile} closePopUp={() => handleClose()} />
       </Modal>
     </>
   );

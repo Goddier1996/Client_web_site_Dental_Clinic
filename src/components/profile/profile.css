@@ -227,6 +227,13 @@
 
 
 
+.showFIle img {
+    width: 350px;
+    border-radius: 2%;
+}
+
+
+
 @media(max-width:991px) {
 
     .HistoryMedical,
