@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import "./payService.css";
 import { userPayService } from "../../../../../../customHook/customQueryHook";
-import { Form , Button } from "react-bootstrap";
+import { Form, Button, Spinner } from "react-bootstrap";
 import { userPayTurnNotSuccessful } from "../../../function/UserProfileFunction";
 
 
@@ -18,7 +18,6 @@ function PayService({ dataUserPay, closePopUp }) {
 
 
   const onSubmit = (data) => {
-
     let userData = JSON.parse(sessionStorage.getItem("user"));
 
     if (
@@ -28,15 +27,11 @@ function PayService({ dataUserPay, closePopUp }) {
       isNaN(data.Cvv)
     ) {
       userPayTurnNotSuccessful();
-    }
-
-    else {
+    } else {
       // send to useQuery hook function data
-      mutate(dataUserPay._id);
+      mutate(dataUserPay);
     }
   };
-
-
 
   const onError = (errors) => {
     console.log(errors);
@@ -169,9 +164,26 @@ function PayService({ dataUserPay, closePopUp }) {
               </div>
 
               <div>
-                <Button type="submit" variant="success" disabled={isPaying}>
-                  Make Payment
-                </Button>
+                {!isPaying ? (
+                  <Button
+                    style={isPaying ? { cursor: "not-allowed" } : {}}
+                    variant="success"
+                    disabled={isPaying}
+                    type="submit"
+                  >
+                    Make Payment
+                  </Button>
+                ) : (
+                  <Button variant="success">
+                    <Spinner
+                      as="span"
+                      animation="border"
+                      size="sm"
+                      role="status"
+                      aria-hidden="true"
+                    />
+                  </Button>
+                )}
               </div>
             </div>
           </Form>

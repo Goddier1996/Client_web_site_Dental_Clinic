@@ -117,10 +117,14 @@ export async function ActiveUserInDataBase(Id) {
 
 
 
-export async function DeletePayFile(Id) {
+export async function DeletePayFile(dataUserPay) {
+
+    const headers = {
+        'Content-Type': 'application/json'
+    }
 
     // USE AXIOS
-    await axios.patch(`${API.MEDICAL_FILE.GET}/delete/${Id}`);
+    await axios.patch(`${API.MEDICAL_FILE.GET}/delete/${dataUserPay._id}`, dataUserPay, { headers: headers });
 }
 
 

@@ -1,13 +1,12 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+import { Button, Spinner } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { deleteIdReviewUser } from "../../../../../customHook/customQueryHook";
 
 
 const ShowComment = ({ dataReview, countReview }) => {
-
-
   // react query
+
   const { isLoading: isDeleting, mutate } = deleteIdReviewUser();
 
   return (
@@ -21,13 +20,26 @@ const ShowComment = ({ dataReview, countReview }) => {
           {dataReview.textReviews}
         </td>
         <td style={{ textAlign: "center", fontSize: "14px" }}>
-          <Button
-            variant="danger"
-            disabled={isDeleting}
-            onClick={() => mutate(dataReview._id)}
-          >
-            <i className="bi bi-trash"></i>
-          </Button>
+          {!isDeleting ? (
+            <Button
+              style={isDeleting ? { cursor: "not-allowed" } : {}}
+              variant="danger"
+              disabled={isDeleting}
+              onClick={() => mutate(dataReview._id)}
+            >
+              <i className="bi bi-trash"></i>
+            </Button>
+          ) : (
+            <Button variant="danger">
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+            </Button>
+          )}
         </td>
       </tr>
     </>
