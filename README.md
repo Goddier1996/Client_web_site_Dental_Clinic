@@ -99,6 +99,8 @@ https://github.com/user-attachments/assets/8212f8da-a841-4c48-8e94-c2276962225d
 ## Pay Service :
 ![00](https://user-images.githubusercontent.com/59862302/212555565-78f314df-f269-4ffc-a632-7a003e378e3d.jpg)
 ![001](https://user-images.githubusercontent.com/59862302/212555573-a71e6471-ba4b-4690-aa39-c1530787d4f6.jpg)
+![Screenshot 2025-01-04 140205](https://github.com/user-attachments/assets/16e8dae8-00a0-45c5-a6bb-129ca770a2e7)
+
 
 ## History Pay :
 ![000](https://user-images.githubusercontent.com/59862302/212555600-10f133af-ee5a-4ba3-b7ce-25c0d98662db.jpg)
