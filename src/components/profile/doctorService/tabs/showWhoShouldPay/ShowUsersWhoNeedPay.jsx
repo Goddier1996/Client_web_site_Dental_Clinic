@@ -27,7 +27,7 @@ const ShowUsersWhoNeedPay = ({ user, ClientHowNeedPay }) => {
         <td style={{ textAlign: "center", fontSize: "14px" }}>
           {!isSendMail ? (
             <Button
-              style={!isSendMail ? { cursor: "not-allowed" } : {}}
+              style={isSendMail ? { cursor: "not-allowed" } : {}}
               variant="success"
               disabled={isSendMail}
               type="submit"
@@ -36,7 +36,11 @@ const ShowUsersWhoNeedPay = ({ user, ClientHowNeedPay }) => {
               <i className="bi bi-send"></i>
             </Button>
           ) : (
-            <Button variant="success">
+              <Button
+                variant="success"
+                style={isSendMail ? { cursor: "not-allowed" } : {}}
+                disabled={isSendMail}
+              >
               <Spinner
                 as="span"
                 animation="border"
