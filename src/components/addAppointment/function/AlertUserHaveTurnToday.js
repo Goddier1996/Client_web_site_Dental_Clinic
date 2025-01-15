@@ -121,7 +121,7 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                     }
 
                     // sessionStorage.setItem("user", JSON.stringify(obj));
-                    Cookies.set('user-data', JSON.stringify(obj), { expires: 1, path: '/', sameSite: 'strict' });
+                    Cookies.set('user-data', JSON.stringify(obj), { expires: 1, sameSite: 'strict' });
                     await window.location.reload(false);
                 }
             })
