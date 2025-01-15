@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Spinner } from "react-bootstrap";
-import { sendEmailToUserPayDebt } from "../../function/DoctorFunctionService.js";
 import { doctorSendMailToUser } from "../../../../../customHook/customQueryHook.js";
 
 

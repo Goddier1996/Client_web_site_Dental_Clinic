@@ -4,9 +4,7 @@ import Swal from 'sweetalert2'
 import { AddNewUserRegester } from '../../../../Api/ConnectOrAddFromApi'
 
 
-
 const AddNewDoctor = () => {
-
 
     const [Login, setLogin] = useState('');
     const [FirstName, setFirstName] = useState('');
@@ -44,12 +42,9 @@ const AddNewDoctor = () => {
                     (storedTheme === "dark") ? "" : ""}`
             })
         }
-
         else {
-            setValidated(true)
-
-            AddDoctor()
-
+            setValidated(true);
+            AddDoctor();
             Swal.fire({
                 title: 'success',
                 icon: 'success',
@@ -67,10 +62,8 @@ const AddNewDoctor = () => {
                     window.location.reload(false);
                 }
             })
-
         }
     };
-
 
 
     const AddDoctor = async () => {
@@ -90,10 +83,8 @@ const AddNewDoctor = () => {
         };
 
         await AddNewUserRegester(user);
-
         window.location.reload(false);
     }
-
 
 
     return (

@@ -34,7 +34,6 @@ export async function popUserRegister(history) {
         allowOutsideClick: false,
         html: '<div class="ShowImageWhenRegister"><img src="https://i.postimg.cc/MZP7Xzk6/cute-penguin.gif"> </div>',
     });
-
     history.push("/")
 }
 

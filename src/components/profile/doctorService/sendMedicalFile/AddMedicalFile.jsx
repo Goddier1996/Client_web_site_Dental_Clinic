@@ -10,7 +10,6 @@ import { useForm } from "react-hook-form";
 import { doctorSendMedicalFile } from "../../../../customHook/customQueryHook";
 
 
-
 function AddMedicalFileUser({ hideModelMedicalFile, showDataUser }) {
 
 
@@ -31,7 +30,6 @@ function AddMedicalFileUser({ hideModelMedicalFile, showDataUser }) {
       checkInputFileDoctorShowErrorMessage();
     }
     else {
-
       let d = new Date();
 
       let dataUser = {
@@ -51,11 +49,9 @@ function AddMedicalFileUser({ hideModelMedicalFile, showDataUser }) {
   };
 
 
-
   const onError = (errors) => {
     console.log(errors);
   };
-
 
 
   return (

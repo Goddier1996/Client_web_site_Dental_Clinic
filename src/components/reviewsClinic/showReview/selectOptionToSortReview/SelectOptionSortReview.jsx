@@ -2,7 +2,6 @@ import React from "react";
 import { Form } from "react-bootstrap";
 
 
-
 const SelectOptionSortReview = ({ onSelectionChange, sortReview }) => {
 
   let storedTheme = localStorage.getItem("theme");

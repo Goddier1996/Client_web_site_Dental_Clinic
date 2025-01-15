@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2'
+import Cookies from 'js-cookie';
 
 
 let storedTheme = localStorage.getItem("theme");
@@ -32,7 +33,8 @@ export async function logOutUser(history) {
 
         if (result.isConfirmed) {
 
-            sessionStorage.clear('user');
+            // sessionStorage.clear('user');
+            Cookies.remove('user-data', { path: '/' })            
             history.push("/");
             window.location.reload(false);
         }

@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Card, Col } from "react-bootstrap";
 import LazyLoadImg from "../tools/lazyLoad/LazyLoadImg";
 
+
 const ShowOurWorkClinic = ({ infoOurWork }) => {
+
   const { path, title, text } = infoOurWork;
 
   let storedTheme = localStorage.getItem("theme");

@@ -1,5 +1,4 @@
 import Swal from "sweetalert2";
-import videoBg from "../../../images/video11.mp4";
 
 
 let storedTheme = localStorage.getItem("theme");
@@ -34,20 +33,4 @@ export async function openSwalWhenLoginShowTypeUser(nameUser, UserType_code, loc
                 history.push("/");
             }
         });
-}
-
-
-export function AdminInfoVideo() {
-
-    Swal.fire({
-        html: `<div class="styleVideoAdmin"><video controls autoplay loop muted playsinline src=${videoBg}></video></div>`,
-        confirmButtonText: "Wow",
-        confirmButtonColor: "green",
-        background: `${storedTheme === "light"
-            ? "#373e44c8"
-            : storedTheme === "dark"
-                ? "#ffffff8c"
-                : ""
-            }`,
-    });
 }

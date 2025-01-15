@@ -11,7 +11,6 @@ import AddNewDoctor from './adminService/tabs/AddNewDoctor.jsx';
 import ShowAllReviews from './adminService/tabs/ShowAllReviews.jsx';
 
 
-
 // HERE DON"T USE REACT QUERY , ONLY STATE HOOK !
 function Admin() {
 
@@ -32,17 +31,13 @@ function Admin() {
     }
 
 
-
     const DeleteItemsFromDataApi = async (Id, item) => {
 
         if (item == "review") {
-
             await DeleteReview(Id);
             window.location.reload(false);
         }
-
         if (item == "user") {
-
             await DeleteUser(Id);
             window.location.reload(false);
         }
@@ -51,11 +46,9 @@ function Admin() {
 
     //active all users how was block
     const ActiveUser = async (Id) => {
-
         await ActiveUserInDataBase(Id);
         window.location.reload(false);
     }
-
 
 
     useEffect(() => {
@@ -72,9 +65,7 @@ function Admin() {
     }, [])
 
 
-
     return (
-
         <>
             <Tabs id="controlled-tab-example" className="mb-3 tabsChiose " >
 

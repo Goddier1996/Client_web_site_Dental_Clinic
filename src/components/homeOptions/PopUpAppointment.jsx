@@ -5,12 +5,9 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import LazyLoadImg from "../tools/lazyLoad/LazyLoadImg.jsx";
 
 
-
 const PopUpAppointment = ({ showModelAppointment, closePopUpAppointment }) => {
 
-
   let storedTheme = localStorage.getItem("theme");
-
 
   return (
     <Modal

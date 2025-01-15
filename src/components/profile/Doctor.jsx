@@ -13,7 +13,6 @@ import ActiveQueues from "./doctorService/tabs/ActiveQueues.jsx";
 import WhoShouldPay from "./doctorService/tabs/showWhoShouldPay/WhoShouldPay.jsx";
 
 
-
 //here component Doctor we to do what doctor can do = this component use in profile
 function Doctor({ code_doctor }) {
 

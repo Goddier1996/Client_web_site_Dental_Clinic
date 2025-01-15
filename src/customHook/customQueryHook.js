@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query'
+import Cookies from 'js-cookie';
 
 // API Function
 import { DeleteReview, DeletePayFile } from "../Api/DeleteUpdateDataFromApi"
@@ -145,8 +146,9 @@ export const LoginUser = (hideSignIn, locationPathname, history) => {
     return useMutation({
         mutationFn: connectUserLogin,
         onSuccess: () => {
-            let userData = JSON.parse(sessionStorage.getItem("user"));
-
+            // let userData = JSON.parse(sessionStorage.getItem("user"));
+            let userData = Cookies.get('user-data') ? JSON.parse(Cookies.get('user-data')) : null;
+            
             // close pop login if user connect to clinic
             hideSignIn();
             openSwalWhenLoginShowTypeUser(userData.FirstName, userData.UserType_code, locationPathname, history);
@@ -177,7 +179,6 @@ export const doctorSendMedicalFile = (hideModelMedicalFile) => {
 }
 
 
-
 export const doctorSendMailToUser = () => {
 
     const queryClient = useQueryClient();
@@ -194,7 +195,6 @@ export const doctorSendMailToUser = () => {
 }
 
 
-
 export const deleteAccountUser = (history) => {
 
     const queryClient = useQueryClient();
@@ -203,7 +203,8 @@ export const deleteAccountUser = (history) => {
         mutationFn: deleteUserAccount,
         onSuccess: () => {
 
-            if (JSON.parse(sessionStorage.getItem("user") == null)) {
+            // if (JSON.parse(sessionStorage.getItem("user") == null)) {
+            if (Cookies.get('user-data') == null) {
                 popUpUserDeleteAccount(history);
             }
             queryClient.invalidateQueries({

@@ -3,13 +3,10 @@ import "./appointment.css";
 import  LazyLoadImg  from "../tools/lazyLoad/LazyLoadImg";
 
 
-
 const NoQueusesToday = () => {
-
 
   let storedTheme = localStorage.getItem("theme");
 
-    
   return (
     <>
       <div className="writeNotHaveTodayTurn">

@@ -2,14 +2,10 @@ import React from 'react'
 import { Button, Table } from 'react-bootstrap';
 
 
-
 const ShowAllReviews = ({ Reviews, DeleteItemsFromDataApi }) => {
 
-
     let CountReview = 1;
-
     let storedTheme = localStorage.getItem("theme");
-
 
     return (
         <>
@@ -25,7 +21,6 @@ const ShowAllReviews = ({ Reviews, DeleteItemsFromDataApi }) => {
                 </thead>
 
                 {Reviews.map(Review =>
-
                     <tbody key={Review._id}>
                         <tr>
                             <td style={{ textAlign: "center", fontSize: "13px" }}>{CountReview++}</td>
@@ -44,6 +39,5 @@ const ShowAllReviews = ({ Reviews, DeleteItemsFromDataApi }) => {
         </>
     )
 }
-
 
 export default ShowAllReviews;

@@ -134,7 +134,6 @@ export async function LoadAllReviews() {
 
 
 
-
 // USER DATA
 
 export async function LoadMedicalFileUser(code) {

@@ -2,13 +2,11 @@ import React from 'react'
 import { Button, Table } from 'react-bootstrap';
 
 
-
 const ShowAllDoctors = ({ Doctors, DeleteItemsFromDataApi }) => {
 
 
     let CountDoctor = 1;
     let storedTheme = localStorage.getItem("theme");
-
 
     return (
         <>

@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2';
+import Cookies from 'js-cookie';
 import { DeleteHour, UpdateDataUserAddTurn } from '../../../Api/DeleteUpdateDataFromApi';
 import { GetDateWhenUserSaveTurn, IncrementDateLooUserTurn } from '../function/AlertUserHaveTurnToday';
 
@@ -55,7 +56,10 @@ export async function saveDateUserTurnDayAndHour(dataUser, capVal) {
             buttonColor: `${(storedTheme === "light") ? "#E96E00" :
                 (storedTheme === "dark") ? "" : ""}`
         })
-        await sessionStorage.clear();
+
+        
+        // await sessionStorage.clear();
+        Cookies.remove('user-data', { path: '/' });
         window.location.reload(false);
     }
 }
@@ -64,7 +68,9 @@ export async function saveDateUserTurnDayAndHour(dataUser, capVal) {
 // this function use in Home.jsx page
 export async function CheckUserConnectedForAddTurn(handleShowModelAppointment) {
 
-    let userData = JSON.parse(sessionStorage.getItem("user"));
+    // let userData = JSON.parse(sessionStorage.getItem("user"));
+    let userData = Cookies.get('user-data') ? JSON.parse(Cookies.get('user-data')) : null;
+    
 
     if (
         userData != null &&

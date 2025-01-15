@@ -2,12 +2,10 @@ import React from 'react'
 import { Button, Table } from 'react-bootstrap';
 
 
-
 const ShowAllUsers = ({ Users, DeleteItemsFromDataApi }) => {
 
     let CountUser = 1;
     let storedTheme = localStorage.getItem("theme");
-
 
     return (
         <>
@@ -26,7 +24,6 @@ const ShowAllUsers = ({ Users, DeleteItemsFromDataApi }) => {
                 </thead>
 
                 {Users.map(user =>
-
                     <tbody key={user._id} >
                         <tr>
                             <td style={{ textAlign: "center", fontSize: "13px" }}>{CountUser++}</td>

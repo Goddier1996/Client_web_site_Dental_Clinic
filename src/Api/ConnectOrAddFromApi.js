@@ -1,6 +1,7 @@
 import { API } from './API';
 import axios from 'axios';
 import Swal from "sweetalert2";
+import Cookies from 'js-cookie';
 
 let storedTheme = localStorage.getItem("theme");
 
@@ -14,11 +15,13 @@ export async function connectUserLogin(user) {
 
     const res = await axios.post(API.USERS.LOGIN, user, { headers: headers })
 
-    sessionStorage.setItem("user", JSON.stringify(res.data));
+    // sessionStorage.setItem("user", JSON.stringify(res.data));
+    Cookies.set('user-data', JSON.stringify(res.data), { expires: 1, path: '/', sameSite: 'strict' });
 
-    let userData = JSON.parse(sessionStorage.getItem("user"));
+    let userInfo = Cookies.get('user-data') ? JSON.parse(Cookies.get('user-data')) : null;
+    // let userData = JSON.parse(sessionStorage.getItem("user"));
 
-    if (userData == null) {
+    if (userInfo == null) {
         Swal.fire({
             icon: "warning",
             text: "Sorry dont have This user in Data Base , Try Again",
@@ -33,11 +36,11 @@ export async function connectUserLogin(user) {
                     : ""}`,
             buttonColor: `${storedTheme === "light" ? "#E96E00" : storedTheme === "dark" ? "" : ""}`,
         });
-        sessionStorage.clear();
+        // sessionStorage.clear();
+        Cookies.remove('user-data', { path: '/' });          
         return;
     }
 }
-
 
 
 export async function DoctorAddMedicalFileUser(file) {
@@ -51,7 +54,6 @@ export async function DoctorAddMedicalFileUser(file) {
 }
 
 
-
 export async function AddNewReviews(review) {
 
     // USE AXIOS
@@ -61,7 +63,6 @@ export async function AddNewReviews(review) {
 
     await axios.post(API.REVIEWS.ADD, review, { headers: headers })
 }
-
 
 
 export async function AddNewLikeReviews(like, Serial_code) {
@@ -75,7 +76,6 @@ export async function AddNewLikeReviews(like, Serial_code) {
 }
 
 
-
 export async function RemoveReviewLike(id, PublishBy) {
 
     const headers = {
@@ -84,7 +84,6 @@ export async function RemoveReviewLike(id, PublishBy) {
 
     await axios.patch(`${API.REVIEWS.PATCH}/${id}/${PublishBy}`, { headers: headers })
 }
-
 
 
 export async function AddNewUserRegester(newUser) {
@@ -150,19 +149,16 @@ export async function AddNewUserRegester(newUser) {
 }
 
 
-
 export async function sendGmailUserNeedPayToClinic(user) {
 
     await axios.post(`${API.MEDICAL_FILE.GET}/showHowNeedPaySendMail/${user._id}`, user);
 }
 
 
-
 export async function sendMailAboutCloseUserTurn(user) {
 
     await axios.post(`${API.USERS.GET}/sendMailAboutCloseYourTurn/${user._id}`, user);
 }
-
 
 
 export async function sendGmailDeleteAccountMessage(user) {

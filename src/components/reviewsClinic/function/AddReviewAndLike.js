@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2'
+import Cookies from 'js-cookie';
 import { AddNewLikeReviews, RemoveReviewLike } from "../../../Api/ConnectOrAddFromApi";
 import { CheckIfUserAddLikeThisReview } from '../../../Api/LoadDataFromApi'
 
@@ -29,13 +30,12 @@ export async function userAddReviewSuccess() {
 }
 
 
-
 export function checkUserConnectedForAddReview(handleShowAddReviews) {
 
-    let userData = JSON.parse(sessionStorage.getItem("user"));
-
+    // let userData = JSON.parse(sessionStorage.getItem("user"));
+    let userData = Cookies.get('user-data');
+    
     if (userData == null) {
-
         Swal.fire({
             icon: 'warning',
             title: 'Login / Register',
@@ -53,28 +53,28 @@ export function checkUserConnectedForAddReview(handleShowAddReviews) {
         return;
     }
 
-
     if (userData != null) {
         handleShowAddReviews();
     }
 }
 
 
-
 export async function userAddReviewsLike(dataLike) {
 
-    let userData = JSON.parse(sessionStorage.getItem("user"));
+    let userData = Cookies.get('user-data');
 
     if (userData != null) {
 
-        await CheckIfUserAddLikeThisReview(dataLike.Serial_code, userData._id);
+        let userDataInfo = JSON.parse(Cookies.get('user-data'));
+        
+        await CheckIfUserAddLikeThisReview(dataLike.Serial_code, userDataInfo._id);
 
         let getResultIfUserHaveLikeInThisReview = JSON.parse(sessionStorage.getItem("likeReview"));
 
         // if this review user have like remove dis like
         if (getResultIfUserHaveLikeInThisReview == true) {
 
-            await RemoveReviewLike(dataLike.Serial_code, userData._id);
+            await RemoveReviewLike(dataLike.Serial_code, userDataInfo._id);
             sessionStorage.removeItem("likeReview");
 
             // Swal.fire({
@@ -90,9 +90,9 @@ export async function userAddReviewsLike(dataLike) {
         // else user don't have like in this review add Like
         else {
 
-            let Publish_by = userData._id;
-            let FirstName = userData.FirstName;
-            let User_Login = userData.User_Login;
+            let Publish_by = userDataInfo._id;
+            let FirstName = userDataInfo.FirstName;
+            let User_Login = userDataInfo.User_Login;
 
             let d = new Date();
 

@@ -10,7 +10,6 @@ export async function DeleteUser(Id) {
 }
 
 
-
 export async function DeleteReview(Id) {
 
     // USE AXIOS
@@ -23,8 +22,6 @@ export async function DeleteAllUserReview(Id) {
     // USE AXIOS
     await axios.delete(`${API.REVIEWS.GET}/deleteAllReviewUser/${Id}`);
 }
-
-
 
 
 export async function DeleteHour(Id) {
@@ -41,14 +38,11 @@ export async function DeleteDay(Id) {
 }
 
 
-
 export async function ActiveDay(Id) {
 
     // USE AXIOS
     await axios.patch(`${API.DAYS.GET}/active/${Id}`);
 }
-
-
 
 
 export async function UpdateDataUser(id, user) {
@@ -59,7 +53,6 @@ export async function UpdateDataUser(id, user) {
 
     await axios.put(`${API.USERS.GET}/${id}`, user, { headers });
 }
-
 
 
 export async function UpdateDataUserRemoveTurn(codeUser) {
@@ -82,7 +75,6 @@ export async function UpdateDataUserRemoveTurn(codeUser) {
 }
 
 
-
 export async function UpdateDataUserAddTurn(id, dayLocal, hourLocal, serial_code, DateWhenAddUserTurn, DateUserTurn, Email) {
 
     // USE AXIOS
@@ -100,7 +92,6 @@ export async function UpdateDataUserAddTurn(id, dayLocal, hourLocal, serial_code
 }
 
 
-
 export async function ActiveHourInDataBase(codeHour) {
 
     // USE AXIOS
@@ -108,13 +99,11 @@ export async function ActiveHourInDataBase(codeHour) {
 }
 
 
-
 export async function ActiveUserInDataBase(Id) {
 
     // USE AXIOS
     await axios.patch(`${API.USERS.GET}/active/${Id}`);
 }
-
 
 
 export async function DeletePayFile(dataUserPay) {
@@ -128,13 +117,11 @@ export async function DeletePayFile(dataUserPay) {
 }
 
 
-
 export async function DeleteAllMedicalFileUser(Id) {
 
     // USE AXIOS
     await axios.delete(`${API.MEDICAL_FILE.GET}/deleteAllMedicalFileUser/${Id}`);
 }
-
 
 
 export async function ForgetPasswordUpdate(Id, user) {

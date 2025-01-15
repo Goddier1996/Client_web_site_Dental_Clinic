@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2'
+import Cookies from 'js-cookie';
 import { UpdateDataUserRemoveTurn, ActiveHourInDataBase, UpdateDataUser, DeleteAllUserReview, DeleteUser, DeleteAllMedicalFileUser } from '../../../../Api/DeleteUpdateDataFromApi'
 import { sendGmailDeleteAccountMessage } from '../../../../Api/ConnectOrAddFromApi';
 
@@ -43,7 +44,6 @@ export async function userPayTurnNotSuccessful() {
 }
 
 
-
 // User Queues
 
 export async function ActiveHourDontNeedTurn(codeHour, history, codeUser) {
@@ -81,8 +81,9 @@ export async function saveDateUserCancelTheTurn(codeUser, history) {
 
     await UpdateDataUserRemoveTurn(codeUser);
 
-    // clear session storage after delete a hour day and serial code hour
-    sessionStorage.clear();
+    // clear session storage OR Cookies after delete a hour day and serial code hour
+    // sessionStorage.clear();
+    Cookies.remove('user-data', { path: '/' });
     history.push("/");
     window.location.reload(false);
 }
@@ -157,7 +158,6 @@ export async function CheckInputValueUpdateDataUser(dataUser, loginCheck, userCo
 }
 
 
-
 // Review user
 
 export async function popUpUserDeleteReviewId() {
@@ -215,11 +215,11 @@ export async function deleteUserAccount(userCode) {
                 sendGmailDeleteAccountMessage(userCode);
             })
             .then(() => {
-                sessionStorage.clear('user');
+                // sessionStorage.clear('user');
+                Cookies.remove('user-data', { path: '/' });
             })
     }
 }
-
 
 
 export async function popUpUserDeleteAccount(history) {
@@ -242,7 +242,6 @@ export async function popUpUserDeleteAccount(history) {
         window.location.reload(false);
     })
 }
-
 
 
 export async function showHistoryFile(file) {

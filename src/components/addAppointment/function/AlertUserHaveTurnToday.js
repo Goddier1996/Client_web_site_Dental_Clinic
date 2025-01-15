@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2'
+import Cookies from 'js-cookie';
 import { ActiveHourInDataBase, UpdateDataUserRemoveTurn } from '../../../Api/DeleteUpdateDataFromApi'
 import { sendMailAboutCloseUserTurn } from '../../../Api/ConnectOrAddFromApi';
 
@@ -96,7 +97,9 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
 
                 if (result.isConfirmed) {
 
-                    let userData = JSON.parse(sessionStorage.getItem("user"));
+                    // let userData = JSON.parse(sessionStorage.getItem("user"));
+                    let userData = Cookies.get('user-data') ? JSON.parse(Cookies.get('user-data')) : null;
+                    
 
                     await ActiveHourInDataBase(codeHour);
                     await UpdateDataUserRemoveTurn(code);
@@ -117,7 +120,8 @@ export async function alertPopUpIfUserHaveTodayTurn(day, storedTheme, hour, code
                         UserType_code: userData.UserType_code
                     }
 
-                    sessionStorage.setItem("user", JSON.stringify(obj));
+                    // sessionStorage.setItem("user", JSON.stringify(obj));
+                    Cookies.set('user-data', JSON.stringify(obj), { expires: 1, path: '/', sameSite: 'strict' });
                     await window.location.reload(false);
                 }
             })

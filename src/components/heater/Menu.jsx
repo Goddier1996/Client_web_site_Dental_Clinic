@@ -9,13 +9,15 @@ import { ShowModelPopUp } from "../../customHook/showPopUp";
 import LazyLoadImg from "../tools/lazyLoad/LazyLoadImg";
 import DarkMode from "../tools/darkMode/DarkMode";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import Cookies from 'js-cookie';
 
 
 function Menu() {
 
 
   let storedTheme = localStorage.getItem("theme");
-  let userData = JSON.parse(sessionStorage.getItem("user"));
+  // let userData = JSON.parse(sessionStorage.getItem("user"));
+  let userData = Cookies.get('user-data') ? JSON.parse(Cookies.get('user-data')) : null;
 
   const history = useHistory();
   const location = useLocation();
@@ -34,7 +36,6 @@ function Menu() {
     setClickToLogin(false);
     handleClose();
   };
-
 
 
   return (

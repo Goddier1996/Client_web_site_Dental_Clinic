@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Cookies from 'js-cookie';
 import { Row, Modal } from "react-bootstrap";
 import "./appointment.css";
 import { LoadDays } from "../../Api/LoadDataFromApi";
@@ -34,7 +35,9 @@ function Appointment() {
 
   // all data what we save in local storage and session Storage
   let storedTheme = localStorage.getItem("theme");
-  let userData = JSON.parse(sessionStorage.getItem("user"));
+  // let userData = JSON.parse(sessionStorage.getItem("user"));
+  let userData = Cookies.get('user-data') ? JSON.parse(Cookies.get('user-data')) : null;
+  
 
 
   // use custom hook , useQuery + days,hours

@@ -28,7 +28,6 @@ export function returnBoolResultIfDayTurnToday(data) {
     if (todayDay == data.Day_date) {
         return true;
     }
-
     else {
         return false;
     }
@@ -56,12 +55,12 @@ export function showPopUpTodayDoctorCantSendFile(data) {
 }
 
 
-
 export function checkUrlLinkFIle(urlString) {
 
     let urlPattern = new RegExp("(jpg|jpeg|png|webp|avif|gif|svg)");
     return !!urlPattern.test(urlString);
 }
+
 
 export function checkInputFileDoctorShowErrorMessage() {
 
@@ -83,7 +82,6 @@ export function checkInputFileDoctorShowErrorMessage() {
             }`,
     });
 }
-
 
 
 export async function doctorAddMedicalFileToPayUser(dataUser) {

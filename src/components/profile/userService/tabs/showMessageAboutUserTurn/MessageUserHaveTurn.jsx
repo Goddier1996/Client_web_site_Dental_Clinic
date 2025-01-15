@@ -1,4 +1,5 @@
 import React from "react";
+import Cookies from 'js-cookie';
 import { Modal, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { ActiveHourDontNeedTurn } from "../../function/UserProfileFunction";
@@ -10,7 +11,9 @@ const MessageUserHaveTurn = ({ dataUser }) => {
 
 
   let storedTheme = localStorage.getItem("theme");
-  let userData = JSON.parse(sessionStorage.getItem("user"));
+  // let userData = JSON.parse(sessionStorage.getItem("user"));
+  let userData = Cookies.get('user-data') ? JSON.parse(Cookies.get('user-data')) : null;
+  
 
   let history = useHistory();
 

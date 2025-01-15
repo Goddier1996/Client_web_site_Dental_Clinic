@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Cookies from 'js-cookie';
 import { Form, Modal , Button , Spinner } from "react-bootstrap";
 import "../../../css/service.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -25,7 +26,9 @@ const UserAddNewReview = ({ closePopUp }) => {
 
   const onSubmitAddNewReview = (data) => {
 
-    let userData = JSON.parse(sessionStorage.getItem("user"));
+    // let userData = JSON.parse(sessionStorage.getItem("user"));
+    let userData = Cookies.get('user-data') ? JSON.parse(Cookies.get('user-data')) : null;
+  
     let d = new Date();
 
     let user = {

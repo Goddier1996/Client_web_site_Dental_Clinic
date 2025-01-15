@@ -1,4 +1,5 @@
 import React from "react";
+import Cookies from 'js-cookie';
 import { useForm } from "react-hook-form";
 import "./payService.css";
 import { userPayService } from "../../../../../../customHook/customQueryHook";
@@ -18,8 +19,9 @@ function PayService({ dataUserPay, closePopUp }) {
 
 
   const onSubmit = (data) => {
-    let userData = JSON.parse(sessionStorage.getItem("user"));
-
+    // let userData = JSON.parse(sessionStorage.getItem("user"));
+    let userData = Cookies.get('user-data') ? JSON.parse(Cookies.get('user-data')) : null;
+    
     if (
       userData.FirstName != data.CardholderName ||
       isNaN(data.CardNumber) ||
