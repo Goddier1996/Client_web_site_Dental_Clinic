@@ -16,7 +16,7 @@ export async function connectUserLogin(user) {
     const res = await axios.post(API.USERS.LOGIN, user, { headers: headers })
 
     // sessionStorage.setItem("user", JSON.stringify(res.data));
-    Cookies.set('user-data', JSON.stringify(res.data), { expires: 1, sameSite: 'strict' });
+    Cookies.set('user-data', JSON.stringify(res.data), { sameSite: 'strict' });
 
     let userInfo = Cookies.get('user-data') ? JSON.parse(Cookies.get('user-data')) : null;
     // let userData = JSON.parse(sessionStorage.getItem("user"));
