@@ -98,11 +98,13 @@ const ShowModelFormConnect = ({ activeForgetPassword, hideSignIn }) => {
 
         <div className="loginInOrCloseButtom">
           {!loadingLogin ? (
-            <Button type="submit" variant="primary">
+            <Button disabled={loadingLogin} type="submit" variant="primary">
               Login
             </Button>
           ) : (
-            <Button variant="primary">
+              <Button
+                disabled={loadingLogin}
+                variant="primary">
               <Spinner
                 as="span"
                 animation="border"

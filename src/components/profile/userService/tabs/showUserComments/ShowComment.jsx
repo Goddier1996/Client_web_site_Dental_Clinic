@@ -30,7 +30,9 @@ const ShowComment = ({ dataReview, countReview }) => {
               <i className="bi bi-trash"></i>
             </Button>
           ) : (
-            <Button variant="danger">
+              <Button
+                disabled={isDeleting}
+                variant="danger">
               <Spinner
                 as="span"
                 animation="border"
