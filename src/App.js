@@ -13,6 +13,7 @@ import NotFoundPage from "./components/tools/pageNotFound/NotFoundPage.jsx";
 import { setDark } from "../src/components/tools/darkMode/DarkModeFunc.js"
 import ChatBotInfo from "./components/tools/chatBot/ChatBotInfo.jsx";
 import { DeleteYesterdaysTurnAutoInUser, NotActiveDays } from "./Api/LoadDataFromApi.js";
+import ShowMessageUseCookie from "./components/tools/cookieConsent/ShowMessageUseCookie.jsx";
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
 
       <Menu />
       <ChatBotInfo />
+      <ShowMessageUseCookie />
 
       <main>
         <Switch>

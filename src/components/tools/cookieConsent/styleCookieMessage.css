@@ -1,0 +1,25 @@
+.cookie-consent-container {
+    text-align: center;
+    -webkit-animation: cookieAnimation 3s linear infinite;
+    -moz-animation: cookieAnimation 3s linear infinite;
+    animation: cookieAnimation 3s linear infinite;
+}
+
+@keyframes cookieAnimation {
+    50% {
+        border-top-right-radius: 5px;
+    }
+}
+
+.messageInfoCookies {
+    font-weight: 600;
+    -webkit-animation: a 2s linear infinite;
+    -moz-animation: a 2s linear infinite;
+    animation: a 2s linear infinite;
+}
+
+@keyframes a {
+    50% {
+        color: #ffb02e;
+    }
+}
