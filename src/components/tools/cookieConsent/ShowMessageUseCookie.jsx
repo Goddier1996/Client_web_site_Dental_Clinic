@@ -22,8 +22,9 @@ const ShowMessageUseCookie = () => {
           fontSize: "15px",
           background: "#fff",
           color: "#4a4a4a",
-          borderRadius: "5px",
+          borderRadius: "30px",
           border: "none",
+          width: "100px",
         }}
       >
         ⚠️ <span className="messageInfoCookies">Important message</span> ⚠️
