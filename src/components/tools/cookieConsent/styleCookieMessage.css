@@ -3,6 +3,7 @@
     -webkit-animation: cookieAnimation 3s linear infinite;
     -moz-animation: cookieAnimation 3s linear infinite;
     animation: cookieAnimation 3s linear infinite;
+    padding: 10px;
 }
 
 @keyframes cookieAnimation {
@@ -13,13 +14,21 @@
 
 .messageInfoCookies {
     font-weight: 600;
-    -webkit-animation: a 2s linear infinite;
-    -moz-animation: a 2s linear infinite;
-    animation: a 2s linear infinite;
+    -webkit-animation: animationInfoCookies 2s linear infinite;
+    -moz-animation: animationInfoCookies 2s linear infinite;
+    animation: animationInfoCookies 2s linear infinite;
+    font-size: 17px;
 }
 
-@keyframes a {
+@keyframes animationInfoCookies {
     50% {
         color: #ffb02e;
     }
 }
+
+
+@media(max-width:991px) {
+    .cookie-consent-container {
+        padding: 0px;
+    }
+  }

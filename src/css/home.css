@@ -95,7 +95,7 @@
 
 @keyframes animationAddNewTurnUser {
     50% {
-        border-radius: 50%;
+        width: 75%;
     }
 }
 
@@ -238,6 +238,13 @@
     .categoryLook {
         margin-top: 4%;
     }
+
+    .Click_appointment .click button {
+        -webkit-animation: animationAddNewTurnUser 0s linear infinite;
+        -moz-animation: animationAddNewTurnUser 0s linear infinite;
+        animation: animationAddNewTurnUser 0s linear infinite;
+    }
+
 }
 
 
