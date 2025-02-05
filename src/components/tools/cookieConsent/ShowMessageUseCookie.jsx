@@ -13,10 +13,7 @@ const ShowMessageUseCookie = () => {
         cookieName="myAppCookieConsent"
         containerClasses="cookie-consent-container"
         style={{
-          background: "#2e9def",
-          borderTopRightRadius: "30px",
-          color: "#fff",
-          width: "auto",
+          width: "auto"
         }}
         buttonStyle={{
           fontSize: "15px",
@@ -27,7 +24,7 @@ const ShowMessageUseCookie = () => {
           width: "100px",
         }}
       >
-        ⚠️ <span className="messageInfoCookies">Important message</span> ⚠️
+        🍪 <span className="messageInfoCookies">Privacy Notice</span>
         <br />
         This website uses cookies to enhance the user experience.
       </CookieConsent>

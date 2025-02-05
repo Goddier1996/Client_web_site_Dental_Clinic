@@ -4,6 +4,7 @@
     -moz-animation: cookieAnimation 3s linear infinite;
     animation: cookieAnimation 3s linear infinite;
     padding: 10px;
+    border-top-right-radius: 30px;
 }
 
 @keyframes cookieAnimation {
@@ -30,5 +31,14 @@
 @media(max-width:991px) {
     .cookie-consent-container {
         padding: 0px;
+        border-top-left-radius: 30px;
     }
-  }
+
+    @keyframes cookieAnimation {
+        50% {
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+    }
+
+}
