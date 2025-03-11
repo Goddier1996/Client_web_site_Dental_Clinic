@@ -6,20 +6,33 @@ https://dental-clinic-israel-vip.web.app
 On this website, customers can schedule appointments for a dental clinic and leave feedback on the service. Users can manage their queue and make payments directly from their profile page.
 
 Key Features:
+<br/>
 🦷 Customizable Theme – Users can switch between day and night mode for a comfortable browsing experience.
+<br/>
 💬 Chatbot Assistance – A chatbot is available to help users with any inquiries.
+<br/>
 📍 Clinic Information – Users can view available services, clinic location, working hours, and an "About the Clinic" section.
+<br/>
 
 Doctor's Features:
+<br/>
 👨‍⚕️ Patient Management – Doctors can check their upcoming patients from their profile page.
+<br/>
 📩 Communication – Doctors can send messages, advice, and payment summaries.
+<br/>
 📷 Treatment Records – Doctors can upload post-treatment teeth photos.
+<br/>
 💳 Debt Tracking – Doctors can view unpaid invoices and manage outstanding balances.
+<br/>
 
 Admin Controls:
+<br/>
 🔹 Manage users – delete or restore accounts.
+<br/>
 🔹 Moderate feedback – delete inappropriate reviews.
+<br/>
 🔹 Manage staff – add new doctors or block specific doctors.
+<br/>
  
 ## Link Git Server :
 
