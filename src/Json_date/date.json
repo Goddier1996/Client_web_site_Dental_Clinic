@@ -3,19 +3,19 @@
 
     {
       "id": "1",
-      "name": "Our Work",
+      "name": "What We Do",
       "link": "/OurWork",
       "path": "https://i.postimg.cc/YC9RpNnL/11.webp"
     },
     {
       "id": "2",
-      "name": "Reviews of Our Service",
+      "name": "Customer Reviews",
       "link": "/Service",
       "path": "https://i.postimg.cc/Jh3GvvNN/22.webp"
     },
     {
       "id": "3",
-      "name": "Contact",
+      "name": "Contact Us",
       "link": "/Location",
       "path": "https://i.postimg.cc/W1g3qCfB/33.webp"
     }
@@ -27,40 +27,40 @@
 
     {
       "id": "1",
-      "title": "Teeth Cleaning",
+      "title": "Dental Cleaning",
       "path": "https://i.postimg.cc/g04GvWyT/44.webp",
-      "text": "Professional teeth cleaning, plus teeth whitening."
+      "text": "Complete Teeth Cleaning & Whitening Treatment. We offer a variety of dental cleaning services to help you maintain a healthy smile. Our dental hygienists are trained to provide thorough teeth cleaning and gum disease treatment."
     },
 
     {
       "id": "2",
-      "title": "Treatment of Holes (teeth)",
+      "title": "Cavity Treatment",
       "path": "https://i.postimg.cc/434YCwBj/55.webp",
-      "text": "A clinic that treats cavities that exist in the teeth and in addition those who have had orthodontic treatment with us have a free service."
+      "text": "We treat cavities and offer free service for our orthodontic patients!"
     },
     {
       "id": "3",
       "title": "Dental Implants",
       "path": "https://i.postimg.cc/CLydMwcG/66.webp",
-      "text": "A dental implant is a prosthesis that interfaces with the bone of the jaw or skull to support a dental prosthesis such as a crown, bridge, denture, or facial prosthesis or to act as an orthodontic anchor."
+      "text": "A dental implant is a prosthetic device that integrates with the jawbone or skull to support restorations such as crowns, bridges, dentures, or facial prostheses. It can also serve as an orthodontic anchor."
     },
     {
       "id": "4",
-      "title": "Dental Examination",
+      "title": "Comprehensive Dental Examination",
       "path": "https://i.postimg.cc/Wz0NqJ5M/77.webp",
-      "text": "Most adults and children should get a dental exam every six months. If you have swollen, bleeding gums (known as gingivitis) or other gum disease, your dentist may want to see you more often. Some adults with gum disease may see a dentist three or four times a year. More frequent exams may help prevent a serious gum disease known as periodontitis. Periodontitis can lead to infection and tooth loss."
+      "text": "Most adults and children should have a dental examination every six months. However, if you experience swollen or bleeding gums (a condition known as gingivitis) or other forms of gum disease, your dentist may recommend more frequent visits. In some cases, adults with gum disease may need to see their dentist three to four times a year. Regular check-ups can help prevent the progression of gum disease into periodontitis, a serious condition that can lead to infection and tooth loss."
     },
     {
       "id": "5",
-      "title": "To Straighten Teeth",
+      "title": "Teeth Alignment",
       "path": "https://i.postimg.cc/bJt84tcK/88.webp",
-      "text": "Orthodontic treatment is a way of straightening or moving teeth, to improve the appearance of the teeth and how they work. It can also help to look after the long-term health of your teeth, gums and jaw joints, by spreading the biting pressure over all your teeth."
+      "text": "Orthodontic treatment is a method of straightening or repositioning teeth to enhance both their appearance and functionality. It also plays a crucial role in maintaining long-term oral health by ensuring even distribution of biting pressure across all teeth, which helps protect the teeth, gums, and jaw joints."
     },
     {
       "id": "6",
-      "title": "Dental care at Any Age",
+      "title": "Healthy Smiles at Every Age",
       "path": "https://i.postimg.cc/3JB7MhVJ/99.webp",
-      "text": "We take care of all our clients no matter the age of the client adult, children, teens, we will take care of them all."
+      "text": "We provide exceptional dental care for patients of all ages—adults, children, and teens. No matter your age, you can count on us for personalized, high-quality treatment."
     }
 
   ],

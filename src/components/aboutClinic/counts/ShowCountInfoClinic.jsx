@@ -68,7 +68,7 @@ const ShowCountInfoClinic = () => {
                   loading={LoadingDoctors}
                 />
                 <InfoCounts
-                  type={"Types Of Dental Care Service"}
+                  type={"Our Range of Dental Care Services"}
                   count={countServiceOurWork}
                   img={"https://i.postimg.cc/zXgNBWyv/22.webp"}
                   loading={LoadingServiceOurWork}
@@ -80,7 +80,7 @@ const ShowCountInfoClinic = () => {
                   loading={LoadingUsers}
                 />
                 <InfoCounts
-                  type={"Customer Review's"}
+                  type={"Customer's Review"}
                   count={countReviews}
                   img={"https://i.postimg.cc/MpwGJt9q/44.webp"}
                   loading={LoadingReviews}

@@ -29,7 +29,7 @@ function ourWork() {
         }
       >
         <br />
-        <h1>Service We Perform at The Clinic</h1>
+        <h1>Services We Offer at Our Clinic</h1>
       </div>
 
       <div className="OurWorkLook">

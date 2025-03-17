@@ -83,7 +83,7 @@ function Service() {
                 : ""
             }
           >
-            <h1>Reviews of our clinic :</h1>
+            <h1>Reviews of our clinic:</h1>
           </div>
 
               
