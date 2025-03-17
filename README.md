@@ -3,20 +3,36 @@
 https://dental-clinic-israel-vip.web.app     
 
 ## About website:   
-On this website, customers can make an appointment for a dental clinic.
-and leave an opinion on the service.
-Users can control their queue and pay for the service on a user's profile page.
-   
-On this site you can change the color of the background night or day.
+On this website, customers can schedule appointments for a dental clinic and leave feedback on the service. Users can manage their queue and make payments directly from their profile page.
 
-The user has the option to talk to a chatbot if they need help.
-    
-Users can look at what service the clinic offers, as well as the location of the clinic and working hours, and look About Clinic.
-   
-The doctors can look from a doctor's profile page who needs to come (user's turn) and send a message, advice, and also payment of the service and a photo of teeth after the treatment. 
-In addition, the doctor can look at debts, customers who have not paid for their service.
- 
-Admin can control users, delete them or restore the user, delete opinions, add new doctors or block a certain doctor.
+Key Features:
+<br/>
+🦷 Customizable Theme – Users can switch between day and night mode for a comfortable browsing experience.
+<br/>
+💬 Chatbot Assistance – A chatbot is available to help users with any inquiries.
+<br/>
+📍 Clinic Information – Users can view available services, clinic location, working hours, and an "About the Clinic" section.
+<br/>
+
+Doctor's Features:
+<br/>
+👨‍⚕️ Patient Management – Doctors can check their upcoming patients from their profile page.
+<br/>
+📩 Communication – Doctors can send messages, advice, and payment summaries.
+<br/>
+📷 Treatment Records – Doctors can upload post-treatment teeth photos.
+<br/>
+💳 Debt Tracking – Doctors can view unpaid invoices and manage outstanding balances.
+<br/>
+
+Admin Controls:
+<br/>
+🔹 Manage users – delete or restore accounts.
+<br/>
+🔹 Moderate feedback – delete inappropriate reviews.
+<br/>
+🔹 Manage staff – add new doctors or block specific doctors.
+<br/>
  
 ## Link Git Server :
 
