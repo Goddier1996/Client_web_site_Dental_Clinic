@@ -298,7 +298,7 @@
 }
 
 
-.Btn {
+.BtnLikeDes {
     width: 100px;
     height: 20px;
     display: flex;
@@ -350,15 +350,15 @@
     left: -4px;
 }
 
-.Btn:hover .leftContainer {
+.BtnLikeDes:hover .leftContainer {
     background-color: #2e9eefee;
 }
 
-.Btn:active .leftContainer {
+.BtnLikeDes:active .leftContainer {
     background-color: #2e9eefc9;
 }
 
-.Btn:active .leftContainer svg {
+.BtnLikeDes:active .leftContainer svg {
     transform: scale(0.7);
 }
 

@@ -23,7 +23,7 @@ const AddReviewLike = ({ FirstName, id, CountLikes }) => {
 
   return (
     <button
-      className="Btn"
+      className="BtnLikeDes"
       type="submit"
       disabled={isLikeOrDisLike}
       onClick={() => addReviewsLike(FirstName, id)}
