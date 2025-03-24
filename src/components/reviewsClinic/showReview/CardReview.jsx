@@ -36,17 +36,12 @@ const CardReview = ({ allReview }) => {
 
               
         {/* add Like Review */}
-        <div className="clickLike">
-          <OverlayTrigger
-            overlay={<Tooltip id="tooltip-disabled">Like ❤️</Tooltip>}
-          >
+
             <AddReviewLike
               FirstName={allReview.FirstName}
               id={allReview._id}
               CountLikes={allReview.Count_likes}
             />
-          </OverlayTrigger>
-        </div>
       </div>
     </div>
   );
