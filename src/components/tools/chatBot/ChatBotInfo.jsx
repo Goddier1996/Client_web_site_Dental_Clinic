@@ -1,7 +1,7 @@
-import React from "react";
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from "styled-components";
 import { steps } from "./ChatBot";
+import React, { useState } from "react";
 
 
 const theme = {
@@ -17,19 +17,51 @@ const theme = {
 
 
 const ChatBotInfo = () => {
+  
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <ThemeProvider theme={theme}>
-      <ChatBot
-        botAvatar="https://i.postimg.cc/13Fcnd7B/doctor1.webp"
-        userAvatar="https://i.postimg.cc/h4C0HT7L/user.webp"
-        headerTitle="Chatbot"
-        steps={steps}
-        floating={true}
-      />
-    </ThemeProvider>
+    <>
+      {/* Floating Button */}
+      <button onClick={() => setIsOpen(!isOpen)} className="styleButtonHelp">
+        <img
+          src={
+            isOpen
+              ? "https://i.postimg.cc/GpZYGgbf/cross.webp"
+              : "https://i.postimg.cc/8CCf2Qz9/help-10771442.webp"
+          }
+          alt="Chat"
+          style={{
+            width: isOpen ? "50px" : "100%",
+            height: isOpen ? "50px" : "100%",
+            objectFit: "cover",
+            transition: "all 0.3s ease",
+          }}
+        />
+      </button>
+
+      {/* Chatbot Panel */}
+      {isOpen && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: "90px",
+            right: "20px",
+            zIndex: 1000,
+          }}
+        >
+          <ThemeProvider theme={theme}>
+            <ChatBot
+              steps={steps}
+              botAvatar="https://i.postimg.cc/13Fcnd7B/doctor1.webp"
+              userAvatar="https://i.postimg.cc/h4C0HT7L/user.webp"
+              headerTitle="Chatbot"
+            />
+          </ThemeProvider>
+        </div>
+      )}
+    </>
   );
 };
-
 
 export default ChatBotInfo;

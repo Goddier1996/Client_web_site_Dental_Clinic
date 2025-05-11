@@ -31,3 +31,28 @@
 .showDaysWorks img {
     width: 50px;
 }
+
+
+.styleButtonHelp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: auto;
+    height: 65px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    z-index: 1000;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+    transform: filter 300ms;
+}
+
+.styleButtonHelp:hover {
+    opacity: 0.9;
+    filter: brightness(0.9);
+}
+
+.styleButtonHelp:active {
+    height: 85px;
+}
