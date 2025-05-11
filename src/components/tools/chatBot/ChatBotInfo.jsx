@@ -17,7 +17,7 @@ const theme = {
 
 
 const ChatBotInfo = () => {
-  
+
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -32,8 +32,8 @@ const ChatBotInfo = () => {
           }
           alt="Chat"
           style={{
-            width: isOpen ? "50px" : "100%",
-            height: isOpen ? "50px" : "100%",
+            width: isOpen ? "50px" : "65px",
+            height: isOpen ? "50px" : "65px",
             objectFit: "cover",
             transition: "all 0.3s ease",
           }}
