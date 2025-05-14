@@ -3,7 +3,7 @@
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)), url("https://i.postimg.cc/bYnk9CMR/33.webp"), fixed;
     background-repeat: no-repeat;
     object-fit: cover;
-    height: 470px;
+    height: 500px;
     width: 100%;
     border-bottom-left-radius: 25%;
     border-bottom-right-radius: 25%;
@@ -115,7 +115,7 @@
 .choise img {
     position: relative;
     width: 500px;
-    height: 190px;
+    height: 270px;
     background-size: cover;
     background-repeat: no-repeat;
     object-fit: cover;
@@ -152,7 +152,7 @@
 
 
 .title a {
-    font-size: 19px;
+    font-size: 22px;
     font-weight: 600;
     color: #ffffff;
     letter-spacing: 1px;

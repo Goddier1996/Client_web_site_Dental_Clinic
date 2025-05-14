@@ -9,9 +9,6 @@ import ShowOurWorkClinic from "../components/ourWork/ShowOurWorkClinic.jsx";
 //show data from json file our work this clinic
 function ourWork() {
 
-  let storedTheme = localStorage.getItem("theme");
-
-    
   return (
     <m.div
       initial={{ opacity: 0 }}
@@ -19,19 +16,6 @@ function ourWork() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.75, ease: "easeOut" }}
     >
-      <div
-        className={
-          storedTheme == "light"
-            ? "titleOurWorkDark"
-            : storedTheme == "dark"
-            ? "titleOurWork"
-            : ""
-        }
-      >
-        <br />
-        <h1>Services We Offer at Our Clinic</h1>
-      </div>
-
       <div className="OurWorkLook">
         <Row xs={1} md={2} lg={3} style={{ width: "100%" }}>
           {data.work.map((record) => (

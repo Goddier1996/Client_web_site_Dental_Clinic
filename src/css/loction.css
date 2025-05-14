@@ -16,7 +16,7 @@
 
 .contectDark {
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://i.postimg.cc/dDMCscmL/tooth-brushes-tooth-paste.webp"), fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://i.postimg.cc/xjyYhkHX/6bb2445d-b4c0-4f8e-a551-9e2c8da4b9ca.png"), fixed;
     background-repeat: no-repeat;
     object-fit: cover;
     border-bottom-left-radius: 50px;
@@ -26,7 +26,7 @@
 
 .contect {
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url("https://i.postimg.cc/dDMCscmL/tooth-brushes-tooth-paste.webp"), fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url("https://i.postimg.cc/xjyYhkHX/6bb2445d-b4c0-4f8e-a551-9e2c8da4b9ca.png"), fixed;
     background-repeat: no-repeat;
     object-fit: cover;
     border-bottom-left-radius: 50px;
