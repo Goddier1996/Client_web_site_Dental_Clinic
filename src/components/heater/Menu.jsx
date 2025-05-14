@@ -9,21 +9,32 @@ import { ShowModelPopUp } from "../../customHook/showPopUp";
 import LazyLoadImg from "../tools/lazyLoad/LazyLoadImg";
 import DarkMode from "../tools/darkMode/DarkMode";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
+import ButtonAppointment from "../homeOptions/ButtonAppointment";
+import PopUpAppointment from "../homeOptions/PopUpAppointment";
+import { CheckUserConnectedForAddTurn } from "../addAppointment/function/AddTurnFunctions";
 
 
 function Menu() {
 
-
   let storedTheme = localStorage.getItem("theme");
   // let userData = JSON.parse(sessionStorage.getItem("user"));
-  let userData = Cookies.get('user-data') ? JSON.parse(Cookies.get('user-data')) : null;
+  let userData = Cookies.get("user-data")
+    ? JSON.parse(Cookies.get("user-data"))
+    : null;
 
   const history = useHistory();
   const location = useLocation();
 
   // show popup sign in custom Hook
   const { show, handleClose, handleShow } = ShowModelPopUp();
+
+  // show popup add Appointment custom Hook
+  const {
+    showShowTurn,
+    handleCloseShowTurn,
+    handleShowShowTurn,
+  } = ShowModelPopUp();
 
   const [clickToLogin, setClickToLogin] = useState(false);
 
@@ -37,7 +48,11 @@ function Menu() {
     handleClose();
   };
 
+  const CheckUserConnected = () => {
+    CheckUserConnectedForAddTurn(() => handleShowShowTurn());
+  };
 
+  
   return (
     <div
       className={
@@ -108,6 +123,16 @@ function Menu() {
                 About
               </Nav.Link>
             </Nav>
+
+            <div className="Click_appointment">
+              <ButtonAppointment CheckUserConnectedFunc={CheckUserConnected} />
+
+              {/* show model popup Appointment */}
+              <PopUpAppointment
+                showModelAppointment={showShowTurn}
+                closePopUpAppointment={() => handleCloseShowTurn()}
+              />
+            </div>
 
             <Navbar.Collapse className="justify-content-end link">
               {userData != null ? (

@@ -5,6 +5,8 @@
     object-fit: cover;
     height: 470px;
     width: 100%;
+    border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%;
 }
 
 
@@ -40,15 +42,14 @@
 }
 
 .Click_appointment .click button {
-    margin-top: 1.5%;
-    width: 83%;
-    font-size: 18px;
+    /* margin-top: 1.5%; */
+    /* width: 83%; */
+    font-size: 14px;
     border: none;
     font-weight: 500;
     align-items: center;
     display: inline-block;
-    padding: 0.25rem 1rem;
-    border-radius: 10rem;
+    border-radius: 12px;
     color: #fff;
     transition: all 0.3s;
     position: relative;
@@ -80,7 +81,7 @@
     height: 100%;
     background-color: #008fb3;
     transition: all 0.3s;
-    border-radius: 10rem;
+    border-radius: 12px;
     z-index: -1;
 }
 
@@ -95,7 +96,7 @@
 
 @keyframes animationAddNewTurnUser {
     50% {
-        width: 75%;
+        border-radius: 2px;
     }
 }
 

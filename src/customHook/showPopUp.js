@@ -11,8 +11,13 @@ export const ShowModelPopUp = () => {
     const handleCloseOneMoreModel = () => setShowOneMoreModel(false);
     const handleShowOneMoreModel = () => setShowOneMoreModel(true);
 
+    const [showShowTurn, setshowShowTurn] = useState(false);
+    const handleCloseShowTurn = () => setshowShowTurn(false);
+    const handleShowShowTurn = () => setshowShowTurn(true);
+
     return {
         show, handleClose, handleShow
-        , showOneMoreModel, handleCloseOneMoreModel, handleShowOneMoreModel
+        , showOneMoreModel, handleCloseOneMoreModel, handleShowOneMoreModel,
+        showShowTurn, handleCloseShowTurn, handleShowShowTurn
     };
 }
