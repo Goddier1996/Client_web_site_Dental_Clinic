@@ -3,11 +3,13 @@ import { Button, Modal } from "react-bootstrap";
 import Appointment from "../addAppointment/Appointment.jsx";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import LazyLoadImg from "../tools/lazyLoad/LazyLoadImg.jsx";
+import { GetDayWeekFromArray } from "../addAppointment/function/AlertUserHaveTurnToday";
 
 
 const PopUpAppointment = ({ showModelAppointment, closePopUpAppointment }) => {
 
   let storedTheme = localStorage.getItem("theme");
+  let day = GetDayWeekFromArray(new Date());
 
   return (
     <Modal
@@ -46,6 +48,16 @@ const PopUpAppointment = ({ showModelAppointment, closePopUpAppointment }) => {
               className="bi bi-x-lg"
             ></i>
           </Button>
+        </div>
+
+        <div className="showWhatDatToday">
+          <LazyLoadImg
+            type=""
+            img={require(`../../images/dayImages/${day}.webp`)}
+            width=""
+            height="35"
+            alt={`Day-${day}`}
+          />
         </div>
 
         <div

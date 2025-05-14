@@ -192,6 +192,12 @@
     border-radius: 100% 50%;
 }
 
+.showWhatDatToday {
+    display: flex;
+    justify-content: end;
+    margin-top: -9%;
+}
+
 
 @media(max-width:991px) {
 
