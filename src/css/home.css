@@ -1,12 +1,13 @@
 .startImg {
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)), url("https://i.postimg.cc/bYnk9CMR/33.webp"), fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)), url("https://i.postimg.cc/bYnk9CMR/33.webp"), fixed;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    object-fit: cover;
-    height: 500px;
+    height: 480px;
     width: 100%;
-    border-bottom-left-radius: 25%;
-    border-bottom-right-radius: 25%;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 
@@ -108,14 +109,14 @@
     row-gap: 20px;
     column-gap: 55px;
     margin-top: 1.5%;
-    margin-bottom: 5.5%;
+    margin-bottom: 1.5%;
 }
 
 
 .choise img {
     position: relative;
-    width: 500px;
-    height: 270px;
+    width: 490px;
+    height: 200px;
     background-size: cover;
     background-repeat: no-repeat;
     object-fit: cover;
@@ -127,8 +128,8 @@
 
 .choise img:hover {
     opacity: 0.9;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
 }
 
 .categoryLook:has(.choise img:hover) .choise img:not(:hover) {
@@ -143,16 +144,16 @@
     left: 0px;
     align-items: center;
     text-align: center;
-    background: rgba(0, 0, 0, 0.450);
+    background: rgba(0, 0, 0, 0.500);
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
-    padding: 1%;
+    padding: 2px;
 }
 
 
 
 .title a {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
     color: #ffffff;
     letter-spacing: 1px;
@@ -274,7 +275,6 @@
 
 @media (min-width:1281px) {
     .startImg {
-        background-size: cover;
-        height: 650px;
+        height: 670px;
     }
 }
