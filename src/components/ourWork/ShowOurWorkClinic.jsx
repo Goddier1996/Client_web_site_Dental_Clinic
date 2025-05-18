@@ -31,7 +31,7 @@ const ShowOurWorkClinic = ({ infoOurWork }) => {
             : ""
         }
       >
-        <LazyLoadImg type="" img={path} width="" height="270" alt={title} />
+        <LazyLoadImg type="" img={path} width="" height="260" alt={title} />
 
         <Card.Body
           style={

@@ -45,12 +45,12 @@
 .Click_appointment .click button {
     /* margin-top: 1.5%; */
     /* width: 83%; */
-    font-size: 14px;
+    font-size: 15px;
     border: none;
     font-weight: 500;
     align-items: center;
     display: inline-block;
-    border-radius: 12px;
+    border-radius: 20px;
     color: #fff;
     transition: all 0.3s;
     position: relative;
@@ -59,6 +59,7 @@
     -webkit-animation: animationAddNewTurnUser 3s linear infinite;
     -moz-animation: animationAddNewTurnUser 3s linear infinite;
     animation: animationAddNewTurnUser 3s linear infinite;
+    padding: 0.10rem 0.65rem;
 }
 
 
@@ -97,7 +98,7 @@
 
 @keyframes animationAddNewTurnUser {
     50% {
-        border-radius: 2px;
+        border-radius: 4px;
     }
 }
 

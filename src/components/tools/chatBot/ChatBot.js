@@ -9,17 +9,17 @@ import InfoHowCreateSite from "./toolsComponent/InfoHowCreateSite";
 export const steps = [
     {
         id: "1",
-        message: "Hello welcome to the dental care clinic.",
+        message: "Welcome to our Dental Care Clinic—where your smile is our priority.",
         trigger: "2",
     },
     {
         id: "2",
-        message: "My name is Artem, i working here.",
+        message: "Hi, I’m Artem—one of the staff members at the clinic.",
         trigger: "3",
     },
     {
         id: "3",
-        message: "What is your name?",
+        message: "What’s your name, please?",
         trigger: "4",
     },
     {
@@ -94,19 +94,19 @@ export const steps = [
     {
         id: "12",
         message:
-            "If you cannot make an appointment at the clinic, answer Contact the clinic.",
+            "If you can't schedule an appointment, please contact the clinic.",
         trigger: "15",
     },
     {
         id: "13",
         message:
-            "The data does not appear on the site, try to refresh the site or check the internet.",
+            "Data not loading? Please refresh the page or verify your internet connection.",
         trigger: "15",
     },
     {
         id: "14",
         message:
-            "Forgot your password to log in? Try clicking on the forgot password button in the login popup.",
+            "If you've forgotten your password, please click the 'Forgot Password' option in the login window to reset it.",
         trigger: "15",
     },
     {

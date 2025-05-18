@@ -69,7 +69,7 @@ function Menu() {
             <Navbar.Brand>
               <LazyLoadImg
                 type=""
-                img="https://i.postimg.cc/QxRznyxx/44.webp"
+                img="https://i.postimg.cc/tCCY6r8y/medical-logo.webp"
                 width=""
                 height="65"
                 alt="logo"

@@ -21,8 +21,8 @@ function Home() {
           animate="show"
           className="content"
         >
-          <m.h1 variants={item}>Welcome To</m.h1>
-          <m.p variants={item}>Dental Care Clinic</m.p>
+          <m.h1 variants={item}>Leading dental care</m.h1>
+          <m.p variants={item}>for a healthier smile</m.p>
           <br />
         </m.div>
       </div>

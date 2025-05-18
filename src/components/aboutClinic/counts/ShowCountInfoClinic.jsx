@@ -68,7 +68,7 @@ const ShowCountInfoClinic = () => {
                   loading={LoadingDoctors}
                 />
                 <InfoCounts
-                  type={"Our Range of Dental Care Services"}
+                  type={"Dental Care Services We Offer"}
                   count={countServiceOurWork}
                   img={"https://i.postimg.cc/zXgNBWyv/22.webp"}
                   loading={LoadingServiceOurWork}

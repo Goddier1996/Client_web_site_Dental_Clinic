@@ -21,22 +21,22 @@ const InfoAbout = () => {
             : ""
         }
       >
-        <h1>About Our Dental Clinic</h1>
+        {/* <h1>About Our Dental Clinic</h1> */}
         <m.p variants={item}>
-          (1) This clinic is number one in Kfar-Yona.
+          (1) Our clinic is the leading dental care provider in Kfar Yona.
         </m.p>
         <m.p variants={item}>
-          (2) The clinic has a great location and contact information -{" "}
+          (2) The clinic boasts a convenient location and accessible contact information -{" "}
           <a href="/Location">See Location</a>
         </m.p>
         <m.p variants={item}>
-          (3) See the customer reviews - <a href="/Service">See</a>
+          (3) See reviews from our valued clients - <a href="/Service">Click here</a>
         </m.p>
         <m.p variants={item}>
-          (4) We provide excellent customer service and maintain a positive attitude towards our customers.
+          (4) We deliver excellent customer service with a consistently positive attitude.
         </m.p>
         <m.p variants={item}>
-          (5) We handle all aspects of dental care. Read more about our services - <a href="/OurWork">Click Me</a>
+          (5) We manage all aspects of dental care. Learn more about our services. - <a href="/OurWork">Click Me</a>
         </m.p>
       </m.div>
   );
