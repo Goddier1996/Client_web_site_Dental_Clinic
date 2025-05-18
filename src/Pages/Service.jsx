@@ -74,19 +74,7 @@ function Service() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.75, ease: "easeOut" }}
         >
-          <div
-            className={
-              storedTheme === "light"
-                ? "titleOurReviewDark"
-                : storedTheme === "dark"
-                ? "titleOurReview"
-                : ""
-            }
-          >
-            <h1>Reviews of our clinic:</h1>
-          </div>
-
-              
+          <br/>
           {/* add new review */}
           <ButtonAddNewReview
             CheckUserConnected={() =>
