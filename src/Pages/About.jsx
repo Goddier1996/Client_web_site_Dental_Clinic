@@ -14,7 +14,7 @@ function About() {
 
       {/* show all count user more... clinic */}
       <ShowCountInfoClinic />
-
+     <br/>
     </div>
   );
 }

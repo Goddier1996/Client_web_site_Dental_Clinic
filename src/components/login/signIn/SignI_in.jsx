@@ -31,7 +31,7 @@ const Sign_in = ({ hideSignIn }) => {
           <LazyLoadImg
             className="imgLogin"
               type=""
-              img="https://i.postimg.cc/NGVgVYXH/qqq.gif"
+              img="https://i.postimg.cc/P5YcyymK/login.webp"
               width=""
               height=""
               alt="login"

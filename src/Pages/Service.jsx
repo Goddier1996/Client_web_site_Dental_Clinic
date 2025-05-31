@@ -16,6 +16,7 @@ import ButtonAddNewReview from "../components/reviewsClinic/addNewReview/ButtonA
 import { checkUserConnectedForAddReview } from "../components/reviewsClinic/function/AddReviewAndLike.js";
 import SelectOptionSortReview from "../components/reviewsClinic/showReview/selectOptionToSortReview/SelectOptionSortReview.jsx";
 import { ShowModelPopUp } from "../customHook/showPopUp.js";
+import MainTitleReviews from "../components/reviewsClinic/MainTitleReviews.jsx";
 
 
 
@@ -73,7 +74,9 @@ function Service() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.75, ease: "easeOut" }}
-        >
+            >
+              
+         <MainTitleReviews />
           <br/>
           {/* add new review */}
           <ButtonAddNewReview

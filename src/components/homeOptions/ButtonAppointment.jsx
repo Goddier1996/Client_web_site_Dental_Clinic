@@ -9,7 +9,7 @@ const ButtonAppointment = ({ CheckUserConnectedFunc }) => {
 
   return (
     <div className="d-grid gap-2 click">
-      <m.Button
+      <m.button
         variant={
           storedTheme === "light"
             ? "warning"
@@ -23,7 +23,7 @@ const ButtonAppointment = ({ CheckUserConnectedFunc }) => {
         onClick={CheckUserConnectedFunc}
       >
         <b className="BookAppointmentText">Book Appointment</b>
-      </m.Button>
+      </m.button>
     </div>
   );
 };

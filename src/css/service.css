@@ -1,32 +1,42 @@
-.titleOurReview,
-.titleOurReviewDark {
+.reviews-header {
     text-align: center;
-    align-items: center;
-    padding-top: 2%;
+    padding: 40px 20px;
+    background-color: #f0f8ff;
 }
 
-.titleOurReview h1 {
-    font-size: 27px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 700;
-    color: #00000094;
+
+.reviews-headerDark {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #3f3f3f;
 }
 
-.titleOurReviewDark h1 {
-    font-size: 27px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 700;
+.reviews-header h1 {
+    font-size: 34px;
+    color: #2c3e50;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.reviews-headerDark h1 {
+    font-size: 34px;
     color: #ffffffab;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
+.reviews-header p {
+    font-size: 18px;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+}
 
-.OurReviews {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 22%;
-    margin-top: 3%;
-    margin-bottom: 6%;
+.reviews-headerDark p {
+    font-size: 18px;
+    color: #ffffffab;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 
@@ -38,7 +48,24 @@
 }
 
 .addReviews button {
-    width: 40%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    background: #00BCD4;
+    font-size: 20px;
+    border: none;
+    align-items: center;
+    display: inline-block;
+    border-radius: 20px;
+    color: #fff;
+    -webkit-animation: animationAddNewTurnUser 2s linear infinite;
+    -moz-animation: animationAddNewTurnUser 2s linear infinite;
+    animation: animationAddNewTurnUser 2s linear infinite;
+    padding: 0.1rem 3rem;
+}
+
+.addReviews button:hover {
+    opacity: 0.9;
+    background: #008fb3;
 }
 
 .space {
@@ -497,7 +524,7 @@
 }
 
 
-.button-55 {
+/* .button-55 {
     align-self: center;
     background-color: #F9F9F9;
     background-image: none;
@@ -570,7 +597,7 @@
 .button-55:focus,
 .button-55Dark:focus {
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
-}
+} */
 
 
 @media(max-width:991px) {

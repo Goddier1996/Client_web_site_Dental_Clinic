@@ -1,4 +1,3 @@
-
 .titleOurWork,
 .titleOurWorkDark {
     text-align: center;
@@ -48,7 +47,47 @@
     color: #ffffffab;
 }
 
+.services-header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+}
 
+.services-headerDark {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #3f3f3f;
+}
+
+.services-header h1 {
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.services-header p {
+    font-size: 18px;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.services-headerDark h1 {
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.services-headerDark p {
+    font-size: 18px;
+    color: #cccccc;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
 
 .OurWorkLook {
     display: flex;
@@ -85,7 +124,8 @@
     color: green;
     cursor: pointer;
     transition-duration: 0.4s;
-    -webkit-transition-duration: 0.4s;;
+    -webkit-transition-duration: 0.4s;
+    ;
 }
 
 .readMore b:hover {

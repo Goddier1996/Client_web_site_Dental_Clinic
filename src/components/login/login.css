@@ -6,27 +6,29 @@
 
 .imgLogin {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
-    padding-top: 2%;
-    padding-bottom: 5%;
+    /* padding-top: 2%;
+    padding-bottom: 5%; */
 }
 
 .imgLogin img {
     background-size: cover;
     background-repeat: no-repeat;
     object-fit: cover;
-    height: 140px;
-    width: 300px;
-    border-radius: 30px;
+    width: 100%;
+    height: 180px;
+    /* border-radius: 30px; */
 }
 
 .form-box {
     background-color: #faf9f8;
-    padding: 10px;
+    padding: 20px;
     border-radius: 30px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border: 2px solid rgba(0, 179, 255, 0.22);
+    width: 100%;
+    max-width: 350px;
 }
 
 .form-boxDark {
