@@ -3,9 +3,25 @@ import React from "react";
 import Category from "../components/homeOptions/Category.jsx";
 import { motion as m } from "framer-motion/dist/framer-motion";
 import { container, item } from "../styleComponents/StyleAnimation";
+import PopUpAppointment from "../components/homeOptions/PopUpAppointment.jsx";
+import { ShowModelPopUp } from "../customHook/showPopUp.js";
+import { CheckUserConnectedForAddTurn } from "../components/addAppointment/function/AddTurnFunctions.js";
+import ButtonAppointment from "../components/homeOptions/ButtonAppointment.jsx";
 
 
 function Home() {
+
+  const {
+    showShowTurn,
+    handleCloseShowTurn,
+    handleShowShowTurn,
+  } = ShowModelPopUp();
+
+
+  const CheckUserConnected = () => {
+    CheckUserConnectedForAddTurn(() => handleShowShowTurn());
+  };
+
 
   return (
     <m.div
@@ -23,7 +39,15 @@ function Home() {
         >
           <m.h1 variants={item}>Leading dental care</m.h1>
           <m.p variants={item}>for a healthier smile</m.p>
-          <br />
+          <div className="Click_appointment">
+            <ButtonAppointment CheckUserConnectedFunc={CheckUserConnected} />
+
+            {/* show model popup Appointment */}
+            <PopUpAppointment
+              showModelAppointment={showShowTurn}
+              closePopUpAppointment={() => handleCloseShowTurn()}
+            />
+          </div>
         </m.div>
       </div>
 

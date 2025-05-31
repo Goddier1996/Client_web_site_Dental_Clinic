@@ -1,5 +1,6 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { motion as m } from "framer-motion/dist/framer-motion";
+import { item } from "../../styleComponents/StyleAnimation";
 
 
 const ButtonAppointment = ({ CheckUserConnectedFunc }) => {
@@ -8,7 +9,7 @@ const ButtonAppointment = ({ CheckUserConnectedFunc }) => {
 
   return (
     <div className="d-grid gap-2 click">
-      <Button
+      <m.Button
         variant={
           storedTheme === "light"
             ? "warning"
@@ -16,18 +17,13 @@ const ButtonAppointment = ({ CheckUserConnectedFunc }) => {
             ? "success"
             : ""
         }
-        style={
-          storedTheme === "light"
-            ? { color: "rgba(0, 0, 0, 0.58)" }
-            : storedTheme === "dark"
-            ? { color: "#ffffff" }
-            : ""
-        }
+        variants={item}
+        style={{ color: "#ffffff" }}
         size="sm"
         onClick={CheckUserConnectedFunc}
       >
-        Book Appointment
-      </Button>
+        <b className="BookAppointmentText">Book Appointment</b>
+      </m.Button>
     </div>
   );
 };

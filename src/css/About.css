@@ -194,12 +194,16 @@
 
 @media(max-width:991px) {
 
-  .titleAbout,
+   .titleAbout,
   .titleInformation,
   .titleAboutDark,
   .titleInformationDark {
     margin: 4%;
-  }
+  } 
+
+  .imgAbout img {
+  max-width: 300px;
+}
 
   .titleAbout h1,
   .titleAboutDark h1 {
@@ -209,4 +213,5 @@
   .InfoAboutClinic {
     margin-bottom: 5%;
   }
+
 }

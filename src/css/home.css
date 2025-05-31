@@ -8,6 +8,24 @@
     width: 100%;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 40px;
+}
+
+
+.content {
+    position: absolute;
+    top: 30%;
+    left: 16px;
+    line-height: 60px;
+    font-size: 50px;
+    color: #ffffff;
+    font-weight: 780;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 
@@ -23,85 +41,52 @@
     padding-right: 280px;
 }
 
-
-.content {
-    position: absolute;
-    top: 30%;
-    left: 16px;
-    line-height: 60px;
-    font-size: 50px;
-    color: #ffffff;
-    font-weight: 780;
-    letter-spacing: 3px;
-    text-align: center;
-    text-transform: uppercase;
-}
-
 .click {
     display: flex;
     justify-content: center;
 }
 
 .Click_appointment .click button {
-    /* margin-top: 1.5%; */
-    /* width: 83%; */
-    font-size: 15px;
+    background: green;
+    font-size: 20px;
     border: none;
-    font-weight: 500;
     align-items: center;
     display: inline-block;
     border-radius: 20px;
     color: #fff;
     transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
     -webkit-animation: animationAddNewTurnUser 3s linear infinite;
     -moz-animation: animationAddNewTurnUser 3s linear infinite;
     animation: animationAddNewTurnUser 3s linear infinite;
-    padding: 0.10rem 0.65rem;
+    padding: 0rem 3rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-
-.Click_appointment .click button:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10rem;
-    z-index: -2;
-}
-
-.Click_appointment .click button:before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background-color: #008fb3;
-    transition: all 0.3s;
-    border-radius: 12px;
-    z-index: -1;
+.BookAppointmentText {
+    font-weight: 500;
+    -webkit-animation: animationBookAppointmentText 2s linear infinite;
+    -moz-animation: animationBookAppointmentText 2s linear infinite;
+    animation: animationBookAppointmentText 2s linear infinite;
 }
 
 .Click_appointment .click button:hover {
-    color: #fff;
-}
+    opacity: 0.9;
+    background: #008fb3;
 
-.Click_appointment .click button:hover:before {
-    width: 100%;
 }
-
 
 @keyframes animationAddNewTurnUser {
     50% {
-        border-radius: 4px;
+        border-radius: 50px;
     }
 }
 
+
+@keyframes animationBookAppointmentText {
+    50% {
+        opacity: 0.5;
+    }
+}
 
 .categoryLook {
     display: flex;
@@ -218,7 +203,6 @@
         color: #ffffff;
         font-size: 25px;
         padding-left: 0px;
-        width: 200px;
     }
 
     .content h1 {
@@ -240,20 +224,17 @@
 
     .Click_appointment .click button {
         margin-top: 4%;
-        font-size: 16px;
-        padding: 0.25rem 5rem;
+        font-size: 19px;
+        padding: 0.3rem 4rem;
+        -webkit-animation: animationAddNewTurnUser 0s linear infinite;
+        -moz-animation: animationAddNewTurnUser 0s linear infinite;
+        animation: animationAddNewTurnUser 0s linear infinite;
+        text-align: center;
     }
 
     .categoryLook {
         margin-top: 4%;
     }
-
-    .Click_appointment .click button {
-        -webkit-animation: animationAddNewTurnUser 0s linear infinite;
-        -moz-animation: animationAddNewTurnUser 0s linear infinite;
-        animation: animationAddNewTurnUser 0s linear infinite;
-    }
-
 }
 
 

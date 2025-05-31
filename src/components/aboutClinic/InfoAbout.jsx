@@ -26,7 +26,6 @@ const InfoAbout = () => {
         <img src="https://i.postimg.cc/xTRd5BWq/about-img.webp" alt="infoImg"/>
       </div>
 
-        {/* <h1>About Our Dental Clinic</h1> */}
         <m.p variants={item}>
           Our clinic is the leading dental care provider in Kfar Yona.
         </m.p>

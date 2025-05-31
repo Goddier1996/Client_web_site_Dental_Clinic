@@ -10,9 +10,6 @@ import LazyLoadImg from "../tools/lazyLoad/LazyLoadImg";
 import DarkMode from "../tools/darkMode/DarkMode";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import Cookies from "js-cookie";
-import ButtonAppointment from "../homeOptions/ButtonAppointment";
-import PopUpAppointment from "../homeOptions/PopUpAppointment";
-import { CheckUserConnectedForAddTurn } from "../addAppointment/function/AddTurnFunctions";
 
 
 function Menu() {
@@ -29,12 +26,6 @@ function Menu() {
   // show popup sign in custom Hook
   const { show, handleClose, handleShow } = ShowModelPopUp();
 
-  // show popup add Appointment custom Hook
-  const {
-    showShowTurn,
-    handleCloseShowTurn,
-    handleShowShowTurn,
-  } = ShowModelPopUp();
 
   const [clickToLogin, setClickToLogin] = useState(false);
 
@@ -48,11 +39,8 @@ function Menu() {
     handleClose();
   };
 
-  const CheckUserConnected = () => {
-    CheckUserConnectedForAddTurn(() => handleShowShowTurn());
-  };
 
-  
+
   return (
     <div
       className={
@@ -123,16 +111,6 @@ function Menu() {
                 About
               </Nav.Link>
             </Nav>
-
-            <div className="Click_appointment">
-              <ButtonAppointment CheckUserConnectedFunc={CheckUserConnected} />
-
-              {/* show model popup Appointment */}
-              <PopUpAppointment
-                showModelAppointment={showShowTurn}
-                closePopUpAppointment={() => handleCloseShowTurn()}
-              />
-            </div>
 
             <Navbar.Collapse className="justify-content-end link">
               {userData != null ? (
