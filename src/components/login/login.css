@@ -6,19 +6,15 @@
 
 .imgLogin {
     display: flex;
-    /* align-items: center; */
     justify-content: center;
-    /* padding-top: 2%;
-    padding-bottom: 5%; */
 }
 
 .imgLogin img {
     background-size: cover;
     background-repeat: no-repeat;
     object-fit: cover;
- width: 110px;
-  height: auto;
-    /* border-radius: 30px; */
+    width: 110px;
+    height: auto;
 }
 
 .form-box {
@@ -33,9 +29,12 @@
 
 .form-boxDark {
     background: #424242;
-    padding: 10px;
+    padding: 20px;
     border-radius: 30px;
-    border: 2px solid rgba(255, 255, 255, 0.526);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border: 2px solid rgba(0, 179, 255, 0.22);
+    width: 100%;
+    max-width: 320px;
 }
 
 .loginInOrCloseButtom {
