@@ -11,11 +11,11 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 40px;
+    padding-left: 30px;
 }
 
 
-.content {
+/* .content {
     position: absolute;
     top: 30%;
     left: 16px;
@@ -27,18 +27,47 @@
     text-align: center;
     text-transform: uppercase;
     text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+} */
+
+.startImg::before {
+    position: absolute;
+    content: "";
+    top: 24%;
+    left: 16px;
+    width: 530px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: black;
+    opacity: 0.45;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+    pointer-events: none;
+}
+
+
+.content {
+    position: absolute;
+    top: 30%;
+    left: 16px;
+    line-height: 35px;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 
 .content p {
     color: #ffffff;
-    font-size: 40px;
-    padding-left: 200px;
+    font-size: 20px;
+    padding-left: 245px;
 }
 
 .content h1 {
     color: #ffffff;
-    font-size: 40px;
+    font-size: 25px;
     padding-right: 90px;
 }
 
@@ -51,13 +80,13 @@
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease;
     background: #00BCD4;
-    font-size: 20px;
+    font-size: 17px;
     border: none;
     align-items: center;
     display: inline-block;
     border-radius: 20px;
     color: #fff;
-    padding: 0rem 3rem;
+    padding: 0rem 1.5rem;
 }
 
 .BookAppointmentText {
@@ -75,7 +104,7 @@
 
 @keyframes animationBookAppointmentText {
     50% {
-        opacity: 0.7;
+        opacity: 0.9;
         padding: 0rem 0.8rem;
 
     }
@@ -185,22 +214,42 @@
         background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url("https://i.postimg.cc/KzGWXd0Z/5901203-2009.jpg");
     }
 
+
+    .startImg::before {
+        position: none;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        /* transform: translate(0%, 0%); */
+        display: none;
+        justify-content: none;
+        align-items: none;
+        text-align: none;
+        background-color: none;
+        opacity: none;
+        /* border-radius: 50px; */
+        clip-path: none;
+        pointer-events: none;
+    }
+
     .content {
         top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
-        line-height: 30px;
+        line-height: 40px;
     }
 
     .content p {
         color: #ffffff;
-        font-size: 15px;
+        font-size: 18px;
         padding-left: 0px;
     }
 
     .content h1 {
         color: #ffffff;
-        font-size: 22px;
+        font-size: 23px;
         padding-right: 0px;
     }
 
@@ -216,12 +265,9 @@
     }
 
     .Click_appointment .click button {
-        margin-top: 50px;
-        font-size: 15px;
-        padding: 0.3rem 1.5rem;
-        -webkit-animation: animationAddNewTurnUser 0s linear infinite;
-        -moz-animation: animationAddNewTurnUser 0s linear infinite;
-        animation: animationAddNewTurnUser 0s linear infinite;
+        margin-top: 40px;
+        font-size: 14px;
+        padding: 0rem 1rem;
         text-align: center;
     }
 
@@ -234,6 +280,8 @@
         -moz-animation: none;
         animation: none;
     }
+
+
 }
 
 
@@ -257,5 +305,25 @@
 @media (min-width:1281px) {
     .startImg {
         height: 670px;
+    }
+
+    .startImg::before {
+        width: 600px;
+        height: 360px;
+        top: 24%;
+        left: 50px;
+    }
+
+    .content {
+        line-height: 40px;
+    }
+
+    .content p {
+        font-size: 25px;
+        padding-left: 310px;
+    }
+
+    .content h1 {
+        font-size: 30px;
     }
 }
