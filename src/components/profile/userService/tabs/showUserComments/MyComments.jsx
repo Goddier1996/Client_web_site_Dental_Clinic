@@ -3,9 +3,11 @@ import { Table } from "react-bootstrap";
 import ShowComment from "./ShowComment";
 import { compareDates } from "../../../doctorService/function/DoctorFunctionService";
 import ShowMessageToUser from "../../../tools/ShowMessageToUserAndDoctor";
+import LazyLoadImg from "../../../../tools/lazyLoad/LazyLoadImg";
 
 
 const MyComments = ({ myReview }) => {
+
 
   let storedTheme = localStorage.getItem("theme");
   let MyReviews = 1;
@@ -13,8 +15,18 @@ const MyComments = ({ myReview }) => {
   // Sorting the data by date before rendering
   const sortedData = [...myReview].sort(compareDates);
 
+
   return (
     <>
+      <div className="medicalFilesUser">
+        <LazyLoadImg
+          type=""
+          img="https://i.postimg.cc/bYxQg1Ys/Pngtree-customer-good-review-8772784.png"
+          width=""
+          height="110"
+          alt="MyComments"
+        />
+      </div>
       {myReview.length ? (
         <Table
           striped

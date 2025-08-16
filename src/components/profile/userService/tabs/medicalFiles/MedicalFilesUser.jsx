@@ -3,6 +3,7 @@ import { Table } from "react-bootstrap";
 import ShowFile from "./ShowFile";
 import { compareDates } from "../../../doctorService/function/DoctorFunctionService";
 import ShowMessageToUser from "../../../tools/ShowMessageToUserAndDoctor";
+import LazyLoadImg from "../../../../tools/lazyLoad/LazyLoadImg";
 
 
 const MedicalFilesUser = ({ medical_File }) => {
@@ -14,8 +15,19 @@ const MedicalFilesUser = ({ medical_File }) => {
   // Sorting the data by date before rendering
   const sortedData = [...medical_File].sort(compareDates);
 
+
   return (
     <>
+      <div className="medicalFilesUser">
+        <LazyLoadImg
+          type=""
+          img="https://i.postimg.cc/521KpxMM/Pngtree-credit-card-payment-icon-20605762.png"
+          width=""
+          height="100"
+          alt="medicalFilesUser"
+        />
+      </div>
+
       {medical_File.length ? (
         <Table
           striped

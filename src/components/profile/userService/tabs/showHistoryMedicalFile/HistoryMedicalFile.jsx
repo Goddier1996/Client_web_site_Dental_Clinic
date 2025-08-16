@@ -4,6 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { compareDates } from "../../../doctorService/function/DoctorFunctionService";
 import ShowMessageToUserAndDoctor from "../../../tools/ShowMessageToUserAndDoctor";
 import ShowHistoryFIles from "./ShowHistoryFIles";
+import LazyLoadImg from "../../../../tools/lazyLoad/LazyLoadImg";
 
 
 const HistoryMedicalFile = ({ medical_File_Is_Not_Active }) => {
@@ -12,12 +13,22 @@ const HistoryMedicalFile = ({ medical_File_Is_Not_Active }) => {
   let HistoryPayFile = 1;
   let storedTheme = localStorage.getItem("theme");
 
+
   // Sorting the data by date before rendering
   const sortedData = [...medical_File_Is_Not_Active].sort(compareDates);
 
 
   return (
     <>
+      <div className="medicalFilesUser">
+        <LazyLoadImg
+          type=""
+          img="https://i.postimg.cc/FKYyVq14/Pngtree-vector-files-icon-4091613.png"
+          width=""
+          height="100"
+          alt="HistoryMedicalFile"
+        />
+      </div>
       {medical_File_Is_Not_Active.length ? (
         <Table
           striped
