@@ -103,23 +103,12 @@
     color: #00000071;
 }
 
-.logDark h3 {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 300;
-    color: #ffffffab;
-}
-
 .log p {
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
     color: #000000a1;
 }
 
-.logDark p {
-    font-family: 'Raleway', sans-serif;
-    font-size: 16px;
-    color: #ffffffab;
-}
 
 .box {
     display: flex;

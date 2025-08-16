@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../css/loction.css";
 import { Modal } from "react-bootstrap";
 import SendEmail from "../components/locationContact/sendEmail/SendEmail.jsx";
@@ -23,7 +23,16 @@ function Location() {
   // show popup send message custom Hook
   const { show, handleClose, handleShow } = ShowModelPopUp();
 
+  const [loaded, setLoaded] = useState(false);
 
+  useEffect(() => {
+    const img = new Image();
+    img.src =
+      "https://i.postimg.cc/xjyYhkHX/6bb2445d-b4c0-4f8e-a551-9e2c8da4b9ca.png";
+    img.onload = () => setLoaded(true);
+  }, []);
+
+  
   return (
     <m.div variants={container} initial="hidden" animate="show">
       <section className="bannerLoction">
@@ -63,15 +72,18 @@ function Location() {
               ? "box contect"
               : ""
           }
+          style={{
+            backgroundImage: loaded
+              ? `url(https://i.postimg.cc/xjyYhkHX/6bb2445d-b4c0-4f8e-a551-9e2c8da4b9ca.png)`
+              : ` url(https://i.postimg.cc/SKdZSGGP/contact-page-img-main.webp)`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: loaded ? "none" : "blur(20px)",
+            transition: "filter 0.6s ease-out",
+          }}
         >
           <div
-            className={
-              storedTheme == "light"
-                ? "logDark blurAllInfoHours"
-                : storedTheme == "dark"
-                ? "log blurAllInfoHours"
-                : ""
-            }
+            className="log blurAllInfoHours"
           >
             <h3>Hours Work Clinic</h3>
 
@@ -87,6 +99,5 @@ function Location() {
     </m.div>
   );
 }
-
 
 export default Location;
