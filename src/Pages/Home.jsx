@@ -1,5 +1,5 @@
 import "../css/home.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Category from "../components/homeOptions/Category.jsx";
 import { motion as m } from "framer-motion/dist/framer-motion";
 import { container, item } from "../styleComponents/StyleAnimation";
@@ -22,6 +22,18 @@ function Home() {
     CheckUserConnectedForAddTurn(() => handleShowShowTurn());
   };
 
+  
+
+  // State to manage image loading
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = "https://i.postimg.cc/7Z6z0YvG/2022.jpg";
+    img.onload = () => setLoaded(true);
+  }, []);
+
+
 
   return (
     <m.div
@@ -30,7 +42,22 @@ function Home() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.75, ease: "easeOut" }}
     >
-      <div className="startImg">
+      <div
+        className="startImg"
+        style={{
+          backgroundImage: loaded
+            ? `
+              linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+            url(https://i.postimg.cc/7Z6z0YvG/2022.jpg)`
+            : `
+            linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+            url(https://i.postimg.cc/dtvC4jCy/main-home-img.webp)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: loaded ? "none" : "blur(20px)",
+          transition: "filter 0.6s ease-out",
+        }}
+      >
         <m.div
           variants={container}
           initial="hidden"

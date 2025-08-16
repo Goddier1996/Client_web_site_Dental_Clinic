@@ -1,6 +1,5 @@
 .startImg {
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1)), url("https://i.postimg.cc/bYnk9CMR/33.webp"), fixed;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -14,20 +13,6 @@
     padding-left: 30px;
 }
 
-
-/* .content {
-    position: absolute;
-    top: 30%;
-    left: 16px;
-    line-height: 60px;
-    font-size: 50px;
-    color: #ffffff;
-    font-weight: 780;
-    letter-spacing: 2px;
-    text-align: center;
-    text-transform: uppercase;
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
-} */
 
 .startImg::before {
     position: absolute;
@@ -210,26 +195,19 @@
 
 @media(max-width:991px) {
 
-    .startImg {
-        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url("https://i.postimg.cc/KzGWXd0Z/5901203-2009.jpg");
-    }
-
-
     .startImg::before {
-        position: none;
+        position: absolute;
         content: "";
         top: 0;
         left: 0;
-        width: 0;
-        height: 0;
-        /* transform: translate(0%, 0%); */
-        display: none;
-        justify-content: none;
-        align-items: none;
-        text-align: none;
-        background-color: none;
-        opacity: none;
-        /* border-radius: 50px; */
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: black;
+        opacity: 0.4;
         clip-path: none;
         pointer-events: none;
     }

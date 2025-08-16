@@ -66,7 +66,7 @@ function Doctor({ code_doctor }) {
 
                 <div className="profile-header-content">
                   <div className="profile-header-info">
-                    <h4 className="m-t-10 m-b-5">Hello {code_doctor.name} </h4>
+                    {/* <h4 className="m-t-10 m-b-5">Hello {code_doctor.name} </h4> */}
                   </div>
                 </div>
               </div>
