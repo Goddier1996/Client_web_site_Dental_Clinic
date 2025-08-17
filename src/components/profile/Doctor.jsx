@@ -11,15 +11,14 @@ import { motion as m } from "framer-motion/dist/framer-motion";
 import LoadingDoctorData from "../loading/LoadingDoctorData.jsx";
 import ActiveQueues from "./doctorService/tabs/ActiveQueues.jsx";
 import WhoShouldPay from "./doctorService/tabs/showWhoShouldPay/WhoShouldPay.jsx";
+import MainImgDoctor from "./doctorService/showMainImg/MainImgDoctor.jsx";
 
 
 //here component Doctor we to do what doctor can do = this component use in profile
 function Doctor({ code_doctor }) {
 
-
   let storedTheme = localStorage.getItem("theme");
 
-    
   // use custom hook , useQuery Loading all data
   const {
     isLoading: UsersActive_queues,
@@ -36,8 +35,7 @@ function Doctor({ code_doctor }) {
     LoadMedicalFileAllUsersHowNeedPay
   );
 
-    
-    
+
   return (
     <>
       {UsersActive_queues || Medical_File_All_users ? (
@@ -62,7 +60,9 @@ function Doctor({ code_doctor }) {
           >
             <div className="profile">
               <div className="profile-headerDoctor">
-                <div className="profile-header-cover"></div>
+                
+                {/* show main img doctor page */}
+                <MainImgDoctor />
 
                 <div className="profile-header-content">
                   <div className="profile-header-info">
