@@ -31,12 +31,6 @@
 }
 
 
-/* .titleAbout p::first-letter {
-  font-size: 14px;
-  color: #000000bb;
-  font-weight: bold;
-} */
-
 .titleAboutDark p {
   font-family: 'Raleway', sans-serif;
   color: #ffffffab;
@@ -178,10 +172,17 @@
   font-size: 15px;
 }
 
+.placeImgAbout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
-.imgAbout img {
+.imgAbout {
   width: 100%;
   max-width: 400px;
+  height: 250px;
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
@@ -194,16 +195,17 @@
 
 @media(max-width:991px) {
 
-   .titleAbout,
+  .titleAbout,
   .titleInformation,
   .titleAboutDark,
   .titleInformationDark {
     margin: 4%;
-  } 
+  }
 
-  .imgAbout img {
-  max-width: 300px;
-}
+  .imgAbout {
+    max-width: 250px;
+    height: 150px;
+  }
 
   .titleAbout h1,
   .titleAboutDark h1 {
